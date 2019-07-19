@@ -1,0 +1,3242 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{placeins}
+\usepackage{graphicx}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-chap-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part
+Preliminaries
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Grassmannian Code
+\end_layout
+
+\end_inset
+
+ A Grassmannian code is a set of all subspaces of dimension 
+\begin_inset Formula $k\leq n$
+\end_inset
+
+ in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+, and is denoted by 
+\begin_inset Formula $\mathcal{G}_{q}\left(n,k\right)$
+\end_inset
+
+.
+ Due to being the set of all subspaces that have the same dimension 
+\begin_inset Formula $k$
+\end_inset
+
+, it is also called a 
+\shape italic
+constant dimension code
+\shape default
+.
+ The cardinality of 
+\begin_inset Formula $\mathcal{G}_{q}\left(n,k\right)$
+\end_inset
+
+ is the Gaussian coefficient (also known as 
+\begin_inset Formula $q$
+\end_inset
+
+-binomial), which counts the number of subspaces of dimension 
+\begin_inset Formula $k$
+\end_inset
+
+ in a vector space 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\left|\mathcal{G}_{q}\left(n,k\right)\right|=\left[\begin{array}{c}
+n\\
+k
+\end{array}\right]_{q}=\stackrel[i=0]{k-1}{\prod}\frac{q^{n}-q^{i}}{q^{k}-q^{i}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+where 
+\begin_inset Formula $q^{\left(n-k\right)k}\leq\left[\begin{array}{c}
+n\\
+k
+\end{array}\right]_{q}\leq4q^{\left(n-k\right)k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Part
+Generalized combination Network 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Description
+\end_layout
+
+\begin_layout Standard
+A generalized combination network 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ consists of 3 components from top to bottom: 
+\begin_inset Quotes eld
+\end_inset
+
+Source
+\begin_inset Quotes erd
+\end_inset
+
+ in the first layer, 
+\begin_inset Quotes eld
+\end_inset
+
+Node
+\begin_inset Quotes erd
+\end_inset
+
+ in the middle layer, and 
+\begin_inset Quotes eld
+\end_inset
+
+Receiver
+\begin_inset Quotes erd
+\end_inset
+
+ in the third layer.
+ The network has a source with 
+\begin_inset Formula $h$
+\end_inset
+
+ messages, 
+\begin_inset Formula $r$
+\end_inset
+
+ nodes, and 
+\begin_inset Formula $\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)$
+\end_inset
+
+ receivers, which form a single source multicast network modeled as a finite
+ directed acyclic multigraph.
+ The source connects to each node by 
+\begin_inset Formula $l$
+\end_inset
+
+ parallel links and each node also connects to a receiver by 
+\begin_inset Formula $l$
+\end_inset
+
+ parallel links, which are respectively called a node's incoming and outgoing
+ edges.
+ Each receiver is connected by 
+\begin_inset Formula $s$
+\end_inset
+
+ links in total, specifically 
+\begin_inset Formula $\alpha l$
+\end_inset
+
+ links from 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ nodes and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ direct links from the source, i.e.
+ 
+\begin_inset Formula $s=\alpha l+\epsilon$
+\end_inset
+
+.
+ Theorem 1 shows our interest of relations between the parameters 
+\begin_inset Formula $h,\alpha,\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $l$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "nw_parameters"
+
+\end_inset
+
+The 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network has a trivial solution if 
+\begin_inset Formula $l+\epsilon\geq h$
+\end_inset
+
+, and it has no solution if 
+\begin_inset Formula $\alpha l+\epsilon<h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Proof: Following to the network coding max-flow min-cut theorem for multicast
+ networks, the maximum number of messages from the source to each receiver
+ is equal to the smallest min-cut between the source and any receiver.
+ For our considered network, 
+\begin_inset Formula $s$
+\end_inset
+
+ links have to be deleted to disconnect the source from the receiver, which
+ implies that the min-cut between the source and each receiver is at least
+ 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $h\leq s\Leftrightarrow h\leq\alpha l+\epsilon$
+\end_inset
+
+ 
+\begin_inset Formula $\Square$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+There exist at least 
+\begin_inset Formula $l+\epsilon$
+\end_inset
+
+ disjoint links connected to each receiver.
+ If 
+\begin_inset Formula $l+\epsilon\geq h$
+\end_inset
+
+, each receiver can always reconstruct its requested messages on its links.
+ Then we only need to do routing to select paths for the network.
+ 
+\begin_inset Formula $\Square$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The combination network in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Riis:2006"
+literal "false"
+
+\end_inset
+
+ is the 
+\begin_inset Formula $(0,0)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network.
+ One-Direct Link Combination Network 
+\begin_inset Formula $(1,1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Which network codes over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+ solve the networks from this network family?
+\end_layout
+
+\begin_layout Standard
+The source can send any required 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ 1-dimensional subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+ through 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ direct links to a receiver.
+ For each receiver to reconstruct 
+\begin_inset Formula $h$
+\end_inset
+
+ messages, the linear span of 
+\begin_inset Formula $\alpha l$
+\end_inset
+
+ 1-dimensional subspaces received from 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ nodes must be at least of dimension of 
+\begin_inset Formula $h-\epsilon$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\alpha l$
+\end_inset
+
+ 1-dimensional subspaces span at least 
+\begin_inset Formula $\left(h-\epsilon\right)$
+\end_inset
+
+-dimensional subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+.
+ Hence, a scalar linear solution for the generalized combination network
+ exists, if and only if, there exists a Grassmannian code 
+\begin_inset Formula $\mathcal{G}_{q_{s}}\left(h,k\geq h-\epsilon\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)l$
+\end_inset
+
+ 1-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $(0,1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ has a solution if and only if there exists an 
+\begin_inset Formula $\left(r,q_{s}h,r-\alpha+1\right)$
+\end_inset
+
+ 
+\begin_inset Formula $q_{s}$
+\end_inset
+
+-ary error correcting code.
+\end_layout
+
+\begin_layout Section
+Special cases of generalized combination network
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $(l-1)$
+\end_inset
+
+-Direct Links and 
+\begin_inset Formula $l$
+\end_inset
+
+-Parrallel Links 
+\begin_inset Formula $\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This subfamily contains the largest number of direct links from the source
+ to the receivers.
+ For 
+\begin_inset Formula $l\geq2$
+\end_inset
+
+, this network 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+ yields the gap 
+\begin_inset Formula $q^{(l-1)t^{2}/l+\mathcal{O}(t)}$
+\end_inset
+
+ between vector solutions and optimal scalar solutions.
+ The vector solution is based on an 
+\begin_inset Formula $\mathcal{MRD}\left[lt\times lt,t\right]_{q}$
+\end_inset
+
+ code.
+ Further, the gap tends to 
+\begin_inset Formula $q^{t^{2}/2+\mathcal{O}(t)}$
+\end_inset
+
+ for large 
+\begin_inset Formula $l$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+There is a scalar linear solution of field size 
+\begin_inset Formula $q_{s}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+ network, where 
+\begin_inset Formula $l\geq2$
+\end_inset
+
+, if and only if 
+\begin_inset Formula $r\leq\left[\begin{array}{c}
+2l\\
+l
+\end{array}\right]_{q_{s}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The 1-Direct Link and 
+\begin_inset Formula $l$
+\end_inset
+
+-Parrallel Links 
+\begin_inset Formula $\mathcal{N}_{h=2l,r,s=2l+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the smallest direct-link subfamily has an vector solution outperforming
+ the optimal scalar solution, i.e.
+ an vector solution outperforming the optimal scalar has not yet been found
+ for the network 
+\begin_inset Formula $(0,l>1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+.
+ Similar to the previous subfamily 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+, when 
+\begin_inset Formula $l\geq2$
+\end_inset
+
+ or 
+\begin_inset Formula $h\geq4$
+\end_inset
+
+, this network yields the largest gap 
+\begin_inset Formula $q^{t^{2}/2+\mathcal{O}(t)}$
+\end_inset
+
+ in the alphabet size by using the same approach with an 
+\begin_inset Formula $\mathcal{MRD}\left[lt\times lt,(l-1)t\right]_{q}$
+\end_inset
+
+ code.
+ 
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-Direct Links 
+\begin_inset Formula $\mathcal{N}_{h,r,s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This subfamily is denoted as 
+\begin_inset Formula $\left(\epsilon\geq1,l=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ and is the most focus topic on this thesis, because it motivates some interesti
+ng questions on a classic coding problem and on a new type of subspace code
+ problem.
+ In the chapter 3, we show our largest code set with low number of subspace
+ codes for the network 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $\left(\epsilon=0,l=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ Combination Network
+\end_layout
+
+\begin_layout Standard
+Since the scalar solution for the combination network uses an 
+\begin_inset Formula $MDS$
+\end_inset
+
+ code, a vector solution based on subspace codes must go beyond the 
+\begin_inset Formula $MDS$
+\end_inset
+
+ bound, i.e.
+ Singleton bound 
+\begin_inset Formula $d\leq n-k+1$
+\end_inset
+
+, to outperform the scalar one.
+ In paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+, it is proved that vector solutions based on subspace codes cannot outperform
+ optimal scalar linear solutions for 
+\begin_inset Formula $h=2$
+\end_inset
+
+, and they conjecture it for all 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Unfortunately, a vector solution based on an 
+\begin_inset Formula $\mathcal{MRD}\left[t\times t,t\right]_{q}$
+\end_inset
+
+ code is also proved that it cannot outperform the optimal scalar linear
+ solution.
+\end_layout
+
+\begin_layout Subsection
+The 2 networks yields gap 
+\begin_inset Formula $q^{(h-3)t^{2}/(h-1)+\mathcal{O}(t)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $h=2l-1$
+\end_inset
+
+: 
+\begin_inset Formula $\left(\epsilon=l-2,l\right)-\mathcal{N}_{h=2l-1,r,s=3l-2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $h=2l+1$
+\end_inset
+
+: 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l+1,r,s=3l-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Network as a matrix channel
+\end_layout
+
+\begin_layout Standard
+To clarify the difference between scalar coding and vector coding, we firstly
+ represent the network as a matrix channel, then secondly we show the advantages
+ of vector coding in choosing coding coefficients, and we finally introduce
+ a gap in alphabet size between scalar coding's and vector's coding solutions,
+ which supports in showing an improvement in the alphabet size for the vector
+ solutions.
+ 
+\end_layout
+
+\begin_layout Section
+Definition of scalar coding and vector coding
+\end_layout
+
+\begin_layout Standard
+To formulate this description, the source has a set of disjoint messages
+ referred to packets which are either symbols from 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q^{t}}$
+\end_inset
+
+ (scalar coding) or vectors of length 
+\begin_inset Formula $t$
+\end_inset
+
+ over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+ (vector coding).
+ Each link in the network carries functions of the packets, and a 
+\shape italic
+network code
+\shape default
+ is a set of these functions.
+ The network code is called 
+\shape italic
+linear
+\shape default
+ if all the functions are linear and nonlinear otherwise.
+ Each receiver 
+\begin_inset Formula $R_{j},j\in\left\{ 1,\ldots,N\right\} $
+\end_inset
+
+ requests a subset of the source's length-
+\begin_inset Formula $h$
+\end_inset
+
+ messages, and this subset is called 
+\shape italic
+a packet
+\shape default
+.
+ Through all the functions on the links from the source to each receiver,
+ the receiver obtains several linear combinations of the 
+\begin_inset Formula $h$
+\end_inset
+
+ messages to form a linear system of equations for its requested packets.
+ The coefficients of a linear combination are called 
+\shape italic
+global coding vectors
+\shape default
+.
+ The linear equation system that any receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ has to solve is as following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c|c}
+Scalar & Vector\\
+\underset{\ensuremath{\mathbb{F}}_{q^{t}}^{s}}{\underbrace{\left[\begin{array}{c}
+y_{j_{1}}\\
+\vdots\\
+y_{j_{s}}
+\end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q^{t}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q^{t}}^{h}}{\underbrace{\left[\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{h}
+\end{array}\right]}} & \underset{\ensuremath{\mathbb{F}}_{q}^{st}}{\underbrace{\left[\begin{array}{c}
+\underline{y}_{j_{1}}\\
+\vdots\\
+\underline{y}_{j_{s}}
+\end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q}^{st\times th}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q}^{th}}{\underbrace{\left[\begin{array}{c}
+\underline{x}_{1}\\
+\vdots\\
+\underline{x}_{h}
+\end{array}\right]}}
+\end{array}\label{eq:linear_system}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The transfer matrix 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+ contains the links' 
+\shape italic
+global coding vectors
+\shape default
+, which are combined by the coefficients of linear combinations on 
+\begin_inset Formula $\alpha l$
+\end_inset
+
+ links from 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ nodes and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ direct-links to the corresponding receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c|c}
+Scalar & Vector\\
+\boldsymbol{A}_{j}=\left[\begin{array}{c}
+\underline{a}_{j_{1}}\\
+\vdots\\
+\underline{a}_{j_{\alpha l}}\\
+\underline{b}_{j_{1}}\\
+\vdots\\
+\underline{b}_{j_{\epsilon}}
+\end{array}\right] & \boldsymbol{A}_{j}=\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\vdots\\
+\boldsymbol{A}_{j_{\alpha l}}\\
+\boldsymbol{B}_{j_{1}}\\
+\vdots\\
+\boldsymbol{B}_{j_{\epsilon}}
+\end{array}\right]
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general, the network is represented as a matrix channel:
+\end_layout
+
+\begin_layout Definition
+Network As Matrix Channel
+\end_layout
+
+\begin_layout Definition
+The channel output can be written as: 
+\begin_inset Formula $\boldsymbol{Y}_{j}=\boldsymbol{A}_{j}\cdot\boldsymbol{X}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A network is 
+\shape italic
+sovable
+\shape default
+ or a network code is a 
+\shape italic
+solution
+\shape default
+, if each receiver can reconstruct its requested messages or solve the system
+ with a unique solution for scalars 
+\begin_inset Formula $x_{1},\ldots,x_{h}$
+\end_inset
+
+, or vectors 
+\begin_inset Formula $\underline{x}_{1},\ldots,\underline{x}_{h}$
+\end_inset
+
+.
+ Therefore, we want to find global coding vectors such that the matrix 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+ has full-rank for every 
+\begin_inset Formula $j=1,\ldots,N$
+\end_inset
+
+, and such that 
+\begin_inset Formula $q^{t}$
+\end_inset
+
+ is minimized.
+ The solutions of scalar and vector coding are always equivalent due to
+ our use of scalar symbols from 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q^{t}}$
+\end_inset
+
+, which is explained better in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Example~
+\backslash
+ref{ex:scalar_vector_mapping}
+\end_layout
+
+\end_inset
+
+.
+ Because we reconstruct 
+\begin_inset Formula $\boldsymbol{X}$
+\end_inset
+
+ with knowing 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+, i.e.
+ the network structure is known, 
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{ex:scalar_vector_mapping} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Given 
+\begin_inset Formula $h=3,q=2,t=2$
+\end_inset
+
+, we consider the extension field 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q^{t}=2^{2}}$
+\end_inset
+
+.
+ The example shows how mapping messages from scalar coding to vector coding.
+\end_layout
+
+\begin_layout Example
+We use the table of the extension field 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2^{2}}$
+\end_inset
+
+ with the primitive polynomial 
+\begin_inset Formula $f(x)=x^{2}+x+1$
+\end_inset
+
+ (CITATION):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+power of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+polynomial
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+binary vector
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+00
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha^{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha^{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For scalar coding, the messages are 
+\begin_inset Formula $x_{1},\ldots,x_{h=3}\in\ensuremath{\mathbb{F}}_{2^{2}}$
+\end_inset
+
+ , and for vector coding the messages are 
+\begin_inset Formula $\underline{x}_{1},\ldots,\underline{x}_{h=3}\in\ensuremath{\mathbb{F}}_{2}^{2}$
+\end_inset
+
+.
+ From the polynomial column, let's choose arbitrarily a scalar vector 
+\begin_inset Formula $\underline{x}_{scalar}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$
+\end_inset
+
+.
+ Then, we map it to 
+\begin_inset Formula $\underline{x}_{vector}=(\underline{x}_{1},\underline{x}_{2},\underline{x}_{3})$
+\end_inset
+
+ by using the binary vector column as following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+x_{1}=1\\
+x_{2}=\alpha\\
+x_{3}=\alpha+1
+\end{array}\right]\mapsto\left[\begin{array}{c}
+\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)\\
+\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)\\
+\left(\begin{array}{c}
+1\\
+1
+\end{array}\right)
+\end{array}\right],
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where we use the following rule for mapping 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ individually: 
+\begin_inset Formula $a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\mapsto\left(\begin{array}{c}
+a_{0}\\
+a_{1}\\
+\vdots\\
+a_{t-1}
+\end{array}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To summarize the notations of both scalar and vector coding, we represent
+ them in the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Table~
+\backslash
+ref{tab:notations}
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Notations of network coding
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{tab:notations} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="20page%">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scalar Coding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vector coding
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Source Messages/Packets
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+x_{1},\ldots,x_{h}\in\ensuremath{\mathbb{F}}_{q^{t}}\\
+\underline{x}\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+\underline{x}_{1},\ldots,\underline{x}_{h}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
+\underline{x}\in\ensuremath{\mathbb{F}}_{q}^{th}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Global Coding Vectors Of Receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+\underline{a}_{j_{1}},\ldots,\underline{a}_{j_{\alpha l}}\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}\\
+\underline{b}_{j_{1}},\ldots,\underline{b}_{j_{\epsilon}}\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+\boldsymbol{A}_{i_{1}},\ldots,\boldsymbol{A}_{i_{\alpha l}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}\\
+\boldsymbol{B}_{j_{1}},\ldots,\boldsymbol{B}_{j_{\epsilon}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transfer Matrix Of Receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q^{t}}^{s\times h}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{st\times th}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Packets On Receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q^{t}}\\
+\underline{y}\in\ensuremath{\mathbb{F}}_{q^{t}}^{s}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+\underline{y}_{j_{1}},\ldots,\underline{y}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
+\underline{y}\in\ensuremath{\mathbb{F}}_{q}^{st}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Claim
+By using the vector coding, the upper bound number of solutions increases
+ from 
+\begin_inset Formula $q^{tkh}$
+\end_inset
+
+ to 
+\begin_inset Formula $q^{t^{2}kh}$
+\end_inset
+
+.
+ Therefore, vector network coding offers more freedom in choosing the coding
+ coefficients than does scalar linear coding for equivalent alphabet sizes,
+ and a smaller alphabet size might be achievable 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ebrahimi2011"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Comparison between scalar and vector coding by the gap size
+\end_layout
+
+\begin_layout Standard
+In this study, we use vector messages in the extension field 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
+\end_inset
+
+, which results in equivalent solutions for scalar linear and vector network
+ coding with respect to alphabet size.
+ We introduce a 
+\shape italic
+gap
+\shape default
+ between the optimal scalar linear solution and our vector solution.
+ The gap represents the difference between the smallest field (alphabet)
+ size for which a scalar linear solution exists and the smallest alphatbet
+ size for which we can construct a vector solution.
+ To calculate this gap, we conduct the following steps:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calculate the gap
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Calculate-the-gap"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find the lower bound of 
+\begin_inset Formula $r_{max,vector}$
+\end_inset
+
+, which indicates a solvable vector network coding of field size 
+\begin_inset Formula $q$
+\end_inset
+
+ and dimension 
+\begin_inset Formula $t$
+\end_inset
+
+ (
+\begin_inset Formula $q_{v}=q^{t}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Find the upper bound of 
+\begin_inset Formula $r_{max,scalar}$
+\end_inset
+
+, which indicates a optimal scalar linear network coding in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Because the vector solution in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
+\end_inset
+
+ is equivalent to the optimal scalar solution, we assign 
+\begin_inset Formula $r_{max,scalar}=r_{max,vector}$
+\end_inset
+
+ to find 
+\begin_inset Formula $q_{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+An achieved gap is calculated by 
+\begin_inset Formula $g=q_{s}-q_{v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Throughout this study, we show that vectors solutions significantly reduce
+ the required alphabet size by this gap.
+ 
+\end_layout
+
+\begin_layout Part
+Combinatorial Results
+\end_layout
+
+\begin_layout Standard
+In previous studies 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+, there was no general vector solution found for multicast networks with
+ 
+\begin_inset Formula $h=3$
+\end_inset
+
+ messages.
+ Hence, we start with a probabilistic argument to prove that there exists
+ a vector solution outperforming the optimal linear solution for the 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network.
+ Then we generalize the proof to the 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network.
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ Network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+What is the achieved gap?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Following to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Equation~
+\backslash
+ref{tab:linear_system}
+\end_layout
+
+\end_inset
+
+, each receiver must solve a linear equation system of 3 variables with
+ 4 equations to recover 
+\begin_inset Formula $h=3$
+\end_inset
+
+ messages as below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+\underline{y}_{j_{1}}\\
+\underline{y}_{j_{2}}\\
+\underline{y}_{j_{3}}\\
+\underline{y}_{j_{4}}
+\end{array}\right]=\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}\\
+\boldsymbol{A}_{j_{4}}
+\end{array}\right]\cdot\left[\begin{array}{c}
+\underline{x}_{1}\\
+\underline{x}_{2}\\
+\underline{x}_{3}
+\end{array}\right],
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $\underline{x}_{i},\underline{y}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+\end_inset
+
+ for 
+\begin_inset Formula $v=1,\ldots,4$
+\end_inset
+
+, and 
+\begin_inset Formula $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{3}}$
+\end_inset
+
+ must be distinct.
+\end_layout
+
+\begin_layout Standard
+The network is solvable, if 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+ has full-rank for every 
+\begin_inset Formula $j=1,\ldots,N$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\boldsymbol{A}_{j_{v}}$
+\end_inset
+
+ must satisfy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}\\
+\boldsymbol{A}_{j_{4}}
+\end{array}\right]\geq3t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to satisfy 
+\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
+\end_inset
+
+, we can easily choose suitable values for the coefficient 
+\begin_inset Formula $\boldsymbol{A}_{j}^{(4)}$
+\end_inset
+
+ on the direct link from the source to 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+.
+ However, the coefficients on the links from nodes to receivers are matters.
+ Therefore, we focus on the following requirement:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}
+\end{array}\right]\geq2t\label{eq:rk_rqm_e1l1h3s4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}
+\end{array}\right]\geq2t$
+\end_inset
+
+ implies 
+\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
+\end_inset
+
+, or to satisfy 
+\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
+\end_inset
+
+, we need 
+\begin_inset Formula $rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}
+\end{array}\right]\geq2t$
+\end_inset
+
+.
+ In Section XYZ, we have 
+\begin_inset Formula $N=\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha=3$
+\end_inset
+
+ as a fixed values.
+ Therefore, maximizing the number of receivers is equivalent to maximize
+ 
+\begin_inset Formula $r$
+\end_inset
+
+ under the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+constraint~
+\backslash
+ref{tab:rk_rqm_e1l1h3s4}
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset Formula $\boldsymbol{A}_{j_{1}},\boldsymbol{A}_{j_{2}},\boldsymbol{A}_{j_{3}}$
+\end_inset
+
+ are matrices formed on any 3 of 
+\begin_inset Formula $r$
+\end_inset
+
+ links from nodes to receivers, i.e.
+ these 3 matrices are randomly chosen from a set of 
+\begin_inset Formula $r$
+\end_inset
+
+ matrices.
+ We formalize the problem by an approach with Lovász local lemma 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MosheSchwartz:2018"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Symmetric Lovász local lemma (LLL)
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{thm:LLL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+A set of events 
+\begin_inset Formula $\mathcal{E}_{i}$
+\end_inset
+
+, with 
+\begin_inset Formula $i=1,\ldots,n$
+\end_inset
+
+, such that each event occurs with probability at most 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ If each event is independent of all others except for at most 
+\begin_inset Formula $d$
+\end_inset
+
+ of them and 
+\begin_inset Formula $4dp\leq1$
+\end_inset
+
+, then:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For our problem, let 
+\begin_inset Formula $\mathcal{E}_{i}$
+\end_inset
+
+ denote the following event:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}
+\end{array}\right]<2t\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because the requirement on rank is opposite, we consider the complement
+ event 
+\begin_inset Formula $T$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}
+\end{array}\right]\geq2t,\forall1\leq j_{1}<j_{2}<j_{3}\leq r
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By the intersection rule, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T=\underset{\mathcal{E}_{i}\in\mathcal{E}}{\bigcap}\overline{\mathcal{E}}_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The probability of event 
+\begin_inset Formula $T$
+\end_inset
+
+ indicates a measure quantifying the likelihood that we will be able to
+ construct 
+\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
+\end_inset
+
+ with 
+\begin_inset Formula $j_{1,}j_{2},j_{3}$
+\end_inset
+
+ in the integer numbers between 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+, including both.
+ We need to maximize 
+\begin_inset Formula $r$
+\end_inset
+
+, but the rank requirement is still satisfied, i.e.
+ the probabilty must be higher than 
+\begin_inset Formula $0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}_{j_{2}}\\
+\boldsymbol{A}_{j_{3}}
+\end{array}\right]\geq2t,\forall1\leq j_{1}<j_{2}<j_{3}\leq r\right] & >0\\
+\Leftrightarrow & Pr\left[T\right] & >0\\
+\Leftrightarrow & Pr\left[\underset{\mathcal{E}_{i}\in\mathcal{E}}{\bigcap}\overline{\mathcal{E}}_{i}\right] & >0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Following to LLL, each event occurst with probability at most 
+\begin_inset Formula $p$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{i_{1}}\\
+\boldsymbol{A}_{i_{2}}\\
+\boldsymbol{A}_{i_{3}}
+\end{array}\right]<2t\right]\leq p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regarding to the left-hand side:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{i_{1}}\\
+\boldsymbol{A}_{i_{2}}\\
+\boldsymbol{A}_{i_{3}}
+\end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{i_{1}}\\
+\boldsymbol{A}_{i_{2}}\\
+\boldsymbol{A}_{i_{3}}
+\end{array}\right]=i\right]\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{N_{t,m,n}}{q^{m\cdot n}}\nonumber \\
+ & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}}{q^{m\cdot n}}\nonumber \\
+ & \overset{2}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}\Square\label{eq:p_eq_h3}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By varying 
+\begin_inset Formula $t$
+\end_inset
+
+ in Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:p_eq_h3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have the following table:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{max}$
+\end_inset
+
+ over variations of t
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:rmax_over_t"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+t
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scalar Solution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vector Solution
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq14$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{vector}\geq3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq42$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{vector}\geq7\,\left(67^{*},\,89^{**}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq146$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{vector}\geq62\,\left(166^{*}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq546$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{vector}\geq1317$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq2114$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{vector}\geq58472$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq8322$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{vector}>10^{6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+*, **: computational results in construction 1 and construction 2 respectively
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the table 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab:rmax_over_t"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the vector solution outperforms the scalar solution when 
+\begin_inset Formula $t\geq4$
+\end_inset
+
+ for the network 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{h=3,r,s=4}$
+\end_inset
+
+.
+ This is sufficient, later on we show computational results which vector
+ solutions outperform scalar solutions in case of 
+\begin_inset Formula $t=2$
+\end_inset
+
+ and 
+\begin_inset Formula $t=3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+At this point, we continue to proceed the other constraint of LLL: 
+\begin_inset Formula $4dp\leq1$
+\end_inset
+
+.
+ Regarding to 
+\begin_inset Formula $d$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+d(r) & \leq & 3\cdot\left(\begin{array}{c}
+r-1\\
+2
+\end{array}\right)=3\cdot\frac{\left(r-1\right)\left(r-2\right)}{2}=\frac{3}{2}\left(r^{2}-3r+2\right)=d_{1}(r)\\
+ & \leq & \frac{3}{2}r^{2}=d_{2}(r)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence, we have below implications:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & 4\cdot p\cdot d_{2}(r) & \leq1\\
+\overset{1}{\Rightarrow} & 4\cdot p\cdot d_{1}(r) & \leq1\\
+\overset{2}{\Rightarrow} & 4\cdot p\cdot d(r) & \leq1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1: 
+\begin_inset Formula $d_{1}(r)\leq d_{2}(r)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2: 
+\begin_inset Formula $d(r)\leq d_{1}(r)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In consideration of 
+\begin_inset Formula $d_{2}(r)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+4\cdot p\cdot d_{2}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly with above, 
+\begin_inset Formula $d$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ are propotional, so minimizing 
+\begin_inset Formula $r$
+\end_inset
+
+ is equivelent to maximizing 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ The purpose is to achieve a strict lower bound proving vector solutions
+ always outperform scalar solutions in a specific range of 
+\begin_inset Formula $t$
+\end_inset
+
+, i.e., 
+\begin_inset Formula $r_{max}$
+\end_inset
+
+asymptotes to a value higher than 
+\begin_inset Formula $r_{scalar}$
+\end_inset
+
+.
+ Now, we begin to maximize 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ We consider the nominator of Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:p_eq_h3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to 
+\begin_inset Formula $i$
+\end_inset
+
+-times product and large 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+deg\left(p_{N}^{(i)}(q)\right)=q^{i6t}\\
+deg\left(p_{D}^{(i)}(q)\right)=q^{i^{2}}
+\end{array}\right\} \Rightarrow p^{(i)}(q)\approx q^{i6t-i^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[i=1]{2t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)\approx\stackrel[i=1]{2t-1}{\mathop{\sum}}q^{i6t-i^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To maximize the sum, we set derivation of to 0 and find its root:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \left(i6t-i^{2}\right)^{'} & =0\\
+\Leftrightarrow & 6t-2i & =0\\
+\Leftrightarrow & i & =3t
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, the upper limit of sum is 
+\begin_inset Formula $\left(2t-1\right)$
+\end_inset
+
+, which is less than 
+\begin_inset Formula $3t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Rightarrow max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence, by using the exact bound 
+\begin_inset Formula $\Theta$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Rightarrow\frac{1+\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\approx\frac{\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\in\Theta\left(q^{-t^{2}-2t-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{max}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Further we have: 
+\begin_inset Formula $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Following to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:Calculate-the-gap"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have the gap size:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & r_{max,scalar} & =r_{max,vector}\\
+\Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\\
+\Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\\
+\Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ Network
+\end_layout
+
+\begin_layout Subsection
+Find the lower bound of 
+\begin_inset Formula $r_{max,vector}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Following to Theorem 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "nw_parameters"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we are interested in the following range: 
+\begin_inset Formula $l+\epsilon+1\leq h\leq\alpha l+\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As previous, 
+\begin_inset Formula $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{\alpha}}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+\end_inset
+
+ and we need to satisfy the following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+rk\left[\begin{array}{c}
+\boldsymbol{A}_{j_{1}}\\
+\vdots\\
+\boldsymbol{A}_{j_{\alpha}}
+\end{array}\right]\geq ht-t\Leftrightarrow rk\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can formulate it by the following coding problem in Grassmannian:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Find the largest set of subspaces from 
+\begin_inset Formula $\mathcal{G}_{q}\left(ht,t\right)$
+\end_inset
+
+ such that any 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ subspaces of the set span a subspace of dimension at least 
+\begin_inset Formula $\left(h-1\right)t$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similar to 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{3,r,4}$
+\end_inset
+
+, we consider 
+\begin_inset Formula $p$
+\end_inset
+
+ to proceed LLL:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Pr\left[rk\left[\boldsymbol{A}\right]<(h-1)t\right]\leq p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regarding to the left-hand side:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+Pr\left[rk\left[\boldsymbol{A}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}Pr\left[rk\left[\boldsymbol{A}\right]=i\right]\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\frac{N_{i,\alpha t,ht}}{q^{\left(\alpha t\right)\left(ht\right)}}\nonumber \\
+ & = & \frac{1}{q^{\left(\alpha h\right)t^{2}}}\cdot\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}\label{eq:general_nw_calc_p}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Firstly, we consider the product:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left.\begin{array}{c}
+deg\left(p_{N}^{(i)}(q)\right)=q^{i(\alpha t+ht)}\\
+deg\left(p_{D}^{(i)}(q)\right)=q^{i^{2}}
+\end{array}\right\} \Rightarrow p^{(i)}(q)\approx q^{i(\alpha t+ht)-i^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, we exaluate 
+\begin_inset Formula $f(i)=i(\alpha t+ht)-i^{2}$
+\end_inset
+
+ to find its maximum point:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{f}(i^{*})=0\Leftrightarrow(\alpha t+ht)-2i^{*}=0\Leftrightarrow i^{*}=\frac{\alpha t+ht}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We then check whether this point within the range 
+\begin_inset Formula $i=0,\ldots,(h-1)t-1$
+\end_inset
+
+ as following: 
+\begin_inset Formula $0\leq\frac{\alpha t+ht}{2}\leq(h-1)t-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With regards to the lower bound: 
+\begin_inset Formula $0\leq\frac{\alpha t+ht}{2}\Leftrightarrow t\geq\frac{2}{\alpha+h}$
+\end_inset
+
+, which is always true due to the given 
+\begin_inset Formula $t\geq2$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha,h\geq3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Regarding to the upper bound: 
+\begin_inset Formula $\frac{\alpha t+ht}{2}\leq(h-1)t-1\Leftrightarrow t\leq\frac{-2}{\alpha+2-h}$
+\end_inset
+
+ with 
+\begin_inset Formula $\alpha+2>h$
+\end_inset
+
+ due to the given 
+\begin_inset Formula $\alpha l+\epsilon=\alpha+1\geq h$
+\end_inset
+
+.
+ This cannot happen because of 
+\begin_inset Formula $t\geq2$
+\end_inset
+
+, i.e.
+ this maximum point is over then upper-range limit.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Rightarrow & max\left\{ q^{i(\alpha t+ht)-i^{2}}:i=1,\ldots,(h-1)t-1\right\}  & =\left.q^{i(\alpha t+ht)-i^{2}}\right|_{i=(h-1)t-1}\\
+ &  & =q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}-\left(\alpha-h+2\right)t-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Secondly, we apply the maximum value with the sum, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thirdly, we consider the 3rd requirement of LLL to figure out a lower bound
+ on 
+\begin_inset Formula $r_{max}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d\leq\alpha\left(\begin{array}{c}
+r-1\\
+\alpha-1
+\end{array}\right)=\alpha\frac{\left(r-1\right)\ldots\left(r-\alpha+1\right)}{\left(\alpha-1\right)!}\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}=d_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We need 
+\begin_inset Formula $4dp\leq1$
+\end_inset
+
+, which is satisfied if 
+\begin_inset Formula $4d_{2}p\leq1$
+\end_inset
+
+.
+ Therefore, we consider:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}\leq\frac{1}{4p}\Leftrightarrow r\leq\left(\frac{\left(\alpha-1\right)!}{4\alpha}\cdot\frac{1}{p}\right)^{\frac{1}{\alpha-1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, we have from above:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+p & \in & \Theta\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)\\
+\Rightarrow r_{max,vector} & \in & \Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Find the upper bound of 
+\begin_inset Formula $r_{max,scalar}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Find 
+\begin_inset Formula $\left(\alpha+1\right)$
+\end_inset
+
+ received vectors that span a subspace of dimension 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ This implies that the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ links from the middle layer carry 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ vectors which span a subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+ whose dimension is at least 
+\begin_inset Formula $\left(h-1\right)$
+\end_inset
+
+, with 
+\begin_inset Formula $q_{s}=q^{t}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $3\leq\alpha<h$
+\end_inset
+
+: all 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ links must be distinct 
+\begin_inset Formula $\Rightarrow r\leq\left[\begin{array}{c}
+\alpha\\
+1
+\end{array}\right]_{q_{s}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\alpha\geq h\geq3$
+\end_inset
+
+: to achieve 
+\begin_inset Formula $(h-1)$
+\end_inset
+
+-subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+, no 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ links will contain a vector which is contained in the same 
+\begin_inset Formula $(h-2)$
+\end_inset
+
+-subspace.
+\end_layout
+
+\begin_layout Standard
+Hence,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{max,scalar}\leq\left[\begin{array}{c}
+\alpha\\
+h-2
+\end{array}\right]_{q_{s}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Calculate the gap of size
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ & r_{max,scalar} & =r_{max,vector}\\
+\Leftrightarrow & q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
+\Leftrightarrow & q_{s} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
+\Rightarrow & g & =q_{s}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "thesisCOD/refs/final_ref_bib"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
