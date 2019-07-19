@@ -1,0 +1,185 @@
+% Document class / Dokumentenklasse:
+\documentclass{CODthesis}
+% Parameters of the CODthesis class:
+% DIV12       = document layout: DIV factor = 12 (larger number creates larger pages)
+% BCOR12mm    = binding correction: 12mm
+% headsepline = separate page head by a line
+% twoside     = twosided document
+% 11pt        = font size 11 point
+% openright   = start new chapters only on right pages (odd numbered pages)
+% more information: http://tug.ctan.org/tex-archive/macros/latex/contrib/koma-script/scrguien.pdf
+
+% Packages used in LNTthesis class:
+% package[english]{babel}   % english language / Englische Sprache
+% package{LNTthesis}        % LNT specific definitions / LNT spezifische Definitionen
+% package{graphicx}         % for using eps images / Einbinden von EPS Grafiken
+% package{verbatim}         % for quickly commenting out large parts of your text / Um viel Text schnell auskommentieren zu koennen
+% package{amssymb}          % additional math symbols / Zusaetzliche mathematische Symbole
+% package{amsmath}          % additional math commands / Zusaetzliche mathematische Befehle
+% package{amsxtra}          % even more math symbols / Noch mehr mathematische Symbole
+% package{amsthm}           % theorem environment etc / Theorem Umgebung usw
+% more information on amsmath: http://www.ctan.org/get/macros/latex/required/amslatex/math/amsldoc.pdf
+
+% package{psfrag}           % psfrag: http://www.ctan.org/get/macros/latex/contrib/psfrag/pfgguide.pdf
+% package{subfigure}        % enable subfigures / Ermoeglicht Subfigures (mehrere Figures neben/untereinander)
+
+% package{tabularx}         % Advanced tabular environments with tabularx
+
+% !! PLEASE READ THE LATEX HELP IF YOU HAVE ANY QUESTIONS !!
+% http://tobi.oetiker.ch/lshort/lshort.pdf
+
+
+% Macros:
+    \newcommand{\eq}[1]{Equation~(\ref{#1})}        % \eg{eq:golomb}  --> Equation (2.15)
+    \newcommand{\eref}[1]{(\ref{#1})}               % \eg{eq:golomb}  --> (2.15)
+    \newcommand{\fig}[1]{Figure~\ref{#1}}           % \fig{fig:golomb}--> Figure 2.15
+    \newcommand{\tab}[1]{Table~\ref{#1}}            % \tab{tab:lala}  --> Table 2.15
+    \newtheorem{prop}{Proposition}
+
+% Abbreviations
+    \newcommand{\equivalent}{\triangleq}
+    \newcommand{\given}{\:\!\vert\:\!}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{array}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{stackrel}
+\usepackage{wasysym}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{definition}
+    \ifx\thechapter\undefined
+      \newtheorem{defn}{\protect\definitionname}
+    \else
+      \newtheorem{defn}{\protect\definitionname}[chapter]
+    \fi
+\theoremstyle{plain}
+    \ifx\thechapter\undefined
+	    \newtheorem{thm}{\protect\theoremname}
+	  \else
+      \newtheorem{thm}{\protect\theoremname}[chapter]
+    \fi
+\theoremstyle{plain}
+    \ifx\thechapter\undefined
+      \newtheorem{lem}{\protect\lemmaname}
+    \else
+      \newtheorem{lem}{\protect\lemmaname}[chapter]
+    \fi
+\theoremstyle{definition}
+    \ifx\thechapter\undefined
+      \newtheorem{example}{\protect\examplename}
+    \else
+      \newtheorem{example}{\protect\examplename}[chapter]
+    \fi
+\theoremstyle{remark}
+    \ifx\thechapter\undefined
+      \newtheorem{claim}{\protect\claimname}
+    \else
+      \newtheorem{claim}{\protect\claimname}[chapter]
+    \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{placeins}
+\usepackage{graphicx}
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\claimname}{Claim}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\theoremname}{Theorem}
+
+
+% Document:
+\begin{document}
+
+% ###################################
+% Title page / Titelseite
+% ###################################
+\CODtitle{Master's Thesis}          % Thesis type / Art der Arbeit (Master's Thesis, Diplomarbeit)
+    {Vector Network Coding}                  % Thesis title / Titel der Arbeit
+    {Ha Nguyen}                  % Your name / Name des Diplomanden
+    {Sven Puchinger}            % Advisor / Betreuer
+    {M\"unchen, 07 2019}          % Munich, Date / Muenchen, Datum
+    {Ha Nguyen\\                 % Your Address / Anschrift des Diplomanden
+    Sintperstr. 50\\
+    81539 M\"unchen\\
+    ha.nguyen@tum.de}
+
+\CODrecht{Ha Nguyen}             % Your name / Name des Studenten
+    {M\"unchen, 18.07.2019}         % Munich, Date / Muenchen, Datum
+
+\cleardoubleemptypage   % start new double page / neue Doppelseite
+
+% ########################################
+% Table of Contents / Inhaltsverzeichnis
+% ########################################
+
+% roman page numbering, starting with page number 1 / roemische Seitennummerierung beginnend mit Seite 1
+    \setcounter{page}{1}
+    \pagenumbering{roman}
+
+        \tableofcontents    % Table of contents / Inhaltsverzeichnis
+        \listoffigures      % List of figures / Abbildungsverzeichnis
+        \listoftables       % List of tables / Tabellenverzeichnis
+        \cleardoubleemptypage   % start new double page / neue Doppelseite
+
+% ########################################
+% Chapters / Kapitel:
+% ########################################
+
+% arabic page numbering, starting with page number 1 / arabische Seitennummerierung beginnend mit Seite 1
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+
+	\include{./tex_parts/0_introduction}
+	\include{./tex_parts/1_preliminaries}
+	\include{./tex_parts/2_generalized_combination_network}
+    \include{./tex_parts/3_network_as_matrix_channel}
+    \include{./tex_parts/4_combinatorial_results}
+    \include{./tex_parts/5_computational_results}
+    \include{./tex_parts/6_conclusion}  
+    \include{./tex_parts/7_appendices}   
+        
+        \cleardoubleemptypage
+
+
+% ########################################
+% Appendix / Anhang:
+% ########################################
+
+% roman page numbering, starting with page number 1 (capitals)/ roemische Seitennummerierung beginnend mit Seite 1 (gross)
+    \appendix
+    \setcounter{page}{1}
+    \pagenumbering{Roman}
+
+        % Use IEEE DIN 1505 style for bibliography / Literaturverzeichnisses
+        \bibliographystyle{ieeetransa}
+        %\nocite{*}              % Include all references without checking / Alle References immer aufführen
+        \bibliography{./refs/final_ref_bib}
+
+\end{document}
+
+%
+% EOF!
+%

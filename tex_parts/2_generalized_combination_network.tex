@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Generalized combination Network $(\epsilon,l)-\mathcal{N}_{h,r,s}$} \label{chap:general_network}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Description}
+
+A generalized combination network $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+consists of 3 components from top to bottom: ``Source'' in the first
+layer, ``Node'' in the middle layer, and ``Receiver'' in the third
+layer. The network has a source with $h$ messages, $r$ nodes, and
+$\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)$ receivers, which form a single source multicast network modeled as
+a finite directed acyclic multigraph. The source connects to each
+node by $l$ parallel links and each node also connects to a receiver
+by $l$ parallel links, which are respectively called a node's incoming
+and outgoing edges. Each receiver is connected by $s$ links in total,
+specifically $\alpha l$ links from $\alpha$ nodes and $\epsilon$
+direct links from the source, i.e. $s=\alpha l+\epsilon$. Theorem
+1 shows our interest of relations between the parameters $h,\alpha,\epsilon$
+and $l$.
+\begin{thm}
+\label{nw_parameters}The $(\epsilon,l)-\mathcal{N}_{h,r,s}$ network
+has a trivial solution if $l+\epsilon\geq h$, and it has no solution
+if $\alpha l+\epsilon<h$.
+
+Proof: Following to the network coding max-flow min-cut theorem for
+multicast networks, the maximum number of messages from the source
+to each receiver is equal to the smallest min-cut between the source
+and any receiver. For our considered network, $s$ links have to be
+deleted to disconnect the source from the receiver, which implies
+that the min-cut between the source and each receiver is at least
+$s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha l+\epsilon$ $\Square$
+
+There exist at least $l+\epsilon$ disjoint links connected to each
+receiver. If $l+\epsilon\geq h$, each receiver can always reconstruct
+its requested messages on its links. Then we only need to do routing
+to select paths for the network. $\Square$
+\end{thm}
+The combination network in \cite{Riis:2006} is the $(0,0)-\mathcal{N}_{h,r,s}$
+network. One-Direct Link Combination Network $(1,1)-\mathcal{N}_{h,r,s}$.
+
+\section{Which network codes over $\ensuremath{\mathbb{F}}_{q}$ solve the
+networks from this network family?}
+
+The source can send any required $\epsilon$ 1-dimensional subspace
+of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$ through $\epsilon$ direct
+links to a receiver. For each receiver to reconstruct $h$ messages,
+the linear span of $\alpha l$ 1-dimensional subspaces received from
+$\alpha$ nodes must be at least of dimension of $h-\epsilon$, i.e.
+$\alpha l$ 1-dimensional subspaces span at least $\left(h-\epsilon\right)$-dimensional
+subspace of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$. Hence, a scalar
+linear solution for the generalized combination network exists, if
+and only if, there exists a Grassmannian code $\mathcal{G}_{q_{s}}\left(h,k\geq h-\epsilon\right)$
+with $\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)l$ 1-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$.
+\begin{thm}
+$(0,1)-\mathcal{N}_{h,r,s}$ has a solution if and only if there exists
+an $\left(r,q_{s}h,r-\alpha+1\right)$ $q_{s}$-ary error correcting
+code.
+\end{thm}
+
+\section{Special cases of generalized combination network}
+
+\subsection{The $(l-1)$-Direct Links and $l$-Parrallel Links $\mathcal{N}_{h=2l,r,s=3l-1}$}
+
+This subfamily contains the largest number of direct links from the
+source to the receivers. For $l\geq2$, this network $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+yields the gap $q^{(l-1)t^{2}/l+\mathcal{O}(t)}$ between vector solutions
+and optimal scalar solutions. The vector solution is based on an $\mathcal{MRD}\left[lt\times lt,t\right]_{q}$
+code. Further, the gap tends to $q^{t^{2}/2+\mathcal{O}(t)}$ for
+large $l$.
+\begin{lem}
+There is a scalar linear solution of field size $q_{s}$ for the $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+network, where $l\geq2$, if and only if $r\leq\left[\begin{array}{c}
+2l\\
+l
+\end{array}\right]_{q_{s}}$.
+\end{lem}
+
+\subsection{The 1-Direct Link and $l$-Parrallel Links $\mathcal{N}_{h=2l,r,s=2l+1}$}
+
+This is the smallest direct-link subfamily has an vector solution
+outperforming the optimal scalar solution, i.e. an vector solution
+outperforming the optimal scalar has not yet been found for the network
+$(0,l>1)-\mathcal{N}_{h,r,s}$. Similar to the previous subfamily
+$\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$, when $l\geq2$
+or $h\geq4$, this network yields the largest gap $q^{t^{2}/2+\mathcal{O}(t)}$
+in the alphabet size by using the same approach with an $\mathcal{MRD}\left[lt\times lt,(l-1)t\right]_{q}$
+code. 
+
+\subsection{The $\epsilon$-Direct Links $\mathcal{N}_{h,r,s}$}
+
+This subfamily is denoted as $\left(\epsilon\geq1,l=1\right)-\mathcal{N}_{h,r,s}$
+and is the most focus topic on this thesis, because it motivates some
+interesting questions on a classic coding problem and on a new type
+of subspace code problem. In the chapter 3, we show our largest code
+set with low number of subspace codes for the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$.
+
+\subsection{The $\left(\epsilon=0,l=1\right)-\mathcal{N}_{h,r,s}$ Combination
+Network}
+
+Since the scalar solution for the combination network uses an $MDS$
+code, a vector solution based on subspace codes must go beyond the
+$MDS$ bound, i.e. Singleton bound $d\leq n-k+1$, to outperform the
+scalar one. In paper \cite{Wachter-Zeh:2018}, it is proved that vector
+solutions based on subspace codes cannot outperform optimal scalar
+linear solutions for $h=2$, and they conjecture it for all $h$.
+Unfortunately, a vector solution based on an $\mathcal{MRD}\left[t\times t,t\right]_{q}$
+code is also proved that it cannot outperform the optimal scalar linear
+solution.
+
+\subsection{The 2 networks yields gap $q^{(h-3)t^{2}/(h-1)+\mathcal{O}(t)}$}
+
+For $h=2l-1$: $\left(\epsilon=l-2,l\right)-\mathcal{N}_{h=2l-1,r,s=3l-2}$
+
+For $h=2l+1$: $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l+1,r,s=3l-1}$
+
+\clearpage
