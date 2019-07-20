@@ -164,6 +164,10 @@ k
 .
 \end_layout
 
+\begin_layout Standard
+Projective Space
+\end_layout
+
 \begin_layout Part
 Generalized combination Network 
 \begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
@@ -255,6 +259,23 @@ r\\
 \end_inset
 
 .
+ The combination network in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Riis:2006"
+literal "false"
+
+\end_inset
+
+ is the 
+\begin_inset Formula $(0,1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network and the 
+\begin_inset Formula $(1,1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network is called One-Direct Link Combination Network.
  Theorem 1 shows our interest of relations between the parameters 
 \begin_inset Formula $h,\alpha,\epsilon$
 \end_inset
@@ -286,6 +307,7 @@ The
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Theorem
@@ -333,8 +355,120 @@ There exist at least
 
 \end_layout
 
+\begin_layout Remark
+Following to Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "nw_parameters"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we are interested in this range: 
+\begin_inset Formula $l+\epsilon+1\leq h\leq\alpha l+\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Network coding for networks from this network family
+\end_layout
+
+\begin_layout Subsection
+Scalar network coding
+\end_layout
+
 \begin_layout Standard
-The combination network in 
+A message is equivalent to a symbol over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}$
+\end_inset
+
+.
+ As a network of the multicast model, all receivers request the same packet
+ of 
+\begin_inset Formula $h$
+\end_inset
+
+ symbols at the same time 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Trautmann:2013"
+literal "false"
+
+\end_inset
+
+.
+ A packet is a 1-dimentional subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+; hence, each receiver must obtain a subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+, whose dimension is at least 
+\begin_inset Formula $h$
+\end_inset
+
+, to be able to reconstruct the packet.
+ Through 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ direct links connected from the source to a receiver, the source can provide
+ any required 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ 1-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+ for the corresponding receiver.
+ Each receiver can accordingly reconstruct the packet if and only if the
+ linear span of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\begin_inset Formula $l$
+\end_inset
+
+-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+\end_inset
+
+ from the nodes is at least of dimension 
+\begin_inset Formula $h-\epsilon$
+\end_inset
+
+.
+ When this necessary condition is satisfied, the network is said to have
+ a 
+\shape italic
+solution
+\shape default
+.
+\end_layout
+
+\begin_layout Theorem
+The 
+\begin_inset Formula $(0,1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network has a solution if and only if there exists an 
+\begin_inset Formula $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|h,r-\alpha+1\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|$
+\end_inset
+
+-ary error correcting code.
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Riis:2006"
@@ -342,102 +476,200 @@ literal "false"
 
 \end_inset
 
- is the 
-\begin_inset Formula $(0,0)-\mathcal{N}_{h,r,s}$
-\end_inset
 
- network.
- One-Direct Link Combination Network 
-\begin_inset Formula $(1,1)-\mathcal{N}_{h,r,s}$
-\end_inset
-
-.
 \end_layout
 
-\begin_layout Section
-Which network codes over 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
-\end_inset
-
- solve the networks from this network family?
+\begin_layout Subsection
+Vector network coding
 \end_layout
 
 \begin_layout Standard
-The source can send any required 
-\begin_inset Formula $\epsilon$
+The messages are vectors of length 
+\begin_inset Formula $t$
 \end_inset
 
- 1-dimensional subspace of 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
-\end_inset
-
- through 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- direct links to a receiver.
- For each receiver to reconstruct 
-\begin_inset Formula $h$
-\end_inset
-
- messages, the linear span of 
-\begin_inset Formula $\alpha l$
-\end_inset
-
- 1-dimensional subspaces received from 
-\begin_inset Formula $\alpha$
-\end_inset
-
- nodes must be at least of dimension of 
-\begin_inset Formula $h-\epsilon$
-\end_inset
-
-, i.e.
- 
-\begin_inset Formula $\alpha l$
-\end_inset
-
- 1-dimensional subspaces span at least 
-\begin_inset Formula $\left(h-\epsilon\right)$
-\end_inset
-
--dimensional subspace of 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+ over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
 \end_inset
 
 .
- Hence, a scalar linear solution for the generalized combination network
- exists, if and only if, there exists a Grassmannian code 
-\begin_inset Formula $\mathcal{G}_{q_{s}}\left(h,k\geq h-\epsilon\right)$
+ Hence, a vector solution is over field size 
+\begin_inset Formula $q$
 \end_inset
 
- with 
-\begin_inset Formula $\left(\begin{array}{c}
-r\\
-\alpha
-\end{array}\right)l$
+ and dimension 
+\begin_inset Formula $t$
 \end_inset
 
- 1-dimensional subspaces of 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
+.
+ Such a vector solution has the same alphabet size as a scalar solution
+ of field size 
+\begin_inset Formula $q^{t}$
+\end_inset
+
+, and we denote 
+\begin_inset Formula $q_{v}=q^{t}$
+\end_inset
+
+.
+ Similarly with the scalar 
+\shape italic
+linear
+\shape default
+ coding solution, each receiver can reconstruct its requested packet if
+ and only if any 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\begin_inset Formula $\left(lt\right)$
+\end_inset
+
+-dimensional subspaces span a subspace of dimension at least 
+\begin_inset Formula $\left(h-\epsilon\right)t$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Theorem
-\begin_inset Formula $(0,1)-\mathcal{N}_{h,r,s}$
+A vector solution for the 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
 \end_inset
 
- has a solution if and only if there exists an 
-\begin_inset Formula $\left(r,q_{s}h,r-\alpha+1\right)$
+ network exists if and only if there exists 
+\begin_inset Formula $\mathcal{G}_{q}\left(ht,lt\right)$
 \end_inset
 
+ such that any 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ subspaces of the set span a subspace of dimension at least 
+\begin_inset Formula $\left(h-\epsilon\right)t$
+\end_inset
+
+.
  
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Comparison between scalar and vector solutions by the gap size
+\end_layout
+
+\begin_layout Standard
+The vector solution over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
+\end_inset
+
+ results in equivalent solutions for scalar linear and vector network coding
+ with respect to alphabet size.
+ We introduce a 
+\shape italic
+gap
+\shape default
+ between the optimal scalar linear solution and our vector solution.
+ The gap represents the difference between the smallest field (alphabet)
+ size for which a scalar linear solution exists and the smallest alphatbet
+ size for which we can construct a vector solution.
+ 
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calculate the gap
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Calculate-the-gap"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find the lower bound of 
+\begin_inset Formula $r_{max,vector}$
+\end_inset
+
+, which indicates a solvable vector network coding of field size 
+\begin_inset Formula $q$
+\end_inset
+
+ and dimension 
+\begin_inset Formula $t$
+\end_inset
+
+ (
+\begin_inset Formula $q_{v}=q^{t}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Find the upper bound of 
+\begin_inset Formula $r_{max,scalar}$
+\end_inset
+
+, which indicates a optimal scalar linear network coding in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Because the vector solution in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
+\end_inset
+
+ is equivalent to the optimal scalar solution, we assign 
+\begin_inset Formula $r_{max,scalar}=r_{max,vector}$
+\end_inset
+
+ to find 
 \begin_inset Formula $q_{s}$
 \end_inset
 
--ary error correcting code.
+.
+\end_layout
+
+\begin_layout Enumerate
+An achieved gap is calculated by 
+\begin_inset Formula $g=q_{s}-q_{v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Throughout this study, we show that vectors solutions significantly reduce
+ the required alphabet size by this gap.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1487,120 +1719,6 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Section
-Comparison between scalar and vector coding by the gap size
-\end_layout
-
-\begin_layout Standard
-In this study, we use vector messages in the extension field 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
-\end_inset
-
-, which results in equivalent solutions for scalar linear and vector network
- coding with respect to alphabet size.
- We introduce a 
-\shape italic
-gap
-\shape default
- between the optimal scalar linear solution and our vector solution.
- The gap represents the difference between the smallest field (alphabet)
- size for which a scalar linear solution exists and the smallest alphatbet
- size for which we can construct a vector solution.
- To calculate this gap, we conduct the following steps:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Calculate the gap
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:Calculate-the-gap"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Find the lower bound of 
-\begin_inset Formula $r_{max,vector}$
-\end_inset
-
-, which indicates a solvable vector network coding of field size 
-\begin_inset Formula $q$
-\end_inset
-
- and dimension 
-\begin_inset Formula $t$
-\end_inset
-
- (
-\begin_inset Formula $q_{v}=q^{t}$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Enumerate
-Find the upper bound of 
-\begin_inset Formula $r_{max,scalar}$
-\end_inset
-
-, which indicates a optimal scalar linear network coding in 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Because the vector solution in 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
-\end_inset
-
- is equivalent to the optimal scalar solution, we assign 
-\begin_inset Formula $r_{max,scalar}=r_{max,vector}$
-\end_inset
-
- to find 
-\begin_inset Formula $q_{s}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-An achieved gap is calculated by 
-\begin_inset Formula $g=q_{s}-q_{v}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Throughout this study, we show that vectors solutions significantly reduce
- the required alphabet size by this gap.
- 
 \end_layout
 
 \begin_layout Part
@@ -3230,7 +3348,7 @@ Calculate the gap of size
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintCited"
-bibfiles "thesisCOD/refs/final_ref_bib"
+bibfiles "../refs/final_ref_bib"
 options "IEEEtran"
 
 \end_inset
