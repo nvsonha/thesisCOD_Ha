@@ -77,11 +77,11 @@
 	  \else
       \newtheorem{thm}{\protect\theoremname}[chapter]
     \fi
-\theoremstyle{plain}
+\theoremstyle{remark}
     \ifx\thechapter\undefined
-      \newtheorem{lem}{\protect\lemmaname}
+      \newtheorem{rem}{\protect\remarkname}
     \else
-      \newtheorem{lem}{\protect\lemmaname}[chapter]
+      \newtheorem{rem}{\protect\remarkname}[chapter]
     \fi
 \theoremstyle{definition}
     \ifx\thechapter\undefined
@@ -89,11 +89,17 @@
     \else
       \newtheorem{example}{\protect\examplename}[chapter]
     \fi
-\theoremstyle{remark}
+\theoremstyle{plain}
     \ifx\thechapter\undefined
-      \newtheorem{claim}{\protect\claimname}
+      \newtheorem{lem}{\protect\lemmaname}
     \else
-      \newtheorem{claim}{\protect\claimname}[chapter]
+      \newtheorem{lem}{\protect\lemmaname}[chapter]
+    \fi
+\theoremstyle{plain}
+    \ifx\thechapter\undefined
+      \newtheorem{conjecture}{\protect\conjecturename}
+    \else
+      \newtheorem{conjecture}{\protect\conjecturename}[chapter]
     \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
@@ -103,10 +109,11 @@
 \makeatother
 
 \usepackage{babel}
-\providecommand{\claimname}{Claim}
+\providecommand{\conjecturename}{Conjecture}
 \providecommand{\definitionname}{Definition}
 \providecommand{\examplename}{Example}
 \providecommand{\lemmaname}{Lemma}
+\providecommand{\remarkname}{Remark}
 \providecommand{\theoremname}{Theorem}
 
 
@@ -155,7 +162,7 @@
 	\include{./tex_parts/0_introduction}
 	\include{./tex_parts/1_preliminaries}
 	\include{./tex_parts/2_generalized_combination_network}
-    \include{./tex_parts/3_network_as_matrix_channel}
+    %\include{./tex_parts/3_network_as_matrix_channel}
     \include{./tex_parts/4_combinatorial_results}
     \include{./tex_parts/5_computational_results}
     \include{./tex_parts/6_conclusion}  

@@ -177,7 +177,14 @@ Generalized combination Network
 \end_layout
 
 \begin_layout Section
-Description
+Description 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Description_GCN"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -366,11 +373,289 @@ noprefix "false"
 
 \end_inset
 
-, we are interested in this range: 
+, we are interested in networks parameters satisfying this condition: 
 \begin_inset Formula $l+\epsilon+1\leq h\leq\alpha l+\epsilon$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The generalized network 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-generalized-network"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/generalized_combination_nw.pdf
+	width 50page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parameters of network coding 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Parameters-of-network"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="48page%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $h$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The number of source messages
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The number of nodes in the middle layer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The number of receivers
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ell$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The source connects to each node by 
+\begin_inset Formula $\ell$
+\end_inset
+
+ parallel links, and each node also connects to one receiver by 
+\begin_inset Formula $\ell$
+\end_inset
+
+ parallel links
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A receiver is connected by any 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ nodes in the middle layer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The source additionally connects to each receiver by 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ direct parallel links
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Each receiver is connected by 
+\begin_inset Formula $s$
+\end_inset
+
+ links in total, with 
+\begin_inset Formula $s=\alpha\ell+\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -512,6 +797,21 @@ The messages are vectors of length
 \end_inset
 
 .
+ A mapping from the scalar solution of field size 
+\begin_inset Formula $q^{t}$
+\end_inset
+
+ to a equivalent vector solution is represented in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ex:scalar_vector_mapping"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  Similarly with the scalar 
 \shape italic
 linear
@@ -562,367 +862,13 @@ literal "false"
 \end_layout
 
 \begin_layout Subsection
-Comparison between scalar and vector solutions by the gap size
-\end_layout
-
-\begin_layout Standard
-The vector solution over 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
-\end_inset
-
- results in equivalent solutions for scalar linear and vector network coding
- with respect to alphabet size.
- We introduce a 
-\shape italic
-gap
-\shape default
- between the optimal scalar linear solution and our vector solution.
- The gap represents the difference between the smallest field (alphabet)
- size for which a scalar linear solution exists and the smallest alphatbet
- size for which we can construct a vector solution.
- 
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Calculate the gap
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:Calculate-the-gap"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Find the lower bound of 
-\begin_inset Formula $r_{max,vector}$
-\end_inset
-
-, which indicates a solvable vector network coding of field size 
-\begin_inset Formula $q$
-\end_inset
-
- and dimension 
-\begin_inset Formula $t$
-\end_inset
-
- (
-\begin_inset Formula $q_{v}=q^{t}$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Enumerate
-Find the upper bound of 
-\begin_inset Formula $r_{max,scalar}$
-\end_inset
-
-, which indicates a optimal scalar linear network coding in 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Because the vector solution in 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
-\end_inset
-
- is equivalent to the optimal scalar solution, we assign 
-\begin_inset Formula $r_{max,scalar}=r_{max,vector}$
-\end_inset
-
- to find 
-\begin_inset Formula $q_{s}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-An achieved gap is calculated by 
-\begin_inset Formula $g=q_{s}-q_{v}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Throughout this study, we show that vectors solutions significantly reduce
- the required alphabet size by this gap.
- 
-\end_layout
-
-\begin_layout Section
-Special cases of generalized combination network
-\end_layout
-
-\begin_layout Subsection
-The 
-\begin_inset Formula $(l-1)$
-\end_inset
-
--Direct Links and 
-\begin_inset Formula $l$
-\end_inset
-
--Parrallel Links 
-\begin_inset Formula $\mathcal{N}_{h=2l,r,s=3l-1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This subfamily contains the largest number of direct links from the source
- to the receivers.
- For 
-\begin_inset Formula $l\geq2$
-\end_inset
-
-, this network 
-\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
-\end_inset
-
- yields the gap 
-\begin_inset Formula $q^{(l-1)t^{2}/l+\mathcal{O}(t)}$
-\end_inset
-
- between vector solutions and optimal scalar solutions.
- The vector solution is based on an 
-\begin_inset Formula $\mathcal{MRD}\left[lt\times lt,t\right]_{q}$
-\end_inset
-
- code.
- Further, the gap tends to 
-\begin_inset Formula $q^{t^{2}/2+\mathcal{O}(t)}$
-\end_inset
-
- for large 
-\begin_inset Formula $l$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Lemma
-There is a scalar linear solution of field size 
-\begin_inset Formula $q_{s}$
-\end_inset
-
- for the 
-\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
-\end_inset
-
- network, where 
-\begin_inset Formula $l\geq2$
-\end_inset
-
-, if and only if 
-\begin_inset Formula $r\leq\left[\begin{array}{c}
-2l\\
-l
-\end{array}\right]_{q_{s}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-The 1-Direct Link and 
-\begin_inset Formula $l$
-\end_inset
-
--Parrallel Links 
-\begin_inset Formula $\mathcal{N}_{h=2l,r,s=2l+1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This is the smallest direct-link subfamily has an vector solution outperforming
- the optimal scalar solution, i.e.
- an vector solution outperforming the optimal scalar has not yet been found
- for the network 
-\begin_inset Formula $(0,l>1)-\mathcal{N}_{h,r,s}$
-\end_inset
-
-.
- Similar to the previous subfamily 
-\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
-\end_inset
-
-, when 
-\begin_inset Formula $l\geq2$
-\end_inset
-
- or 
-\begin_inset Formula $h\geq4$
-\end_inset
-
-, this network yields the largest gap 
-\begin_inset Formula $q^{t^{2}/2+\mathcal{O}(t)}$
-\end_inset
-
- in the alphabet size by using the same approach with an 
-\begin_inset Formula $\mathcal{MRD}\left[lt\times lt,(l-1)t\right]_{q}$
-\end_inset
-
- code.
- 
-\end_layout
-
-\begin_layout Subsection
-The 
-\begin_inset Formula $\epsilon$
-\end_inset
-
--Direct Links 
-\begin_inset Formula $\mathcal{N}_{h,r,s}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-This subfamily is denoted as 
-\begin_inset Formula $\left(\epsilon\geq1,l=1\right)-\mathcal{N}_{h,r,s}$
-\end_inset
-
- and is the most focus topic on this thesis, because it motivates some interesti
-ng questions on a classic coding problem and on a new type of subspace code
- problem.
- In the chapter 3, we show our largest code set with low number of subspace
- codes for the network 
-\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-The 
-\begin_inset Formula $\left(\epsilon=0,l=1\right)-\mathcal{N}_{h,r,s}$
-\end_inset
-
- Combination Network
-\end_layout
-
-\begin_layout Standard
-Since the scalar solution for the combination network uses an 
-\begin_inset Formula $MDS$
-\end_inset
-
- code, a vector solution based on subspace codes must go beyond the 
-\begin_inset Formula $MDS$
-\end_inset
-
- bound, i.e.
- Singleton bound 
-\begin_inset Formula $d\leq n-k+1$
-\end_inset
-
-, to outperform the scalar one.
- In paper 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Wachter-Zeh:2018"
-literal "false"
-
-\end_inset
-
-, it is proved that vector solutions based on subspace codes cannot outperform
- optimal scalar linear solutions for 
-\begin_inset Formula $h=2$
-\end_inset
-
-, and they conjecture it for all 
-\begin_inset Formula $h$
-\end_inset
-
-.
- Unfortunately, a vector solution based on an 
-\begin_inset Formula $\mathcal{MRD}\left[t\times t,t\right]_{q}$
-\end_inset
-
- code is also proved that it cannot outperform the optimal scalar linear
- solution.
-\end_layout
-
-\begin_layout Subsection
-The 2 networks yields gap 
-\begin_inset Formula $q^{(h-3)t^{2}/(h-1)+\mathcal{O}(t)}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-For 
-\begin_inset Formula $h=2l-1$
-\end_inset
-
-: 
-\begin_inset Formula $\left(\epsilon=l-2,l\right)-\mathcal{N}_{h=2l-1,r,s=3l-2}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-For 
-\begin_inset Formula $h=2l+1$
-\end_inset
-
-: 
-\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l+1,r,s=3l-1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Part
 Network as a matrix channel
-\end_layout
-
-\begin_layout Standard
-To clarify the difference between scalar coding and vector coding, we firstly
- represent the network as a matrix channel, then secondly we show the advantages
- of vector coding in choosing coding coefficients, and we finally introduce
- a gap in alphabet size between scalar coding's and vector's coding solutions,
- which supports in showing an improvement in the alphabet size for the vector
- solutions.
- 
-\end_layout
-
-\begin_layout Section
-Definition of scalar coding and vector coding
 \end_layout
 
 \begin_layout Standard
 To formulate this description, the source has a set of disjoint messages
  referred to packets which are either symbols from 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q^{t}}$
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}$
 \end_inset
 
  (scalar coding) or vectors of length 
@@ -952,9 +898,9 @@ linear
 \begin_inset Formula $h$
 \end_inset
 
- messages, and this subset is called 
+ messages, and this subset is called a 
 \shape italic
-a packet
+packet
 \shape default
 .
  Through all the functions on the links from the source to each receiver,
@@ -980,11 +926,11 @@ global coding vectors
 \begin{equation}
 \begin{array}{c|c}
 Scalar & Vector\\
-\underset{\ensuremath{\mathbb{F}}_{q^{t}}^{s}}{\underbrace{\left[\begin{array}{c}
+\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{s}}{\underbrace{\left[\begin{array}{c}
 y_{j_{1}}\\
 \vdots\\
 y_{j_{s}}
-\end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q^{t}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q^{t}}^{h}}{\underbrace{\left[\begin{array}{c}
+\end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{h}}{\underbrace{\left[\begin{array}{c}
 x_{1}\\
 \vdots\\
 x_{h}
@@ -1042,16 +988,14 @@ Scalar & Vector\\
 \underline{a}_{j_{1}}\\
 \vdots\\
 \underline{a}_{j_{\alpha l}}\\
-\underline{b}_{j_{1}}\\
 \vdots\\
-\underline{b}_{j_{\epsilon}}
+\underline{a}_{j_{\alpha l+\epsilon}}
 \end{array}\right] & \boldsymbol{A}_{j}=\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \vdots\\
 \boldsymbol{A}_{j_{\alpha l}}\\
-\boldsymbol{B}_{j_{1}}\\
 \vdots\\
-\boldsymbol{B}_{j_{\epsilon}}
+\boldsymbol{B}_{j_{\alpha l+\epsilon}}
 \end{array}\right]
 \end{array}
 \]
@@ -1062,7 +1006,8 @@ Scalar & Vector\\
 \end_layout
 
 \begin_layout Standard
-In general, the network is represented as a matrix channel:
+In general, the network is represented as a matrix channel for both scalar
+ and vector coding:
 \end_layout
 
 \begin_layout Definition
@@ -1078,7 +1023,17 @@ The channel output can be written as:
 \end_layout
 
 \begin_layout Standard
-A network is 
+Because we reconstruct 
+\begin_inset Formula $\boldsymbol{X}$
+\end_inset
+
+ with knowing 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+, i.e.
+ the network structure is known, our network is coherent.
+ A network is 
 \shape italic
 sovable
 \shape default
@@ -1105,55 +1060,47 @@ solution
 \end_inset
 
 , and such that 
+\begin_inset Formula $q_{s}$
+\end_inset
+
+ or 
 \begin_inset Formula $q^{t}$
 \end_inset
 
  is minimized.
- The solutions of scalar and vector coding are always equivalent due to
- our use of scalar symbols from 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q^{t}}$
-\end_inset
-
-, which is explained better in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-Example~
-\backslash
-ref{ex:scalar_vector_mapping}
-\end_layout
+ In Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "ex:scalar_vector_mapping"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
- Because we reconstruct 
-\begin_inset Formula $\boldsymbol{X}$
+, we provide a vector solution of field size 
+\begin_inset Formula $q$
 \end_inset
 
- with knowing 
-\begin_inset Formula $\boldsymbol{A}_{j}$
+ and dimension 
+\begin_inset Formula $t$
 \end_inset
 
-, i.e.
- the network structure is known, 
+, which has the same alphabet size as a scalar solution of field size 
+\begin_inset Formula $q^{t}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-label{ex:scalar_vector_mapping} 
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "ex:scalar_vector_mapping"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Example
@@ -1169,6 +1116,52 @@ Given
  The example shows how mapping messages from scalar coding to vector coding.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The mapping of scalar solution over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}=q^{t}}$
+\end_inset
+
+ to the equivalen vector solution
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:x_mapping"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping.pdf
+	width 30page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Example
 We use the table of the extension field 
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{2^{2}}$
@@ -1178,7 +1171,7 @@ We use the table of the extension field
 \begin_inset Formula $f(x)=x^{2}+x+1$
 \end_inset
 
- (CITATION):
+:
 \end_layout
 
 \begin_layout Standard
@@ -1481,7 +1474,7 @@ label{tab:notations}
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="3">
+<lyxtabular version="3" rows="6" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="20page%">
 <column alignment="center" valignment="top">
@@ -1530,8 +1523,8 @@ Source Messages/Packets
 
 \begin_layout Plain Layout
 \begin_inset Formula $\begin{array}{c}
-x_{1},\ldots,x_{h}\in\ensuremath{\mathbb{F}}_{q^{t}}\\
-\underline{x}\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}
+x_{1},\ldots,x_{h}\in\ensuremath{\mathbb{F}}_{q_{s}}\\
+\underline{x}\in\ensuremath{\mathbb{F}}_{q_{s}}^{h}
 \end{array}$
 \end_inset
 
@@ -1574,10 +1567,7 @@ Global Coding Vectors Of Receiver
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\begin{array}{c}
-\underline{a}_{j_{1}},\ldots,\underline{a}_{j_{\alpha l}}\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}\\
-\underline{b}_{j_{1}},\ldots,\underline{b}_{j_{\epsilon}}\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}
-\end{array}$
+\begin_inset Formula $\underline{a}_{j_{1}},\ldots,\underline{a}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
 \end_inset
 
 
@@ -1589,10 +1579,7 @@ Global Coding Vectors Of Receiver
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\begin{array}{c}
-\boldsymbol{A}_{i_{1}},\ldots,\boldsymbol{A}_{i_{\alpha l}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}\\
-\boldsymbol{B}_{j_{1}},\ldots,\boldsymbol{B}_{j_{\epsilon}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}
-\end{array}$
+\begin_inset Formula $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}$
 \end_inset
 
 
@@ -1641,7 +1628,7 @@ Transfer Matrix Of Receiver
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1654,14 +1641,52 @@ Packets On Receiver
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset Formula $\begin{array}{c}
-y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q^{t}}\\
-\underline{y}\in\ensuremath{\mathbb{F}}_{q^{t}}^{s}
+y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q_{s}}\\
+\underline{y}\in\ensuremath{\mathbb{F}}_{q_{s}}^{s}
 \end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{array}{c}
+\underline{y}_{j_{1}},\ldots,\underline{y}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
+\boldsymbol{Y}_{j}\in\ensuremath{\mathbb{F}}_{q}^{st}
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of nodes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}$
 \end_inset
 
 
@@ -1673,10 +1698,7 @@ y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q^{t}}\\
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\begin{array}{c}
-\underline{y}_{j_{1}},\ldots,\underline{y}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
-\underline{y}\in\ensuremath{\mathbb{F}}_{q}^{st}
-\end{array}$
+\begin_inset Formula $r_{vector}$
 \end_inset
 
 
@@ -1697,7 +1719,7 @@ y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q^{t}}\\
 
 \end_layout
 
-\begin_layout Claim
+\begin_layout Remark
 By using the vector coding, the upper bound number of solutions increases
  from 
 \begin_inset Formula $q^{tkh}$
@@ -1719,6 +1741,294 @@ literal "false"
 \end_inset
 
 .
+ By this advantage, we can have higher amount of receivers, i.e.
+ higher amount of nodes, in vector network coding.
+\end_layout
+
+\begin_layout Subsection
+Comparison between scalar and vector solutions by the gap size
+\end_layout
+
+\begin_layout Standard
+The 
+\shape italic
+gap
+\shape default
+ represents the difference between the smallest field (alphabet) size for
+ which a scalar linear solution exists and the smallest alphatbet size for
+ which we can construct a vector solution.
+ In this study, we define a solvable vector network coding over the field
+ size 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{t}$
+\end_inset
+
+, and we conjecture the minimum amount of nodes such vector solution can
+ achieve, i.e.
+ 
+\begin_inset Formula $r_{vector}\geq f_{1}(q)$
+\end_inset
+
+, with 
+\begin_inset Formula $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$
+\end_inset
+
+.
+ Meanwhile, we has a scalar solution for the same network existing if and
+ only if: 
+\begin_inset Formula $r_{scalar}\leq f_{2}\left(q_{s}\right)$
+\end_inset
+
+, with 
+\begin_inset Formula $f_{2}:\mathbb{Z}\mapsto\mathbb{Z}$
+\end_inset
+
+.
+ To find the field size 
+\begin_inset Formula $q_{s}$
+\end_inset
+
+ required for a scalar solution to reach the minimum achievable vector solution'
+s nodes in this setting, we consider 
+\begin_inset Formula $r_{max,scalar}=f_{2}\left(q_{s}\right)=f_{1}(q)=r_{min,vector}$
+\end_inset
+
+.
+ Finally, we calculate the gap by 
+\begin_inset Formula $g=q_{s}-q_{v}=q_{s}-q^{t}.$
+\end_inset
+
+ Throughout this study, we show that vectors solutions significantly reduce
+ the required alphabet size by this gap.
+ 
+\end_layout
+
+\begin_layout Section
+Special cases of generalized combination network
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $(l-1)$
+\end_inset
+
+-Direct Links and 
+\begin_inset Formula $l$
+\end_inset
+
+-Parrallel Links 
+\begin_inset Formula $\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This subfamily contains the largest number of direct links from the source
+ to the receivers.
+ For 
+\begin_inset Formula $l\geq2$
+\end_inset
+
+, this network 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+ yields the gap 
+\begin_inset Formula $q^{(l-1)t^{2}/l+\mathcal{O}(t)}$
+\end_inset
+
+ between vector solutions and optimal scalar solutions.
+ The vector solution is based on an 
+\begin_inset Formula $\mathcal{MRD}\left[lt\times lt,t\right]_{q}$
+\end_inset
+
+ code.
+ Further, the gap tends to 
+\begin_inset Formula $q^{t^{2}/2+\mathcal{O}(t)}$
+\end_inset
+
+ for large 
+\begin_inset Formula $l$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+There is a scalar linear solution of field size 
+\begin_inset Formula $q_{s}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+ network, where 
+\begin_inset Formula $l\geq2$
+\end_inset
+
+, if and only if 
+\begin_inset Formula $r\leq\left[\begin{array}{c}
+2l\\
+l
+\end{array}\right]_{q_{s}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The 1-Direct Link and 
+\begin_inset Formula $l$
+\end_inset
+
+-Parrallel Links 
+\begin_inset Formula $\mathcal{N}_{h=2l,r,s=2l+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the smallest direct-link subfamily has an vector solution outperforming
+ the optimal scalar solution, i.e.
+ an vector solution outperforming the optimal scalar has not yet been found
+ for the network 
+\begin_inset Formula $(0,l>1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+.
+ Similar to the previous subfamily 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
+\end_inset
+
+, when 
+\begin_inset Formula $l\geq2$
+\end_inset
+
+ or 
+\begin_inset Formula $h\geq4$
+\end_inset
+
+, this network yields the largest gap 
+\begin_inset Formula $q^{t^{2}/2+\mathcal{O}(t)}$
+\end_inset
+
+ in the alphabet size by using the same approach with an 
+\begin_inset Formula $\mathcal{MRD}\left[lt\times lt,(l-1)t\right]_{q}$
+\end_inset
+
+ code.
+ 
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+-Direct Links 
+\begin_inset Formula $\mathcal{N}_{h,r,s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This subfamily is denoted as 
+\begin_inset Formula $\left(\epsilon\geq1,l=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ and is the most focus topic on this thesis, because it motivates some interesti
+ng questions on a classic coding problem and on a new type of subspace code
+ problem.
+ In the chapter 3, we show our largest code set with low number of subspace
+ codes for the network 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $\left(\epsilon=0,l=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ Combination Network
+\end_layout
+
+\begin_layout Standard
+Since the scalar solution for the combination network uses an 
+\begin_inset Formula $MDS$
+\end_inset
+
+ code, a vector solution based on subspace codes must go beyond the 
+\begin_inset Formula $MDS$
+\end_inset
+
+ bound, i.e.
+ Singleton bound 
+\begin_inset Formula $d\leq n-k+1$
+\end_inset
+
+, to outperform the scalar one.
+ In paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+, it is proved that vector solutions based on subspace codes cannot outperform
+ optimal scalar linear solutions for 
+\begin_inset Formula $h=2$
+\end_inset
+
+, and they conjecture it for all 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Unfortunately, a vector solution based on an 
+\begin_inset Formula $\mathcal{MRD}\left[t\times t,t\right]_{q}$
+\end_inset
+
+ code is also proved that it cannot outperform the optimal scalar linear
+ solution.
+\end_layout
+
+\begin_layout Subsection
+The 2 networks yields gap 
+\begin_inset Formula $q^{(h-3)t^{2}/(h-1)+\mathcal{O}(t)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $h=2l-1$
+\end_inset
+
+: 
+\begin_inset Formula $\left(\epsilon=l-2,l\right)-\mathcal{N}_{h=2l-1,r,s=3l-2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $h=2l+1$
+\end_inset
+
+: 
+\begin_inset Formula $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l+1,r,s=3l-1}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part
@@ -1761,26 +2071,28 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-What is the achieved gap?
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The 
+\begin_inset Formula $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nw_e1_l1_h3_r_s4"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1788,17 +2100,47 @@ What is the achieved gap?
 
 \end_layout
 
-\begin_layout Standard
-Following to 
-\begin_inset ERT
-status open
-
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4.pdf
+	width 50page%
+	rotateOrigin center
 
-Equation~
-\backslash
-ref{tab:linear_system}
+\end_inset
+
+
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Conjecture
+For the network 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+, the probability that vector solution does not exist is less than or equal
+ to 
+\begin_inset Formula $\stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Proof:
+\shape default
+ Following to Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:linear_system"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -1943,7 +2285,17 @@ Therefore,
 \end_inset
 
 .
- In Section XYZ, we have 
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Description_GCN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have 
 \begin_inset Formula $N=\left(\begin{array}{c}
 r\\
 \alpha
@@ -1960,16 +2312,13 @@ r\\
 \begin_inset Formula $r$
 \end_inset
 
- under the 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-constraint~
-\backslash
-ref{tab:rk_rqm_e1l1h3s4}
-\end_layout
+ under the constraint 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rk_rqm_e1l1h3s4"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -2019,6 +2368,14 @@ status open
 \backslash
 label{thm:LLL}
 \end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schwarz:2013"
+literal "false"
 
 \end_inset
 
@@ -2565,8 +2922,24 @@ noprefix "false"
 .
 \end_layout
 
+\begin_layout Conjecture
+For the network 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+, the achieved gap is 
+\begin_inset Formula $q^{t^{2}/4+\mathcal{O}(t)}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
-At this point, we continue to proceed the other constraint of LLL: 
+
+\shape italic
+Proof:
+\shape default
+ We proceed the other constraint of LLL: 
 \begin_inset Formula $4dp\leq1$
 \end_inset
 
@@ -2637,8 +3010,54 @@ In consideration of
 \begin_layout Standard
 \begin_inset Formula 
 \[
-4\cdot p\cdot d_{2}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max}
+4\cdot p\cdot d_{2}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{min,vector}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The vector network coding of 
+\begin_inset Formula $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ represents as a matrix problem
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rk_h3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3.pdf
+	width 50page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -2824,7 +3243,7 @@ Finally, we have:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-r_{max}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)
+r_{min,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)
 \]
 
 \end_inset
@@ -2849,23 +3268,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Following to 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "alg:Calculate-the-gap"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we have the gap size:
+We have the gap size:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
- & r_{max,scalar} & =r_{max,vector}\\
+ & r_{max,scalar} & =r_{min,vector}\\
 \Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square
@@ -2911,7 +3320,7 @@ noprefix "false"
 
 \begin_layout Standard
 As previous, 
-\begin_inset Formula $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{\alpha}}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+\begin_inset Formula $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{h-\epsilon}}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
 \end_inset
 
  and we need to satisfy the following:
@@ -2923,7 +3332,7 @@ As previous,
 rk\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha}}
+\boldsymbol{A}_{j_{h-\epsilon}}
 \end{array}\right]\geq ht-t\Leftrightarrow rk\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
 \]
 
@@ -3192,7 +3601,7 @@ Finally, we have from above:
 \begin_inset Formula 
 \begin{eqnarray*}
 p & \in & \Theta\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)\\
-\Rightarrow r_{max,vector} & \in & \Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)
+\Rightarrow r_{min,vector} & \in & \Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3333,7 +3742,7 @@ Calculate the gap of size
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
- & r_{max,scalar} & =r_{max,vector}\\
+ & r_{max,scalar} & =r_{min,vector}\\
 \Leftrightarrow & q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{s} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{s}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square

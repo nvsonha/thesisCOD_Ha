@@ -12,13 +12,20 @@ network.
 
 \section{$\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ Network}
 
-\noindent\fbox{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
-What is the achieved gap?%
-\end{minipage}}
+\begin{figure}[H]
+\caption{The $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$ network\label{fig:nw_e1_l1_h3_r_s4}}
 
-Following to Equation~\ref{tab:linear_system}, each receiver must
-solve a linear equation system of 3 variables with 4 equations to
-recover $h=3$ messages as below:
+\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4}
+\end{figure}
+
+\begin{conjecture}
+For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
+the probability that vector solution does not exist is less than or
+equal to $\stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}$.
+\end{conjecture}
+\textit{Proof:} Following to Equation \ref{eq:linear_system}, each
+receiver must solve a linear equation system of 3 variables with 4
+equations to recover $h=3$ messages as below:
 
 \[
 \left[\begin{array}{c}
@@ -77,17 +84,17 @@ $rk\left[\boldsymbol{A}_{j}\right]\geq3t$, we need $rk\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \boldsymbol{A}_{j_{2}}\\
 \boldsymbol{A}_{j_{3}}
-\end{array}\right]\geq2t$. In Section XYZ, we have $N=\left(\begin{array}{c}
+\end{array}\right]\geq2t$. In Section \ref{sec:Description_GCN}, we have $N=\left(\begin{array}{c}
 r\\
 \alpha
 \end{array}\right)$ and $\alpha=3$ as a fixed values. Therefore, maximizing the number
-of receivers is equivalent to maximize $r$ under the constraint~\ref{tab:rk_rqm_e1l1h3s4}.
+of receivers is equivalent to maximize $r$ under the constraint \ref{eq:rk_rqm_e1l1h3s4}.
 $\boldsymbol{A}_{j_{1}},\boldsymbol{A}_{j_{2}},\boldsymbol{A}_{j_{3}}$
 are matrices formed on any 3 of $r$ links from nodes to receivers,
 i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
 We formalize the problem by an approach with Lovász local lemma \cite{MosheSchwartz:2018}.
 \begin{thm}[Symmetric Lovász local lemma (LLL)]
-\label{thm:LLL}
+\label{thm:LLL} \cite{Schwarz:2013}
 
 A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$, such that
 each event occurs with probability at most $p$. If each event is
@@ -171,7 +178,7 @@ Pr\left[rk\left[\begin{array}{c}
 By varying $t$ in Equation (\ref{eq:p_eq_h3}), we have the following
 table:
 
-\begin{table}[h]
+\begin{table}[H]
 \caption{$r_{max}$ over variations of t\label{tab:rmax_over_t}}
 
 \begin{tabular}{|c|c|c|}
@@ -201,9 +208,12 @@ In the table (\ref{tab:rmax_over_t}), the vector solution outperforms
 the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{h=3,r,s=4}$.
 This is sufficient, later on we show computational results which vector
 solutions outperform scalar solutions in case of $t=2$ and $t=3$.
-
-At this point, we continue to proceed the other constraint of LLL:
-$4dp\leq1$. Regarding to $d$, we have:
+\begin{conjecture}
+For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
+the achieved gap is $q^{t^{2}/4+\mathcal{O}(t)}$.
+\end{conjecture}
+\textit{Proof:} We proceed the other constraint of LLL: $4dp\leq1$.
+Regarding to $d$, we have:
 
 \begin{eqnarray*}
 d(r) & \leq & 3\cdot\left(\begin{array}{c}
@@ -228,8 +238,15 @@ Hence, we have below implications:
 In consideration of $d_{2}(r)$:
 
 \[
-4\cdot p\cdot d_{2}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max}
+4\cdot p\cdot d_{2}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{min,vector}
 \]
+
+\begin{figure}[H]
+\caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+represents as a matrix problem\label{fig:rk_h3}}
+
+\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
+\end{figure}
 
 Similarly with above, $d$ and $r$ are propotional, so minimizing
 $r$ is equivelent to maximizing $p$. The purpose is to achieve a
@@ -285,16 +302,16 @@ Hence, by using the exact bound $\Theta$, we have:
 Finally, we have:
 
 \[
-r_{max}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)
+r_{min,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)
 \]
 
 Further we have: $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
 \cite{Wachter-Zeh:2018}
 
-Following to (\ref{alg:Calculate-the-gap}), we have the gap size:
+We have the gap size:
 
 \begin{eqnarray*}
- & r_{max,scalar} & =r_{max,vector}\\
+ & r_{max,scalar} & =r_{min,vector}\\
 \Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square
@@ -308,14 +325,14 @@ Following to (\ref{alg:Calculate-the-gap}), we have the gap size:
 Following to Theorem (\ref{nw_parameters}), we are interested in
 the following range: $l+\epsilon+1\leq h\leq\alpha l+\epsilon$.
 
-As previous, $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{\alpha}}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+As previous, $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{h-\epsilon}}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
 and we need to satisfy the following:
 
 \[
 rk\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha}}
+\boldsymbol{A}_{j_{h-\epsilon}}
 \end{array}\right]\geq ht-t\Leftrightarrow rk\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
 \]
 
@@ -401,7 +418,7 @@ Finally, we have from above:
 
 \begin{eqnarray*}
 p & \in & \Theta\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)\\
-\Rightarrow r_{max,vector} & \in & \Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)
+\Rightarrow r_{min,vector} & \in & \Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)
 \end{eqnarray*}
 
 
@@ -436,7 +453,7 @@ h-2
 \subsection{Calculate the gap of size}
 
 \begin{eqnarray*}
- & r_{max,scalar} & =r_{max,vector}\\
+ & r_{max,scalar} & =r_{min,vector}\\
 \Leftrightarrow & q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{s} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{s}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
