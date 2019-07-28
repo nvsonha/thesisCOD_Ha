@@ -1,0 +1,23 @@
+There are 11 billions combinations
+
+Each combination is combined by 3 different numbers a,b, and c. Let's denote 1 combination by (a, b, c)
+
+We process the combinations on 100 computers. There are only X good combinations left after processing. However, these good combinations are stored in 100 different Sqlite database files.
+
+We must learn as following:
+given a combination (a, b, c)
+[a, b]: c
+[a, c]: b
+[b, c]: a
+In other words, all pairs in a combination know the other belonging to the combination.
+Difficulty: we have 100 different database files. Assume we learn separately from each file, we always have to look up in the table where is [a, b] for example, and update its value. <<< This might be solved if we sorted (a, b, c) before processing.
+Output:
+[a, b]: {c, g, ...} - let denote {c, g, ...} as rel([a, b])
+...
+
+------
+
+Now we expand the knowledge of relationships by looking at values of pairs:
+[a, b, c]: rel([a, b]) intersects rel([a, c]) int. rel([b, c])
+
+This means we need to look up 3 pairs in the database, then use their values to form a new database for a triplet.

@@ -1,0 +1,23 @@
+25 July 2019
+
+Updates:
++Fix accent in typing Lovasz name by {\'}
++Fix (alpha -1) in r_{max,scalar}
+
+Next:
++Write down the computational results:
+++Start with relative explanation
+++Then subrelative explanation
+++Propose the algorithm
+++Difficulty in memory
+
++Continue running 4096_2x6
+
+-----------------------------------------------
+27 July 2019
+
+Updates:
++Add python folder to PATH
++Install pip by "python get-pip.py"
++Add C:\Python27\Scripts to PATH
++"pip install pyautogui"

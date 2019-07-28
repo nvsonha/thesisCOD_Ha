@@ -278,7 +278,7 @@
   url           = {http://arxiv.org/abs/1903.07692},
 }
 
-@Misc{cryptoeprint:2013:162,
+@Misc{Hamdaoui:2013,
   author       = {Yann Hamdaoui and Nicolas Sendrier},
   title        = {A Non Asymptotic Analysis of Information Set Decoding},
   howpublished = {Cryptology ePrint Archive, Report 2013/162},

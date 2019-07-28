@@ -1,0 +1,10 @@
+folder usage: du -h *
+du -h --max-depth=1
+
+screen -S [name]
+killall screen
+screen -X -S [name] quit
+screen -ls
+screen -r [name]
+
+"screen -S [name] krenew -- nice -n19 sage generate_g3_4096_2x6_csv.sage [sys.argv[1]]"

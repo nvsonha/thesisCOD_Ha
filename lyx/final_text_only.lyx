@@ -8,6 +8,14 @@
 \begin_preamble
 \usepackage{placeins}
 \usepackage{graphicx}
+
+\theoremstyle{construction}
+    \ifx\thechapter\undefined
+      \newtheorem{constr}{\protect\constructionname}
+    \else
+      \newtheorem{constr}{\protect\constructionname}[chapter]
+    \fi
+\providecommand{\constructionname}{Construction}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -88,6 +96,88 @@ theorems-ams-chap-bytype
 Preliminaries
 \end_layout
 
+\begin_layout Section
+Definition
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Vector Space
+\end_layout
+
+\end_inset
+
+ A vector space of dimension 
+\begin_inset Formula $n$
+\end_inset
+
+ over a finite field with 
+\begin_inset Formula $q$
+\end_inset
+
+ elements is denoted by 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Gaussian coefficient
+\end_layout
+
+\end_inset
+
+ Gaussian coefficient (also known as 
+\begin_inset Formula $q$
+\end_inset
+
+-binomial), which counts the number of subspaces of dimension 
+\begin_inset Formula $k$
+\end_inset
+
+ in a vector space 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+n\\
+k
+\end{array}\right]_{q}=\stackrel[i=0]{k-1}{\prod}\frac{q^{n}-q^{i}}{q^{k}-q^{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Definition
 \begin_inset Argument 1
 status open
@@ -165,11 +255,324 @@ k
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
 Projective Space
 \end_layout
 
+\end_inset
+
+ The 
+\shape italic
+projective space of order
+\shape default
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ is a set of all subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+, and is denoted by 
+\begin_inset Formula $\mathcal{P}_{q}\left(n\right)$
+\end_inset
+
+, i.e.
+ a union of all dimension 
+\begin_inset Formula $k=0,\ldots n$
+\end_inset
+
+ subspaces in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Covering Grassmannian code
+\end_layout
+
+\end_inset
+
+ An 
+\begin_inset Formula $\alpha-\left(n,k,\delta\right)_{q}^{c}$
+\end_inset
+
+ covering Grassmannian code (code in short) 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $\mathcal{G}_{q}\left(n,k\right)$
+\end_inset
+
+ such that each subset of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ codewords of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ span a subspace whose dimension is at least 
+\begin_inset Formula $\delta+k$
+\end_inset
+
+ in 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Multiple Grassmannian code
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $t-\left(n,k,\lambda\right)_{q}^{m}$
+\end_inset
+
+ multiple Grassmannian code (code in short) 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $\mathcal{G}_{q}\left(n,k\right)$
+\end_inset
+
+ such that each 
+\begin_inset Formula $t$
+\end_inset
+
+-subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+ is contained in at most 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ codewords of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
+ Following to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $m$
+\end_inset
+
+ refers to multiplicity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $\mathcal{A}_{q}\left(n,k,t;\lambda\right)$
+\end_inset
+
+ denotes the maximum size of a 
+\begin_inset Formula $t-\left(n,k,\lambda\right)_{q}^{m}$
+\end_inset
+
+ code, where there are no repeated codewords.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Subspace packing
+\end_layout
+
+\end_inset
+
+ A subspace packing 
+\begin_inset Formula $t-\left(n,k,\lambda\right)_{q}^{m}$
+\end_inset
+
+ is a set 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ of 
+\begin_inset Formula $k$
+\end_inset
+
+-subspaces or 
+\begin_inset Formula $k$
+\end_inset
+
+-dimensional subspaces (called 
+\shape italic
+blocks
+\shape default
+), such that each 
+\begin_inset Formula $t$
+\end_inset
+
+-subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+ is contained in at most 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ codewords of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Theorem
+\end_layout
+
+\begin_layout Theorem
+If 
+\begin_inset Formula $n,k,t,$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are positive integers such that 
+\begin_inset Formula $1\leq t<k<n$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq\lambda\leq\left[\begin{array}{c}
+n-t\\
+k-t
+\end{array}\right]_{q}$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+n\\
+t
+\end{array}\right]_{q}}{\left[\begin{array}{c}
+k\\
+t
+\end{array}\right]_{q}}\right\rfloor 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+If 
+\begin_inset Formula $n,k,t,$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are positive integers such that 
+\begin_inset Formula $1\leq t<k<n$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq\lambda\leq\left[\begin{array}{c}
+n-t\\
+k-t
+\end{array}\right]_{q}$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\[
+\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,t-1;\lambda\right)\right\rfloor 
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part
-Generalized combination Network 
+Generalized Combination Network 
 \begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
 \end_inset
 
@@ -659,7 +1062,7 @@ Each receiver is connected by
 \end_layout
 
 \begin_layout Section
-Network coding for networks from this network family
+Network Coding For This Network Family
 \end_layout
 
 \begin_layout Subsection
@@ -736,6 +1139,10 @@ literal "false"
 \shape italic
 solution
 \shape default
+ or to be 
+\shape italic
+solvable
+\shape default
 .
 \end_layout
 
@@ -762,6 +1169,54 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+The 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$
+\end_inset
+
+network is solvable over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+ if and only if there exists an 
+\begin_inset Formula $\alpha-\left(h,l,h-l-\epsilon\right)_{q}^{c}$
+\end_inset
+
+ code with 
+\begin_inset Formula $r$
+\end_inset
+
+ codewords.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+It is proved in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+ that the code form from the dual subspaces of 
 \end_layout
 
 \begin_layout Subsection
@@ -850,6 +1305,46 @@ A vector solution for the
 \end_inset
 
 .
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+The 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$
+\end_inset
+
+network is solvable with vectors of length 
+\begin_inset Formula $t$
+\end_inset
+
+ over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+ if and only if there exists an 
+\begin_inset Formula $\alpha-\left(ht,lt,ht-lt-\epsilon t\right)_{q}^{c}$
+\end_inset
+
+ code with 
+\begin_inset Formula $r$
+\end_inset
+
+ codewords.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -995,7 +1490,7 @@ Scalar & Vector\\
 \vdots\\
 \boldsymbol{A}_{j_{\alpha l}}\\
 \vdots\\
-\boldsymbol{B}_{j_{\alpha l+\epsilon}}
+\boldsymbol{A}_{j_{\alpha l+\epsilon}}
 \end{array}\right]
 \end{array}
 \]
@@ -2337,7 +2832,20 @@ noprefix "false"
 \end_inset
 
  matrices.
- We formalize the problem by an approach with Lovász local lemma 
+ We formalize the problem by an approach with Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz local lemma 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MosheSchwartz:2018"
@@ -2353,7 +2861,20 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-Symmetric Lovász local lemma (LLL)
+Symmetric Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz local lemma (LLL)
 \end_layout
 
 \end_inset
@@ -2610,13 +3131,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{max}$
+\begin_inset Formula $r$
 \end_inset
 
  over variations of t
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:rmax_over_t"
+name "tab:r_over_t"
 
 \end_inset
 
@@ -2894,7 +3415,7 @@ Vector Solution
 In the table 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "tab:rmax_over_t"
+reference "tab:r_over_t"
 plural "false"
 caps "false"
 noprefix "false"
@@ -3687,7 +4208,7 @@ For
 \begin_inset Formula $\Rightarrow r\leq\left[\begin{array}{c}
 \alpha\\
 1
-\end{array}\right]_{q_{s}}$
+\end{array}\right]_{q_{s}}\Rightarrow r\leq$
 \end_inset
 
 
@@ -3724,7 +4245,7 @@ Hence,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-r_{max,scalar}\leq\left[\begin{array}{c}
+r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
 h-2
 \end{array}\right]_{q_{s}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
@@ -3747,6 +4268,795 @@ Calculate the gap of size
 \Leftrightarrow & q_{s} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{s}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
 \end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Computational Results
+\end_layout
+
+\begin_layout Standard
+In Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:r_over_t"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, our vector solutions are computed by Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{3,r,4}$
+\end_inset
+
+ network regarding to 
+\begin_inset Formula $t=2$
+\end_inset
+
+ and 
+\begin_inset Formula $t=3$
+\end_inset
+
+.
+ Both construction 1 and 2 provide better results than scalar solutions.
+ 
+\end_layout
+
+\begin_layout Standard
+Construction 1: 
+\begin_inset Formula $\begin{array}{c|c}
+\boldsymbol{I}_{t} & \boldsymbol{T}\end{array}$
+\end_inset
+
+, with 
+\begin_inset Formula $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Construction 2: 
+\begin_inset Formula $\boldsymbol{T}\in MatrixSpaceUrs\left(t,3t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regarding to 
+\begin_inset Formula $t=2$
+\end_inset
+
+, the number of nodes can be at most 42 for a scalar linear coding solution,
+ while for vector network coding 89 nodes can be used, i..e.
+ 
+\begin_inset Formula $\mathcal{A}_{q=2}\left(n=6,k=2,t=3;\lambda=2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+G3
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$
+\end_inset
+
+.
+ Then a set 
+\begin_inset Formula $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+\end_inset
+
+ forms a subset of 
+\begin_inset Formula $g3$
+\end_inset
+
+ if
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+rk\left[\begin{array}{c}
+\boldsymbol{A}\\
+\boldsymbol{B}\\
+\boldsymbol{C}
+\end{array}\right]\geq2n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+In other words, all 
+\begin_inset Formula $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+\end_inset
+
+ span a subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{2n}$
+\end_inset
+
+ whose dimension is at least 
+\begin_inset Formula $2n$
+\end_inset
+
+.
+ We denote 
+\begin_inset Formula $g3_{i}$
+\end_inset
+
+ as a subset of 
+\begin_inset Formula $g3$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+g3=\left\{ \left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}\right\} =\left\{ g3_{i}\right\} ,i=0,1,2,...,\left|g3\right|-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+with 
+\begin_inset Formula $g3_{i}=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Relative
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\boldsymbol{C}$
+\end_inset
+
+ is called a relative of a tuple 
+\begin_inset Formula $\left(\boldsymbol{A},\boldsymbol{B}\right)$
+\end_inset
+
+ if 
+\begin_inset Formula $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in g3$
+\end_inset
+
+ and denoted as following:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Sub-relative
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\boldsymbol{D}$
+\end_inset
+
+ is called a sub-relative of a tuple 
+\begin_inset Formula $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\in g3$
+\end_inset
+
+ if:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{c}
+\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right\} \in g3\\
+\left\{ \boldsymbol{A},\boldsymbol{C},\boldsymbol{D}\right\} \in g3\\
+\left\{ \boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} \in g3
+\end{array}\right.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+It is denoted as: 
+\begin_inset Formula 
+\[
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+This definition is reused for a set of 5 or more matrices.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+MatrixSpace
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $MatrixSpace(n,m)=\left\{ \boldsymbol{A}:\boldsymbol{A}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+MatrixSpace with unique row space
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $MatrixSpaceUrs(n,m)$
+\end_inset
+
+ is a subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n\times m}$
+\end_inset
+
+, where any 
+\begin_inset Formula $\boldsymbol{A},\boldsymbol{B}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$
+\end_inset
+
+ have their row spaces such that:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\[
+\mathcal{R}_{q}\left(\boldsymbol{A}\right)\neq\mathcal{R}_{q}\left(\boldsymbol{B}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+where 
+\begin_inset Formula $\mathcal{R}_{q}\left(.\right)$
+\end_inset
+
+ denotes the row space of a matrix.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Increasing Method 
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Increasing-Method"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+INPUT
+\series default
+: 
+\begin_inset Formula $g3$
+\end_inset
+
+ of N matrices belonging to 
+\begin_inset Formula $MatrixSpace(n,m)$
+\end_inset
+
+ or 
+\begin_inset Formula $MatrixSpaceUrs(n,m)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Create a list of 
+\begin_inset Formula $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right],\forall\boldsymbol{A},\boldsymbol{B}\in MatrixSpace(n,m),\boldsymbol{A}\neq\boldsymbol{B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Choose all 
+\begin_inset Formula $\{\boldsymbol{A},\boldsymbol{B}\}$
+\end_inset
+
+ such that:
+\begin_inset Formula 
+\[
+\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|=\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|_{max}
+\]
+
+\end_inset
+
+with an upper bound for the final result set's cardinality 
+\begin_inset Formula $\left|Res\right|\leq UB,UB=\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|_{max}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For each found pair set of 
+\begin_inset Formula $\{\boldsymbol{A},\boldsymbol{B}\}$
+\end_inset
+
+, we compute the union set of the pair and its Relative, i.e., 
+\begin_inset Formula $\{\boldsymbol{A},\boldsymbol{B}\}\cup rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$
+\end_inset
+
+.
+ If the union set is repeated or duplicated, we take only the first pair.
+ We denote the chosen set as 
+\begin_inset Formula $main\_team\_and\_rel$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Considering 
+\begin_inset Formula $main\_team\_and\_rel_{i}\in main\_team\_and\_rel$
+\end_inset
+
+ with 
+\begin_inset Formula $i=0,1,2,...,\left|main\_team\_and\_rel\right|-1$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\[
+\begin{array}{c}
+rel_{j}\in rel\left[main\_team\_and\_rel_{i}\right]\\
+\forall main\_team\_and\_rel_{i}\in main\_team\_and\_rel\\
+j=0,1,2,...,\left|main\_team\_and\_rel_{i}\right|-1
+\end{array}
+\]
+
+\end_inset
+
+to compute 
+\begin_inset Formula $n\_main\_team_{i}$
+\end_inset
+
+, which is combined by 
+\begin_inset Formula $\{\boldsymbol{A},\boldsymbol{B},rel_{j}\}$
+\end_inset
+
+ if 
+\begin_inset Formula $\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},rel_{j}\right)\right]\right|_{max}$
+\end_inset
+
+ similarly to step 2.
+\end_layout
+
+\begin_layout Enumerate
+Keep only 
+\begin_inset Formula $n\_main\_team_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $\left|subrel\left[\left(n\_main\_team_{i}\right)\right]\right|_{max}$
+\end_inset
+
+ with 
+\begin_inset Formula $i=0,1,2,...,\left|main\_team\_and\_rel\right|-1$
+\end_inset
+
+.
+ Similar to step 3, we also avoid duplicated values here.
+\end_layout
+
+\begin_layout Enumerate
+Repeat step 4, 5, 6 until 
+\begin_inset Formula $\left|subrel\left[\left(n\_main\_team_{i}\right)\right]\right|_{max}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+OUTPUT
+\series default
+: Get the final result set with all matrices such that:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+Res=\left\{ \boldsymbol{X}_{i}:\boldsymbol{X}_{i}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}\right\} ,i=0,1,...,UB
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+with any 3 combinations of 
+\begin_inset Formula $\left(\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\right)\in g3,\forall\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\in Res,\boldsymbol{X}_{j}\neq\boldsymbol{X}_{k}\neq\boldsymbol{X}_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $j\neq k\neq t$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example 1: Let 
+\begin_inset Formula $n=1,m=2,q=2$
+\end_inset
+
+.
+ Then we have 
+\begin_inset Formula $N=4$
+\end_inset
+
+ matrices (vectors):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\boldsymbol{A}=[0,0]\\
+\boldsymbol{B}=[0,1]\\
+\boldsymbol{C}=[1,0]\\
+\boldsymbol{D}=[1,1]
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Step 1
+\bar default
+: Due to, any 3 of them form a matrix with 
+\begin_inset Formula $rk\geq2n$
+\end_inset
+
+, we have the relative as following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=[\boldsymbol{C},\boldsymbol{D}]\\
+rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=[\boldsymbol{B},\boldsymbol{D}]\\
+rel\left[\left(\boldsymbol{A},\boldsymbol{D}\right)\right]=[\boldsymbol{B},\boldsymbol{C}]\\
+rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]=[\boldsymbol{A},\boldsymbol{D}]\\
+rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{C}]\\
+rel\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{B}]
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Step 2
+\bar default
+: We get 
+\begin_inset Formula $UB=2$
+\end_inset
+
+ and all 
+\begin_inset Formula $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $
+\end_inset
+
+, because 
+\begin_inset Formula $\underset{\begin{array}{c}
+\forall\boldsymbol{X},\boldsymbol{Y}\in MatrixSpace(1,2)\\
+\boldsymbol{X}\neq\boldsymbol{Y}
+\end{array}}{max}\left(rel\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Step 3
+\bar default
+: Due to 
+\begin_inset Formula $\left\{ \boldsymbol{X},\boldsymbol{Y}\right\} \cup rel\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $
+\end_inset
+
+ with 
+\begin_inset Formula $\left(\boldsymbol{X},\boldsymbol{Y}\right)$
+\end_inset
+
+ are all tuples found in Step 2.
+ We keep only 
+\begin_inset Formula $main\_team\_and\_rel=\left\{ \left(\boldsymbol{A},\boldsymbol{B}\right):rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Step 4
+\bar default
+: Regarding to 
+\begin_inset Formula $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$
+\end_inset
+
+, we have 
+\begin_inset Formula $rel_{0}=\boldsymbol{C},rel_{1}=\boldsymbol{D}$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula $\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},rel_{0}\right)\right]\right|=\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},rel_{1}\right)\right]\right|=1$
+\end_inset
+
+, so we got 
+\begin_inset Formula $n\_main\_team_{0}=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+\end_inset
+
+ as the only output of this step.
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Step 5
+\bar default
+: Because step 4 gets only 
+\begin_inset Formula $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+\end_inset
+
+, we do not need to proceed anything here.
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+Step 6
+\bar default
+: We repeat step 4 and 5 once more and we get 
+\begin_inset Formula $Res=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $
+\end_inset
+
+, i.e., all the matrices can be used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example 2: For further understading, we use Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rel_example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for illustration.
+\end_layout
+
+\begin_layout Standard
+In the left-bottom corner, we observe that the size of relative becomes
+ smaller when its tuple identity is larger, i.e.
+ 
+\begin_inset Formula $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
+\end_inset
+
+ or 
+\begin_inset Formula $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$
+\end_inset
+
+.
+ It explains why 
+\begin_inset Formula $UB$
+\end_inset
+
+ is the maximum numbers of matrices that we can find in 
+\begin_inset Formula $Res$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Regarding to the left-top corner and the right one, the visual explanation
+ of 
+\begin_inset Formula $subrel$
+\end_inset
+
+ is shown.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The vector network coding of 
+\begin_inset Formula $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ represents as a matrix problem
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rel_example"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example.pdf
+	width 50page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
