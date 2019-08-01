@@ -76,7 +76,7 @@ $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsi
 \end{table}
 
 
-\section{Network coding for networks from this network family}
+\section{Network Coding For This Network Family}
 
 \subsection{Scalar network coding}
 
@@ -92,12 +92,20 @@ of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$ for the corresponding receiver.
 Each receiver can accordingly reconstruct the packet if and only if
 the linear span of $\alpha$ $l$-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
 from the nodes is at least of dimension $h-\epsilon$. When this necessary
-condition is satisfied, the network is said to have a \textit{solution}.
+condition is satisfied, the network is said to have a \textit{solution}
+or to be \textit{solvable}.
 \begin{thm}
 The $(0,1)-\mathcal{N}_{h,r,s}$ network has a solution if and only
 if there exists an $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|h,r-\alpha+1\right)$
 $\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|$-ary error correcting
 code. \cite{Riis:2006}
+\end{thm}
+%
+\begin{thm}
+The $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network is
+solvable over $\ensuremath{\mathbb{F}}_{q}$ if and only if there
+exists an $\alpha-\left(h,l,h-l-\epsilon\right)_{q}^{c}$ code with
+$r$ codewords. \cite{Zhang:2019} \label{theo:scalar_sol_exist}
 \end{thm}
 
 \subsection{Vector network coding}
@@ -118,6 +126,20 @@ exists if and only if there exists $\mathcal{G}_{q}\left(ht,lt\right)$
 such that any $\alpha$ subspaces of the set span a subspace of dimension
 at least $\left(h-\epsilon\right)t$. \cite{Zhang:2019}
 \end{thm}
+%
+\begin{thm}
+The $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network is
+solvable with vectors of length $t$ over $\ensuremath{\mathbb{F}}_{q}$
+if and only if there exists an $\alpha-\left(ht,lt,ht-lt-\epsilon t\right)_{q}^{c}$
+code with $r$ codewords. \cite{Zhang:2019}
+\end{thm}
+\begin{cor}
+The $\alpha-\left(n=ht,n-k=ht-lt,\lambda=ht-lt-\epsilon t\right)_{q}^{m}$
+code formed from the dual subspaces of the $\alpha-\left(n=ht,k=lt,\lambda=ht-lt-\epsilon t\right)_{q}^{c}$
+code yields the upper bound of $\mathcal{A}_{q}\left(n=ht,n-k=ht-lt,\alpha;\lambda\right)$
+as maximum number of nodes for a vector network coding of the $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+network. \label{cor:dual_subspaces}
+\end{cor}
 
 \subsection{Network as a matrix channel}
 
@@ -178,7 +200,7 @@ Scalar & Vector\\
 \vdots\\
 \boldsymbol{A}_{j_{\alpha l}}\\
 \vdots\\
-\boldsymbol{B}_{j_{\alpha l+\epsilon}}
+\boldsymbol{A}_{j_{\alpha l+\epsilon}}
 \end{array}\right]
 \end{array}
 \]

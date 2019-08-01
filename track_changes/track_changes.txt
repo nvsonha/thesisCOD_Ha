@@ -20,4 +20,30 @@ Updates:
 +Add python folder to PATH
 +Install pip by "python get-pip.py"
 +Add C:\Python27\Scripts to PATH
-+"pip install pyautogui"
+>>pip install pyautogui
+
+-----------------------------------------------
+29 July 2019
+
++Fix uline not supported
+>>\PassOptionsToPackage{normalem}{ulem}
+>>\usepackage{ulem}
+
++Normaline the line endings:
+++Windows (CR LF)
+++Macintosh (CR)
+++Unix (LF)
+++Unicode Line Separator (LS)
+++Unicode Paragraph Separator (PS)
+
+-----------------------------------------------
+30 July 2019
+
++ Useful links
+http://www.ibr.cs.tu-bs.de/users/sun/1997.html
+
+-----------------------------------------------
+31 July 2019
+
++Warning name of Bib key not found
++Error in Bib \textquotesingle, due to lack of \usepackage{textcomp}

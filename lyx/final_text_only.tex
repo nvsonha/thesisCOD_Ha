@@ -12,6 +12,8 @@
 \usepackage{stackrel}
 \usepackage{graphicx}
 \usepackage{wasysym}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
 
 \makeatletter
 
@@ -21,6 +23,10 @@
 
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
+\floatstyle{ruled}
+\newfloat{algorithm}{tbp}{loa}
+\providecommand{\algorithmname}{Algorithm}
+\floatname{algorithm}{\protect\algorithmname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \theoremstyle{definition}
@@ -40,6 +46,12 @@
       \newtheorem{rem}{\protect\remarkname}
     \else
       \newtheorem{rem}{\protect\remarkname}[chapter]
+    \fi
+\theoremstyle{plain}
+    \ifx\thechapter\undefined
+  \newtheorem{cor}{\protect\corollaryname}
+\else
+      \newtheorem{cor}{\protect\corollaryname}[chapter]
     \fi
 \theoremstyle{definition}
     \ifx\thechapter\undefined
@@ -64,10 +76,19 @@
 \usepackage{placeins}
 \usepackage{graphicx}
 
+\theoremstyle{construction}
+    \ifx\thechapter\undefined
+      \newtheorem{constr}{\protect\constructionname}
+    \else
+      \newtheorem{constr}{\protect\constructionname}[chapter]
+    \fi
+\providecommand{\constructionname}{Construction}
+
 \makeatother
 
 \usepackage{babel}
 \providecommand{\conjecturename}{Conjecture}
+\providecommand{\corollaryname}{Corollary}
 \providecommand{\definitionname}{Definition}
 \providecommand{\examplename}{Example}
 \providecommand{\lemmaname}{Lemma}
@@ -77,6 +98,25 @@
 \begin{document}
 
 \part{Preliminaries}
+
+\section{Definition}
+\begin{defn}[Vector Space]
+ A vector space of dimension $n$ over a finite field with $q$ elements
+is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$.
+\end{defn}
+%
+\begin{defn}[Gaussian coefficient]
+ Gaussian coefficient (also known as $q$-binomial), which counts
+the number of subspaces of dimension $k$ in a vector space $\ensuremath{\mathbb{F}}_{q}^{n}$:
+
+\[
+\left[\begin{array}{c}
+n\\
+k
+\end{array}\right]_{q}=\stackrel[i=0]{k-1}{\prod}\frac{q^{n}-q^{i}}{q^{k}-q^{i}}
+\]
+\end{defn}
+%
 \begin{defn}[Grassmannian Code]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
@@ -98,9 +138,74 @@ n\\
 k
 \end{array}\right]_{q}\leq4q^{\left(n-k\right)k}$.
 \end{defn}
-Projective Space
+%
+\begin{defn}[Projective Space]
+ The \textit{projective space of order} $n$ is a set of all subspaces
+of $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{P}_{q}\left(n\right)$,
+i.e. a union of all dimension $k=0,\ldots n$ subspaces in $\ensuremath{\mathbb{F}}_{q}^{n}$
+or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$.
+\end{defn}
+%
+\begin{defn}[Covering Grassmannian code]
+ An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
+code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
+such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
+a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$.
+\end{defn}
+%
+\begin{defn}[Multiple Grassmannian code]
+ A $t-\left(n,k,\lambda\right)_{q}^{m}$ multiple Grassmannian code
+(code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
+such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
+is contained in at most $\lambda$ codewords of $\mathcal{C}$. Following
+to \cite{Zhang:2019}, $m$ refers to multiplicity.
+\end{defn}
+%
+\begin{defn}
+$\mathcal{A}_{q}\left(n,k,t;\lambda\right)$ denotes the maximum size
+of a $t-\left(n,k,\lambda\right)_{q}^{m}$ code, where there are no
+repeated codewords.
+\end{defn}
+%
+\begin{defn}[Subspace packing]
+ A subspace packing $t-\left(n,k,\lambda\right)_{q}^{m}$ is a set
+$\mathcal{S}$ of $k$-subspaces or $k$-dimensional subspaces (called
+\textit{blocks}), such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
+is contained in at most $\lambda$ codewords of $\mathcal{C}$.
+\end{defn}
 
-\part{Generalized combination Network $(\epsilon,l)-\mathcal{N}_{h,r,s}$}
+\section{Theorem}
+\begin{thm}
+If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
+and $1\leq\lambda\leq\left[\begin{array}{c}
+n-t\\
+k-t
+\end{array}\right]_{q}$, then
+
+\[
+\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+n\\
+t
+\end{array}\right]_{q}}{\left[\begin{array}{c}
+k\\
+t
+\end{array}\right]_{q}}\right\rfloor 
+\]
+\end{thm}
+%
+\begin{thm}
+If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
+and $1\leq\lambda\leq\left[\begin{array}{c}
+n-t\\
+k-t
+\end{array}\right]_{q}$, then
+
+\[
+\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,t-1;\lambda\right)\right\rfloor 
+\]
+\end{thm}
+
+\part{Generalized Combination Network $(\epsilon,l)-\mathcal{N}_{h,r,s}$}
 
 \section{Description \label{sec:Description_GCN}}
 
@@ -176,7 +281,7 @@ $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsi
 \end{table}
 
 
-\section{Network coding for networks from this network family}
+\section{Network Coding For This Network Family}
 
 \subsection{Scalar network coding}
 
@@ -192,12 +297,20 @@ of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$ for the corresponding receiver.
 Each receiver can accordingly reconstruct the packet if and only if
 the linear span of $\alpha$ $l$-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
 from the nodes is at least of dimension $h-\epsilon$. When this necessary
-condition is satisfied, the network is said to have a \textit{solution}.
+condition is satisfied, the network is said to have a \textit{solution}
+or to be \textit{solvable}.
 \begin{thm}
 The $(0,1)-\mathcal{N}_{h,r,s}$ network has a solution if and only
 if there exists an $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|h,r-\alpha+1\right)$
 $\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|$-ary error correcting
 code. \cite{Riis:2006}
+\end{thm}
+%
+\begin{thm}
+The $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network is
+solvable over $\ensuremath{\mathbb{F}}_{q}$ if and only if there
+exists an $\alpha-\left(h,l,h-l-\epsilon\right)_{q}^{c}$ code with
+$r$ codewords. \cite{Zhang:2019} \label{theo:scalar_sol_exist}
 \end{thm}
 
 \subsection{Vector network coding}
@@ -218,6 +331,20 @@ exists if and only if there exists $\mathcal{G}_{q}\left(ht,lt\right)$
 such that any $\alpha$ subspaces of the set span a subspace of dimension
 at least $\left(h-\epsilon\right)t$. \cite{Zhang:2019}
 \end{thm}
+%
+\begin{thm}
+The $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network is
+solvable with vectors of length $t$ over $\ensuremath{\mathbb{F}}_{q}$
+if and only if there exists an $\alpha-\left(ht,lt,ht-lt-\epsilon t\right)_{q}^{c}$
+code with $r$ codewords. \cite{Zhang:2019}
+\end{thm}
+\begin{cor}
+The $\alpha-\left(n=ht,n-k=ht-lt,\lambda=ht-lt-\epsilon t\right)_{q}^{m}$
+code formed from the dual subspaces of the $\alpha-\left(n=ht,k=lt,\lambda=ht-lt-\epsilon t\right)_{q}^{c}$
+code yields the upper bound of $\mathcal{A}_{q}\left(n=ht,n-k=ht-lt,\alpha;\lambda\right)$
+as maximum number of nodes for a vector network coding of the $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+network. \label{cor:dual_subspaces}
+\end{cor}
 
 \subsection{Network as a matrix channel}
 
@@ -278,7 +405,7 @@ Scalar & Vector\\
 \vdots\\
 \boldsymbol{A}_{j_{\alpha l}}\\
 \vdots\\
-\boldsymbol{B}_{j_{\alpha l+\epsilon}}
+\boldsymbol{A}_{j_{\alpha l+\epsilon}}
 \end{array}\right]
 \end{array}
 \]
@@ -583,8 +710,9 @@ of receivers is equivalent to maximize $r$ under the constraint \ref{eq:rk_rqm_e
 $\boldsymbol{A}_{j_{1}},\boldsymbol{A}_{j_{2}},\boldsymbol{A}_{j_{3}}$
 are matrices formed on any 3 of $r$ links from nodes to receivers,
 i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
-We formalize the problem by an approach with Lovász local lemma \cite{MosheSchwartz:2018}.
-\begin{thm}[Symmetric Lovász local lemma (LLL)]
+We formalize the problem by an approach with Lov\'asz local lemma
+\cite{MosheSchwartz:2018}.
+\begin{thm}[Symmetric Lov\'asz local lemma (LLL)]
 \label{thm:LLL} \cite{Schwarz:2013}
 
 A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$, such that
@@ -670,7 +798,7 @@ By varying $t$ in Equation (\ref{eq:p_eq_h3}), we have the following
 table:
 
 \begin{table}[H]
-\caption{$r_{max}$ over variations of t\label{tab:rmax_over_t}}
+\caption{$r$ over variations of t\label{tab:r_over_t}}
 
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -695,7 +823,7 @@ t & Scalar Solution & Vector Solution\tabularnewline
 2 respectively
 \end{table}
 
-In the table (\ref{tab:rmax_over_t}), the vector solution outperforms
+In the table (\ref{tab:r_over_t}), the vector solution outperforms
 the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{h=3,r,s=4}$.
 This is sufficient, later on we show computational results which vector
 solutions outperform scalar solutions in case of $t=2$ and $t=3$.
@@ -797,7 +925,14 @@ r_{min,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{
 \]
 
 Further we have: $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
-\cite{Wachter-Zeh:2018}
+\cite{Wachter-Zeh:2018}, specifically, 
+\begin{equation}
+r_{scalar}\leq2\left[\begin{array}{c}
+3\\
+1
+\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right)\label{eq:r_scalar_max}
+\end{equation}
+. 
 
 We have the gap size:
 
@@ -925,7 +1060,7 @@ whose dimension is at least $\left(h-1\right)$, with $q_{s}=q^{t}$.%
 For $3\leq\alpha<h$: all $\alpha$ links must be distinct $\Rightarrow r\leq\left[\begin{array}{c}
 \alpha\\
 1
-\end{array}\right]_{q_{s}}$
+\end{array}\right]_{q_{s}}\Rightarrow r\leq$
 
 For $\alpha\geq h\geq3$: to achieve $(h-1)$-subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$,
 no $\alpha$ links will contain a vector which is contained in the
@@ -934,7 +1069,7 @@ same $(h-2)$-subspace.
 Hence,
 
 \[
-r_{max,scalar}\leq\left[\begin{array}{c}
+r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
 h-2
 \end{array}\right]_{q_{s}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
@@ -949,6 +1084,216 @@ h-2
 \Leftrightarrow & q_{s} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{s}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
 \end{eqnarray*}
+
+
+\part{Computational Results}
+
+In Table \ref{tab:r_over_t}, our vector solutions are computed by
+Algorithm \ref{alg:Increasing-Method} for the $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{3,r,4}$
+network regarding to $t=2$ and $t=3$. Both construction 1 and 2
+provide better results than scalar solutions. 
+
+Construction 1: $\begin{array}{c|c}
+\boldsymbol{I}_{t} & \boldsymbol{T}\end{array}$, with $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$
+
+Construction 2: $\boldsymbol{T}\in MatrixSpaceUrs\left(t,3t\right)$
+
+Regarding to $t=2$, for a scalar network coding solution we need
+a $3-\left(3,1,1\right)_{4}^{c}$ code ($q_{v}=2^{2})$ by Theorem
+\ref{theo:scalar_sol_exist}. The largest such code consists of the
+21 $1$-dimensionall subspaces of $\ensuremath{\mathbb{F}}_{4}^{3}$,
+each one is contained twice in the code. Therefore, the number of
+nodes can be at most 42 for a scalar linear coding solution, while
+for vector network coding 89 nodes can be used, i..e. $\mathcal{A}_{q=2}\left(n=6,k=4,t=3;\lambda=2\right)\geq89$
+following to Corollary \ref{cor:dual_subspaces}. This is a new lower
+bound for $\mathcal{A}_{2}\left(6,4,3;2\right)$ compared to a code
+with 51 codewords presented in \cite{Wachter-Zeh:2018}. The smallest
+alphabet size for a scalar solution with 89 nodes exists is $q_{s}=8$.
+By Equation \ref{eq:r_scalar_max}, there are 73 $1$-dimensional
+subspaces of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can
+be used twice in the code; therefore, we have in total 146 possible
+codesword, but only 89 codewords are required.
+\begin{defn}[G3]
+ Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
+Then a set $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+forms a subset of $g3$ if
+
+\[
+rk\left[\begin{array}{c}
+\boldsymbol{A}\\
+\boldsymbol{B}\\
+\boldsymbol{C}
+\end{array}\right]\geq2n
+\]
+
+In other words, all $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+span a subspace of $\ensuremath{\mathbb{F}}_{q}^{2n}$ whose dimension
+is at least $2n$. We denote $g3_{i}$ as a subset of $g3$:
+
+\[
+g3=\left\{ \left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}\right\} =\left\{ g3_{i}\right\} ,i=0,1,2,...,\left|g3\right|-1
+\]
+
+with $g3_{i}=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}$
+\end{defn}
+%
+\begin{defn}[Relative]
+ Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
+Then $\boldsymbol{C}$ is called a relative of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
+if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in g3$
+and denoted as following:
+
+\[
+rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}
+\]
+\end{defn}
+%
+\begin{defn}[Sub-relative]
+ Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
+Then $\boldsymbol{D}$ is called a sub-relative of a tuple $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\in g3$
+if:
+
+\[
+\left\{ \begin{array}{c}
+\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right\} \in g3\\
+\left\{ \boldsymbol{A},\boldsymbol{C},\boldsymbol{D}\right\} \in g3\\
+\left\{ \boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} \in g3
+\end{array}\right.
+\]
+
+It is denoted as: 
+\[
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}
+\]
+
+This definition is reused for a set of 5 or more matrices.
+\end{defn}
+%
+\begin{defn}[MatrixSpace]
+ $MatrixSpace(n,m)=\left\{ \boldsymbol{A}:\boldsymbol{A}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}\right\} $
+\end{defn}
+%
+\begin{defn}[MatrixSpace with unique row space]
+ $MatrixSpaceUrs(n,m)$ is a subspace of $\ensuremath{\mathbb{F}}_{q}^{n\times m}$,
+where any $\boldsymbol{A},\boldsymbol{B}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$
+have their row spaces such that:
+
+\[
+\mathcal{R}_{q}\left(\boldsymbol{A}\right)\neq\mathcal{R}_{q}\left(\boldsymbol{B}\right)
+\]
+
+where $\mathcal{R}_{q}\left(.\right)$ denotes the row space of a
+matrix.
+\end{defn}
+\begin{algorithm}[H]
+\caption{Increasing Method \label{alg:Increasing-Method}}
+
+\textbf{INPUT}: $g3$ of N matrices belonging to $MatrixSpace(n,m)$
+or $MatrixSpaceUrs(n,m)$
+\begin{enumerate}
+\item Create a list of $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right],\forall\boldsymbol{A},\boldsymbol{B}\in MatrixSpace(n,m),\boldsymbol{A}\neq\boldsymbol{B}$
+\item Choose all $\{\boldsymbol{A},\boldsymbol{B}\}$ such that:
+\[
+\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|=\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|_{max}
+\]
+with an upper bound for the final result set's cardinality $\left|Res\right|\leq UB,UB=\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|_{max}$.
+\item For each found pair set of $\{\boldsymbol{A},\boldsymbol{B}\}$, we
+compute the union set of the pair and its Relative, i.e., $\{\boldsymbol{A},\boldsymbol{B}\}\cup rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$.
+If the union set is repeated or duplicated, we take only the first
+pair generating such value. We denote the chosen set as $main\_team\_and\_rel$
+\item Considering $main\_team\_and\_rel_{i}\in main\_team\_and\_rel$ with
+$i=0,1,2,...,\left|main\_team\_and\_rel\right|-1$, we have 
+\[
+\begin{array}{c}
+rel_{j}\in rel\left[main\_team\_and\_rel_{i}\right]\\
+\forall main\_team\_and\_rel_{i}\in main\_team\_and\_rel\\
+j=0,1,2,...,\left|main\_team\_and\_rel_{i}\right|-1
+\end{array}
+\]
+to compute $n\_main\_team_{i}$, which is combined by $\{\boldsymbol{A},\boldsymbol{B},rel_{j}\}$
+if $\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},rel_{j}\right)\right]\right|_{max}$
+similarly to step 2.
+\item Keep only $n\_main\_team_{i}$ with $\left|subrel\left[\left(n\_main\_team_{i}\right)\right]\right|_{max}$
+with $i=0,1,2,...,\left|main\_team\_and\_rel\right|-1$. Similar to
+step 3, we also avoid duplicated values here.
+\item Repeat step 4, 5, 6 until $\left|subrel\left[\left(n\_main\_team_{i}\right)\right]\right|_{max}=0$
+\end{enumerate}
+\textbf{OUTPUT}: Get the final result set with all matrices such that:
+
+\[
+Res=\left\{ \boldsymbol{X}_{i}:\boldsymbol{X}_{i}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}\right\} ,i=0,1,...,UB
+\]
+
+with any 3 combinations of $\left(\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\right)\in g3,\forall\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\in Res,\boldsymbol{X}_{j}\neq\boldsymbol{X}_{k}\neq\boldsymbol{X}_{t}$
+and $j\neq k\neq t$.
+\end{algorithm}
+
+Example 1: Let $n=1,m=2,q=2$. Then we have $N=4$ matrices (vectors):
+
+\[
+\begin{array}{c}
+\boldsymbol{A}=[0,0]\\
+\boldsymbol{B}=[0,1]\\
+\boldsymbol{C}=[1,0]\\
+\boldsymbol{D}=[1,1]
+\end{array}
+\]
+
+\uline{Step 1}: Due to, any 3 of them form a matrix with $rk\geq2n$,
+we have the relative as following:
+
+\[
+\begin{array}{c}
+rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=[\boldsymbol{C},\boldsymbol{D}]\\
+rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=[\boldsymbol{B},\boldsymbol{D}]\\
+rel\left[\left(\boldsymbol{A},\boldsymbol{D}\right)\right]=[\boldsymbol{B},\boldsymbol{C}]\\
+rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]=[\boldsymbol{A},\boldsymbol{D}]\\
+rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{C}]\\
+rel\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{B}]
+\end{array}
+\]
+
+\uline{Step 2}: We get $UB=2$ and all $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $,
+because $\underset{\begin{array}{c}
+\forall\boldsymbol{X},\boldsymbol{Y}\in MatrixSpace(1,2)\\
+\boldsymbol{X}\neq\boldsymbol{Y}
+\end{array}}{max}\left(rel\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$
+
+\uline{Step 3}: Due to $\left\{ \boldsymbol{X},\boldsymbol{Y}\right\} \cup rel\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $
+with $\left(\boldsymbol{X},\boldsymbol{Y}\right)$ are all tuples
+found in Step 2. We keep only $main\_team\_and\_rel=\left\{ \left(\boldsymbol{A},\boldsymbol{B}\right):rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right\} $
+
+\uline{Step 4}: Regarding to $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+we have $rel_{0}=\boldsymbol{C},rel_{1}=\boldsymbol{D}$. Then, $\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},rel_{0}\right)\right]\right|=\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},rel_{1}\right)\right]\right|=1$,
+so we got $n\_main\_team_{0}=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
+as the only output of this step.
+
+\uline{Step 5}: Because step 4 gets only $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $,
+we do not need to proceed anything here.
+
+\uline{Step 6}: We repeat step 4 and 5 once more and we get $Res=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $,
+i.e., all the matrices can be used.
+
+~
+
+Example 2: For further understading, we use Figure \ref{fig:rel_example}
+for illustration.
+
+In the left-bottom corner, we observe that the size of relative becomes
+smaller when its tuple identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
+or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.
+It explains why $UB$ is the maximum numbers of matrices that we can
+find in $Res$.
+
+Regarding to the left-top corner and the right one, the visual explanation
+of $subrel$ is shown.
+
+\begin{figure}[H]
+\caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+represents as a matrix problem\label{fig:rel_example}}
+
+\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
+\end{figure}
 
 \bibliographystyle{IEEEtran}
 \bibliography{../refs/final_ref_bib}

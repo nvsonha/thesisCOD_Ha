@@ -8,14 +8,7 @@
 \begin_preamble
 \usepackage{placeins}
 \usepackage{graphicx}
-
-\theoremstyle{construction}
-    \ifx\thechapter\undefined
-      \newtheorem{constr}{\protect\constructionname}
-    \else
-      \newtheorem{constr}{\protect\constructionname}[chapter]
-    \fi
-\providecommand{\constructionname}{Construction}
+\usepackage{textcomp}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -363,85 +356,6 @@ Covering Grassmannian code
 status open
 
 \begin_layout Plain Layout
-Multiple Grassmannian code
-\end_layout
-
-\end_inset
-
- A 
-\begin_inset Formula $t-\left(n,k,\lambda\right)_{q}^{m}$
-\end_inset
-
- multiple Grassmannian code (code in short) 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- is a subset of 
-\begin_inset Formula $\mathcal{G}_{q}\left(n,k\right)$
-\end_inset
-
- such that each 
-\begin_inset Formula $t$
-\end_inset
-
--subspace of 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
-\end_inset
-
- is contained in at most 
-\begin_inset Formula $\lambda$
-\end_inset
-
- codewords of 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
-.
- Following to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Zhang:2019"
-literal "false"
-
-\end_inset
-
-, 
-\begin_inset Formula $m$
-\end_inset
-
- refers to multiplicity.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Formula $\mathcal{A}_{q}\left(n,k,t;\lambda\right)$
-\end_inset
-
- denotes the maximum size of a 
-\begin_inset Formula $t-\left(n,k,\lambda\right)_{q}^{m}$
-\end_inset
-
- code, where there are no repeated codewords.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
 Subspace packing
 \end_layout
 
@@ -484,6 +398,114 @@ blocks
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $\mathcal{A}_{q}\left(n,k,t;\lambda\right)$
+\end_inset
+
+ denotes the maximum size of a 
+\begin_inset Formula $t-\left(n,k,\lambda\right)_{q}^{m}$
+\end_inset
+
+ code, where there are no repeated codewords.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Multigraph
+\end_layout
+
+\end_inset
+
+ A graph is permitted to have multiple edges.
+ Edges that are incident to same vertices can be in parallel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Directed acyclic graph
+\end_layout
+
+\end_inset
+
+ A finite directed graph with no directed cycles, i.e.
+ it consists of a finite number vertices and edges, with each edge directed
+ from a vertex to another, such that there is no loop from any vertex 
+\begin_inset Formula $v$
+\end_inset
+
+ with a sequence of directed edges back to the vertex again 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Multicast
+\end_layout
+
+\end_inset
+
+ Multicast communication supports the distribution of a data packet to a
+ group of users 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2012"
+literal "false"
+
+\end_inset
+
+.
+ It can be one-to-many or many-to-many distribution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harte:2008"
+literal "false"
+
+\end_inset
+
+.
+ In this study, we consider only one-to-many multicast network.
 \end_layout
 
 \begin_layout Section
@@ -572,6 +594,358 @@ k-t
 \end_layout
 
 \begin_layout Part
+Network Coding
+\end_layout
+
+\begin_layout Section
+What is Network Coding?
+\end_layout
+
+\begin_layout Standard
+The most general definition of Network Coding is defined in the seminal
+ paper of Ahlswede 
+\shape italic
+et al.
+
+\shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ahlswede:2000"
+literal "false"
+
+\end_inset
+
+.
+ It refers to 
+\shape italic
+coding
+\shape default
+ at a vertex in a network, where coding means an arbitrary combination of
+ inputs for outputs.
+ This combination is called a 
+\shape italic
+network code
+\shape default
+.
+ Because this coding process does not only happen at the source but on any
+ vertex in the network, the network codes are on 
+\shape italic
+packets
+\shape default
+.
+ Packets can be messages of the sources or inputs of a vertex.
+ Ahlswede 
+\shape italic
+et al.
+
+\shape default
+ look at networks consisting of vertices interconnected by error-free point-to-p
+oint links, which is still applicable to present-day networks, e.g.
+ error-free wireline networks.
+ The study of 
+\begin_inset Quotes eld
+\end_inset
+
+error-free links
+\begin_inset Quotes erd
+\end_inset
+
+ in network coding distinguish itself from Channel Coding for noisy links.
+\end_layout
+
+\begin_layout Standard
+A particular form of network coding is 
+\shape italic
+Random Linear Network Coding
+\shape default
+ - RLNC introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ho:2003"
+literal "false"
+
+\end_inset
+
+.
+ RLNC considers each vertex's outputs as a linear combination of its inputs,
+ specified by independent and randomly chosen code coefficients from some
+ finite field 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+.
+ These coefficients can be represented in a vector as extra information
+ for an initial packets, which is able to be contained in packet headers
+ of the present-day widely used network called 
+\shape italic
+Packet Network
+\shape default
+.
+ Hence, in this study, we define 
+\shape italic
+Network Coding
+\shape default
+ as coding at a vertex in a packet network, where data are divided into
+ packets and network code is applied to the contents of packets.
+ This concept is clearly explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Scalar-network-coding"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Vector-network-coding"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Matrix-channel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where we introduce scalar and vector network coding as a matrix channel.
+\end_layout
+
+\begin_layout Section
+Advantages of Network Coding
+\end_layout
+
+\begin_layout Subsection
+Throughput gain and reduced complexity
+\end_layout
+
+\begin_layout Standard
+Network coding gives a potential gain in throughput by communicating more
+ information with fewer packet transmissions compared to the routing method.
+ The butterfly network in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ahlswede:2000"
+literal "false"
+
+\end_inset
+
+ as a multicast in a wireline network is a standard example for an increase
+ of throughput.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The butterfly network 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-butterfly-network"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network.pdf
+	width 50page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-butterfly-network"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we denoted a receiver by 
+\begin_inset Quotes eld
+\end_inset
+
+Recv
+\begin_inset Quotes erd
+\end_inset
+
+, which is used for all of figures in this study.
+ With help of network coding, both reveiver 1 and 2 can recover 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ by a bitwise XOR.
+ Without network coding, an additional transmission between vertex 3 and
+ 4 must be supplemented to communicate the contents of 2 packets 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ from the source to Recv 1 and Recv 2, i.e.
+ we must communicate 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ separately on this link twice under routing.
+ 
+\end_layout
+
+\begin_layout Subsection
+Robustness
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Packet loss
+\shape default
+ is a particular issue in wireless packet networks due to several reasons,
+ e.g.
+ buffer overflow or communication failures.
+ Sharing a common concept with Erasure Coding (EC) by exploiting a degree
+ of redundancy to packets on any vertices in the network, the receivers
+ are able to successfully recover the original packets from a large number
+ of packet losses, e.g.
+ 
+\begin_inset Formula $101\circledast10\circledast1$
+\end_inset
+
+.
+ The only difference is that packets are only encoded by the source in EC
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fujimura:2008"
+literal "false"
+
+\end_inset
+
+.
+ This problem is dealed by acknowledgement messages in the mechanism of
+ transmission control protocol (TCP).
+\end_layout
+
+\begin_layout Subsection
+Security
+\end_layout
+
+\begin_layout Standard
+Network coding offers both benefits and drawbacks regarding to security.
+ For example, node 4 is operated by an eavesdropper and it obtains only
+ the packet 
+\begin_inset Formula $x_{1}\oplus x_{2}$
+\end_inset
+
+, so it cannot obtain either 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ and the communication is secure.
+ Alternatively, if the eavesdropper controls node 3, it can anonymously
+ send a fake packet masquerading as 
+\begin_inset Formula $x_{1}\oplus x_{2}$
+\end_inset
+
+, which is difficult to detect in network coding 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ho:2008"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Increase the number of possible vertices
+\end_layout
+
+\begin_layout Standard
+Data in the digital communication of today are represented in binary field,
+ i.e.
+ 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}$
+\end_inset
+
+, so the coding coefficients are binary numbers.
+ When we accomodate them into packets over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{t}$
+\end_inset
+
+ with 
+\begin_inset Formula $t\geq2$
+\end_inset
+
+, it has been studied in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ebrahimi:2011,Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+ showing that the so called vector network coding provides more possible
+ vertices or more connected devices in a network compared to the linear
+ network coding.
+ In other words, network coding provides high adaptability for the worldwide
+ network's requirement by extending the base field of packets.
+ 
+\end_layout
+
+\begin_layout Part
 Generalized Combination Network 
 \begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
 \end_inset
@@ -636,7 +1010,15 @@ r\\
 \end_inset
 
  receivers, which form a single source multicast network modeled as a finite
- directed acyclic multigraph.
+ directed acyclic multigraph 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li:2003"
+literal "false"
+
+\end_inset
+
+.
  The source connects to each node by 
 \begin_inset Formula $l$
 \end_inset
@@ -1066,7 +1448,14 @@ Network Coding For This Network Family
 \end_layout
 
 \begin_layout Subsection
-Scalar network coding
+Scalar network coding 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Scalar-network-coding"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1204,23 +1593,25 @@ literal "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Corollary
-It is proved in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Zhang:2019"
-literal "false"
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "theo:scalar_sol_exist"
 
 \end_inset
 
- that the code form from the dual subspaces of 
+
 \end_layout
 
 \begin_layout Subsection
-Vector network coding
+Vector network coding 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Vector-network-coding"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1232,8 +1623,8 @@ The messages are vectors of length
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
 \end_inset
 
-.
- Hence, a vector solution is over field size 
+, i.e.
+ a vector solution is over field size 
 \begin_inset Formula $q$
 \end_inset
 
@@ -1356,8 +1747,43 @@ literal "false"
 
 \end_layout
 
+\begin_layout Corollary
+The 
+\begin_inset Formula $\alpha-\left(n=ht,n-k=ht-lt,\lambda=ht-lt-\epsilon t\right)_{q}^{m}$
+\end_inset
+
+ code formed from the dual subspaces of the 
+\begin_inset Formula $\alpha-\left(n=ht,k=lt,\lambda=ht-lt-\epsilon t\right)_{q}^{c}$
+\end_inset
+
+ code yields the upper bound of 
+\begin_inset Formula $\mathcal{A}_{q}\left(n=ht,n-k=ht-lt,\alpha;\lambda\right)$
+\end_inset
+
+ as maximum number of nodes for a vector network coding of the 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:dual_subspaces"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Network as a matrix channel
+Network as a matrix channel 
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Matrix-channel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1408,6 +1834,14 @@ packet
 \shape italic
 global coding vectors
 \shape default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sanders:2003"
+literal "false"
+
+\end_inset
+
 .
  The linear equation system that any receiver 
 \begin_inset Formula $R_{j}$
@@ -1626,7 +2060,7 @@ The mapping of scalar solution over
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}=q^{t}}$
 \end_inset
 
- to the equivalen vector solution
+ to the equivalent vector solution
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:x_mapping"
@@ -2230,7 +2664,7 @@ By using the vector coding, the upper bound number of solutions increases
  and a smaller alphabet size might be achievable 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Ebrahimi2011"
+key "Ebrahimi:2011"
 literal "false"
 
 \end_inset
@@ -2310,7 +2744,7 @@ The
 \begin_inset Formula $l$
 \end_inset
 
--Parrallel Links 
+-Parallel Links 
 \begin_inset Formula $\mathcal{N}_{h=2l,r,s=3l-1}$
 \end_inset
 
@@ -2377,7 +2811,7 @@ The 1-Direct Link and
 \begin_inset Formula $l$
 \end_inset
 
--Parrallel Links 
+-Parallel Links 
 \begin_inset Formula $\mathcal{N}_{h=2l,r,s=2l+1}$
 \end_inset
 
@@ -2963,8 +3397,17 @@ Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
 \end_layout
 
 \begin_layout Standard
-Because the requirement on rank is opposite, we consider the complement
- event 
+Because the requirement on rank 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rk_rqm_e1l1h3s4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is opposite, we consider the complement event 
 \begin_inset Formula $T$
 \end_inset
 
@@ -3028,8 +3471,22 @@ The probability of event
 \begin_inset Formula $r$
 \end_inset
 
-, but the rank requirement is still satisfied, i.e.
- the probabilty must be higher than 
+, and the rank requirement 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rk_rqm_e1l1h3s4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ must be satisfied, i.e.
+ the probabilty of event 
+\begin_inset Formula $T$
+\end_inset
+
+ must be higher than 
 \begin_inset Formula $0$
 \end_inset
 
@@ -3612,7 +4069,7 @@ Similarly with above,
 \begin_inset Formula $r_{max}$
 \end_inset
 
-asymptotes to a value higher than 
+ asymptotes to a value higher than 
 \begin_inset Formula $r_{scalar}$
 \end_inset
 
@@ -3758,7 +4215,7 @@ Hence, by using the exact bound
 \end_layout
 
 \begin_layout Standard
-Finally, we have:
+Furthermore, we have:
 \end_layout
 
 \begin_layout Standard
@@ -3773,7 +4230,7 @@ r_{min,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{
 \end_layout
 
 \begin_layout Standard
-Further we have: 
+In advance, we have: 
 \begin_inset Formula $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
 \end_inset
 
@@ -3785,21 +4242,33 @@ literal "false"
 
 \end_inset
 
+, specifically, 
+\begin_inset Formula 
+\begin{equation}
+r_{scalar}\leq2\left[\begin{array}{c}
+3\\
+1
+\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right)\label{eq:r_scalar_max}
+\end{equation}
 
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
-We have the gap size:
+Finally, we have the gap size:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
- & r_{max,scalar} & =r_{min,vector}\\
-\Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\\
-\Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\\
-\Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square
-\end{eqnarray*}
+\begin{eqnarray}
+ & r_{max,scalar} & =r_{min,vector}\nonumber \\
+\Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
+\Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
+\Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square\label{eq:gap_e1l1h3rs4}
+\end{eqnarray}
 
 \end_inset
 
@@ -3984,7 +4453,7 @@ deg\left(p_{D}^{(i)}(q)\right)=q^{i^{2}}
 \end_layout
 
 \begin_layout Standard
-Now, we exaluate 
+Now, we evaluate 
 \begin_inset Formula $f(i)=i(\alpha t+ht)-i^{2}$
 \end_inset
 
@@ -4342,13 +4811,103 @@ Regarding to
 \begin_inset Formula $t=2$
 \end_inset
 
-, the number of nodes can be at most 42 for a scalar linear coding solution,
- while for vector network coding 89 nodes can be used, i..e.
- 
-\begin_inset Formula $\mathcal{A}_{q=2}\left(n=6,k=2,t=3;\lambda=2\right)$
+, for a scalar network coding solution we need a 
+\begin_inset Formula $3-\left(3,1,1\right)_{4}^{c}$
 \end_inset
 
+ code (
+\begin_inset Formula $q_{v}=2^{2}=4)$
+\end_inset
 
+ by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "theo:scalar_sol_exist"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The largest such code consists of the 21 one-dimensionall subspaces of
+ 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{4}^{3}$
+\end_inset
+
+, each one is contained twice in the code.
+ Therefore, the number of nodes can be at most 42 for a scalar linear coding
+ solution, while for vector network coding 89 nodes can be used, i..e.
+ 
+\begin_inset Formula $\mathcal{A}_{q=2}\left(n=6,k=4,t=3;\lambda=2\right)\geq89$
+\end_inset
+
+ following to Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:dual_subspaces"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This is a new lower bound for 
+\begin_inset Formula $\mathcal{A}_{2}\left(6,4,3;2\right)$
+\end_inset
+
+ compared to a code with 51 codewords presented in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+.
+ The smallest alphabet size for a scalar solution with 89 nodes exists is
+ 
+\begin_inset Formula $q_{s}=8$
+\end_inset
+
+.
+ By Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:r_scalar_max"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, there are 73 one-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{8}^{3}$
+\end_inset
+
+, and each one can be used twice in the code; therefore, we have in total
+ 146 possible codesword, but only 89 codewords are required.
+ In this case, the gap size 
+\begin_inset Formula $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$
+\end_inset
+
+i.e.
+ we achieve a gap size 
+\begin_inset Formula $q^{t^{2}/2}$
+\end_inset
+
+, which is better the asymptotic behavior in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gap_e1l1h3rs4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
@@ -4707,7 +5266,8 @@ For each found pair set of
 \end_inset
 
 .
- If the union set is repeated or duplicated, we take only the first pair.
+ If the union set is repeated or duplicated, we take only the first pair
+ generating such value.
  We denote the chosen set as 
 \begin_inset Formula $main\_team\_and\_rel$
 \end_inset
@@ -4986,8 +5546,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-In the left-bottom corner, we observe that the size of relative becomes
- smaller when its tuple identity is larger, i.e.
+In the right, we observe that the size of relative becomes smaller when
+ its tuple identity is larger, i.e.
  
 \begin_inset Formula $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
 \end_inset
@@ -5009,8 +5569,7 @@ In the left-bottom corner, we observe that the size of relative becomes
 \end_layout
 
 \begin_layout Standard
-Regarding to the left-top corner and the right one, the visual explanation
- of 
+Regarding to the left, the visual explanation of 
 \begin_inset Formula $subrel$
 \end_inset
 

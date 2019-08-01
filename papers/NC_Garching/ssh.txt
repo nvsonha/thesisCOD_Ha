@@ -1,0 +1,1 @@
+Please upload/paste your RSA2/ECDSA/Ed25519 public key here. It must be an RSA v2, ECDSA or Ed25519 key in OpenSSH format. Other key types and formats are not supported.

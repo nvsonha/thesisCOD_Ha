@@ -92,8 +92,9 @@ of receivers is equivalent to maximize $r$ under the constraint \ref{eq:rk_rqm_e
 $\boldsymbol{A}_{j_{1}},\boldsymbol{A}_{j_{2}},\boldsymbol{A}_{j_{3}}$
 are matrices formed on any 3 of $r$ links from nodes to receivers,
 i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
-We formalize the problem by an approach with Lovász local lemma \cite{MosheSchwartz:2018}.
-\begin{thm}[Symmetric Lovász local lemma (LLL)]
+We formalize the problem by an approach with Lov\'asz local lemma
+\cite{MosheSchwartz:2018}.
+\begin{thm}[Symmetric Lov\'asz local lemma (LLL)]
 \label{thm:LLL} \cite{Schwarz:2013}
 
 A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$, such that
@@ -179,7 +180,7 @@ By varying $t$ in Equation (\ref{eq:p_eq_h3}), we have the following
 table:
 
 \begin{table}[H]
-\caption{$r_{max}$ over variations of t\label{tab:rmax_over_t}}
+\caption{$r$ over variations of t\label{tab:r_over_t}}
 
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -204,7 +205,7 @@ t & Scalar Solution & Vector Solution\tabularnewline
 2 respectively
 \end{table}
 
-In the table (\ref{tab:rmax_over_t}), the vector solution outperforms
+In the table (\ref{tab:r_over_t}), the vector solution outperforms
 the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{h=3,r,s=4}$.
 This is sufficient, later on we show computational results which vector
 solutions outperform scalar solutions in case of $t=2$ and $t=3$.
@@ -306,7 +307,14 @@ r_{min,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{
 \]
 
 Further we have: $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
-\cite{Wachter-Zeh:2018}
+\cite{Wachter-Zeh:2018}, specifically, 
+\begin{equation}
+r_{scalar}\leq2\left[\begin{array}{c}
+3\\
+1
+\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right)\label{eq:r_scalar_max}
+\end{equation}
+. 
 
 We have the gap size:
 
@@ -434,7 +442,7 @@ whose dimension is at least $\left(h-1\right)$, with $q_{s}=q^{t}$.%
 For $3\leq\alpha<h$: all $\alpha$ links must be distinct $\Rightarrow r\leq\left[\begin{array}{c}
 \alpha\\
 1
-\end{array}\right]_{q_{s}}$
+\end{array}\right]_{q_{s}}\Rightarrow r\leq$
 
 For $\alpha\geq h\geq3$: to achieve $(h-1)$-subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$,
 no $\alpha$ links will contain a vector which is contained in the
@@ -443,7 +451,7 @@ same $(h-2)$-subspace.
 Hence,
 
 \[
-r_{max,scalar}\leq\left[\begin{array}{c}
+r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
 h-2
 \end{array}\right]_{q_{s}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)

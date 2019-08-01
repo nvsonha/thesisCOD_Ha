@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=white dot] (0) at (-6, 0) {Source};
+		\node [style=white dot] (1) at (-3, 2.5) {1};
+		\node [style=white dot] (2) at (-3, -2.5) {2};
+		\node [style=white dot] (3) at (-1, 0) {3};
+		\node [style=white dot] (4) at (3.75, 0) {4};
+		\node [style=white dot] (5) at (6, 2.5) {Recv 1};
+		\node [style=white dot] (6) at (6, -2.5) {Recv 2};
+		\node [style=none] (7) at (-4.75, 1.75) {$x_1$};
+		\node [style=none] (8) at (-4.75, -1.75) {$x_2$};
+		\node [style=none, color=orange] (12) at (1.5, 0.5) {$x_1 \oplus x_2$};
+		\node [style=none] (13) at (-1.5, 1.5) {$x_1$};
+		\node [style=none] (14) at (-1.5, -1.5) {$x_2$};
+		\node [style=none] (15) at (1, 3) {$x_1$};
+		\node [style=none] (16) at (1, -2) {$x_2$};
+		\node [style=none] (17) at (6, 0.75) {$x_1 \oplus x_2$};
+		\node [style=none] (18) at (6, -0.75) {$x_1 \oplus x_2$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=arrow] (0) to (1);
+		\draw [style=arrow] (1) to (5);
+		\draw [style=arrow] (1) to (3);
+		\draw [style=arrow] (2) to (3);
+		\draw [style=arrow] (0) to (2);
+		\draw [style=orange arrow] (3) to (4);
+		\draw [style=arrow] (4) to (5);
+		\draw [style=arrow] (4) to (6);
+		\draw [style=arrow] (2) to (6);
+	\end{pgfonlayer}
+\end{tikzpicture}

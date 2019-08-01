@@ -2,6 +2,24 @@
 \chapter{Preliminaries} \label{chap:preliminaries}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Definition}
+\begin{defn}[Vector Space]
+ A vector space of dimension $n$ over a finite field with $q$ elements
+is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$.
+\end{defn}
+%
+\begin{defn}[Gaussian coefficient]
+ Gaussian coefficient (also known as $q$-binomial), which counts
+the number of subspaces of dimension $k$ in a vector space $\ensuremath{\mathbb{F}}_{q}^{n}$:
+
+\[
+\left[\begin{array}{c}
+n\\
+k
+\end{array}\right]_{q}=\stackrel[i=0]{k-1}{\prod}\frac{q^{n}-q^{i}}{q^{k}-q^{i}}
+\]
+\end{defn}
+%
 \begin{defn}[Grassmannian Code]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
@@ -23,5 +41,71 @@ n\\
 k
 \end{array}\right]_{q}\leq4q^{\left(n-k\right)k}$.
 \end{defn}
+%
+\begin{defn}[Projective Space]
+ The \textit{projective space of order} $n$ is a set of all subspaces
+of $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{P}_{q}\left(n\right)$,
+i.e. a union of all dimension $k=0,\ldots n$ subspaces in $\ensuremath{\mathbb{F}}_{q}^{n}$
+or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$.
+\end{defn}
+%
+\begin{defn}[Covering Grassmannian code]
+ An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
+code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
+such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
+a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$.
+\end{defn}
+%
+\begin{defn}[Multiple Grassmannian code]
+ A $t-\left(n,k,\lambda\right)_{q}^{m}$ multiple Grassmannian code
+(code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
+such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
+is contained in at most $\lambda$ codewords of $\mathcal{C}$. Following
+to \cite{Zhang:2019}, $m$ refers to multiplicity.
+\end{defn}
+%
+\begin{defn}
+$\mathcal{A}_{q}\left(n,k,t;\lambda\right)$ denotes the maximum size
+of a $t-\left(n,k,\lambda\right)_{q}^{m}$ code, where there are no
+repeated codewords.
+\end{defn}
+%
+\begin{defn}[Subspace packing]
+ A subspace packing $t-\left(n,k,\lambda\right)_{q}^{m}$ is a set
+$\mathcal{S}$ of $k$-subspaces or $k$-dimensional subspaces (called
+\textit{blocks}), such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
+is contained in at most $\lambda$ codewords of $\mathcal{C}$.
+\end{defn}
+
+\section{Theorem}
+\begin{thm}
+If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
+and $1\leq\lambda\leq\left[\begin{array}{c}
+n-t\\
+k-t
+\end{array}\right]_{q}$, then
+
+\[
+\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+n\\
+t
+\end{array}\right]_{q}}{\left[\begin{array}{c}
+k\\
+t
+\end{array}\right]_{q}}\right\rfloor 
+\]
+\end{thm}
+%
+\begin{thm}
+If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
+and $1\leq\lambda\leq\left[\begin{array}{c}
+n-t\\
+k-t
+\end{array}\right]_{q}$, then
+
+\[
+\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,t-1;\lambda\right)\right\rfloor 
+\]
+\end{thm}
 
 \clearpage

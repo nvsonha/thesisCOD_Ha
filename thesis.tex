@@ -50,6 +50,8 @@
 \usepackage{amssymb}
 \usepackage{stackrel}
 \usepackage{wasysym}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
 
 \makeatletter
 
@@ -83,6 +85,12 @@
     \else
       \newtheorem{rem}{\protect\remarkname}[chapter]
     \fi
+\theoremstyle{plain}
+    \ifx\thechapter\undefined
+  \newtheorem{cor}{\protect\corollaryname}
+\else
+      \newtheorem{cor}{\protect\corollaryname}[chapter]
+    \fi
 \theoremstyle{definition}
     \ifx\thechapter\undefined
       \newtheorem{example}{\protect\examplename}
@@ -110,6 +118,7 @@
 
 \usepackage{babel}
 \providecommand{\conjecturename}{Conjecture}
+\providecommand{\corollaryname}{Corollary}
 \providecommand{\definitionname}{Definition}
 \providecommand{\examplename}{Example}
 \providecommand{\lemmaname}{Lemma}
