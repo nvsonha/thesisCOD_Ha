@@ -13,9 +13,9 @@ Construction 1: $\begin{array}{c|c}
 Construction 2: $\boldsymbol{T}\in MatrixSpaceUrs\left(t,3t\right)$
 
 Regarding to $t=2$, for a scalar network coding solution we need
-a $3-\left(3,1,1\right)_{4}^{c}$ code ($q_{v}=2^{2})$ by Theorem
+a $3-\left(3,1,1\right)_{4}^{c}$ code ($q_{v}=2^{2}=4)$ by Theorem
 \ref{theo:scalar_sol_exist}. The largest such code consists of the
-21 $1$-dimensionall subspaces of $\ensuremath{\mathbb{F}}_{4}^{3}$,
+21 one-dimensionall subspaces of $\ensuremath{\mathbb{F}}_{4}^{3}$,
 each one is contained twice in the code. Therefore, the number of
 nodes can be at most 42 for a scalar linear coding solution, while
 for vector network coding 89 nodes can be used, i..e. $\mathcal{A}_{q=2}\left(n=6,k=4,t=3;\lambda=2\right)\geq89$
@@ -23,10 +23,12 @@ following to Corollary \ref{cor:dual_subspaces}. This is a new lower
 bound for $\mathcal{A}_{2}\left(6,4,3;2\right)$ compared to a code
 with 51 codewords presented in \cite{Wachter-Zeh:2018}. The smallest
 alphabet size for a scalar solution with 89 nodes exists is $q_{s}=8$.
-By Equation \ref{eq:r_scalar_max}, there are 73 $1$-dimensional
-subspaces of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can
-be used twice in the code; therefore, we have in total 146 possible
-codesword, but only 89 codewords are required.
+By Equation \ref{eq:r_scalar_max}, there are 73 one-dimensional subspaces
+of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can be used twice
+in the code; therefore, we have in total 146 possible codesword, but
+only 89 codewords are required. In this case, the gap size $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$i.e.
+we achieve a gap size $q^{t^{2}/2}$, which is better the asymptotic
+behavior in \ref{eq:gap_e1l1h3rs4}.
 \begin{defn}[G3]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
 Then a set $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
@@ -193,14 +195,13 @@ i.e., all the matrices can be used.
 Example 2: For further understading, we use Figure \ref{fig:rel_example}
 for illustration.
 
-In the left-bottom corner, we observe that the size of relative becomes
-smaller when its tuple identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
+In the right, we observe that the size of relative becomes smaller
+when its tuple identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
 or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.
 It explains why $UB$ is the maximum numbers of matrices that we can
 find in $Res$.
 
-Regarding to the left-top corner and the right one, the visual explanation
-of $subrel$ is shown.
+Regarding to the left, the visual explanation of $subrel$ is shown.
 
 \begin{figure}[H]
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$

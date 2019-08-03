@@ -2,15 +2,26 @@
 \chapter{Preliminaries} \label{chap:preliminaries}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Definition}
-\begin{defn}[Vector Space]
- A vector space of dimension $n$ over a finite field with $q$ elements
-is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$.
-\end{defn}
-%
-\begin{defn}[Gaussian coefficient]
- Gaussian coefficient (also known as $q$-binomial), which counts
-the number of subspaces of dimension $k$ in a vector space $\ensuremath{\mathbb{F}}_{q}^{n}$:
+\section{Notation and Basic Terminology}
+
+\paragraph{Vectors and Matrices}
+
+Vectors $\underline{v}$ are denoted by underlined letters. Unless
+stated otherwise, vectors are indexed starting from 1, i.e. $v=\left[v_{1},\ldots,v_{n}\right]$.
+Vectors are usually considered to be row vectors. Matrices $\boldsymbol{V}$
+are shown in bold and capital letters. Elements of matrices or vectors
+are surrounded by square brackets, and elements of tuples are surrounded
+by round brackets.
+
+\paragraph{Vector space}
+
+A vector space of dimension $n$ over a finite field with $q$ elements
+is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. 
+
+\paragraph{Gaussian coefficient}
+
+Gaussian coefficient (also known as $q$-binomial) counts the number
+of subspaces of dimension $k$ in a vector space $\ensuremath{\mathbb{F}}_{q}^{n}$,
 
 \[
 \left[\begin{array}{c}
@@ -18,16 +29,68 @@ n\\
 k
 \end{array}\right]_{q}=\stackrel[i=0]{k-1}{\prod}\frac{q^{n}-q^{i}}{q^{k}-q^{i}}
 \]
-\end{defn}
-%
+
+
+\paragraph{Multigraph}
+
+A graph is permitted to have multiple edges. Edges that are incident
+to same vertices can be in parallel.
+
+\paragraph{Directed Acyclic Graph}
+
+A finite directed graph with no directed cycles, i.e. it consists
+of a finite number vertices and edges, with each edge directed from
+a vertex to another, such that there is no loop from any vertex $v$
+with a sequence of directed edges back to the vertex again $v$.
+
+\paragraph{Multicast}
+
+Multicast communication supports the distribution of a data packet
+to a group of users \cite{Zhang:2012}. It can be one-to-many or many-to-many
+distribution \cite{Harte:2008}. In this study, we consider only one-to-many
+multicast network.
+
+\paragraph{Asymptotic Behavior}
+
+For the combinatorial results, we study the asymtotic behaviour of
+some formulas depending on the alphabet size $q$ and the vector length
+$t$, by using the Bachmann-Landau notation, i.e. $\mathcal{O}\left(f\left(q,t\right)\right)$
+for upper, $\Theta\left(f\left(q,t\right)\right)$ for tight, and
+$\Omega\left(f\left(q,t\right)\right)$ for lower bounds, where $f$
+is a function of the alphabet size and the vector length.
+
+\section{Definition}
+
+>\textcompwordmark >\textcompwordmark > EXPLAIN BEFORE WHY I NEED
+EACH DEFINITION
 \begin{defn}[Grassmannian Code]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
 Due to being the set of all subspaces that have the same dimension
-$k$, it is also called a \textit{constant dimension code}. The cardinality
-of $\mathcal{G}_{q}\left(n,k\right)$ is the Gaussian coefficient
-(also known as $q$-binomial), which counts the number of subspaces
-of dimension $k$ in a vector space $\ensuremath{\mathbb{F}}_{q}^{n}$:
+$k$, it is also called a \textit{constant dimension code}. \cite{Zhang:2019}
+\end{defn}
+%
+\begin{defn}[Projective Space]
+ The \textit{projective space of order} $n$ is a set of all subspaces
+of $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{P}_{q}\left(n\right)$,
+i.e. a union of all dimension $k=0,\ldots n$ subspaces in $\ensuremath{\mathbb{F}}_{q}^{n}$
+or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$.
+\cite{Wachter-Zeh:2018}
+\end{defn}
+%
+\begin{defn}[Covering Grassmannian code]
+ An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
+code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
+such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
+a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$.
+\cite{Zhang:2019}
+\end{defn}
+
+\paragraph{The cardinality of a Grassmannian code}
+
+The cardinality of $\mathcal{G}_{q}\left(n,k\right)$ is the Gaussian
+coefficient (also known as $q$-binomial), which counts the number
+of subspaces of dimension $k$ in a vector space $\ensuremath{\mathbb{F}}_{q}^{n}$,
 
 \[
 \left|\mathcal{G}_{q}\left(n,k\right)\right|=\left[\begin{array}{c}
@@ -40,44 +103,24 @@ where $q^{\left(n-k\right)k}\leq\left[\begin{array}{c}
 n\\
 k
 \end{array}\right]_{q}\leq4q^{\left(n-k\right)k}$.
-\end{defn}
-%
-\begin{defn}[Projective Space]
- The \textit{projective space of order} $n$ is a set of all subspaces
-of $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{P}_{q}\left(n\right)$,
-i.e. a union of all dimension $k=0,\ldots n$ subspaces in $\ensuremath{\mathbb{F}}_{q}^{n}$
-or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$.
-\end{defn}
-%
-\begin{defn}[Covering Grassmannian code]
- An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
-code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
-such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
-a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$.
-\end{defn}
-%
-\begin{defn}[Multiple Grassmannian code]
- A $t-\left(n,k,\lambda\right)_{q}^{m}$ multiple Grassmannian code
-(code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
-such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
-is contained in at most $\lambda$ codewords of $\mathcal{C}$. Following
-to \cite{Zhang:2019}, $m$ refers to multiplicity.
+
+\begin{defn}[Subspace packing]
+ A subspace packing $t-\left(n,k,\lambda\right)_{q}^{m}$ is a set
+$\mathcal{S}$ of $k$-subspaces or $k$-dimensional subspaces (called
+\textit{blocks}), such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
+is contained in at most $\lambda$ codewords of $\mathcal{C}$. \cite{Etzion:2018}
 \end{defn}
 %
 \begin{defn}
 $\mathcal{A}_{q}\left(n,k,t;\lambda\right)$ denotes the maximum size
 of a $t-\left(n,k,\lambda\right)_{q}^{m}$ code, where there are no
-repeated codewords.
-\end{defn}
-%
-\begin{defn}[Subspace packing]
- A subspace packing $t-\left(n,k,\lambda\right)_{q}^{m}$ is a set
-$\mathcal{S}$ of $k$-subspaces or $k$-dimensional subspaces (called
-\textit{blocks}), such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
-is contained in at most $\lambda$ codewords of $\mathcal{C}$.
+repeated codewords. \cite{Etzion:2018}
 \end{defn}
 
 \section{Theorem}
+
+>\textcompwordmark >\textcompwordmark > EXPLAIN BEFORE WHY I NEED
+EACH THEOREM \cite{Zhang:2019}
 \begin{thm}
 If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
 and $1\leq\lambda\leq\left[\begin{array}{c}
@@ -107,5 +150,4 @@ k-t
 \mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,t-1;\lambda\right)\right\rfloor 
 \]
 \end{thm}
-
 \clearpage

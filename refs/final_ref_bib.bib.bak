@@ -371,4 +371,126 @@
   doi       = {10.1109/milcom.2008.4753100},
 }
 
+@Book{Ho:2008,
+  title     = {Network Coding},
+  publisher = {Cambridge University Press},
+  year      = {2008},
+  author    = {Tracey Ho and Desmond Lun},
+  doi       = {10.1017/cbo9780511754623},
+}
+
+@Article{Etzion:2018,
+  author        = {Tuvi Etzion and Sascha Kurz and Kamil Otal and Ferruh {\"{O}}zbudak},
+  title         = {Subspace Packings},
+  journal       = {CoRR},
+  year          = {2018},
+  volume        = {abs/1811.04611},
+  archiveprefix = {arXiv},
+  bibsource     = {dblp computer science bibliography, https://dblp.org},
+  biburl        = {https://dblp.org/rec/bib/journals/corr/abs-1811-04611},
+  eprint        = {1811.04611},
+  timestamp     = {Fri, 23 Nov 2018 12:43:51 +0100},
+  url           = {http://arxiv.org/abs/1811.04611},
+}
+
+@Article{Berlekamp:1980,
+  author    = {E.R. Berlekamp},
+  title     = {The technology of error-correcting codes},
+  journal   = {Proceedings of the {IEEE}},
+  year      = {1980},
+  volume    = {68},
+  number    = {5},
+  pages     = {564--593},
+  doi       = {10.1109/proc.1980.11696},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Golay:1949,
+  author  = {Golay, Marcel JE},
+  title   = {Notes on digital coding},
+  journal = {Proc. IEEE},
+  year    = {1949},
+  volume  = {37},
+  pages   = {657},
+}
+
+@Article{Hamming:1950,
+  author    = {Hamming, Richard W},
+  title     = {Error detecting and error correcting codes},
+  journal   = {The Bell system technical journal},
+  year      = {1950},
+  volume    = {29},
+  number    = {2},
+  pages     = {147--160},
+  publisher = {Nokia Bell Labs},
+}
+
+@Article{Etzion:2016,
+  author        = {Tuvi Etzion and Antonia Wachter{-}Zeh},
+  title         = {Vector Network Coding Based on Subspace Codes Outperforms Scalar Linear Network Coding},
+  journal       = {CoRR},
+  year          = {2016},
+  volume        = {abs/1604.03292},
+  archiveprefix = {arXiv},
+  bibsource     = {dblp computer science bibliography, https://dblp.org},
+  biburl        = {https://dblp.org/rec/bib/journals/corr/EtzionW16},
+  eprint        = {1604.03292},
+  timestamp     = {Mon, 13 Aug 2018 16:47:27 +0200},
+  url           = {http://arxiv.org/abs/1604.03292},
+}
+
+@Article{Maheshwar:2012,
+  author    = {Shreya Maheshwar and Zongpeng Li and Baochun Li},
+  title     = {Bounding the Coding Advantage of Combination Network Coding in Undirected Networks},
+  journal   = {{IEEE} Transactions on Information Theory},
+  year      = {2012},
+  volume    = {58},
+  number    = {2},
+  pages     = {570--584},
+  month     = {feb},
+  doi       = {10.1109/tit.2011.2173720},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Jaggi:2005,
+  author    = {S. Jaggi and P. Sanders and P.A. Chou and M. Effros and S. Egner and K. Jain and L.M.G.M. Tolhuizen},
+  title     = {Polynomial Time Algorithms for Multicast Network Code Construction},
+  journal   = {{IEEE} Transactions on Information Theory},
+  year      = {2005},
+  volume    = {51},
+  number    = {6},
+  pages     = {1973--1982},
+  month     = {jun},
+  doi       = {10.1109/tit.2005.847712},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Fragouli:2006,
+  author    = {Christina Fragouli and Emina Soljanin},
+  title     = {Network Coding Fundamentals},
+  journal   = {Foundations and Trends{\textregistered} in Networking},
+  year      = {2006},
+  volume    = {2},
+  number    = {1},
+  pages     = {1--133},
+  doi       = {10.1561/1300000003},
+  publisher = {Now Publishers},
+}
+
+@Book{Yeung:2006,
+  title     = {Network Coding Theory},
+  publisher = {Now Publishers Inc},
+  year      = {2006},
+  author    = {Raymond W. Yeung and Shuo-Yen Robert Li and Ning Cai and Zhen Zhang},
+  doi       = {10.1561/0100000007},
+}
+
+@InProceedings{Ngai:2004,
+  author    = {Chi Kin Ngai and R.W. Yeung},
+  title     = {Network coding gain of combination networks},
+  booktitle = {Manufacturing Engineer},
+  publisher = {{IEEE}},
+  doi       = {10.1109/itw.2004.1405315},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

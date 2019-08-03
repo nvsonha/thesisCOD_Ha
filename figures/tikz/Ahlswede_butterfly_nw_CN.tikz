@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=white dot] (0) at (-14.75, 0) {Source};
+		\node [style=white dot] (1) at (-11.75, 2.5) {1};
+		\node [style=white dot] (2) at (-11.75, -2.5) {2};
+		\node [style=white dot] (3) at (-9.75, 0) {3};
+		\node [style=white dot] (4) at (-5, 0) {4};
+		\node [style=white dot] (5) at (-2.75, 2.5) {Recv 1};
+		\node [style=white dot] (6) at (-2.75, -2.5) {Recv 2};
+		\node [style=none] (19) at (0, 0) {$\triangleq$};
+		\node [style=white dot] (20) at (2, -3.5) {Recv 1};
+		\node [style=white dot] (21) at (7, -3.5) {Recv 2};
+		\node [style=white dot] (22) at (2, 1) {1};
+		\node [style=white dot] (23) at (12, 1) {2};
+		\node [style=white dot] (24) at (7, 1) {4};
+		\node [style=white dot] (25) at (12, -3.5) {Source};
+		\node [style=white dot] (26) at (7, 4) {3};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=red edge] (0) to (1);
+		\draw [style=green edge] (1) to (5);
+		\draw [style=orange edge] (1) to (3);
+		\draw [style=orange edge] (2) to (3);
+		\draw [style=red edge] (0) to (2);
+		\draw [style=orange edge] (3) to (4);
+		\draw [style={black_line}] (4) to (5);
+		\draw [style={black_line}] (4) to (6);
+		\draw [style=blue edge] (2) to (6);
+		\draw [style=red edge] (22) to (25);
+		\draw [style=red edge] (23) to (25);
+		\draw [style=orange edge] (26) to (22);
+		\draw [style=orange edge] (26) to (24);
+		\draw [style=orange edge] (26) to (23);
+		\draw [style=green edge] (22) to (20);
+		\draw [style=blue edge] (23) to (21);
+		\draw [style={black_line}] (24) to (20);
+		\draw [style={black_line}] (24) to (21);
+	\end{pgfonlayer}
+\end{tikzpicture}

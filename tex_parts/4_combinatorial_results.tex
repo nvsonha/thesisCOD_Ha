@@ -10,7 +10,7 @@ for the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ network.
 Then we generalize the proof to the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h,r,s}$
 network.
 
-\section{$\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ Network}
+\section{$\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ Network \label{sec:Network_e1l1h3rs4}}
 
 \begin{figure}[H]
 \caption{The $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$ network\label{fig:nw_e1_l1_h3_r_s4}}
@@ -18,14 +18,25 @@ network.
 \includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4}
 \end{figure}
 
-\begin{conjecture}
-For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
-the probability that vector solution does not exist is less than or
-equal to $\stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}$.
-\end{conjecture}
-\textit{Proof:} Following to Equation \ref{eq:linear_system}, each
-receiver must solve a linear equation system of 3 variables with 4
-equations to recover $h=3$ messages as below:
+In this subsection, we derive a lower bound on the number of receivers
+for the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ network.
+Due to $\alpha=3$, the number of receivers is $N=\left(\begin{array}{c}
+r_{vector}\\
+3
+\end{array}\right)$ by definition in Section \ref{sec:Description_GCN}. To derive the
+lower bound, we introduce a rank requirement on incoming packets to
+each receiver. 
+
+\begin{figure}[H]
+\caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+represents as a matrix problem\label{fig:rk_h3}}
+
+\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
+\end{figure}
+
+Following to Equation \ref{eq:linear_system}, each receiver must
+solve a linear equation system of 3 variables with 4 equations to
+recover $h=3$ messages as below:
 
 \[
 \left[\begin{array}{c}
@@ -33,7 +44,7 @@ equations to recover $h=3$ messages as below:
 \underline{y}_{j_{2}}\\
 \underline{y}_{j_{3}}\\
 \underline{y}_{j_{4}}
-\end{array}\right]=\left[\begin{array}{c}
+\end{array}\right]=\boldsymbol{A}_{j}\cdot\underline{x}=\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \boldsymbol{A}_{j_{2}}\\
 \boldsymbol{A}_{j_{3}}\\
@@ -49,8 +60,8 @@ with $\underline{x}_{i},\underline{y}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t},
 for $v=1,\ldots,4$, and $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{3}}$
 must be distinct.
 
-The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank for
-every $j=1,\ldots,N$, i.e. $\boldsymbol{A}_{j_{v}}$ must satisfy:
+The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank, i.e.
+$\boldsymbol{A}_{j_{v}}$ must satisfy:
 
 \[
 rk\left[\begin{array}{c}
@@ -62,7 +73,7 @@ rk\left[\begin{array}{c}
 \]
 
 In order to satisfy $rk\left[\boldsymbol{A}_{j}\right]\geq3t$, we
-can easily choose suitable values for the coefficient $\boldsymbol{A}_{j}^{(4)}$
+can easily choose suitable values for the coefficient $\boldsymbol{A}_{j_{4}}$
 on the direct link from the source to $R_{j}$. However, the coefficients
 on the links from nodes to receivers are matters. Therefore, we focus
 on the following requirement:
@@ -75,7 +86,7 @@ rk\left[\begin{array}{c}
 \end{array}\right]\geq2t\label{eq:rk_rqm_e1l1h3s4}
 \end{equation}
 
-Therefore, $rk\left[\begin{array}{c}
+This means that $rk\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \boldsymbol{A}_{j_{2}}\\
 \boldsymbol{A}_{j_{3}}
@@ -84,29 +95,34 @@ $rk\left[\boldsymbol{A}_{j}\right]\geq3t$, we need $rk\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \boldsymbol{A}_{j_{2}}\\
 \boldsymbol{A}_{j_{3}}
-\end{array}\right]\geq2t$. In Section \ref{sec:Description_GCN}, we have $N=\left(\begin{array}{c}
-r\\
-\alpha
-\end{array}\right)$ and $\alpha=3$ as a fixed values. Therefore, maximizing the number
-of receivers is equivalent to maximize $r$ under the constraint \ref{eq:rk_rqm_e1l1h3s4}.
+\end{array}\right]\geq2t$.
+
+By this constraint, the problem is thus described as below:
+
+\[
+\underset{rk\left[\boldsymbol{A}_{j}\right]\geq3t}{min}\,r_{vector}
+\]
+
 $\boldsymbol{A}_{j_{1}},\boldsymbol{A}_{j_{2}},\boldsymbol{A}_{j_{3}}$
 are matrices formed on any 3 of $r$ links from nodes to receivers,
 i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
 We formalize the problem by an approach with Lov\'asz local lemma
 \cite{MosheSchwartz:2018}.
-\begin{thm}[Symmetric Lov\'asz local lemma (LLL)]
-\label{thm:LLL} \cite{Schwarz:2013}
-
-A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$, such that
-each event occurs with probability at most $p$. If each event is
-independent of all others except for at most $d$ of them and $4dp\leq1$,
-then:
-
-\[
-Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0
-\]
-\end{thm}
-For our problem, let $\mathcal{E}_{i}$ denote the following event:
+\begin{lem}[Symmetric Lov\'asz local lemma (LLL)]
+ \cite{Schwarz:2013} A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$,
+such that each event occurs with probability at most $p$. If each
+event is independent of all others except for at most $d$ of them
+and $4dp\leq1$, then: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
+\label{thm:LLL}
+\end{lem}
+%
+\begin{lem}
+For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
+the probability that vector solution does not exist is equal to $\frac{1}{q^{9t^{2}}}\stackrel[i=0]{2t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}$.
+\label{lem:prob_p_LLL_formula}
+\end{lem}
+\textit{Proof}. For our problem, let $\mathcal{E}_{i}$ denote the
+following event:
 
 \[
 Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
@@ -116,8 +132,8 @@ Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
 \end{array}\right]<2t\right]
 \]
 
-Because the requirement on rank is opposite, we consider the complement
-event $T$:
+Because the rank requirement in Equation \ref{eq:rk_rqm_e1l1h3s4}
+is opposite, we consider the complement event $T$:
 
 \[
 rk\left[\begin{array}{c}
@@ -136,8 +152,9 @@ T=\underset{\mathcal{E}_{i}\in\mathcal{E}}{\bigcap}\overline{\mathcal{E}}_{i}
 The probability of event $T$ indicates a measure quantifying the
 likelihood that we will be able to construct $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
 with $j_{1,}j_{2},j_{3}$ in the integer numbers between $1$ and
-$r$, including both. We need to maximize $r$, but the rank requirement
-is still satisfied, i.e. the probabilty must be higher than $0$:
+$r$, including both. We need to maximize $r$, and the rank requirement
+\ref{eq:rk_rqm_e1l1h3s4} must be satisfied, i.e. the probabilty of
+event $T$ must be higher than $0$:
 
 \begin{eqnarray*}
  & Pr\left[rk\left[\begin{array}{c}
@@ -151,13 +168,13 @@ is still satisfied, i.e. the probabilty must be higher than $0$:
 
 Following to LLL, each event occurst with probability at most $p$:
 
-\[
+\begin{equation}
 Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{i_{1}}\\
 \boldsymbol{A}_{i_{2}}\\
 \boldsymbol{A}_{i_{3}}
-\end{array}\right]<2t\right]\leq p
-\]
+\end{array}\right]<2t\right]\leq p\label{eq:p_in_LLL}
+\end{equation}
 
 Regarding to the left-hand side:
 
@@ -209,52 +226,15 @@ In the table (\ref{tab:r_over_t}), the vector solution outperforms
 the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{h=3,r,s=4}$.
 This is sufficient, later on we show computational results which vector
 solutions outperform scalar solutions in case of $t=2$ and $t=3$.
-\begin{conjecture}
+\begin{lem}
 For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
-the achieved gap is $q^{t^{2}/4+\mathcal{O}(t)}$.
-\end{conjecture}
-\textit{Proof:} We proceed the other constraint of LLL: $4dp\leq1$.
-Regarding to $d$, we have:
-
-\begin{eqnarray*}
-d(r) & \leq & 3\cdot\left(\begin{array}{c}
-r-1\\
-2
-\end{array}\right)=3\cdot\frac{\left(r-1\right)\left(r-2\right)}{2}=\frac{3}{2}\left(r^{2}-3r+2\right)=d_{1}(r)\\
- & \leq & \frac{3}{2}r^{2}=d_{2}(r)
-\end{eqnarray*}
-
-Hence, we have below implications:
-
-\begin{eqnarray*}
- & 4\cdot p\cdot d_{2}(r) & \leq1\\
-\overset{1}{\Rightarrow} & 4\cdot p\cdot d_{1}(r) & \leq1\\
-\overset{2}{\Rightarrow} & 4\cdot p\cdot d(r) & \leq1
-\end{eqnarray*}
-
-1: $d_{1}(r)\leq d_{2}(r)$
-
-2: $d(r)\leq d_{1}(r)$
-
-In consideration of $d_{2}(r)$:
-
-\[
-4\cdot p\cdot d_{2}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{min,vector}
-\]
-
-\begin{figure}[H]
-\caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
-represents as a matrix problem\label{fig:rk_h3}}
-
-\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
-\end{figure}
-
-Similarly with above, $d$ and $r$ are propotional, so minimizing
-$r$ is equivelent to maximizing $p$. The purpose is to achieve a
-strict lower bound proving vector solutions always outperform scalar
-solutions in a specific range of $t$, i.e., $r_{max}$asymptotes
-to a value higher than $r_{scalar}$. Now, we begin to maximize $p$.
-We consider the nominator of Equation (\ref{eq:p_eq_h3}):
+the probability that vector solution does not exist is less than or
+equal to $\Theta\left(q^{-t^{2}-2t-1}\right)$. \label{lem:tight_bound_p}
+\end{lem}
+\textit{Proof}. This lemma is a tight bound for Equation \ref{eq:p_in_LLL}
+in Lemma \ref{lem:prob_p_LLL_formula}, i.e. we try to maximize $p$
+with an exact maximum value. We consider the nominator of Equation
+(\ref{eq:p_eq_h3}):
 
 \[
 \stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)
@@ -272,7 +252,7 @@ deg\left(p_{D}^{(i)}(q)\right)=q^{i^{2}}
 Then we have:
 
 \[
-\stackrel[i=1]{2t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)\approx\stackrel[i=1]{2t-1}{\mathop{\sum}}q^{i6t-i^{2}}
+\stackrel[i=0]{2t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)\approx\stackrel[i=0]{2t-1}{\mathop{\sum}}q^{i6t-i^{2}}
 \]
 
 To maximize the sum, we set derivation of to 0 and find its root:
@@ -287,26 +267,58 @@ However, the upper limit of sum is $\left(2t-1\right)$, which is
 less than $3t$.
 
 \[
-\Rightarrow max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
+\Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
 \]
 
 Hence, by using the exact bound $\Theta$, we have:
 
 \[
-\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
+\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
 \]
 
 \[
-\Rightarrow\frac{1+\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\approx\frac{\stackrel[i=1]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\in\Theta\left(q^{-t^{2}-2t-1}\right)
+\Rightarrow\frac{\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\in\Theta\left(q^{-t^{2}-2t-1}\right)\Square
 \]
 
-Finally, we have:
+\begin{lem}
+If $d\leq\frac{3}{2}r^{2}$, we have $r_{max,vector}\geq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$.
+\label{lem:lower_bound_r_max_vector}
+\end{lem}
+\textit{Proof}. We proceed the other constraint of LLL in Lemma \ref{thm:LLL}:
+$4dp\leq1$. Regarding to $d$, we have:
+
+\begin{eqnarray*}
+d(r) & \leq & 3\cdot\left(\begin{array}{c}
+r-1\\
+2
+\end{array}\right)=3\cdot\frac{\left(r-1\right)\left(r-2\right)}{2}=\frac{3}{2}\left(r^{2}-3r+2\right)\\
+ & \leq & \frac{3}{2}r^{2}=d_{max}(r)
+\end{eqnarray*}
+
+Because $4pd_{max}(r)\leq1$ implies that $4pd\leq1$, we consider
+$d_{max}(r)$ directly:
 
 \[
-r_{min,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)
+4\cdot p\cdot d_{max}(r)\leq1\Rightarrow4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max,vector}
 \]
 
-Further we have: $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
+Similarly with above, $d$ and $r$ are propotional, so minimizing
+$r$ is equivelent to maximizing $p$. The purpose is to achieve a
+strict lower bound proving vector solutions always outperform scalar
+solutions in a specific range of $t$, i.e., $r_{max,vector}$ asymptotes
+to a value higher than $r_{max,scalar}$.
+
+By applying Lemma \ref{lem:tight_bound_p}, we have:
+
+\[
+r_{max,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)\Square
+\]
+
+\begin{thm}
+For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
+the achieved gap is $q^{t^{2}/4+\mathcal{O}(t)}$.
+\end{thm}
+\textit{Proof}. In advance, we have: $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
 \cite{Wachter-Zeh:2018}, specifically, 
 \begin{equation}
 r_{scalar}\leq2\left[\begin{array}{c}
@@ -316,14 +328,15 @@ r_{scalar}\leq2\left[\begin{array}{c}
 \end{equation}
 . 
 
-We have the gap size:
+Finally, following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
+and Lemma \ref{lem:lower_bound_r_max_vector}, we have the gap size:
 
-\begin{eqnarray*}
- & r_{max,scalar} & =r_{min,vector}\\
-\Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\\
-\Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\\
-\Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square
-\end{eqnarray*}
+\begin{eqnarray}
+ & r_{max,scalar} & =r_{max,vector}\nonumber \\
+\Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
+\Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
+\Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square\label{eq:gap_e1l1h3rs4}
+\end{eqnarray}
 
 
 \section{$\left(\epsilon=1,l=1\right)-\mathcal{N}_{h,r,s}$ Network}
@@ -382,7 +395,7 @@ deg\left(p_{D}^{(i)}(q)\right)=q^{i^{2}}
 \end{array}\right\} \Rightarrow p^{(i)}(q)\approx q^{i(\alpha t+ht)-i^{2}}
 \]
 
-Now, we exaluate $f(i)=i(\alpha t+ht)-i^{2}$ to find its maximum
+Now, we evaluate $f(i)=i(\alpha t+ht)-i^{2}$ to find its maximum
 point:
 
 $\dot{f}(i^{*})=0\Leftrightarrow(\alpha t+ht)-2i^{*}=0\Leftrightarrow i^{*}=\frac{\alpha t+ht}{2}$

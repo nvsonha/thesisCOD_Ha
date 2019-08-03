@@ -47,3 +47,6 @@ http://www.ibr.cs.tu-bs.de/users/sun/1997.html
 
 +Warning name of Bib key not found
 +Error in Bib \textquotesingle, due to lack of \usepackage{textcomp}
+
+lpstat -a -d
+lp -o sides=two-sided-long-edge [filename] -d [printer]

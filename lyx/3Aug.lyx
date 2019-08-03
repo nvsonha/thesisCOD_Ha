@@ -1,0 +1,595 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{textcomp}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Error-correction Codes
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Block codes
+\shape default
+ are finite length codes first studied by Golay 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Golay:1949"
+literal "false"
+
+\end_inset
+
+ and Hamming 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hamming:1950"
+literal "false"
+
+\end_inset
+
+.
+ A 
+\shape italic
+linear
+\shape default
+ 
+\begin_inset Formula $\left[n,k\right]_{q}$
+\end_inset
+
+ 
+\shape italic
+block code
+\shape default
+ 
+\begin_inset Formula $\ensuremath{\mathcal{C}}$
+\end_inset
+
+ of length 
+\begin_inset Formula $n$
+\end_inset
+
+, dimension 
+\begin_inset Formula $k$
+\end_inset
+
+ and codimension (or redundancy) 
+\begin_inset Formula $r=n-k$
+\end_inset
+
+, is a 
+\begin_inset Formula $k$
+\end_inset
+
+-dimensional 
+\shape italic
+linear subspace
+\shape default
+ of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
+\end_inset
+
+.
+ A 
+\shape italic
+generator matrix
+\shape default
+ 
+\begin_inset Formula $\utilde{G}$
+\end_inset
+
+ has 
+\begin_inset Formula $k$
+\end_inset
+
+ rows, which form a 
+\shape italic
+basis
+\shape default
+ of 
+\begin_inset Formula $\ensuremath{\mathcal{C}}$
+\end_inset
+
+, i.e., 
+\begin_inset Formula $\utilde{G}$
+\end_inset
+
+'s row space is a set of 
+\begin_inset Formula $k$
+\end_inset
+
+ linearly independent vectors generating 
+\begin_inset Formula $\ensuremath{\mathcal{C}}$
+\end_inset
+
+.
+ The codeword 
+\begin_inset Formula $\underline{c}\in\ensuremath{\mathcal{C}}$
+\end_inset
+
+ is encoded by the 
+\shape italic
+information vector
+\shape default
+ (or 
+\shape italic
+message
+\shape default
+) 
+\begin_inset Formula $\underline{m}$
+\end_inset
+
+, with 
+\begin_inset Formula $\underline{c}=\underline{m}\cdot\utilde{G}$
+\end_inset
+
+.
+ For any 
+\begin_inset Formula $\underline{c}\in\ensuremath{\mathcal{C}}$
+\end_inset
+
+: 
+\begin_inset Formula $\underline{c}\cdot\utilde{H}^{T}=\underline{0}$
+\end_inset
+
+, with 
+\begin_inset Formula $\utilde{H}$
+\end_inset
+
+ is a 
+\shape italic
+parity-check matrix
+\shape default
+ of 
+\begin_inset Formula $\ensuremath{\mathcal{C}}$
+\end_inset
+
+, whose row space generates the 
+\begin_inset Formula $\left[n,n-k\right]_{q}$
+\end_inset
+
+ dual code 
+\begin_inset Formula $\ensuremath{\mathcal{C}}^{\perp}$
+\end_inset
+
+.
+ Equivalent to 
+\begin_inset Formula $\left[n,k\right]_{q}$
+\end_inset
+
+, we write 
+\begin_inset Formula $\left[n,k,d\right]_{q}$
+\end_inset
+
+ and minimum distance 
+\begin_inset Formula $d$
+\end_inset
+
+ fulfills 
+\begin_inset Formula $d=\underset{\underline{c}\in\ensuremath{\mathcal{C}\setminus\left\{ \underline{0}\right\} }}{min}d\left(\underline{c},\underline{0}\right)$
+\end_inset
+
+ with respect to a metric 
+\begin_inset Formula $d\left(\cdot,\cdot\right):\ensuremath{\mathbb{F}}^{n}\times\ensuremath{\mathbb{F}}^{n}\rightarrow\mathbb{R}_{\geq0}$
+\end_inset
+
+ on 
+\begin_inset Formula $\ensuremath{\mathbb{F}}^{n}$
+\end_inset
+
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+i.e., 
+\begin_inset Formula $d\left(\underline{x},\underline{y}\right)\geq0$
+\end_inset
+
+,
+\begin_inset Formula $d\left(\underline{x},\underline{y}\right)=0$
+\end_inset
+
+ iff 
+\begin_inset Formula $x=y$
+\end_inset
+
+, 
+\begin_inset Formula $d\left(\underline{x},\underline{y}\right)=d\left(\underline{y},\underline{x}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $d\left(\underline{x},\underline{z}\right)\leq d\left(\underline{x},\underline{y}\right)+d\left(\underline{y},\underline{z}\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\underline{x},\underline{y},\underline{z}\in\ensuremath{\mathbb{F}}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Network Model
+\end_layout
+
+\begin_layout Standard
+The class of networks which are mainly studied is the class of multicast
+ networks.
+ It can be one-to-many or many-to-many distribution 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Harte:2008"
+literal "false"
+
+\end_inset
+
+.
+ In this study, we target one-to-many multicast network with the distribution
+ of a data packet to a group of users 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2012"
+literal "false"
+
+\end_inset
+
+.
+ An interesting network structure is often used for multicast networks in
+ network coding is called Combination Network (CN) and denoted by 
+\begin_inset Formula $\mathcal{N}_{h,r,s}$
+\end_inset
+
+.
+ Many examples in previous studies demonstrating the advantage of network
+ coding have used structures identical or similar to that of CN.
+ We mention a few examples to emphasize CN's importance in the study of
+ network coding.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:butterfly_nw_cn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the butterfly network that is often used as a first example to motivate
+ network coding, e.g.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Fig. 7"
+key "Ahlswede:2000"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Fig. 1"
+key "Sanders:2003"
+literal "false"
+
+\end_inset
+
+, is isomorphic to 
+\begin_inset Formula $\mathcal{N}_{h,r=3,s=2}$
+\end_inset
+
+, if we consider it as an undirected network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Maheshwar:2012"
+literal "false"
+
+\end_inset
+
+.
+ The 
+\begin_inset Formula $\mathcal{N}_{h,r=3,s=2}$
+\end_inset
+
+ itself was also used in the first study of network coding 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ahlswede:2000"
+literal "false"
+
+\end_inset
+
+.
+ Other CNs, i.e.
+ 
+\begin_inset Formula $\mathcal{N}_{h,r=4,s=2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{N}_{h,r=6,s=3}$
+\end_inset
+
+, were also used as examples to demonstrate the advantage of network coding
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Fig. 2"
+key "Sanders:2003"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Fig. 2"
+key "Jaggi:2005"
+literal "false"
+
+\end_inset
+
+ respectively.
+ The general structure of CN was also introduced and discussed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec. 4.3"
+key "Fragouli:2006"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sec. 4.1"
+key "Yeung:2006"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ngai:2004,Xiao:2007"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The butterfly network as a combination network 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:butterfly_nw_cn"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network_CN.pdf
+	width 50page%
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A generalization of a CN 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Riis:2006"
+literal "false"
+
+\end_inset
+
+ is called generalized combination network (GCN).
+ GCN defined in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2016,Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+ was used to prove that vector network coding outperforms scalar linear
+ network coding , in multicast networks, with respect to the 
+\shape italic
+alphabet size
+\shape default
+, using rank-metric codes and Grassmannian codes.
+ A comparison between the required alphabet size for a scalar linear solution,
+ a vector solution, and a scalar nonlinear solution, of the same multicast
+ network is an important problem.
+ Etzion and Wachter-Zeh introduced a 
+\shape italic
+gap
+\shape default
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2016"
+literal "false"
+
+\end_inset
+
+ as the difference between the alphabet sizes of the optimal scalar linear
+ solution and the smallest alphabet size for which they can construct a
+ vector solution.
+ They have found bounds on the gap for several network families from the
+ GCN in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2016,Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+, but no gap for the GCN networks with 3 messages has been found.
+ Therefore, a combinatorial approach is first introduced in this thesis
+ to prove an existence of a vector solution outperforming the optimal scalar
+ linear solution with 
+\begin_inset Formula $q^{t^{2}/4+\mathcal{O}(t)}$
+\end_inset
+
+.
+ We then further extend the approach for a family of GCN called One-Direct
+ Link Combination Network, i.e.
+ 
+\begin_inset Formula $(1,1)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+, where we denote GCN by 
+\begin_inset Formula $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+.
+ More formal definitions of the gap and GCN can be found in Section XYZ.
+ 
+\end_layout
+
+\begin_layout Standard
+>>> What is alphabet size? Found in Bounding
+\end_layout
+
+\begin_layout Standard
+>>> What is OPTIMAL scalar linear solution?
+\end_layout
+
+\begin_layout Standard
+>>> Why COMBINATION NETWORK?
+\end_layout
+
+\begin_layout Standard
+>>> Definition of Gap
+\end_layout
+
+\begin_layout Section
+Scalar Linear Network Coding
+\end_layout
+
+\begin_layout Section
+Vector Network Coding
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "E:/Documents/TUM/THESIS/thesisCOD_Ha/refs/final_ref_bib"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
