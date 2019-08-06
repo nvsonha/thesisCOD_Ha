@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In Table \ref{tab:r_over_t}, our vector solutions are computed by
-Algorithm \ref{alg:Increasing-Method} for the $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{3,r,4}$
+Algorithm \ref{alg:Increasing-Method} for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$
 network regarding to $t=2$ and $t=3$. Both construction 1 and 2
 provide better results than scalar solutions. 
 
@@ -29,10 +29,10 @@ in the code; therefore, we have in total 146 possible codesword, but
 only 89 codewords are required. In this case, the gap size $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$i.e.
 we achieve a gap size $q^{t^{2}/2}$, which is better the asymptotic
 behavior in \ref{eq:gap_e1l1h3rs4}.
-\begin{defn}[G3]
+\begin{defn}[Sufficient Global Coding Vector]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
 Then a set $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
-forms a subset of $g3$ if
+forms a subset of $g^{\left(3\right)}$ if
 
 \[
 rk\left[\begin{array}{c}
@@ -47,16 +47,16 @@ span a subspace of $\ensuremath{\mathbb{F}}_{q}^{2n}$ whose dimension
 is at least $2n$. We denote $g3_{i}$ as a subset of $g3$:
 
 \[
-g3=\left\{ \left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}\right\} =\left\{ g3_{i}\right\} ,i=0,1,2,...,\left|g3\right|-1
+g^{\left(3\right)}=\left\{ \left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}\right\} =\left\{ g_{i}^{\left(3\right)}\right\} ,i=0,1,2,...,\left|g^{\left(3\right)}\right|-1
 \]
 
-with $g3_{i}=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}$
+with $g_{i}^{\left(3\right)}=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} _{i}$
 \end{defn}
 %
 \begin{defn}[Relative]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
 Then $\boldsymbol{C}$ is called a relative of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
-if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in g3$
+if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in g^{\left(3\right)}$
 and denoted as following:
 
 \[
@@ -66,7 +66,7 @@ rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}
 %
 \begin{defn}[Sub-relative]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}$.
-Then $\boldsymbol{D}$ is called a sub-relative of a tuple $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\in g3$
+Then $\boldsymbol{D}$ is called a sub-relative of a tuple $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\in g^{\left(3\right)}$
 if:
 
 \[
@@ -104,7 +104,7 @@ matrix.
 \begin{algorithm}[H]
 \caption{Increasing Method \label{alg:Increasing-Method}}
 
-\textbf{INPUT}: $g3$ of N matrices belonging to $MatrixSpace(n,m)$
+\textbf{INPUT}: $g^{\left(3\right)}$ of N matrices belonging to $MatrixSpace(n,m)$
 or $MatrixSpaceUrs(n,m)$
 \begin{enumerate}
 \item Create a list of $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right],\forall\boldsymbol{A},\boldsymbol{B}\in MatrixSpace(n,m),\boldsymbol{A}\neq\boldsymbol{B}$
@@ -140,7 +140,7 @@ step 3, we also avoid duplicated values here.
 Res=\left\{ \boldsymbol{X}_{i}:\boldsymbol{X}_{i}\in\ensuremath{\mathbb{F}}_{q}^{n\times m}\right\} ,i=0,1,...,UB
 \]
 
-with any 3 combinations of $\left(\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\right)\in g3,\forall\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\in Res,\boldsymbol{X}_{j}\neq\boldsymbol{X}_{k}\neq\boldsymbol{X}_{t}$
+with any 3 combinations of $\left(\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\right)\in g^{\left(3\right)},\forall\boldsymbol{X}_{j},\boldsymbol{X}_{k},\boldsymbol{X}_{t}\in Res,\boldsymbol{X}_{j}\neq\boldsymbol{X}_{k}\neq\boldsymbol{X}_{t}$
 and $j\neq k\neq t$.
 \end{algorithm}
 
@@ -207,7 +207,7 @@ Regarding to the left, the visual explanation of $subrel$ is shown.
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 represents as a matrix problem\label{fig:rel_example}}
 
-\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
+\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
 \end{figure}
 
 \clearpage

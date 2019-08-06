@@ -1,31 +1,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Generalized combination Network $(\epsilon,l)-\mathcal{N}_{h,r,s}$} \label{chap:general_network}
+\chapter{Generalized combination Network} \label{chap:general_network}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Description \label{sec:Description_GCN}}
 
-A generalized combination network $(\epsilon,l)-\mathcal{N}_{h,r,s}$
-consists of 3 components from top to bottom: ``Source'' in the first
-layer, ``Node'' in the middle layer, and ``Receiver'' in the third
-layer. The network has a source with $h$ messages, $r$ nodes, and
-$\left(\begin{array}{c}
+A generalized combination network $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
+consists of 3 components over 3 layers from top to bottom: ``Source''
+in the first layer, ``Intermediate Nodes'' in the middle layer,
+and ``Receiver'' in the third layer. Because ``Source'' and ``Receiver''
+have their own names without previous confusion of a source node or
+a destination node, we replace ``Intermedate Nodes'' by ``Nodes''
+from this section. The network has a source with $h$ messages, $r$
+nodes, and $\left(\begin{array}{c}
 r\\
 \alpha
 \end{array}\right)$ receivers, which form a single source multicast network modeled as
 a finite directed acyclic multigraph \cite{Li:2003}. The source connects
-to each node by $l$ parallel links and each node also connects to
-a receiver by $l$ parallel links, which are respectively called a
-node's incoming and outgoing edges. Each receiver is connected by
+to each node by $\ell$ parallel links and each node also connects
+to a receiver by $\ell$ parallel links, which are respectively called
+a node's incoming and outgoing edges. Each receiver is connected by
 $s$ links in total, specifically $\alpha l$ links from $\alpha$
-nodes and $\epsilon$ direct links from the source, i.e. $s=\alpha l+\epsilon$.
+nodes and $\epsilon$ direct links from the source, i.e. $s=\alpha\ell+\epsilon$.
 The combination network in \cite{Riis:2006} is the $(0,1)-\mathcal{N}_{h,r,s}$
 network and the $(1,1)-\mathcal{N}_{h,r,s}$ network is called One-Direct
 Link Combination Network. Theorem 1 shows our interest of relations
-between the parameters $h,\alpha,\epsilon$ and $l$.
-\begin{thm}
-\label{nw_parameters}The $(\epsilon,l)-\mathcal{N}_{h,r,s}$ network
-has a trivial solution if $l+\epsilon\geq h$, and it has no solution
-if $\alpha l+\epsilon<h$. 
+between the parameters $h,\alpha,\epsilon$ and $\ell$. Following
+to Theorem \ref{nw_parameters}, we are interested in networks parameters
+satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
+\begin{figure}[H]
+\caption{The generalized network $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$\label{fig:The-generalized-network}}
+
+\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/generalized_combination_nw}
+\end{figure}
+
+\begin{thm}[\cite{Wachter-Zeh:2018}]
+\label{nw_parameters}The $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
+network has a trivial solution if $\ell+\epsilon\geq h$, and it has
+no solution if $\alpha\ell+\epsilon<h$. 
 
 Proof: Following to the network coding max-flow min-cut theorem for
 multicast networks, the maximum number of messages from the source
@@ -33,26 +44,17 @@ to each receiver is equal to the smallest min-cut between the source
 and any receiver. For our considered network, $s$ links have to be
 deleted to disconnect the source from the receiver, which implies
 that the min-cut between the source and each receiver is at least
-$s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha l+\epsilon$ $\Square$
+$s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ $\Square$
 
-There exist at least $l+\epsilon$ disjoint links connected to each
-receiver. If $l+\epsilon\geq h$, each receiver can always reconstruct
-its requested messages on its links. Then we only need to do routing
-to select paths for the network. $\Square$
+There exist at least $\ell+\epsilon$ disjoint links connected to
+each receiver. If $\ell+\epsilon\geq h$, each receiver can always
+reconstruct its requested messages on its links. Then we only need
+to do routing to select paths for the network. $\Square$
 \end{thm}
-\begin{rem}
-Following to Theorem \ref{nw_parameters}, we are interested in networks
-parameters satisfying this condition: $l+\epsilon+1\leq h\leq\alpha l+\epsilon$.
-\end{rem}
-\begin{figure}[H]
-\caption{The generalized network $(\epsilon,l)-\mathcal{N}_{h,r,s}$\label{fig:The-generalized-network}}
-
-\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/generalized_combination_nw}
-\end{figure}
-
 \begin{table}[H]
 \caption{Parameters of network coding \label{tab:Parameters-of-network}}
 
+\centering{}%
 \begin{tabular}{c|>{\centering}p{0.48\paperwidth}}
 $h$ & The number of source messages\tabularnewline
 \hline 
@@ -76,36 +78,37 @@ $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsi
 \end{table}
 
 
-\section{Network Coding For This Network Family}
+\section{Network Coding for This Network}
 
 \subsection{Scalar network coding \label{subsec:Scalar-network-coding}}
 
-A message is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{s}}$.
+A message is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$.
 As a network of the multicast model, all receivers request the same
 packet of $h$ symbols at the same time \cite{Trautmann:2013}. A
-packet is a 1-dimentional subspace of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$;
-hence, each receiver must obtain a subspace of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$,
+packet is a 1-dimentional subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$,
+each receiver therefore must obtain a subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$,
 whose dimension is at least $h$, to be able to reconstruct the packet.
 Through $\epsilon$ direct links connected from the source to a receiver,
 the source can provide any required $\epsilon$ 1-dimensional subspaces
-of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$ for the corresponding receiver.
-Each receiver can accordingly reconstruct the packet if and only if
-the linear span of $\alpha$ $l$-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
-from the nodes is at least of dimension $h-\epsilon$. When this necessary
-condition is satisfied, the network is said to have a \textit{solution}
-or to be \textit{solvable}.
-\begin{thm}
-The $(0,1)-\mathcal{N}_{h,r,s}$ network has a solution if and only
-if there exists an $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|h,r-\alpha+1\right)$
-$\left|\ensuremath{\mathbb{F}}_{q_{s}}\right|$-ary error correcting
-code. \cite{Riis:2006}
+of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$ for the corresponding
+receiver. Each receiver can accordingly reconstruct the packet if
+and only if the linear span of $\alpha$ $\ell$-dimensional subspaces
+of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$ from the nodes
+is at least of dimension $h-\epsilon$. When this necessary condition
+is satisfied, the network is said to have a \textit{solution} or to
+be \textit{solvable}.
+\begin{thm}[\cite{Riis:2006}]
+ The $(0,1)-\mathcal{N}_{h,r,s}$ network has a solution if and only
+if there exists an $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\right|h,r-\alpha+1\right)$
+$\left|\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\right|$-ary error
+correcting code. 
 \end{thm}
 %
-\begin{thm}
-The $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network is
-solvable over $\ensuremath{\mathbb{F}}_{q}$ if and only if there
-exists an $\alpha-\left(h,l,h-l-\epsilon\right)_{q}^{c}$ code with
-$r$ codewords. \cite{Zhang:2019} \label{theo:scalar_sol_exist}
+\begin{thm}[\cite{Zhang:2019}]
+ The $(\epsilon,\ell)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network
+is solvable over $\ensuremath{\mathbb{F}}_{q}$ if and only if there
+exists an $\alpha-\left(h,\ell,h-\ell-\epsilon\right)_{q}^{c}$ code
+with $r$ codewords. \label{theo:scalar_sol_exist}
 \end{thm}
 
 \subsection{Vector network coding \label{subsec:Vector-network-coding}}
@@ -118,131 +121,45 @@ the scalar solution of field size $q^{t}$ to a equivalent vector
 solution is represented in Example \ref{ex:scalar_vector_mapping}.
 Similarly with the scalar \textit{linear} coding solution, each receiver
 can reconstruct its requested packet if and only if any $\alpha$
-$\left(lt\right)$-dimensional subspaces span a subspace of dimension
+$\left(\ell t\right)$-dimensional subspaces span a subspace of dimension
 at least $\left(h-\epsilon\right)t$.
-\begin{thm}
-A vector solution for the $(\epsilon,l)-\mathcal{N}_{h,r,s}$ network
-exists if and only if there exists $\mathcal{G}_{q}\left(ht,lt\right)$
+\begin{thm}[\cite{Zhang:2019}]
+ A vector solution for the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
+network exists if and only if there exists $\mathcal{G}_{q}\left(ht,\ell t\right)$
 such that any $\alpha$ subspaces of the set span a subspace of dimension
-at least $\left(h-\epsilon\right)t$. \cite{Zhang:2019}
+at least $\left(h-\epsilon\right)t$. 
 \end{thm}
 %
-\begin{thm}
-The $(\epsilon,l)-\mathcal{N}_{h,r,s=\alpha l+\epsilon}$network is
-solvable with vectors of length $t$ over $\ensuremath{\mathbb{F}}_{q}$
-if and only if there exists an $\alpha-\left(ht,lt,ht-lt-\epsilon t\right)_{q}^{c}$
-code with $r$ codewords. \cite{Zhang:2019}
+\begin{thm}[\cite{Zhang:2019}]
+ The $(\epsilon,\ell)-\mathcal{N}_{h,r,s=\alpha\ell+\epsilon}$network
+is solvable with vectors of length $t$ over $\ensuremath{\mathbb{F}}_{q}$
+if and only if there exists an $\alpha-\left(ht,\ell t,ht-\ell t-\epsilon t\right)_{q}^{c}$
+code with $r$ codewords. 
 \end{thm}
 \begin{cor}
-The $\alpha-\left(n=ht,n-k=ht-lt,\lambda=ht-lt-\epsilon t\right)_{q}^{m}$
-code formed from the dual subspaces of the $\alpha-\left(n=ht,k=lt,\lambda=ht-lt-\epsilon t\right)_{q}^{c}$
-code yields the upper bound of $\mathcal{A}_{q}\left(n=ht,n-k=ht-lt,\alpha;\lambda\right)$
-as maximum number of nodes for a vector network coding of the $(\epsilon,l)-\mathcal{N}_{h,r,s}$
+The $\alpha-\left(n=ht,n-k=ht-\ell t,\lambda=ht-\ell t-\epsilon t\right)_{q}^{m}$
+code formed from the dual subspaces of the $\alpha-\left(n=ht,k=\ell t,\lambda=ht-\ell t-\epsilon t\right)_{q}^{c}$
+code yields the upper bound of $\mathcal{A}_{q}\left(n=ht,n-k=ht-\ell t,\alpha;\lambda\right)$
+as maximum number of nodes for a vector network coding of the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
 network. \label{cor:dual_subspaces}
 \end{cor}
-
-\subsection{Network as a matrix channel \label{subsec:Matrix-channel}}
-
-To formulate this description, the source has a set of disjoint messages
-referred to packets which are either symbols from $\ensuremath{\mathbb{F}}_{q_{s}}$
-(scalar coding) or vectors of length $t$ over $\ensuremath{\mathbb{F}}_{q}$
-(vector coding). Each link in the network carries functions of the
-packets, and a \textit{network code} is a set of these functions.
-The network code is called \textit{linear} if all the functions are
-linear and nonlinear otherwise. Each receiver $R_{j},j\in\left\{ 1,\ldots,N\right\} $
-requests a subset of the source's length-$h$ messages, and this subset
-is called a \textit{packet}. Through all the functions on the links
-from the source to each receiver, the receiver obtains several linear
-combinations of the $h$ messages to form a linear system of equations
-for its requested packets. The coefficients of a linear combination
-are called \textit{global coding vectors} \cite{Sanders:2003}. The
-linear equation system that any receiver $R_{j}$ has to solve is
-as following:
-
-\begin{equation}
-\begin{array}{c|c}
-Scalar & Vector\\
-\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{s}}{\underbrace{\left[\begin{array}{c}
-y_{j_{1}}\\
-\vdots\\
-y_{j_{s}}
-\end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{h}}{\underbrace{\left[\begin{array}{c}
-x_{1}\\
-\vdots\\
-x_{h}
-\end{array}\right]}} & \underset{\ensuremath{\mathbb{F}}_{q}^{st}}{\underbrace{\left[\begin{array}{c}
-\underline{y}_{j_{1}}\\
-\vdots\\
-\underline{y}_{j_{s}}
-\end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q}^{st\times th}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q}^{th}}{\underbrace{\left[\begin{array}{c}
-\underline{x}_{1}\\
-\vdots\\
-\underline{x}_{h}
-\end{array}\right]}}
-\end{array}\label{eq:linear_system}
-\end{equation}
-
-The transfer matrix $\boldsymbol{A}_{j}$ contains the links' \textit{global
-coding vectors}, which are combined by the coefficients of linear
-combinations on $\alpha l$ links from $\alpha$ nodes and $\epsilon$
-direct-links to the corresponding receiver $R_{j}$:
-
-\[
-\begin{array}{c|c}
-Scalar & Vector\\
-\boldsymbol{A}_{j}=\left[\begin{array}{c}
-\underline{a}_{j_{1}}\\
-\vdots\\
-\underline{a}_{j_{\alpha l}}\\
-\vdots\\
-\underline{a}_{j_{\alpha l+\epsilon}}
-\end{array}\right] & \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j_{1}}\\
-\vdots\\
-\boldsymbol{A}_{j_{\alpha l}}\\
-\vdots\\
-\boldsymbol{A}_{j_{\alpha l+\epsilon}}
-\end{array}\right]
-\end{array}
-\]
-
-In general, the network is represented as a matrix channel for both
-scalar and vector coding:
-\begin{defn}
-Network As Matrix Channel
-
-The channel output can be written as: $\boldsymbol{Y}_{j}=\boldsymbol{A}_{j}\cdot\boldsymbol{X}$
-\end{defn}
-Because we reconstruct $\boldsymbol{X}$ with knowing $\boldsymbol{A}_{j}$,
-i.e. the network structure is known, our network is coherent. A network
-is \textit{sovable} or a network code is a \textit{solution}, if each
-receiver can reconstruct its requested messages or solve the system
-with a unique solution for scalars $x_{1},\ldots,x_{h}$, or vectors
-$\underline{x}_{1},\ldots,\underline{x}_{h}$. Therefore, we want
-to find global coding vectors such that the matrix $\boldsymbol{A}_{j}$
-has full-rank for every $j=1,\ldots,N$, and such that $q_{s}$ or
-$q^{t}$ is minimized. In Example \ref{ex:scalar_vector_mapping},
-we provide a vector solution of field size $q$ and dimension $t$,
-which has the same alphabet size as a scalar solution of field size
-$q^{t}$
 \begin{example}
 \label{ex:scalar_vector_mapping} 
 
 Given $h=3,q=2,t=2$, we consider the extension field $\ensuremath{\mathbb{F}}_{q^{t}=2^{2}}$.
-The example shows how mapping messages from scalar coding to vector
+This example shows how mapping messages from scalar coding to vector
 coding.
 \end{example}
 \begin{figure}[H]
-\caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{s}=q^{t}}$
+\caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
 to the equivalent vector solution\label{fig:x_mapping}}
 
-\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping}
+\centering{}\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping}
 \end{figure}
 
-\begin{example}
 We use the table of the extension field $\ensuremath{\mathbb{F}}_{2^{2}}$
 with the primitive polynomial $f(x)=x^{2}+x+1$:
-\end{example}
+\begin{center}
 \begin{tabular}{|c|c|c|}
 \hline 
 power of $\alpha$ & polynomial & binary vector\tabularnewline
@@ -256,12 +173,13 @@ $\alpha^{1}$ & $\alpha$ & 10\tabularnewline
 $\alpha^{2}$ & $\alpha+1$ & 11\tabularnewline
 \hline 
 \end{tabular}
+\par\end{center}
 
 For scalar coding, the messages are $x_{1},\ldots,x_{h=3}\in\ensuremath{\mathbb{F}}_{2^{2}}$
-, and for vector coding the messages are $\underline{x}_{1},\ldots,\underline{x}_{h=3}\in\ensuremath{\mathbb{F}}_{2}^{2}$.
+, and for vector coding the messages are $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{h=3}\in\ensuremath{\mathbb{F}}_{2}^{2}$.
 From the polynomial column, let's choose arbitrarily a scalar vector
-$\underline{x}_{scalar}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$.
-Then, we map it to $\underline{x}_{vector}=(\underline{x}_{1},\underline{x}_{2},\underline{x}_{3})$
+$\boldsymbol{x}_{scalar}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$.
+Then, we map it to $\boldsymbol{x}_{vector}=(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3})$
 by using the binary vector column as following:
 
 \[
@@ -293,132 +211,71 @@ a_{1}\\
 a_{t-1}
 \end{array}\right)$.
 
-To summarize the notations of both scalar and vector coding, we represent
-them in the Table~\ref{tab:notations}:
+\section{Special Cases of Generalized Combination Network}
 
-\begin{table}[H]
-\caption{Notations of network coding}
+\subsection{The $(\ell-1)$-Direct Links and $\ell$-Parallel Links $\mathcal{N}_{h=2l,r,s=3l-1}$}
 
-\label{tab:notations} 
-
-\begin{tabular}{|>{\centering}p{0.2\paperwidth}|c|c|}
-\hline 
- & Scalar Coding & Vector coding\tabularnewline
-\hline 
-\hline 
-Source Messages/Packets & $\begin{array}{c}
-x_{1},\ldots,x_{h}\in\ensuremath{\mathbb{F}}_{q_{s}}\\
-\underline{x}\in\ensuremath{\mathbb{F}}_{q_{s}}^{h}
-\end{array}$ & $\begin{array}{c}
-\underline{x}_{1},\ldots,\underline{x}_{h}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
-\underline{x}\in\ensuremath{\mathbb{F}}_{q}^{th}
-\end{array}$\tabularnewline
-\hline 
-Global Coding Vectors Of Receiver $R_{j}$ & $\underline{a}_{j_{1}},\ldots,\underline{a}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q_{s}}^{h}$ & $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}$\tabularnewline
-\hline 
-Transfer Matrix Of Receiver $R_{j}$ & $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q^{t}}^{s\times h}$ & $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{st\times th}$\tabularnewline
-\hline 
-Packets On Receiver $R_{j}$ & $\begin{array}{c}
-y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q_{s}}\\
-\underline{y}\in\ensuremath{\mathbb{F}}_{q_{s}}^{s}
-\end{array}$ & $\begin{array}{c}
-\underline{y}_{j_{1}},\ldots,\underline{y}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
-\boldsymbol{Y}_{j}\in\ensuremath{\mathbb{F}}_{q}^{st}
-\end{array}$\tabularnewline
-\hline 
-Number of nodes & $r_{scalar}$ & $r_{vector}$\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
-\begin{rem}
-By using the vector coding, the upper bound number of solutions increases
-from $q^{tkh}$ to $q^{t^{2}kh}$. Therefore, vector network coding
-offers more freedom in choosing the coding coefficients than does
-scalar linear coding for equivalent alphabet sizes, and a smaller
-alphabet size might be achievable \cite{Ebrahimi:2011}. By this advantage,
-we can have higher amount of receivers, i.e. higher amount of nodes,
-in vector network coding.
-\end{rem}
-
-\subsection{Comparison between scalar and vector solutions by the gap size}
-
-The \textit{gap} represents the difference between the smallest field
-(alphabet) size for which a scalar linear solution exists and the
-smallest alphatbet size for which we can construct a vector solution.
-In this study, we define a solvable vector network coding over the
-field size $\ensuremath{\mathbb{F}}_{q}^{t}$, and we find the minimum
-amount of maximum nodes such vector solution can achieve, i.e. $r_{max,vector}\geq f_{1}(q,t)$,
-with $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$. Meanwhile, we has a scalar
-solution for the same network existing if and only if: $r_{scalar}\leq f_{2}\left(q_{s}\right)$,
-with $f_{2}:\mathbb{Z}\mapsto\mathbb{Z}$. To find the field size
-$q_{s}$ required for a scalar solution to reach the maximum achievable
-vector solution's nodes in this setting, we consider $r_{max,scalar}=f_{2}\left(q_{s}\right)=f_{1}(q,t)=r_{max,vector}$.
-Finally, we calculate the gap by $g=q_{s}-q_{v}=q_{s}-q^{t}.$ Throughout
-this study, we show that vectors solutions significantly reduce the
-required alphabet size by this gap. 
-
-\section{Special cases of generalized combination network}
-
-\subsection{The $(l-1)$-Direct Links and $l$-Parallel Links $\mathcal{N}_{h=2l,r,s=3l-1}$}
-
-This subfamily contains the largest number of direct links from the
-source to the receivers. For $l\geq2$, this network $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
-yields the gap $q^{(l-1)t^{2}/l+\mathcal{O}(t)}$ between vector solutions
-and optimal scalar solutions. The vector solution is based on an $\mathcal{MRD}\left[lt\times lt,t\right]_{q}$
-code. Further, the gap tends to $q^{t^{2}/2+\mathcal{O}(t)}$ for
-large $l$.
-\begin{lem}
-There is a scalar linear solution of field size $q_{s}$ for the $\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$
-network, where $l\geq2$, if and only if $r\leq\left[\begin{array}{c}
-2l\\
-l
-\end{array}\right]_{q_{s}}$.
+This family contains the largest number of direct links from the source
+to the receivers. For $\ell\geq2$, this network $\left(\epsilon=\ell-1,\ell\right)-\mathcal{N}_{h=2\ell,r,s=3\ell-1}$
+yields the gap $q^{(\ell-1)t^{2}/\ell+\mathcal{O}(t)}$ between vector
+solutions and optimal scalar solutions. The vector solution is based
+on an $\mathcal{MRD}\left[\ell t\times\ell t,t\right]_{q}$ code.
+Further, the gap tends to $q^{t^{2}/2+\mathcal{O}(t)}$ for large
+$\ell$.
+\begin{lem}[\cite{Wachter-Zeh:2018}]
+ There is a scalar linear solution of field size $q_{\mathrm{s}}$
+for the $\left(\epsilon=\ell-1,\ell\right)-\mathcal{N}_{h=2\ell r,s=3\ell-1}$
+network, where $\ell\geq2$, if and only if $r\leq\left[\begin{array}{c}
+2\ell\\
+\ell
+\end{array}\right]_{q_{\mathrm{s}}}$.
 \end{lem}
 \begin{figure}[H]
 \caption{The $\left(1,2\right)-\mathcal{N}_{4,r,5}$ network as an example
-of the $\left(l-1,l\right)-\mathcal{N}_{2l,r,3l-1}$ \label{fig:network_l1e2h4rs5}}
+of the $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ \label{fig:network_l1e2h4rs5}}
 
-\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l2_h4_r_s5}
+\centering{}\includegraphics[width=0.4\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l2_h4_r_s5}
 \end{figure}
 
 
-\subsection{The 1-Direct Link and $l$-Parallel Links $\mathcal{N}_{h=2l,r,s=2l+1}$}
+\subsection{The 1-Direct Link and $\ell$-Parallel Links $\mathcal{N}_{h=2\ell,r,s=2\ell+1}$}
 
-This is the smallest direct-link subfamily has an vector solution
-outperforming the optimal scalar solution, i.e. an vector solution
-outperforming the optimal scalar has not yet been found for the network
-$(0,l>1)-\mathcal{N}_{h,r,s}$. Similar to the previous subfamily
-$\left(\epsilon=l-1,l\right)-\mathcal{N}_{h=2l,r,s=3l-1}$, when $l\geq2$
-or $h\geq4$, this network yields the largest gap $q^{t^{2}/2+\mathcal{O}(t)}$
-in the alphabet size by using the same approach with an $\mathcal{MRD}\left[lt\times lt,(l-1)t\right]_{q}$
+This is the smallest direct-link family has an vector solution outperforming
+the optimal scalar solution, i.e. an vector solution outperforming
+the optimal scalar has not yet been found for the network $(0,\ell>1)-\mathcal{N}_{h,r,s}$.
+Similar to the previous subfamily $\left(\epsilon=\ell-1,\ell\right)-\mathcal{N}_{h=2\ell,r,s=3\ell-1}$,
+when $\ell\geq2$ or $h\geq4$, this network yields the largest gap
+$q^{t^{2}/2+\mathcal{O}(t)}$ in the alphabet size by using the same
+approach with an $\mathcal{MRD}\left[\ell t\times\ell t,(\ell-1)t\right]_{q}$
 code. 
 
 \begin{figure}[H]
-\caption{The $\left(l-1,l\right)-\mathcal{N}_{2l,r,3l-1}$ network \label{fig:network_special2}}
+\caption{The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
+\label{fig:network_special2}}
 
-\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special2}
+\centering{}\includegraphics[width=0.45\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special2}
 \end{figure}
 
 
 \subsection{The $\epsilon$-Direct Links $\mathcal{N}_{h,r,s}$}
 
-This subfamily is denoted as $\left(\epsilon\geq1,l=1\right)-\mathcal{N}_{h,r,s}$
-and is the most focus topic on this thesis, because it motivates some
-interesting questions on a classic coding problem and on a new type
-of subspace code problem. In Section \ref{sec:Network_e1l1h3rs4},
-we show our largest code set with low number of subspace codes for
-the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$.
+This family is denoted as $\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+and is the main focus of this thesis, because it motivates some interesting
+questions on a classic coding problem and on a new type of subspace
+code problem. In Section \ref{sec:Network_e1l1h3rs4}, we show our
+largest code set with low number of subspace codes for the network
+$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$. Furthermore,
+there is no gap size is known for this network in previous studies.
 
 \begin{figure}[H]
-\caption{The $\left(\epsilon\protect\geq1,l=1\right)-\mathcal{N}_{h,r,s}$
+\caption{The $\left(\epsilon\protect\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network \label{fig:network_special3}}
 
-\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special3}
+\centering{}\includegraphics[width=0.45\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special3}
 \end{figure}
 
 
-\subsection{The $\left(\epsilon=0,l=1\right)-\mathcal{N}_{h,r,s}$ Combination
+\subsection{The $\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ Combination
 Network}
 
 Since the scalar solution for the combination network uses an $MDS$
@@ -432,43 +289,43 @@ code is also proved that it cannot outperform the optimal scalar linear
 solution.
 
 \begin{figure}[H]
-\caption{The $\left(\epsilon=0,l=1\right)-\mathcal{N}_{h,r,s}$ combination
+\caption{The $\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ combination
 network \label{fig:network_special4}}
 
-\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special4_combination}
+\centering{}\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special4_combination}
 \end{figure}
 
 
-\subsection{The largest possible gap between $q_{v}$ and $q_{s}$ in previous
-studies}
+\subsection{The Largest Possible Gap between $q_{v}$ and $q_{s}$ in Previous
+Studies}
 
-\subsubsection{$h\protect\leq2l$ and $\epsilon\protect\neq0$}
+\subsubsection{$h\protect\leq2\ell$ and $\epsilon\protect\neq0$}
 
 For this network, the number of direct links is at least 1, i.e. $\epsilon\geq1$,
 and the number of parallel links is less than half of the number of
-source messages, i.e. $l\leq\frac{h}{2}$.
+source messages, i.e. $\ell\leq\frac{h}{2}$.
 
 \paragraph{h is even}
 
-The above $\left(l-1,l\right)-\mathcal{N}_{2l,r,3l-1}$ network achieves
-the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
+The above $\left(\ell-1,l\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
+achieves the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
 
 \paragraph{h is odd}
 
-The $\left(l-2,l\right)-\mathcal{N}_{2l-1,r,3l-2}$ network achieves
-the largest gap $q_{s}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
+The $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$ network
+achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
 
-\subsubsection{$h\protect\geq2l$ and $\epsilon\protect\neq h-2l$}
+\subsubsection{$h\protect\geq2\ell$ and $\epsilon\protect\neq h-2\ell$}
 
 \paragraph{h is even}
 
-The same above $\left(l-1,l\right)-\mathcal{N}_{2l,r,3l-1}$ network
-achieves the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
+The same above $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
+network achieves the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
 
 \paragraph{h is odd}
 
-The $\left(l-1,l\right)-\mathcal{N}_{2l+1,r,3l-1}$ network achieves
-the largest gap $q_{s}=q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
+The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell+1,r,3\ell-1}$ network
+achieves the largest gap $q_{\mathrm{s}}=q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
 \begin{rem}
 The achieved gap is $q^{(h-2)t^{2}/h+\mathcal{O}(t)}$ for any $q\geq2$
 and any even $h\geq4$. If $h\geq5$ is odd, then the achieved gap

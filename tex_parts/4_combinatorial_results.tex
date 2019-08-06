@@ -6,21 +6,22 @@ In previous studies \cite{Wachter-Zeh:2018}, there was no general
 vector solution found for multicast networks with $h=3$ messages.
 Hence, we start with a probabilistic argument to prove that there
 exists a vector solution outperforming the optimal linear solution
-for the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ network.
-Then we generalize the proof to the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h,r,s}$
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. Then we generalize the proof to the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network.
 
-\section{$\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ Network \label{sec:Network_e1l1h3rs4}}
+\section{$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ Network
+\label{sec:Network_e1l1h3rs4}}
 
 \begin{figure}[H]
-\caption{The $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$ network\label{fig:nw_e1_l1_h3_r_s4}}
+\caption{The $(\epsilon=1,\ell=1)-\mathcal{N}_{h=3,r,s=4}$ network\label{fig:nw_e1_l1_h3_r_s4}}
 
-\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4}
+\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4}
 \end{figure}
 
 In this subsection, we derive a lower bound on the number of receivers
-for the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$ network.
-Due to $\alpha=3$, the number of receivers is $N=\left(\begin{array}{c}
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. Due to $\alpha=3$, the number of receivers is $N=\left(\begin{array}{c}
 r_{vector}\\
 3
 \end{array}\right)$ by definition in Section \ref{sec:Description_GCN}. To derive the
@@ -31,7 +32,7 @@ each receiver.
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 represents as a matrix problem\label{fig:rk_h3}}
 
-\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
+\centering{}\includegraphics[width=0.6\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
 \end{figure}
 
 Following to Equation \ref{eq:linear_system}, each receiver must
@@ -40,23 +41,23 @@ recover $h=3$ messages as below:
 
 \[
 \left[\begin{array}{c}
-\underline{y}_{j_{1}}\\
-\underline{y}_{j_{2}}\\
-\underline{y}_{j_{3}}\\
-\underline{y}_{j_{4}}
+\boldsymbol{y}_{j_{1}}\\
+\boldsymbol{y}_{j_{2}}\\
+\boldsymbol{y}_{j_{3}}\\
+\boldsymbol{y}_{j_{4}}
 \end{array}\right]=\boldsymbol{A}_{j}\cdot\underline{x}=\left[\begin{array}{c}
 \boldsymbol{A}_{j_{1}}\\
 \boldsymbol{A}_{j_{2}}\\
 \boldsymbol{A}_{j_{3}}\\
 \boldsymbol{A}_{j_{4}}
 \end{array}\right]\cdot\left[\begin{array}{c}
-\underline{x}_{1}\\
-\underline{x}_{2}\\
-\underline{x}_{3}
+\boldsymbol{x}_{1}\\
+\boldsymbol{x}_{2}\\
+\boldsymbol{x}_{3}
 \end{array}\right],
 \]
 
-with $\underline{x}_{i},\underline{y}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+with $\boldsymbol{x}_{i},\boldsymbol{y}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j_{v}}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 for $v=1,\ldots,4$, and $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{3}}$
 must be distinct.
 
@@ -108,11 +109,11 @@ are matrices formed on any 3 of $r$ links from nodes to receivers,
 i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
 We formalize the problem by an approach with Lov\'asz local lemma
 \cite{MosheSchwartz:2018}.
-\begin{lem}[Symmetric Lov\'asz local lemma (LLL)]
- \cite{Schwarz:2013} A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$,
-such that each event occurs with probability at most $p$. If each
-event is independent of all others except for at most $d$ of them
-and $4dp\leq1$, then: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
+\begin{lem}[Symmetric Lov\'asz local lemma (LLL) \cite{Schwarz:2013}]
+ A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$, such that
+each event occurs with probability at most $p$. If each event is
+independent of all others except for at most $d$ of them and $4dp\leq1$,
+then: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
 \label{thm:LLL}
 \end{lem}
 %
@@ -199,6 +200,7 @@ table:
 \begin{table}[H]
 \caption{$r$ over variations of t\label{tab:r_over_t}}
 
+\begin{centering}
 \begin{tabular}{|c|c|c|}
 \hline 
 t & Scalar Solution & Vector Solution\tabularnewline
@@ -217,7 +219,7 @@ t & Scalar Solution & Vector Solution\tabularnewline
 6 & $r_{scalar}\leq8322$ & $r_{vector}>10^{6}$\tabularnewline
 \hline 
 \end{tabular}
-
+\par\end{centering}
 {*}, {*}{*}: computational results in construction 1 and construction
 2 respectively
 \end{table}
@@ -318,13 +320,13 @@ r_{max,vector}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{
 For the network $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$,
 the achieved gap is $q^{t^{2}/4+\mathcal{O}(t)}$.
 \end{thm}
-\textit{Proof}. In advance, we have: $r_{max,scalar}\in\mathcal{O}\left(q_{s}^{2}\right)$
+\textit{Proof}. In advance, we have: $r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$
 \cite{Wachter-Zeh:2018}, specifically, 
 \begin{equation}
 r_{scalar}\leq2\left[\begin{array}{c}
 3\\
 1
-\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right)\label{eq:r_scalar_max}
+\end{array}\right]_{q_{\mathrm{s}}}=2\left(q_{\mathrm{s}}^{2}+q_{\mathrm{s}}+1\right)\label{eq:r_scalar_max}
 \end{equation}
 . 
 
@@ -333,9 +335,9 @@ and Lemma \ref{lem:lower_bound_r_max_vector}, we have the gap size:
 
 \begin{eqnarray}
  & r_{max,scalar} & =r_{max,vector}\nonumber \\
-\Leftrightarrow & q_{s}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
-\Leftrightarrow & q_{s} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
-\Rightarrow & g & =q_{s}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square\label{eq:gap_e1l1h3rs4}
+\Leftrightarrow & q_{\mathrm{s}}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
+\Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
+\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\Square\label{eq:gap_e1l1h3rs4}
 \end{eqnarray}
 
 
@@ -344,7 +346,7 @@ and Lemma \ref{lem:lower_bound_r_max_vector}, we have the gap size:
 \subsection{Find the lower bound of $r_{max,vector}$}
 
 Following to Theorem (\ref{nw_parameters}), we are interested in
-the following range: $l+\epsilon+1\leq h\leq\alpha l+\epsilon$.
+the following range: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 
 As previous, $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{h-\epsilon}}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
 and we need to satisfy the following:
@@ -365,7 +367,7 @@ such that any $\alpha$ subspaces of the set span a subspace of dimension
 at least $\left(h-1\right)t$.%
 \end{minipage}}
 
-Similar to $\left(\epsilon=1,l=1\right)-\ensuremath{N}_{3,r,4}$,
+Similar to $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
 we consider $p$ to proceed LLL:
 
 \[
@@ -443,21 +445,21 @@ p & \in & \Theta\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right
 \end{eqnarray*}
 
 
-\subsection{Find the upper bound of $r_{max,scalar}$}
+\subsection{Find the Upper Bound of $r_{max,scalar}$}
 
 \noindent\fbox{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
 Find $\left(\alpha+1\right)$ received vectors that span a subspace
 of dimension $h$. This implies that the $\alpha$ links from the
-middle layer carry $\alpha$ vectors which span a subspace of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$
-whose dimension is at least $\left(h-1\right)$, with $q_{s}=q^{t}$.%
+middle layer carry $\alpha$ vectors which span a subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$
+whose dimension is at least $\left(h-1\right)$, with $q_{\mathrm{s}}=q^{t}$.%
 \end{minipage}}
 
 For $3\leq\alpha<h$: all $\alpha$ links must be distinct $\Rightarrow r\leq\left[\begin{array}{c}
 \alpha\\
 1
-\end{array}\right]_{q_{s}}\Rightarrow r\leq$
+\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r\leq$
 
-For $\alpha\geq h\geq3$: to achieve $(h-1)$-subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{h}$,
+For $\alpha\geq h\geq3$: to achieve $(h-1)$-subspaces of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$,
 no $\alpha$ links will contain a vector which is contained in the
 same $(h-2)$-subspace.
 
@@ -467,17 +469,17 @@ Hence,
 r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
 h-2
-\end{array}\right]_{q_{s}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
+\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
 \]
 
 
-\subsection{Calculate the gap of size}
+\subsection{Calculate Gap }
 
 \begin{eqnarray*}
  & r_{max,scalar} & =r_{min,vector}\\
-\Leftrightarrow & q_{s}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
-\Leftrightarrow & q_{s} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
-\Rightarrow & g & =q_{s}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
+\Leftrightarrow & q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
+\Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
+\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
 \end{eqnarray*}
 
 \clearpage

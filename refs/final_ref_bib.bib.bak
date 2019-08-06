@@ -493,4 +493,89 @@
   doi       = {10.1109/itw.2004.1405315},
 }
 
+@InProceedings{Xiao:2007,
+  author    = {Ming Xiao and Muriel Medard and Tor Aulin},
+  title     = {A Binary Coding Approach for Combination Networks and General Erasure Networks},
+  booktitle = {2007 {IEEE} International Symposium on Information Theory},
+  year      = {2007},
+  month     = {jun},
+  publisher = {{IEEE}},
+  doi       = {10.1109/isit.2007.4557320},
+}
+
+@InProceedings{Langberg:2009,
+  author    = {Langberg, Michael and Sprintson, Alex},
+  title     = {Recent results on the algorithmic complexity of network coding},
+  booktitle = {Proc. of the 5th Workshop on Network Coding, Theory, and Applications},
+  year      = {2009},
+}
+
+@InProceedings{Gone:2018,
+  author    = {Mira Gone and Michael Langberg and Alex Sprintson},
+  title     = {Latency and Alphabet Size in the Context of Multicast Network Coding},
+  booktitle = {2018 56th Annual Allerton Conference on Communication, Control, and Computing (Allerton)},
+  year      = {2018},
+  month     = {oct},
+  publisher = {{IEEE}},
+  doi       = {10.1109/allerton.2018.8636026},
+}
+
+@InProceedings{Lehman:2004,
+  author    = {Lehman, April Rasala and Lehman, Eric},
+  title     = {Complexity Classification of Network Information Flow Problems},
+  booktitle = {Proceedings of the Fifteenth Annual ACM-SIAM Symposium on Discrete Algorithms},
+  year      = {2004},
+  series    = {SODA '04},
+  pages     = {142--150},
+  address   = {Philadelphia, PA, USA},
+  publisher = {Society for Industrial and Applied Mathematics},
+  acmid     = {982814},
+  isbn      = {0-89871-558-X},
+  location  = {New Orleans, Louisiana},
+  numpages  = {9},
+  url       = {http://dl.acm.org/citation.cfm?id=982792.982814},
+}
+
+@Article{Katti:2008,
+  author    = {S. Katti and H. Rahul and Wenjun Hu and D. Katabi and M. Medard and J. Crowcroft},
+  title     = {{XORs} in the Air: Practical Wireless Network Coding},
+  journal   = {{IEEE}/{ACM} Transactions on Networking},
+  year      = {2008},
+  volume    = {16},
+  number    = {3},
+  pages     = {497--510},
+  month     = {jun},
+  doi       = {10.1109/tnet.2008.923722},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@InProceedings{Li:2004,
+  author       = {Li, Zongpeng and Li, Baochun},
+  title        = {Network coding in undirected networks},
+  year         = {2004},
+  organization = {CISS},
+}
+
+@InProceedings{Medard:2003,
+  author       = {M{\'e}dard, Muriel and Effros, Michelle and Karger, David and Ho, Tracey},
+  title        = {On coding for non-multicast networks},
+  booktitle    = {Proceedings of the Annual Allerton Conference on Communication Control and Computing},
+  year         = {2003},
+  volume       = {41},
+  number       = {1},
+  pages        = {21--29},
+  organization = {The University; 1998},
+}
+
+@Article{Das:2016,
+  author    = {Das, Niladri and Rai, Brijesh Kumar},
+  title     = {On the message dimensions of vector linearly solvable networks},
+  journal   = {IEEE Communications Letters},
+  year      = {2016},
+  volume    = {20},
+  number    = {9},
+  pages     = {1701--1704},
+  publisher = {IEEE},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

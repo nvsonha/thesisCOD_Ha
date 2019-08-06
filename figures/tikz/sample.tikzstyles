@@ -43,3 +43,4 @@
 \tikzstyle{chartreuse arrow}=[draw={rgb,255: red,191; green,255; blue,0}, ->]
 \tikzstyle{dark-cyan arrow}=[draw={rgb,255: red,0; green,128; blue,128}, ->, line width=0.5mm]
 \tikzstyle{black_line}=[-, line width=0.5mm]
+\tikzstyle{dashed_arrow1}=[->, dashed, line width=0.5 mm]
