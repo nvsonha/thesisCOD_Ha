@@ -1,16 +1,42 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=white dot] (0) at (0, 0) {};
-		\node [style=none] (1) at (-1.5, 2) {};
-		\node [style=none] (2) at (1.5, 2) {};
-		\node [style=none] (3) at (0, -2) {};
-		\node [style=none] (4) at (-2, 1) {$\underline{x}_1$};
-		\node [style=none] (5) at (2, 1) {$\underline{x}_2$};
-		\node [style=none] (6) at (2.75, -1) {$y=f(\underline{x}_1,\underline{x}_2)$};
+		\node [style=white dot] (0) at (-7.5, 0) {};
+		\node [style=none] (1) at (-9, 2) {};
+		\node [style=none] (2) at (-6, 2) {};
+		\node [style=none] (3) at (-6.5, -2) {};
+		\node [style=none] (4) at (-9.5, 1) {$o_1$};
+		\node [style=none] (5) at (-5.5, 1) {$o_2$};
+		\node [style=none] (6) at (-4.25, -2.75) {$y_2=f_2(o_1,o_2)$};
+		\node [style=none] (7) at (-8.5, -2) {};
+		\node [style=none] (8) at (-10.5, -2.75) {$y_1=f_1(o_1,o_2)$};
+		\node [style=white dot] (9) at (7.5, 0) {Source};
+		\node [style=none] (10) at (6, 2) {};
+		\node [style=none] (11) at (9, 2) {};
+		\node [style=none] (12) at (8.5, -2) {};
+		\node [style=none] (13) at (5.5, 1) {$x_1$};
+		\node [style=none] (14) at (9.5, 1) {$x_2$};
+		\node [style=none] (15) at (10.75, -2.75) {$o_2=f_2(x_1,x_2)$};
+		\node [style=none] (16) at (6.5, -2) {};
+		\node [style=none] (17) at (4.5, -2.75) {$o_1=f_1(x_1,x_2)$};
+		\node [style=white dot] (18) at (0, 0) {Recv};
+		\node [style=none] (19) at (-1.5, 2) {};
+		\node [style=none] (20) at (1.5, 2) {};
+		\node [style=none] (22) at (-2, 1) {$y_1$};
+		\node [style=none] (23) at (2, 1) {$y_2$};
+		\node [style=none] (24) at (-7.5, -5.25) {a) Intermediate Node};
+		\node [style=none] (25) at (0, -5.25) {b) Destination Node};
+		\node [style=none] (26) at (7.5, -5.25) {c) Source Node};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw [style=arrow] (1.center) to (0);
 		\draw [style=arrow] (2.center) to (0);
 		\draw [style=arrow] (0) to (3.center);
+		\draw [style=arrow] (0) to (7.center);
+		\draw [style={dashed_arrow1}] (10.center) to (9);
+		\draw [style={dashed_arrow1}] (11.center) to (9);
+		\draw [style=arrow] (9) to (12.center);
+		\draw [style=arrow] (9) to (16.center);
+		\draw [style=arrow] (19.center) to (18);
+		\draw [style=arrow] (20.center) to (18);
 	\end{pgfonlayer}
 \end{tikzpicture}

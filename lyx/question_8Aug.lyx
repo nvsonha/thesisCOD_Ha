@@ -1,0 +1,344 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+On page 2467 in Etzion and Wachter-Zeh, they state the gap of 
+\begin_inset Formula $(\epsilon=1,\ell)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+\end_inset
+
+.
+ However, they did not explain the scalar linear solution.
+ Could you check my calculation for it as following?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+y_{j_{1}}\\
+\vdots\\
+y_{j_{s}}
+\end{array}\right]=\left[\begin{array}{c}
+\boldsymbol{a}_{1}\\
+\vdots\\
+\boldsymbol{a}_{\alpha\ell}\\
+\vdots\\
+\boldsymbol{a}_{\alpha\ell+\epsilon}
+\end{array}\right]\cdot\left[\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{h}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\boldsymbol{a}_{\alpha\ell+1},\ldots,\boldsymbol{a}_{\alpha\ell+\epsilon}$
+\end_inset
+
+ can be independently chosen from any receiver, and there exits thus always
+ 
+\begin_inset Formula $\boldsymbol{a}_{\alpha\ell+1},\ldots,\boldsymbol{a}_{\alpha\ell+\epsilon}$
+\end_inset
+
+ such that,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+rk\left[\begin{array}{c}
+\boldsymbol{a}_{1}\\
+\vdots\\
+\boldsymbol{a}_{\alpha\ell}
+\end{array}\right]\geq h-\epsilon\Leftrightarrow rk\left[\begin{array}{c}
+\boldsymbol{a}_{1}\\
+\vdots\\
+\boldsymbol{a}_{2\ell}
+\end{array}\right]\geq2\ell-1,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if and only if 
+\begin_inset Formula $rk\left[\begin{array}{c}
+\boldsymbol{a}_{1}\\
+\vdots\\
+\boldsymbol{a}_{\alpha\ell}\\
+\vdots\\
+\boldsymbol{a}_{\alpha\ell+\epsilon}
+\end{array}\right]\geq2\ell$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Notice: 
+\begin_inset Formula $h=2\ell$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha=\frac{s-\epsilon}{l}=2$
+\end_inset
+
+.
+ This explains one of your question why Tuvi and Wachter-Zeh's gap is dependent
+ on 
+\begin_inset Formula $\ell$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Following to my previous report, Chapter 5 Page 31, we formulate the above
+ problem on rank as following.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Problem
+\series default
+: A scalar solution exists, if and only if there exists a Grasmannian code
+ 
+\begin_inset Formula $\mathcal{G}_{q}\left(h=2\ell,\ell\right)$
+\end_inset
+
+ such that any 
+\begin_inset Formula $\alpha=2$
+\end_inset
+
+ subspaces of the set span a subspace of dimension at least 
+\begin_inset Formula $2\ell-1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Solution
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+USE A SUGGESTION YOU GAVE ME DURING OUR DISCUSSION >>> We need that no 2
+ 
+\begin_inset Formula $\ell$
+\end_inset
+
+-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$
+\end_inset
+
+ will contain a vector which is contained in the same 
+\begin_inset Formula $\left(2\ell-2\right)$
+\end_inset
+
+-subspace, but 
+\begin_inset Formula $\left(2\ell-1\right)$
+\end_inset
+
+ of such subspaces can have such vectors.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, we have: 
+\begin_inset Formula $r_{scalar}\leq\left(2\ell-1\right)\left[\begin{array}{c}
+2\ell\\
+2\ell-2
+\end{array}\right]_{q_{s}}\Rightarrow r_{scalar}\leq\mathcal{O}\left(q^{l}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+I doubt my result, because in Section IV-D, Etzion and Wachter-Zeh seem
+ to use 
+\begin_inset Formula $r_{scalar}\leq\left[\begin{array}{c}
+2\ell\\
+\ell
+\end{array}\right]_{q_{s}}<\mathcal{O}\left(q^{l^{2}}\right)$
+\end_inset
+
+, which leads to their gap 
+\begin_inset Formula $q^{t^{2}/2+\mathcal{O}\left(t\right)}$
+\end_inset
+
+ for the 
+\begin_inset Formula $(\epsilon=1,\ell)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+\end_inset
+
+ network.
+ 
+\end_layout
+
+\begin_layout Standard
+To be similar with the proof that Etzion and Wachter-Zeh in Section IV-E,
+ I re-formulate our problem again.
+ Let's denote any 2 subspaces of 
+\begin_inset Formula $\mathcal{G}_{q}\left(h=2\ell,\ell\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ span a subspace of dimension at least 
+\begin_inset Formula $2\ell-1$
+\end_inset
+
+, then we have 
+\begin_inset Formula $dim\left(U+V\right)=2\ell-1$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $dim\left(U\cap V\right)=dim\left(U\right)+dim\left(V\right)-dim\left(U+V\right)=1$
+\end_inset
+
+, which leads to the subspace distance 
+\begin_inset Formula $d_{s}(U,V)=2\ell-2$
+\end_inset
+
+.
+ It shows that our above use of 
+\begin_inset Formula $\left[\begin{array}{c}
+2\ell\\
+2\ell-2
+\end{array}\right]_{q_{s}}$
+\end_inset
+
+ is correct.
+\end_layout
+
+\end_body
+\end_document

@@ -45,6 +45,10 @@ iff $\boldsymbol{x}=\boldsymbol{y}$, $d\left(\boldsymbol{x},\boldsymbol{y}\right
 and $d\left(\boldsymbol{x},\boldsymbol{z}\right)\leq d\left(\boldsymbol{x},\boldsymbol{y}\right)+d\left(\boldsymbol{y},\boldsymbol{z}\right)$
 for all $\boldsymbol{x},\boldsymbol{y},\boldsymbol{z}\in\ensuremath{\mathbb{F}}^{n}$.}.
 
+\paragraph{Maximum Rank Distance (MRD) code}
+
+>\textcompwordmark >\textcompwordmark > EXPLANATION
+
 \paragraph{Gaussian coefficient}
 
 Gaussian coefficient (also known as $q$-binomial) counts the number
@@ -105,7 +109,7 @@ or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\righ
 \cite{Wachter-Zeh:2018}
 \end{defn}
 %
-\begin{defn}[Covering Grassmannian code]
+\begin{defn}[Covering Grassmannian Code]
  An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
 code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
 such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
@@ -131,17 +135,18 @@ n\\
 k
 \end{array}\right]_{q}\leq4q^{\left(n-k\right)k}$.
 
-\begin{defn}[Subspace packing \cite{Etzion:2018}]
- A subspace packing $t-\left(n,k,\lambda\right)_{q}^{m}$ is a set
-$\mathcal{S}$ of $k$-subspaces or $k$-dimensional subspaces (called
-\textit{blocks}), such that each $t$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
+\begin{defn}[Multiple Grassmannian Code \cite{Etzion:2018}]
+ A $\mathrm{t}-\left(n,k,\lambda\right)_{q}^{m}$ multiple Grassmannian
+code, i.e. a subspace packing, is a set $\mathcal{S}$ of $k$-subspaces
+or $k$-dimensional subspaces (called \textit{blocks}), such that
+each $\mathrm{t}$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
 is contained in at most $\lambda$ codewords of $\mathcal{C}$. 
 \end{defn}
 %
 \begin{defn}[\cite{Etzion:2018}]
-$\mathcal{A}_{q}\left(n,k,t;\lambda\right)$ denotes the maximum
-size of a $t-\left(n,k,\lambda\right)_{q}^{m}$ code, where there
-are no repeated codewords. 
+$\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)$ denotes the
+maximum size of a $\mathrm{t}-\left(n,k,\lambda\right)_{q}^{m}$ code,
+where there are no repeated codewords. 
 \end{defn}
 
 \section{Theorem}
@@ -149,32 +154,32 @@ are no repeated codewords.
 >\textcompwordmark >\textcompwordmark > EXPLAIN BEFORE WHY I NEED
 EACH THEOREM?
 \begin{thm}[\cite{Zhang:2019}]
- If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
-and $1\leq\lambda\leq\left[\begin{array}{c}
-n-t\\
-k-t
+ If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
+$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
 \end{array}\right]_{q}$, then
 
 \[
-\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
 n\\
-t
+\mathrm{t}
 \end{array}\right]_{q}}{\left[\begin{array}{c}
 k\\
-t
+\mathrm{t}
 \end{array}\right]_{q}}\right\rfloor 
 \]
 \end{thm}
 %
 \begin{thm}[\cite{Zhang:2019}]
- If $n,k,t,$ and $\lambda$ are positive integers such that $1\leq t<k<n$
-and $1\leq\lambda\leq\left[\begin{array}{c}
-n-t\\
-k-t
+ If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
+$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
 \end{array}\right]_{q}$, then
 
 \[
-\mathcal{A}_{q}\left(n,k,t;\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,t-1;\lambda\right)\right\rfloor 
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
 \]
 \end{thm}
 
