@@ -11,43 +11,13 @@ stated otherwise, vectors are indexed starting from 1, i.e. $\boldsymbol{v}=\lef
 Vectors are usually considered to be row vectors. Matrices $\boldsymbol{V}$
 are shown in bold and capital letters. Elements of matrices or vectors
 are surrounded by square brackets, and elements of tuples are surrounded
-by round brackets.
+by round brackets. Curly brackets are used to cover elements of sets,
+otherwise they are clearly stated for any other uses.
 
 \paragraph{Vector space}
 
 A vector space of dimension $n$ over a finite field with $q$ elements
 is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. 
-
-\paragraph{Linear Block Code}
-
->\textcompwordmark >\textcompwordmark > WHY ONLY LINEAR?
-
-\textit{Block codes} are finite length codes first studied by Golay
-\cite{Golay:1949} and Hamming \cite{Hamming:1950}. A \textit{linear}
-$\left[n,k\right]_{q}$ \textit{block code} $\ensuremath{\mathcal{C}}$
-of length $n$, dimension $k$ and codimension (or redundancy) $r=n-k$,
-is a $k$-dimensional \textit{linear subspace} of $\ensuremath{\mathbb{F}}_{q}^{n}$.
-A \textit{generator matrix} $\boldsymbol{G}$ has $k$ rows, which
-form a \textit{basis} of $\ensuremath{\mathcal{C}}$, i.e., $\boldsymbol{G}$'s
-row space is a set of $k$ linearly independent vectors generating
-$\ensuremath{\mathcal{C}}$. The codeword $\underline{c}\in\ensuremath{\mathcal{C}}$
-is encoded by the \textit{information vector} (or \textit{message})
-$\boldsymbol{m}$, with $\boldsymbol{c}=\boldsymbol{m}\cdot\boldsymbol{G}$.
-For any $\boldsymbol{c}\in\ensuremath{\mathcal{C}}$: $\boldsymbol{c}\cdot\boldsymbol{H}^{T}=\boldsymbol{0}$,
-with $\boldsymbol{H}$ is a \textit{parity-check matrix} of $\ensuremath{\mathcal{C}}$,
-whose row space generates the $\left[n,n-k\right]_{q}$ dual code
-$\ensuremath{\mathcal{C}}^{\perp}$. $\left[n,k,d\right]_{q}$ is
-equivalent to $\left[n,k\right]_{q}$ with minimum distance $d$ fulfills
-$d=\underset{\boldsymbol{c}\in\ensuremath{\mathcal{C}\setminus\left\{ \boldsymbol{0}\right\} }}{min}d\left(\boldsymbol{c},\boldsymbol{0}\right)$
-with respect to a metric $d\left(\cdot,\cdot\right):\ensuremath{\mathbb{F}}^{n}\times\ensuremath{\mathbb{F}}^{n}\rightarrow\mathbb{R}_{\geq0}$
-on $\ensuremath{\mathbb{F}}^{n}$ \footnote{i.e., $d\left(\boldsymbol{x},\boldsymbol{y}\right)\geq0$,$d\left(\boldsymbol{x},\boldsymbol{y}\right)=0$
-iff $\boldsymbol{x}=\boldsymbol{y}$, $d\left(\boldsymbol{x},\boldsymbol{y}\right)=d\left(\boldsymbol{y},\boldsymbol{x}\right)$
-and $d\left(\boldsymbol{x},\boldsymbol{z}\right)\leq d\left(\boldsymbol{x},\boldsymbol{y}\right)+d\left(\boldsymbol{y},\boldsymbol{z}\right)$
-for all $\boldsymbol{x},\boldsymbol{y},\boldsymbol{z}\in\ensuremath{\mathbb{F}}^{n}$.}.
-
-\paragraph{Maximum Rank Distance (MRD) code}
-
->\textcompwordmark >\textcompwordmark > EXPLANATION
 
 \paragraph{Gaussian coefficient}
 
@@ -91,9 +61,23 @@ $\Omega\left(f\left(q,t\right)\right)$ for lower bounds, where $f$
 is a function of the alphabet size and the vector length.
 
 \section{Definition}
+\begin{defn}[Rank-metric code]
+ A linear $\left[m\times n,k,\delta\right]_{q}^{R}$ rank-metric
+code $\mathcal{C}$ is a $k$-dimensional subspace of $\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+with mimum rank distance $\delta$.
+\end{defn}
 
->\textcompwordmark >\textcompwordmark > EXPLAIN WHY I NEED EACH
-DEFINITION?
+\paragraph{Maximum Rank Distance (MRD) code}
+
+Let $rk\left[\boldsymbol{V}\right]$ be the rank of a matrix $\boldsymbol{V}\in\ensuremath{\mathbb{F}}_{q}^{m\times n}$.
+The \textit{rank distance} between $\boldsymbol{U},\boldsymbol{V}\in\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+is defined by $d_{R}\left(\boldsymbol{U},\boldsymbol{V}\right)=rk\left[\boldsymbol{U}-\boldsymbol{V}\right]$
+\cite{Delsarte:1978,Gabidulin:1985,Roth:1991}. The minimum rank distance
+of a $\left[m\times n,k,\delta\right]_{q}^{R}$ rank-metric code $\mathcal{C}$
+is defined by: $\delta=\underset{\boldsymbol{V}\in\mathcal{C},\boldsymbol{V}\neq\boldsymbol{0}}{min}\left\{ rk\left[\boldsymbol{V}\right]\right\} $.
+Rank-metric codes that attained the Singleton-like upper bound $k\leq max\left\{ m,n\right\} \left(min\left\{ m,n\right\} -\delta+1\right)$
+\cite{Delsarte:1978,Gabidulin:1985,Roth:1991} are called maximum
+rank distance (MRD) codes and denoted by $\mathcal{MRD}\left[m\times n,\delta\right]_{q}$.
 \begin{defn}[Grassmannian Code]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
@@ -117,7 +101,7 @@ a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q
 \cite{Zhang:2019}
 \end{defn}
 
-\paragraph{The cardinality of a Grassmannian code}
+\paragraph{The Cardinality of a Grassmannian Code}
 
 The cardinality of $\mathcal{G}_{q}\left(n,k\right)$ is the Gaussian
 coefficient (also known as $q$-binomial), which counts the number
@@ -142,45 +126,11 @@ or $k$-dimensional subspaces (called \textit{blocks}), such that
 each $\mathrm{t}$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
 is contained in at most $\lambda$ codewords of $\mathcal{C}$. 
 \end{defn}
-%
-\begin{defn}[\cite{Etzion:2018}]
+
+\paragraph*{Maximum Size of a Multiple Grassmannian Code}
+
 $\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)$ denotes the
 maximum size of a $\mathrm{t}-\left(n,k,\lambda\right)_{q}^{m}$ code,
-where there are no repeated codewords. 
-\end{defn}
-
-\section{Theorem}
-
->\textcompwordmark >\textcompwordmark > EXPLAIN BEFORE WHY I NEED
-EACH THEOREM?
-\begin{thm}[\cite{Zhang:2019}]
- If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
-$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
-n-\mathrm{t}\\
-k-\mathrm{t}
-\end{array}\right]_{q}$, then
-
-\[
-\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
-n\\
-\mathrm{t}
-\end{array}\right]_{q}}{\left[\begin{array}{c}
-k\\
-\mathrm{t}
-\end{array}\right]_{q}}\right\rfloor 
-\]
-\end{thm}
-%
-\begin{thm}[\cite{Zhang:2019}]
- If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
-$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
-n-\mathrm{t}\\
-k-\mathrm{t}
-\end{array}\right]_{q}$, then
-
-\[
-\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
-\]
-\end{thm}
+where there are no repeated codewords. \cite{Etzion:2018}
 
 \clearpage

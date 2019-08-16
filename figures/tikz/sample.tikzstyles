@@ -21,6 +21,8 @@
 \tikzstyle{8_r_circle}=[fill=none, draw=red, shape=circle, minimum size=8cm, line width=0.5mm]
 \tikzstyle{2_b_circle}=[fill=none, draw=blue, shape=circle, minimum size=2cm, line width=0.5mm]
 \tikzstyle{4_o_circle}=[fill=none, draw={rgb,255: red,255; green,128; blue,0}, shape=circle, minimum size=4cm, line width=0.5mm]
+\tikzstyle{2.5_b_circle}=[fill=none, draw=blue, shape=circle, text=blue, minimum size=2.5cm, line width=0.5mm]
+\tikzstyle{4_g_circle}=[fill=none, draw={rgb,255: red,0; green,120; blue,0}, shape=circle, text={rgb,255: red,0; green,120; blue,0}, minimum size=4cm, line width=0.5mm]
 
 % Edge styles
 \tikzstyle{arrow}=[->, line width=0.5mm]

@@ -11,7 +11,6 @@
 \usepackage{amssymb}
 \usepackage{stackrel}
 \usepackage{graphicx}
-\usepackage{wasysym}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
 
@@ -35,17 +34,17 @@
     \else
       \newtheorem{defn}{\protect\definitionname}[chapter]
     \fi
-\theoremstyle{plain}
-    \ifx\thechapter\undefined
-	    \newtheorem{thm}{\protect\theoremname}
-	  \else
-      \newtheorem{thm}{\protect\theoremname}[chapter]
-    \fi
 \theoremstyle{remark}
     \ifx\thechapter\undefined
       \newtheorem{rem}{\protect\remarkname}
     \else
       \newtheorem{rem}{\protect\remarkname}[chapter]
+    \fi
+\theoremstyle{plain}
+    \ifx\thechapter\undefined
+	    \newtheorem{thm}{\protect\theoremname}
+	  \else
+      \newtheorem{thm}{\protect\theoremname}[chapter]
     \fi
 \theoremstyle{plain}
     \ifx\thechapter\undefined
@@ -75,14 +74,121 @@
 \makeatother
 
 \usepackage{babel}
+\usepackage{listings}
 \providecommand{\corollaryname}{Corollary}
 \providecommand{\definitionname}{Definition}
 \providecommand{\examplename}{Example}
 \providecommand{\lemmaname}{Lemma}
 \providecommand{\remarkname}{Remark}
 \providecommand{\theoremname}{Theorem}
+\renewcommand{\lstlistingname}{Listing}
 
 \begin{document}
+
+\part{Introduction}
+
+\textit{Network coding} was first introduced in Ahlswede et al.'s
+seminal paper \cite{Ahlswede:2000}. Network coding gives a huge advantage
+in increasing throughput of information transmission in comparison
+with simple routing methods for a communication network. This throughput
+gain is achieved in network coding, since nodes in a network are allowed
+to forward a \textit{function} of their received packets, while in
+routing such packets can only be forwarded to another node. K\"otter
+and M\'edard provided an algebraic formulation for a \textit{linear
+network coding} problem and its scalar solvability. If functions on
+all nodes are linear, then we obtain a linear network coding solution,
+and a \textit{solution} is an assignment of all functions such that
+all destination nodes can recover all of their requested messages
+transmitted from a source node. Network coding was further developed
+with \textit{vector network coding} by Ebrahimi \cite{Ebrahimi:2011},
+where all packets are vectors of length $t$. In \cite{Wachter-Zeh:2018},
+Etzion and Wachter-Zeh proved that vector network coding based on
+subspace codes outperforms linear network coding. It gives the motivation
+for our study in this thesis on vector network coding, especially
+the study of \textit{gap} measuring the difference in \textit{alphabet
+sizes} between solutions of scalar and vector network coding. The
+alphabet size is an important parameter determining the amount of
+computation performed at each network node \cite{Wachter-Zeh:2018}.
+The problem of finding the minimum required alphabet size of a (linear
+or nonlinear) scalar network code for a certain multicast network
+is NP-complete \cite{Langberg:2009,Lehman:2004,Gone:2018}. 
+
+\textit{Generalized combination networks} (GCN) were first introduced
+in \cite{Wachter-Zeh:2018}, where they have shown many instances
+of the network with vector solutions outperforming scalar solutions.
+However, no general vector solution was found a generalized combination
+network with 3 source messages. It motivates us to study it in this
+study, together with the gap for such a solution. We further develope
+the study on gap for 2 families of GCN by both combinatorial approaches
+and computational approaches. 
+
+\textbf{Outline}
+
+In \textbf{Chapter 2}, we first recall coding-theory-specific notions
+and give an introduction to the known codes that we consider in this
+thesis. Then, we give the definition of \textit{maximum rank distance}
+(MRD) code and its properties. This code was mainly used to study
+vector solutions for multiple families of the \textit{generalized
+combination network} (GCN) in \cite{Wachter-Zeh:2018}. Finally, we
+give the definition of Grassmannian code, Covering Grassmannian code,
+Multiple Grassmannian code and the notion of the maximum size of a
+Multiple Grammanian code. Because Grassmannian codes contain subspaces
+of the same dimension over a finite field $\ensuremath{\mathbb{F}}_{q}$,
+they have been recently applied in the study of network coding problems,
+such as \cite{Etzion:2016,Etzion:2018,Wachter-Zeh:2018,Zhang:2019}.
+
+The remaining chapters contain our study of new gap sizes for GCN.
+We divided them into three main parts: Chapter 3 and 4 explain how
+we transfer vector network coding problems for GCN to problems of
+finding matrices or Grassmanian codes, Chapter 5 contains new gap
+sizes for 2 families of GCN with combinatorial proofs based on Lov\'asz
+Local Lemma (LLL), and Chapter 6 contains new computational results
+of vector solutions outperforming scalar solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. The details of each chapter are mentioned below.
+
+In \textbf{Chapter 3} and \textbf{Chapter 4}, we represent network
+as a matrix channel and introduce an advantage of vector solutions
+in alphabet sizes in comparison with scalar solutions for network
+coding problems. We firstly recall the motivation of network coding,
+and secondly we introduce how we approach such problems by fomulating
+the relationship between source's messages and receiver's packets
+by linear equation systems. Thirdly, we explain why we choose GCN
+for our study, and we recall separately known theorems on an existence
+of a scalar or a vector solution for GCN. Finally, we formulate the
+\textit{gap} to measure the difference in alphabet sizes between a
+vector solution and a corresponding optimal scalar solution. We list
+known gaps for some instances of GCN in previous studies together
+with our new found gaps in this study.
+
+In \textbf{Chapter 5}, we present new gaps found by an approach based
+on LLL. We start this chapter with a simple network $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$.
+No general vector solution outperforming scalar network coding was
+found in previous studies. The gap of the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network for such purpose is found with combinatorial proofs in this
+study. During the proof of the gap, we also prove there always exists
+vector solutions for the network, if and only if the number $r$ of
+intermediate nodes is less than or equal to a certain number. After
+achieving the gap for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network, we develop the proofs further for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{2\ell,r,2\ell+1}$
+network. Knowing the gap motivates us to search for vector solutions
+achieving such gap, which leads to computational results presented
+in Chapter 6.
+
+\textbf{Chapter 6} shows the core steps of 4 different computational
+approaches to find a vector solution outperforming the optimal scalar
+solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+with $t=2$ and $t=3$. We have found a vector solution of 89 nodes
+which is roughly two times 42 nodes of the optimal scalar solution
+for the network with $t=2$. For the network with $t=3$, a vector
+solution of 166 nodes is found when the optimal scalar solution of
+such network exists if and only the number of nodes is less than or
+equal to 146. We then conclude the new bound on maximum size of Grassmanian
+codes for such network respectively, $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
+and $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$. While writing
+this thesis, the bound of the code when $t=2$ has been improved in
+\cite{Etzion:2018}. The result of $t=3$ have not yet been found
+in our scope of knowledge. 
 
 \part{Preliminaries}
 
@@ -95,43 +201,13 @@ stated otherwise, vectors are indexed starting from 1, i.e. $\boldsymbol{v}=\lef
 Vectors are usually considered to be row vectors. Matrices $\boldsymbol{V}$
 are shown in bold and capital letters. Elements of matrices or vectors
 are surrounded by square brackets, and elements of tuples are surrounded
-by round brackets.
+by round brackets. Curly brackets are used to cover elements of sets,
+otherwise they are clearly stated for any other uses.
 
 \paragraph{Vector space}
 
 A vector space of dimension $n$ over a finite field with $q$ elements
 is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. 
-
-\paragraph{Linear Block Code}
-
->\textcompwordmark >\textcompwordmark > WHY ONLY LINEAR?
-
-\textit{Block codes} are finite length codes first studied by Golay
-\cite{Golay:1949} and Hamming \cite{Hamming:1950}. A \textit{linear}
-$\left[n,k\right]_{q}$ \textit{block code} $\ensuremath{\mathcal{C}}$
-of length $n$, dimension $k$ and codimension (or redundancy) $r=n-k$,
-is a $k$-dimensional \textit{linear subspace} of $\ensuremath{\mathbb{F}}_{q}^{n}$.
-A \textit{generator matrix} $\boldsymbol{G}$ has $k$ rows, which
-form a \textit{basis} of $\ensuremath{\mathcal{C}}$, i.e., $\boldsymbol{G}$'s
-row space is a set of $k$ linearly independent vectors generating
-$\ensuremath{\mathcal{C}}$. The codeword $\underline{c}\in\ensuremath{\mathcal{C}}$
-is encoded by the \textit{information vector} (or \textit{message})
-$\boldsymbol{m}$, with $\boldsymbol{c}=\boldsymbol{m}\cdot\boldsymbol{G}$.
-For any $\boldsymbol{c}\in\ensuremath{\mathcal{C}}$: $\boldsymbol{c}\cdot\boldsymbol{H}^{T}=\boldsymbol{0}$,
-with $\boldsymbol{H}$ is a \textit{parity-check matrix} of $\ensuremath{\mathcal{C}}$,
-whose row space generates the $\left[n,n-k\right]_{q}$ dual code
-$\ensuremath{\mathcal{C}}^{\perp}$. $\left[n,k,d\right]_{q}$ is
-equivalent to $\left[n,k\right]_{q}$ with minimum distance $d$ fulfills
-$d=\underset{\boldsymbol{c}\in\ensuremath{\mathcal{C}\setminus\left\{ \boldsymbol{0}\right\} }}{min}d\left(\boldsymbol{c},\boldsymbol{0}\right)$
-with respect to a metric $d\left(\cdot,\cdot\right):\ensuremath{\mathbb{F}}^{n}\times\ensuremath{\mathbb{F}}^{n}\rightarrow\mathbb{R}_{\geq0}$
-on $\ensuremath{\mathbb{F}}^{n}$ \footnote{i.e., $d\left(\boldsymbol{x},\boldsymbol{y}\right)\geq0$,$d\left(\boldsymbol{x},\boldsymbol{y}\right)=0$
-iff $\boldsymbol{x}=\boldsymbol{y}$, $d\left(\boldsymbol{x},\boldsymbol{y}\right)=d\left(\boldsymbol{y},\boldsymbol{x}\right)$
-and $d\left(\boldsymbol{x},\boldsymbol{z}\right)\leq d\left(\boldsymbol{x},\boldsymbol{y}\right)+d\left(\boldsymbol{y},\boldsymbol{z}\right)$
-for all $\boldsymbol{x},\boldsymbol{y},\boldsymbol{z}\in\ensuremath{\mathbb{F}}^{n}$.}.
-
-\paragraph{Maximum Rank Distance (MRD) code}
-
->\textcompwordmark >\textcompwordmark > EXPLANATION
 
 \paragraph{Gaussian coefficient}
 
@@ -175,9 +251,23 @@ $\Omega\left(f\left(q,t\right)\right)$ for lower bounds, where $f$
 is a function of the alphabet size and the vector length.
 
 \section{Definition}
+\begin{defn}[Rank-metric code]
+ A linear $\left[m\times n,k,\delta\right]_{q}^{R}$ rank-metric
+code $\mathcal{C}$ is a $k$-dimensional subspace of $\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+with mimum rank distance $\delta$.
+\end{defn}
 
->\textcompwordmark >\textcompwordmark > EXPLAIN WHY I NEED EACH
-DEFINITION?
+\paragraph{Maximum Rank Distance (MRD) code}
+
+Let $rk\left[\boldsymbol{V}\right]$ be the rank of a matrix $\boldsymbol{V}\in\ensuremath{\mathbb{F}}_{q}^{m\times n}$.
+The \textit{rank distance} between $\boldsymbol{U},\boldsymbol{V}\in\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+is defined by $d_{R}\left(\boldsymbol{U},\boldsymbol{V}\right)=rk\left[\boldsymbol{U}-\boldsymbol{V}\right]$
+\cite{Delsarte:1978,Gabidulin:1985,Roth:1991}. The minimum rank distance
+of a $\left[m\times n,k,\delta\right]_{q}^{R}$ rank-metric code $\mathcal{C}$
+is defined by: $\delta=\underset{\boldsymbol{V}\in\mathcal{C},\boldsymbol{V}\neq\boldsymbol{0}}{min}\left\{ rk\left[\boldsymbol{V}\right]\right\} $.
+Rank-metric codes that attained the Singleton-like upper bound $k\leq max\left\{ m,n\right\} \left(min\left\{ m,n\right\} -\delta+1\right)$
+\cite{Delsarte:1978,Gabidulin:1985,Roth:1991} are called maximum
+rank distance (MRD) codes and denoted by $\mathcal{MRD}\left[m\times n,\delta\right]_{q}$.
 \begin{defn}[Grassmannian Code]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
@@ -201,7 +291,7 @@ a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q
 \cite{Zhang:2019}
 \end{defn}
 
-\paragraph{The cardinality of a Grassmannian code}
+\paragraph{The Cardinality of a Grassmannian Code}
 
 The cardinality of $\mathcal{G}_{q}\left(n,k\right)$ is the Gaussian
 coefficient (also known as $q$-binomial), which counts the number
@@ -226,46 +316,12 @@ or $k$-dimensional subspaces (called \textit{blocks}), such that
 each $\mathrm{t}$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
 is contained in at most $\lambda$ codewords of $\mathcal{C}$. 
 \end{defn}
-%
-\begin{defn}[\cite{Etzion:2018}]
+
+\paragraph*{Maximum Size of a Multiple Grassmannian Code}
+
 $\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)$ denotes the
 maximum size of a $\mathrm{t}-\left(n,k,\lambda\right)_{q}^{m}$ code,
-where there are no repeated codewords. 
-\end{defn}
-
-\section{Theorem}
-
->\textcompwordmark >\textcompwordmark > EXPLAIN BEFORE WHY I NEED
-EACH THEOREM?
-\begin{thm}[\cite{Zhang:2019}]
- If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
-$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
-n-\mathrm{t}\\
-k-\mathrm{t}
-\end{array}\right]_{q}$, then
-
-\[
-\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
-n\\
-\mathrm{t}
-\end{array}\right]_{q}}{\left[\begin{array}{c}
-k\\
-\mathrm{t}
-\end{array}\right]_{q}}\right\rfloor 
-\]
-\end{thm}
-%
-\begin{thm}[\cite{Zhang:2019}]
- If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
-$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
-n-\mathrm{t}\\
-k-\mathrm{t}
-\end{array}\right]_{q}$, then
-
-\[
-\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
-\]
-\end{thm}
+where there are no repeated codewords. \cite{Etzion:2018}
 
 \part{Network Coding}
 
@@ -286,13 +342,11 @@ is represented with its \textit{incoming} and \textit{outgoing }links
 network. Packets are transmitted from the source to a set of destination
 nodes, i.e. \textit{receivers}, over error-free links, which is still
 applicable to present-day wireline networks\footnote{Wireless network coding was introduced in \cite{Katti:2008}.}.
-
 \begin{figure}[H]
 \caption{Incoming links and outgoing links of a node in network coding \label{fig:incoming_links}}
 
-\centering{}\includegraphics[height=0.1\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/incoming_edges}
+\centering{}\includegraphics[height=0.15\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/incoming_edges}
 \end{figure}
-
 In simple routing, information is transmitted from the source to receivers
 through a chain of \textit{intermediate nodes} by a method known as
 store-and-forward \cite{Yeung:2006}. In this method, the information
@@ -325,9 +379,9 @@ is called the \textit{local coding vector}, which is distinguished
 with \textit{global coding vector} defined in Section \ref{subsec:Matrix-channel}.
 If the coding coefficients and the packets are scalars, a solution
 of linear network coding is called \textit{scalar solution}. Based
-on these coding coefficients, Kötter and M\'edard provided in \cite{Koetter:2003}
-an algebraic formulation for the linear network coding problem and
-its scalar solvability.
+on these coding coefficients, K\"otter and M\'edard provided in
+\cite{Koetter:2003} an algebraic formulation for the linear network
+coding problem and its scalar solvability.
 
 \section{Advantages of Network Coding \label{sec:Advantages-of-NC}}
 
@@ -337,13 +391,11 @@ Network coding gives a potential gain in throughput by communicating
 more information with fewer packet transmissions compared to the routing
 method. The butterfly network in \cite{Ahlswede:2000} as a multicast
 in a wireline network is a standard example for an increase of throughput.
-
 \begin{figure}[H]
 \caption{The butterfly network \label{fig:The-butterfly-network}}
 
 \centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network}
 \end{figure}
-
 In Figure \ref{fig:The-butterfly-network}, we denoted a receiver
 by ``Recv'', which is used for all of figures in this study. With
 the help of network coding, both Recv 1 and Recv 2 can recover $x_{1}$
@@ -394,7 +446,7 @@ we mean the field size $q_{\mathrm{s}}$ or $q_{v}$ of the finite
 field $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$ or $\ensuremath{\mathbb{F}}_{q_{v}}$
 respectively for such a scalar solution or a vector solution. The
 alphabet size is an important parameter determining the amount of
-computation performed at each network vertice \cite{Wachter-Zeh:2018}.
+computation performed at each network node \cite{Wachter-Zeh:2018}.
 The problem of finding the minimum required alphabet size of a (linear
 or nonlinear) scalar network code for a certain multicast network
 is NP-complete \cite{Langberg:2009,Lehman:2004,Gone:2018}. This thesis
@@ -423,7 +475,6 @@ linear system of equations for its requested messages. The coefficients
 of a linear combination is called \textit{global coding vector} \cite{Sanders:2003}.
 The linear equation system that any receiver $R_{j}$ has to solve
 is as following:
-
 \begin{equation}
 \begin{array}{c|c}
 Scalar & Vector\\
@@ -446,12 +497,10 @@ x_{h}
 \end{array}\right]}}
 \end{array}\label{eq:linear_system}
 \end{equation}
-
 The transfer matrix $\boldsymbol{A}_{j}$ contains the links' global
 coding vectors, which are combined by the coefficients of linear combinations
 on $\alpha l$ links from $\alpha$ nodes and $\epsilon$ direct-links
 to the corresponding receiver $R_{j}$:
-
 \[
 \begin{array}{c|c}
 Scalar & Vector\\
@@ -470,7 +519,6 @@ Scalar & Vector\\
 \end{array}\right]
 \end{array}
 \]
-
 In general, the network is represented as a matrix channel for both
 scalar and vector coding: $\boldsymbol{Y}_{j}=\boldsymbol{A}_{j}\cdot\boldsymbol{X}$.
 In our study, the network structure is known, i.e. we reconstruct
@@ -489,7 +537,6 @@ $q^{t}$.
 
 To summarize the notations of both scalar and vector coding, we represent
 them as in Table~\ref{tab:notations}:
-
 \begin{table}[H]
 \caption{Notations of network coding}
 
@@ -565,7 +612,6 @@ discussed in \cite[Sec. 4.3]{Fragouli:2006}, \cite[Sec. 4.1]{Yeung:2006},
 
 \centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network_CN}
 \end{figure}
-
 A generalization of a CN \cite{Riis:2006} is called generalized combination
 network (GCN). GCN defined in \cite{Etzion:2016,Wachter-Zeh:2018}
 was used to prove that vector network coding outperforms scalar linear
@@ -596,12 +642,12 @@ smallest alphatbet size for which we can construct a vector solution.
 In this study, we define a solvable vector network coding over the
 field size $\ensuremath{\mathbb{F}}_{q}^{t}$, and we find the lower
 bound of the maximum number of nodes such vector solution can achieve,
-i.e. $r_{max,vector}\geq f_{1}(q,t)$, with $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$.
+i.e. $r_{max,vector}\geq f_{1}(q,t,\alpha,h)$, with $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$.
 Meanwhile, we has a scalar solution for the same network existing
 if and only if: $r_{scalar}\leq f_{2}\left(q_{\mathrm{s}}\right)$,
 with $f_{2}:\mathbb{Z}\mapsto\mathbb{Z}$. To find the field size
 $q_{\mathrm{s}}$ required for a scalar solution to reach the maximum
-achievable vector solution's nodes in this setting, we consider $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t)=min\left[r_{max,vector}\right]$.
+achievable vector solution's nodes in this setting, we consider $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=min\left[r_{max,vector}\right]$.
 Finally, we calculate the gap by $g=q_{\mathrm{s}}-q_{v}=q_{\mathrm{s}}-q^{t}.$
 Throughout this study, we show that vectors solutions significantly
 reduce the required alphabet size by this gap.
@@ -643,20 +689,20 @@ satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 \label{nw_parameters}The $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
 network has a trivial solution if $\ell+\epsilon\geq h$, and it has
 no solution if $\alpha\ell+\epsilon<h$.
-
-Proof: Following to the network coding max-flow min-cut theorem for
-multicast networks, the maximum number of messages from the source
-to each receiver is equal to the smallest min-cut between the source
-and any receiver. For our considered network, $s$ links have to be
-deleted to disconnect the source from the receiver, which implies
-that the min-cut between the source and each receiver is at least
-$s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ $\Square$
+\end{thm}
+\begin{proof}
+Following to the network coding max-flow min-cut theorem for multicast
+networks, the maximum number of messages from the source to each receiver
+is equal to the smallest min-cut between the source and any receiver.
+For our considered network, $s$ links have to be deleted to disconnect
+the source from the receiver, which implies that the min-cut between
+the source and each receiver is at least $s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ 
 
 There exist at least $\ell+\epsilon$ disjoint links connected to
 each receiver. If $\ell+\epsilon\geq h$, each receiver can always
 reconstruct its requested messages on its links. Then we only need
-to do routing to select paths for the network. $\Square$
-\end{thm}
+to do routing to select paths for the network.
+\end{proof}
 \begin{table}[H]
 \caption{Parameters of network coding \label{tab:Parameters-of-network}}
 
@@ -763,17 +809,21 @@ network. \label{cor:dual_subspaces}
 Given $h=3,q=2,t=2$, we consider the extension field $\ensuremath{\mathbb{F}}_{q^{t}=2^{2}}$.
 This example shows how mapping messages from scalar coding to vector
 coding.
-\end{example}
 \begin{figure}[H]
 \caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
 to the equivalent vector solution\label{fig:x_mapping}}
 
 \centering{}\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping}
 \end{figure}
-
+\end{example}
 We use the table of the extension field $\ensuremath{\mathbb{F}}_{2^{2}}$
 with the primitive polynomial $f(x)=x^{2}+x+1$:
 \begin{center}
+\begin{table}
+
+\caption{The extension field $\ensuremath{\mathbb{F}}_{2^{2}}$}
+
+\centering{}%
 \begin{tabular}{|c|c|c|}
 \hline 
 power of $\alpha$ & polynomial & binary vector\tabularnewline
@@ -787,15 +837,13 @@ $\alpha^{1}$ & $\alpha$ & 10\tabularnewline
 $\alpha^{2}$ & $\alpha+1$ & 11\tabularnewline
 \hline 
 \end{tabular}
-\par\end{center}
-
+\end{table}
 For scalar coding, the messages are $x_{1},\ldots,x_{h=3}\in\ensuremath{\mathbb{F}}_{2^{2}}$
 , and for vector coding the messages are $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{h=3}\in\ensuremath{\mathbb{F}}_{2}^{2}$.
 From the polynomial column, let's choose arbitrarily a scalar vector
 $\boldsymbol{x}_{scalar}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$.
 Then, we map it to $\boldsymbol{x}_{vector}=(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3})$
 by using the binary vector column as following:
-
 \[
 \left[\begin{array}{c}
 x_{1}=1\\
@@ -816,6 +864,7 @@ x_{3}=\alpha+1
 \end{array}\right)
 \end{array}\right],
 \]
+\par\end{center}
 
 where we use the following rule for mapping $x_{i}$ individually:
 $a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\mapsto\left(\begin{array}{c}
@@ -870,7 +919,6 @@ code when $r=q^{\ell t\left(t+1\right)},$and scalar solutions only
 if $q_{s}>q^{t^{2}/2}$. Therefore, this network has a gap tending
 to $q^{t^{2}/2+\mathcal{O}\left(t\right)}$ with a vector solution
 .
-
 \begin{figure}[H]
 \caption{The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
 \label{fig:network_special2}}
@@ -890,7 +938,6 @@ we show that there exists vector solutions generating the gaps $g=q^{t^{2}/4+\ma
 and $g=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
 respectively for the $\left(1,1\right)-\mathcal{N}_{3,r,4}$ network
 and the $\left(1,1\right)-\mathcal{N}_{h,r,s}$ network. 
-
 \begin{figure}[H]
 \caption{The $\left(\epsilon\protect\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network \label{fig:network_special3}}
@@ -908,8 +955,7 @@ $MDS$ bound, i.e. Singleton bound $d\leq n-k+1$, to outperform the
 scalar one. In paper \cite[Sec. IV-A, Sec. IX-1,2]{Wachter-Zeh:2018},
 it is proved that vector solutions based on subspace codes cannot
 outperform optimal scalar linear solutions for some combination networks,
-e.g. $\mathcal{N}_{2,r,2}$, and they conjecture it for all $h$. 
-
+e.g. $\mathcal{N}_{2,r,2}$, and they conjecture it for all $h$.
 \begin{figure}[H]
 \caption{The $\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ combination
 network \label{fig:network_special4}}
@@ -959,10 +1005,9 @@ of the alphabet size is $q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
 \end{rem}
 We are summarizing the instances of GCN with their bounds on gap found
 in \cite{Wachter-Zeh:2018} and list our findings in this study.
-
 \begin{table}
 
-\caption{New gap found in this study}
+\caption{New gap found in this study \label{tab:New-gap-found}}
 
 \begin{centering}
 \begin{tabular}{|>{\centering}p{0.15\paperwidth}|>{\centering}p{0.1\paperwidth}|>{\centering}p{0.2\paperwidth}|}
@@ -992,7 +1037,6 @@ $\mathcal{N}_{h=2\ell,r,s=3\ell-1}$ & \centering{}$q^{t^{2}/2+\mathcal{O}\left(t
 network.
 \par\end{centering}
 \end{table}
-
 Some of them has global coding vectors as square matrices, so the
 decoding base easily by inversing such global coding vectors to get
 each receiver's requested messages. However, we do not go into details
@@ -1006,7 +1050,18 @@ with $h=3$ messages. Hence, we start with a probabilistic argument
 to prove that there exists a vector solution outperforming the optimal
 linear solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network. Then we generalize the proof to the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
-network.
+network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+network. As explained in Section \ref{sec:What-is-NC}, multiple parallel
+links $\ell$ of a data unit help us to show networks with large-capacity
+transmission between source and receivers. The direct links among
+them are not really usual in reality, i.e. a server and a client often
+has long-distance connection thorugh multiple intermediate nodes,
+it is thus interesting to study networks with $\epsilon=1$. We formally
+use $r_{scalar}$ and $r_{vector}$ to distinguish the $r$ parameter
+of GCN for scalar solutions and vector solutions to compare their
+gap. Because they both have the same meaning as a number of intermediate
+nodes in a network, we use $r$ when we need to state a vector solution
+or a scalar solution exists under some conditions of $r$.
 
 \section{$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ Network
 \label{sec:Network_e1l1h3rs4}}
@@ -1016,7 +1071,6 @@ network.
 
 \centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4}
 \end{figure}
-
 In this subsection, we derive a lower bound on the maximum number
 of receivers for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network. Due to $\alpha=3$, the number of receivers is $N=\left(\begin{array}{c}
@@ -1025,18 +1079,15 @@ r_{vector}\\
 \end{array}\right)$ by definition in Section \ref{sec:Description_GCN}. To derive the
 lower bound, we introduce a rank requirement on incoming packets to
 each receiver. 
-
 \begin{figure}[H]
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 represents as a matrix problem\label{fig:rk_h3}}
 
 \centering{}\includegraphics[width=0.6\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
 \end{figure}
-
 Following to Equation \ref{eq:linear_system}, each receiver $R_{j}$
 must solve a linear equation system of 3 variables with 4 equations
 to recover $h=3$ messages as below:
-
 \[
 \left[\begin{array}{c}
 \boldsymbol{y}_{j}^{\left(r_{1}\right)}\\
@@ -1054,14 +1105,12 @@ to recover $h=3$ messages as below:
 \boldsymbol{x}_{3}
 \end{array}\right],
 \]
-
 with $\boldsymbol{x}_{i},\boldsymbol{y}_{j}^{\left(v\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j}^{\left(r_{v}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 for $v=1,\ldots,4$, and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
 must be distinct.
 
 The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank, i.e.
 $\boldsymbol{A}_{j_{v}}$ must satisfy:
-
 \[
 rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
@@ -1070,11 +1119,9 @@ rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{4}\right)}
 \end{array}\right]\geq3t
 \]
-
 Because coding coefficients for $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$
 can be independently chosen for any receiver $R_{j}$, there always
 exists $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$ such that,
-
 \begin{equation}
 rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
@@ -1082,15 +1129,12 @@ rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}
 \end{array}\right]\geq2t\label{eq:rk_rqm_e1l1h3s4}
 \end{equation}
-
 if and only if $rk\left[\boldsymbol{A}_{j}\right]\geq3t$.
 
 By this constraint, the problem is thus described as below:
-
 \[
 \underset{rk\left[\boldsymbol{A}_{j}\right]\geq3t}{min}\,r_{vector}
 \]
-
 $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
 are matrices formed on any 3 of $r$ links from nodes to receivers,
 i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
@@ -1105,14 +1149,21 @@ then: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
 \end{lem}
 %
 \begin{lem}
-$p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2$. \label{lem:prob_p_LLL_formula}
+\label{lem:prob_p_LLL_formula} Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$,
+then, 
+\[
+p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
+\]
 \end{lem}
 \begin{proof}
 In Lemma \ref{thm:LLL}, each event $\mathcal{E}_{i}$ is a \textit{bad
 event}, whose occurrence is undesirable. Following to Equation \ref{eq:rk_rqm_e1l1h3s4},
 such a event occurs when $rk\left[\boldsymbol{A}_{j}\right]<3t$,
 and its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
-
 \begin{equation}
 Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
@@ -1120,9 +1171,7 @@ Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}
 \end{array}\right]<2t\right]\leq p.\label{eq:p_in_LLL}
 \end{equation}
-
 Regarding to the left-hand side,
-
 \begin{eqnarray}
 Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
@@ -1155,36 +1204,35 @@ Therefore, we have: $\stackrel[i=0]{2t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mat
 
 To maximize the sum, we set derivation of it to 0 and find the corresponding
 root: 
-
 \begin{eqnarray*}
  & \left(i6t-i^{2}\right)^{'} & =0\\
 \Leftrightarrow & 6t-2i & =0\\
 \Leftrightarrow & i & =3t
 \end{eqnarray*}
-
 However, the upper limit of the sum is $\left(2t-1\right)$, which
 is less than $3t$ for all $t\geq2$.
-
 \[
 \Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
 \]
-
 Hence, by using the exact bound $\Theta$, we have:
-
 \[
 \underset{i}{max}\left[\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
 \]
-
 \[
 \Rightarrow\underset{i}{max}\left[\frac{\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\right]\in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
-
 \[
 \Rightarrow p\leq\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 \end{proof}
 \begin{lem}
-$d\leq\frac{3}{2}r^{2}$. \label{lem:dependecy_d_LLL}
+Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$ with $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$,
+and each event $\mathcal{E}_{i}$ is independent of all others except
+for at most $d$ of them, then $d\leq\frac{3}{2}r^{2}$. \label{lem:dependecy_d_LLL}
 \end{lem}
 \begin{proof}
 Because $d$ is a function of $r$ in our problem, we denote $d$
@@ -1203,20 +1251,17 @@ and $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$ from $r-1$ links.
 However, such a link can also be chosen firstly to form $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
 or $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$ instead. Therefore,
 we have a upper bound for $d(r)$ as following,
-
 \[
 d(r)\leq3\cdot\left(\begin{array}{c}
 r-1\\
 2
 \end{array}\right)=3\cdot\frac{\left(r-1\right)\left(r-2\right)}{2}=\frac{3}{2}\left(r^{2}-3r+2\right)
 \]
-
 \[
 \Rightarrow d(r)\leq\frac{3}{2}r^{2}
 \]
 \end{proof}
-Example:
-
+\begin{example}
 $r\in\left\{ 1,2,3,4\right\} $. Our sample space to draw any 3 matrices
 with orders has in total $\left(\begin{array}{c}
 4\\
@@ -1302,7 +1347,7 @@ we do not neglect unsuitable matrices, e.g. $\left[\begin{array}{c}
 1\\
 4
 \end{array}\right]$. In the other words, there exists at most 9 events are dependent. 
-
+\end{example}
 >\textcompwordmark >\textcompwordmark > IS THIS EXAMPLE CONVINCING
 ENOUGH? WHY IS IT NOT $d(r)\leq3\cdot r\cdot\left(\begin{array}{c}
 r-1\\
@@ -1320,7 +1365,6 @@ that none of bad events occurs: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\ma
 By the intersection rule, none of bad events is equivalent to an event
 $T$ that its set of outcomes are all desirable, i.e. these outcomes
 satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}:
-
 \[
 T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
@@ -1328,7 +1372,6 @@ T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}
 \end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r.
 \]
-
 The probability of event $T$ indicates a measure quantifying the
 likelihood that we are able to construct $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
 given $r$ links. It means that a vector solution exists if and only
@@ -1336,15 +1379,13 @@ if the Local lemma \ref{thm:LLL} is satisfied such that: $4\cdot p\cdot d(r)\leq
 Therefore, we must find a lower bound of $r_{max,vector}$. Furthermore,
 we have $d\leq\frac{3}{2}r^{2}$ following to Lemma \ref{lem:dependecy_d_LLL},
 which gives: $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max,vector}$.
-Thus, finding $min\left[r_{max,vector}\right]$ is equivalent to maximize
-$p$. 
+Thus, finding $min\left\{ r_{max,vector}\right\} $ is equivalent
+to maximize $p$.
 
 By Lemma \ref{lem:prob_p_LLL_formula}, we have $p\leq\Theta\left(q^{-t^{2}-2t-1}\right)$,
-
 \[
-\Rightarrow min\left[r_{max,vector}\right]\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
+\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
 \]
-
 Hence, the Local lemma in \ref{thm:LLL} is satisfied, when $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$.
 None of bad events occurs, so there exists a vector solution for such
 $r$.
@@ -1354,30 +1395,24 @@ The $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ network
 has a vector solution with a gap $q^{t^{2}/4+\mathcal{O}(t)}$.
 \end{cor}
 In \cite[Sec. VIII-C]{Wachter-Zeh:2018}, we have that $r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$,
-where they proved that 
-
+where they proved that
 \begin{equation}
 r_{scalar}\leq2\left[\begin{array}{c}
 3\\
 1
 \end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right).\label{eq:r_scalar_max}
 \end{equation}
- 
-
 Following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
 and Theorem \ref{theo:r_for_vector_sol_e1l1h3rs4}, we have the gap
-size 
-
+size
 \begin{eqnarray}
- & r_{max,scalar} & =min\left[r_{max,vector}\right]\nonumber \\
+ & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \nonumber \\
 \Leftrightarrow & q_{\mathrm{s}}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
-\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\label{eq:gap_e1l1h3rs4-1}
+\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\label{eq:gap_e1l1h3rs4}
 \end{eqnarray}
-
 By varying $t$ in Equation (\ref{eq:p_eq_h3}), we have the following
 table:
-
 \begin{table}[H]
 \caption{$r$ over variations of t\label{tab:r_over_t}}
 
@@ -1404,7 +1439,6 @@ t & Scalar Solution & Vector Solution\tabularnewline
 {*}, {*}{*}: computational results in construction 1 and construction
 2 respectively
 \end{table}
-
 In the table (\ref{tab:r_over_t}), the vector solution outperforms
 the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h=3,r,s=4}$.
 This is sufficient, we show in Section 6 computational results which
@@ -1417,7 +1451,6 @@ $t=3$.
 
 As previous, $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
 and we need to satisfy the following:
-
 \[
 rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
@@ -1425,28 +1458,31 @@ rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]\geq ht-t\Leftrightarrow rk\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
 \]
-
 We can formulate it by the following coding problem in Grassmannian:
 
 \noindent\fbox{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
 Find the largest set of subspaces from $\mathcal{G}_{q}\left(ht,t\right)$
 such that any $\alpha$ subspaces of the set span a subspace of dimension
 at least $\left(h-1\right)t$.%
-\end{minipage}}
-
-Similar with $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
+\end{minipage}}Similar with $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
 we consider $p$ to proceed the Local lemma \ref{thm:LLL}:
-
 \begin{equation}
 Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
 \end{equation}
 
 \begin{lem}
-$p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2$.
+Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
+then, 
+\[
+p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
+\]
 \end{lem}
 \begin{proof}
 Regarding to the left-hand side in Equation \ref{eq:p_e1l1}:
-
 \begin{eqnarray}
 Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}Pr\left[rk\left[\boldsymbol{A}\right]=i\right]\nonumber \\
  & \overset{1}{=} & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\frac{N_{i,\alpha t,ht}}{q^{\left(\alpha t\right)\left(ht\right)}}\nonumber \\
@@ -1478,30 +1514,31 @@ Regarding to the upper bound: $\frac{\alpha t+ht}{2}\leq(h-1)t-1\Leftrightarrow 
 with $\alpha+2>h$ due to the given $\alpha l+\epsilon=\alpha+1\geq h$.
 This cannot happen because of $t\geq2$, i.e. this maximum point is
 over then upper-range limit.
-
 \begin{eqnarray*}
 \Rightarrow & max\left\{ q^{i(\alpha t+ht)-i^{2}}:i=1,\ldots,(h-1)t-1\right\}  & =\left.q^{i(\alpha t+ht)-i^{2}}\right|_{i=(h-1)t-1}\\
  &  & =q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}-\left(\alpha-h+2\right)t-1}.
 \end{eqnarray*}
-
 Secondly, we apply the maximum value with the sum, we have:
-
 \begin{eqnarray*}
- & max\left[\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\right] & \in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)\\
-\Rightarrow & max\left[\frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right] & \in\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
+ & max\left\{ \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\right\}  & \in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)\\
+\Rightarrow & max\left\{ \frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right\}  & \in\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
 \end{eqnarray*}
-
 \[
 \Rightarrow p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right)
 \]
 \end{proof}
 \begin{lem}
-$d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$\label{lem:d_e1l1}.
+Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
+and each event $\mathcal{E}_{i}$ is independent of all others except
+for at most $d$ of them, then $d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$\label{lem:d_e1l1}.
 \end{lem}
 \begin{proof}
 Similar with $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
 we have:
-
 \[
 d\leq\alpha\left(\begin{array}{c}
 r-1\\
@@ -1522,7 +1559,7 @@ We thus again find a lower bound of $r_{max,vector}$.
 
 By Lemma \ref{lem:d_e1l1}, we have $p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2$,
 
-$\Rightarrow min\left[r_{max,vector}\right]\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$.
+$\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$.
 
 Hence, the Local lemma \ref{thm:LLL} is satisfied, when $r\leq\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$,
 and a vector solution exists for such $r$.
@@ -1550,7 +1587,6 @@ no $\alpha$ links will contain a vector which is contained in the
 same $(h-2)$-subspace.
 
 Hence,
-
 \[
 r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
@@ -1562,22 +1598,29 @@ h-2
 \subsection{Calculate Gap }
 
 \begin{eqnarray*}
- & r_{max,scalar} & =min\left[r_{max,vector}\right]\\
+ & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \\
 \Leftrightarrow & q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
-\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
+\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}
 \end{eqnarray*}
 
 
 \section{$\left(\epsilon=1,\ell\protect\geq2\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$}
 \begin{lem}
-$p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2$. \label{lem:p_e1l2}
+\label{lem:p_e1l2} Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<\left(2\ell-1\right)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times2\ell t}$,
+then,
+\[
+p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
+\]
 \end{lem}
 \begin{proof}
 A bad event in this vector network coding problem has the following
 probability:
-
-\begin{eqnarray*}
+\begin{eqnarray}
 Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
@@ -1586,19 +1629,24 @@ Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]=i\right]\\
- & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{N_{i,m,n}}{q^{m\cdot n}}\\
- & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}
-\end{eqnarray*}
+\end{array}\right]=i\right]\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{N_{i,m,n}}{q^{m\cdot n}}\nonumber \\
+ & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}\label{eq:p_product_e1l2}
+\end{eqnarray}
 
 (1): The formula for the umber of $\left[m\times n\right]$ matrices
 of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}.
 
 (2): $s=\alpha\ell+\epsilon$ by definition in Section \ref{sec:Description_GCN}
-$\Rightarrow\alpha=2$, so we consider $\left[2\ell\times2\ell\right]$
-matrices.
+$\Rightarrow\alpha=2$, so $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{2\ell t\times2\ell t}$
+with $\boldsymbol{A}_{j}=\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]$, and $\boldsymbol{A}_{j}$ contains$\left(2\ell\right)$ $t$-dimensional
+subspaces of $\ensuremath{\mathbb{F}}_{q}^{2\ell t}$.
 
-We consider XYZ: $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
+We consider the product in Equation \ref{eq:p_product_e1l2}: $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
 
 Due to $i$-times product and large $t$: $\left.\begin{array}{c}
 deg\left(p_{N}^{(i)}(q)\right)=q^{i4\ell t}\\
@@ -1609,40 +1657,39 @@ Therefore, we have: $\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stac
 
 To maximize the sum, we set derivation of it to 0 and find the corresponding
 root: 
-
 \begin{eqnarray*}
  & \left(i4\ell t-i^{2}\right)^{'} & =0\\
 \Leftrightarrow & 4\ell t-2i & =0\\
 \Leftrightarrow & i & =2\ell t
 \end{eqnarray*}
-
 However, the upper limit of the sum is $\left(2\ell-1\right)t-1$,
 which is less than $2\ell t$ for all $t\geq2$.
 
 \[
 \Rightarrow max\left\{ q^{i4\ell t-i^{2}}:i=0,2\ldots,\left(2\ell-1\right)t-1\right\} =\left.q^{i4\ell t-i^{2}}\right|_{i=\left(2\ell-1\right)t-1}=q^{4\ell^{2}t^{2}-t^{2}-2t-1}
 \]
-
 Hence, by using the exact bound $\Theta$, we have:
-
 \[
-\underset{i}{max}\left[\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(q^{4\ell^{2}t^{2}-t^{2}-2t-1}\right)
+\underset{i}{max}\left\{ \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right\} \in\Theta\left(q^{4\ell^{2}t^{2}-t^{2}-2t-1}\right)
 \]
-
 \[
-\Rightarrow\underset{i}{max}\left[\frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(q^{-t^{2}-2t-1}\right)
+\Rightarrow\underset{i}{max}\left\{ \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right\} \in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
-
 \[
 \Rightarrow p\leq\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 \end{proof}
 \begin{lem}
-$d\leq2r$. \label{lem:d_e1l2}
+Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<\left(2\ell-1\right)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times2\ell t}$,
+and each event $\mathcal{E}_{i}$ is independent of all others except
+for at most $d$ of them, then $d\leq2r$. \label{lem:d_e1l2}
 \end{lem}
 \begin{proof}
 Being similar with the previous subsections, we have: 
-
 \[
 d\leq\alpha\left(\begin{array}{c}
 r-1\\
@@ -1661,7 +1708,7 @@ so that a vector solution exists. Following to Lemma \ref{lem:d_e1l2},
 we have $d\leq2r\Rightarrow4\cdot p\cdot2r\leq1\Rightarrow r\leq\frac{1}{8p}$.
 We still need to maximize $p$ to get lower on $r_{max,vector}$,
 and we have $p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2$
-in Lemma \ref{lem:p_e1l2}. Thus, $min\left[r_{max,vector}\right]\in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$.
+in Lemma \ref{lem:p_e1l2}. Thus, $min\left\{ r_{max,vector}\right\} \in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$.
 
 Hence, the Local lemma in \ref{thm:LLL} is satisfied, when $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$.
 None of bad events occurs, so there exists a vector solution for such
@@ -1681,8 +1728,7 @@ with $\mathcal{U}+\mathcal{V}$. Therefore, $dim\left(\mathcal{U}\cap\mathcal{V}\
 which leads to the subspace distance $d_{s}(\mathcal{U},\mathcal{V})=2dim\left(\mathcal{U}+\mathcal{V}\right)-dim\left(\mathcal{U}\right)-dim\left(\mathcal{V}\right)=2\ell-2$.
 No 2 $\ell$-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$
 will contain a vector which is contained in the same $\left(2\ell-2\right)$-subspace,
-but $\left(2\ell-1\right)$ of such subspaces can have such vectors, 
-
+but $\left(2\ell-1\right)$ of such subspaces can have such vectors,
 \[
 \Rightarrow r_{scalar}\leq\left(2\ell-1\right)\left[\begin{array}{c}
 2\ell\\
@@ -1696,9 +1742,8 @@ network has a vector solution with a gap $q^{t^{2}/4+\mathcal{O}(t)}$.
 \end{cor}
 Following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
 and Theorem \ref{theo:r_for_e1l2}, we have the gap size 
-
 \begin{eqnarray}
- & r_{max,scalar} & =min\left[r_{max,vector}\right]\nonumber \\
+ & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \nonumber \\
 \Leftrightarrow & q_{\mathrm{s}}^{\ell} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/2\ell+\mathcal{O}(t)}\nonumber \\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/2\ell+\mathcal{O}(t)}\label{eq:gap_e1l2}
@@ -1716,9 +1761,11 @@ sections. Both construction 1 and 2 provide better results than scalar
 solutions. 
 
 Construction 1: $\begin{array}{c|c}
-\boldsymbol{I}_{t} & \boldsymbol{T}\end{array}$, with $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$
+\boldsymbol{I}_{t} & \boldsymbol{T}\end{array}$, with $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$,
+which is clearly explained in Section \ref{sec:Alternative-Approaches}.
 
-Construction 2: $\boldsymbol{T}\in MatrixSpaceUrs\left(t,3t\right)$
+Construction 2: $\boldsymbol{T}\in U\left(t,3t\right)$, which is
+described in the following Section \ref{sec:Main-Approach}.
 
 \section{Main Approach \label{sec:Main-Approach}}
 
@@ -1738,7 +1785,7 @@ of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can be used twice
 in the code; therefore, we have in total 146 possible codesword, but
 only 89 codewords are required. In this case, the gap size $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$i.e.
 we achieve a gap size $q^{t^{2}/2}$, which is better the asymptotic
-behavior in \ref{eq:gap_e1l1h3rs4}. 
+behavior in Equation \ref{eq:gap_e1l1h3rs4}. 
 
 Before introducing the algorithm used to generate such 89 codewords,
 we have to state some definitions for a beter explanation. We denote
@@ -1746,11 +1793,9 @@ a matrix space of dimension $\left[n\times m\right]$ by $M(n,m)=\left\{ \boldsym
 \begin{defn}[Matrix Space with Unique Row Space]
  $U(n,m)$ is a subset of $M(n,m)$, where any $\boldsymbol{A},\boldsymbol{B}\in U(n,m)$
 have their row spaces such that:
-
 \[
 \mathcal{R}_{q}\left(\boldsymbol{A}\right)\neq\mathcal{R}_{q}\left(\boldsymbol{B}\right),
 \]
-
 where $\mathcal{R}_{q}\left(.\right)$ denotes the row space of a
 matrix.
 \end{defn}
@@ -1763,7 +1808,6 @@ $N\lll\left(\begin{array}{c}
 \end{array}\right)$, then a set $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{H}_{j}$
 such that:
-
 \[
 rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{A}\\
@@ -1771,20 +1815,19 @@ rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{C}
 \end{array}\right]\geq2n,\forall j\in\left\{ 1,\ldots,N\right\} .
 \]
-\end{defn}
 For ease of notations, we denote $\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
 \end{array}\right]$ by $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
 for the rest of this thesis.
-
+\end{defn}
+%
 \begin{defn}[Relative]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$.
 Then $\boldsymbol{C}$ is called a \textit{relative} of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
 if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in\mathcal{H}_{n=3t,m=3t}$
 and denoted as following:
-
 \[
 rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}.
 \]
@@ -1800,7 +1843,6 @@ There are maximum $3\cdot\left(\begin{array}{c}
 Each sufficient global coding vector $\boldsymbol{H}_{j}$ contains
 a $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $.
 Thus, each of these 3 matrices can form 3 different relatives:
-
 \[
 \begin{array}{c}
 rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}\\
@@ -1808,7 +1850,6 @@ rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=\boldsymbol{B}\\
 rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
 \end{array}.
 \]
-
 Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ is $q^{3t^{2}}$.
 Therefore, $\mathcal{H}_{t=3}$ can have only maximum $3q^{3t^{2}}$
 relatives.
@@ -1818,7 +1859,6 @@ relatives.
 Then $\boldsymbol{D}$ is called a \textit{sub-relative} of a tuple
 $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\in\mathcal{H}_{n=3t,m=3t}$
 if:
-
 \[
 \left\{ \begin{array}{c}
 \left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right\} \in\mathcal{H}_{t=3}\\
@@ -1826,12 +1866,10 @@ if:
 \left\{ \boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} \in\mathcal{H}_{t=3}
 \end{array}\right..
 \]
-
 A sub-relative is denoted by: 
 \[
-subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}.
 \]
-
 This definition about Sub-relative is similarly again used for a set
 of 5 or more matrices.
 \end{defn}
@@ -1892,33 +1930,68 @@ itself under the while-loop of Line 11 to Line 15.
 Now, we prove that Algorithm \ref{alg:Increasing-Method} always give
 us our expected output. Then we compute its complexity based on number
 of necessary computation.
+\begin{thm}
+Let $n=\left|U(t,3t)\right|$, then the Algorithm \ref{alg:Increasing-Method}
+finds all matrices satisfying Equation \ref{eq:rk_rqm_e1l1h3s4} for
+the $\left(1,1\right)-\ensuremath{N}_{3,r,4}$ network in $\mathcal{O}\left(n^{3}\right)$
+operations.
+\end{thm}
 \begin{proof}
-Our problem can be described like finding all matrices such that any
-3 of them can accompany together. The companion is possible, when
-the 3 matrices satisfy the rank requirement in \ref{eq:rk_rqm_e1l1h3s4}.
-The input $\mathcal{H}_{n=3t,m=3t}$ of Algorithm \ref{alg:Increasing-Method}
-lists all such 3 matrices by tuples of 3 matrices (called 3-tuples).
-Line 1 to Line 3 gives us all pairs or 2-tuples from these 3-tuples
-as well as their relatives. Then the algorithm starts searching for
-its output initially based on 2 matrices having the largest number
-of relatives, i.e. it appears mostly in $\mathcal{H}_{n=3t,m=3t}$
-in comparison with any other pairs of matrices. This number of relatives
-plus 2 by themselves is actually the upper bound for a code size,
-when a $3-\left(3t,t,t\right)_{q=2}^{c}$ code is considered \cite[Sec. V-D]{Zhang:2019}.
-Furthermore, from Line 10 to Line 26, the algorithm extends the inital
-2-tuples based on all of these relatives. That's why the algorithm's
-output gives us all of our expected matrices.
-\end{proof}
-Our algorithm is based on $C_{relatives}\lll3\left(\begin{array}{c}
-2^{3t^{2}}\\
-3
-\end{array}\right)\Rightarrow C_{relatives}\lll\mathcal{O}\left(\frac{t^{6}}{6}\right)$. In case $t=2$, $U(t,3t)$ helps us reduce $\left|M(t,3t)\right|=4096$
-matrices to $\left|U(t,3t)\right|=715$ matrices, $C_{relatives}\approx3\left(\begin{array}{c}
-\frac{715}{4096}2^{3t^{2}}\\
-3
-\end{array}\right)\approx\mathcal{O}\left(\frac{2}{3000}t^{6}\right)$. Therefore, we are able to achieve the output of Algorithm \ref{alg:Increasing-Method}
-for $\mathcal{H}_{n=6,m=6}$ in a short amount of time.
+Our problem can be described by searching for a matrix subset $\boldsymbol{c}=\left[\boldsymbol{C}_{1},\ldots,\boldsymbol{C}_{w}\right]$
+of the set $U(t,3t)$ over $\ensuremath{\mathbb{F}}_{2}^{t\times3t}$
+with $w\leq n$, such that any 3 matrices in $\boldsymbol{c}$ satisfy
+Equation \ref{eq:rk_rqm_e1l1h3s4}. 
 
+Line 1 to Line 3 (\textit{Step 1}) of the algorithm is for the purpose
+of generating all relatives of pairs of 2 matrices in $U(2,6)$. With
+a large $n$, we have $3\cdot\left(\begin{array}{c}
+n\\
+3
+\end{array}\right)\approx3n^{3}$ such pairs for generating relatives. Outputs of this step are in
+the format of 
+\[
+rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right],\forall\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\in Combination\left(U(2,6),2\right),
+\]
+where $Combination(S,k)$ gives us all k-tuples of elements in $S$.
+Let us denote the size of each $rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+by $m$, and we achive $3n^{3}$ different sizes in a vector $\boldsymbol{m}=\left[m_{1},\ldots,m_{3n^{3}}\right].$
+Step 1 therefore can be implemented in $\mathcal{O}\left(n^{3}\right)$
+operations. Following to Theorem \ref{theo:size_rel}, $max\left\{ \boldsymbol{m}\right\} $
+is the upper bound for a code size, when $3-\left(3t,t,t\right)_{q=2}^{c}$
+code for a vector solution is considered \cite[Sec. V-D]{Zhang:2019}.
+
+Line 4 to Line 9 (\textit{Step 2}) is designed to find all pairs $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+whose $m=max\left\{ \boldsymbol{m}\right\} $. This step ensures that
+our output of the algorithm generate the largest size for the subset
+$\boldsymbol{c}$, which is equivalent to an optimal vector solution
+regarding to the use of $3-\left(3t,t,t\right)_{q=2}^{c}$ code. Step
+2 checks all elements in $\boldsymbol{m}$, and thus it can be computed
+in $\mathcal{O}\left(n^{3}\right)$ operations.
+
+Line 10 to Line 15 (\textit{Step 3}) is designed to keep only one
+of above intial pairs $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+if its set $\left\{ \boldsymbol{C}_{i},\boldsymbol{C}_{j}\right\} \cup rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+is duplicated with any other such pairs. Step 3 can be implemented
+in $\mathcal{O}\left(n^{3}\right)$ operations.
+
+Line 16 to Line 23 (\textit{Step 4}) is for the purpose of extending
+a next matrix for this pair to form sub-relatives $subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+by checking all relatives of each pair $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+from Step 3. We have $max\left\{ \boldsymbol{m}\right\} \leq n-2$
+because such a pair can have maximum $n-2$ relatives. Step 4 thus
+can be computed in $\mathcal{O}\left(n\right)$ operations.
+
+Line 24 to Line 26 (\textit{Step 5}): if there exist a non-empty set
+$subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+from outputs of Step 4. We run a loop of Step 3 and Step 4. This first
+loop checks maximum $n-3$ elements, because such a triplet can have
+maximum $n-3$. It will linearly reduce over each loop, and each loop
+is designed to generate sub-relative, which costs maximum $\mathcal{O}\left(n\right)$
+operations. Therefore, step 5 can be implemented in $\mathcal{O}\left(n^{2}\right)$
+operations.
+
+Summarized, we obtain the complexity claimed in the theorem.
+\end{proof}
 We are going to list some toy examples for the algorithm as well as
 illustrate it in Figure \ref{fig:rel_example}.
 \begin{example}
@@ -1933,7 +2006,6 @@ Then we have $N=4$ matrices (vectors):
 \boldsymbol{D}=[1,1]
 \end{array}
 \]
-
 \uline{Step 1} (Line 1 to Line 3): Due to, any 3 of them form a
 sufficient global coding vector, i.e. a matrix with $rk\geq2n$, we
 have the relative as following:
@@ -1947,7 +2019,6 @@ rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\bold
 rel\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{B}]
 \end{array}
 \]
-
 \uline{Step 2} (Line 4 to Line 9): We get the maximum size of these
 steps is $2$ and $P_{max}$ results in all $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $,
 because $\underset{\begin{array}{c}
@@ -1972,13 +2043,13 @@ and we get $P_{potential}=\left\{ \left(\boldsymbol{A},\boldsymbol{B},\boldsymbo
 \end{example}
 %
 \begin{example}
-For further understading, we use Figure \ref{fig:rel_example} for
-illustration. In the right, we observe that the size of relative becomes
-smaller when its tuple identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
-or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.
-It explains why the maximum numbers of matrices that we can find for
-a vector solution of this network is the output of Algorithm \ref{alg:Increasing-Method}.
-Regarding to the left, the visual explanation of $subrel$ is shown.
+For further understanding of Algorithm \ref{alg:Increasing-Method},
+we use Figure \ref{fig:rel_example} for illustration. In Figure \ref{fig:rel_example}(c),
+we observe that the size of relative becomes smaller when its tuple
+identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
+or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.Regarding
+to Figure \ref{fig:rel_example}(a) and \ref{fig:rel_example}(b),
+the visual explanation of $subrel$ is shown.
 \end{example}
 \begin{figure}[H]
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
@@ -1987,8 +2058,30 @@ represents as a matrix problem\label{fig:rel_example}}
 \centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
 \end{figure}
 
+\begin{thm}
+The size of relatives and sub-relatives become smaller with there
+are more elements in their identity tuples. \label{theo:size_rel}
+\end{thm}
+\begin{proof}
+We call $\left(\boldsymbol{A},\boldsymbol{B}\right)$ of $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+$\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$ of $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]$,
+or such $n$-tuples with $2\leq n\leq U\left(t,3t\right)$ by \textit{identity
+tuples}. In Figure \ref{fig:rel_example}(a), we can see that 
+\[
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\]
 
-\section{Alternative Approaches}
+so $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+$subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$,
+and $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$.
+Therefore,
+\[
+\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
+\]
+which is still true when the size of identity tuples becomes smaller.
+\end{proof}
+
+\section{Alternative Approaches \label{sec:Alternative-Approaches}}
 
 Firstly, instead of using \textit{matrix space with unique row space},
 we use the whole matrix space $M\left(n,m\right)$. In case $t=2$,
@@ -2003,7 +2096,6 @@ $N\leq\left(\begin{array}{c}
 \end{array}\right)$, then a set $\mathcal{T}_{n=3t,m=3t}=\left\{ \boldsymbol{T}_{1},\ldots,\boldsymbol{T}_{N}\right\} $
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{T}_{j}$
 such that:
-
 \[
 rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{A}\\
@@ -2011,23 +2103,570 @@ rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{C}
 \end{array}\right]\geq2n,\forall j\in\left\{ 1,\ldots,N\right\} .
 \]
-\end{defn}
 In Algorithm \ref{alg:Increasing-Method}, we substitute the input
 by $\mathcal{T}_{n=3t,m=3t}$ instead of $\mathcal{H}_{n=3t,m=3t}$.
 This will give us an output with upper bound of $\mathcal{A}_{2}\left(3t,2t,3;2t\right)=126$
-\cite[Sec. V-B]{Zhang:2019}.
-
+\cite[Sec. V-B]{Zhang:2019}. We can see that $\left|\mathcal{T}_{n=3t,m=3t}\right|\approx11\cdot10^{9}\gg\left|\mathcal{H}_{n=3t,m=3t}\right|\approx60\cdot10^{6}$.
+\end{defn}
 Secondly, we tried another approach called ``Randomly Increasing
 Method''. We got about 72 codewords instead of 89 codewords as Algorithm
-\ref{alg:Increasing-Method}, due to a limited number of tries.
+\ref{alg:Increasing-Method}, due to a limited number of tries. Briefly,
+this approach started with a pair of 2 potential matrices $\left[\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right]$ and $\left[\begin{array}{cccccc}
+1 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0 & 0
+\end{array}\right]$. Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
+into a list containing this pair. The random matrix is extended to
+the list, if the matrix and any 2 existing matrices in the list satisfy
+Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
+all matrices in $U\left(t=2,3t=6\right)$ are checked.
 
-Finally, we tried removing bad matrices from a set of all 4096 matrices,
+Thirdly, in Algorithm \ref{alg:Decreasing-Method} called ``Decreasing
+Method'', we tried removing bad matrices from a set of 715 matrices,
 until any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
-A matrix with the less number of existence in $\mathcal{T}_{n=3t,m=3t}$
+A matrix with the less number of occurence in $\mathcal{T}_{n=3t,m=3t}$
 or $\mathcal{H}_{n=3t,m=3t}$ is evaluated as a bad matrix, and it
 is removed for each step. If many bad matrices exist, we only remove
-the first one. In case $t=2$, we unfortunately got about 69 codewords
-instead of 89 codewords as Algorithm \ref{alg:Increasing-Method}.
+the first one, which makes this algorithm a random one and require
+multiple tries. In case $t=2$, we tried once with $\left|U\left(t,3t\right)\right|=715$
+matrices as the algorithm's input, and unfortunately got about 69
+codewords instead of 89 codewords as Algorithm \ref{alg:Increasing-Method}. 
+
+\begin{algorithm}[H]
+\caption{Decreasing Method \label{alg:Decreasing-Method}}
+
+\hspace*{\algorithmicindent} \textbf{Input}: $U(t,3t)$. \\
+\hspace*{\algorithmicindent} \textbf{Output}: A subset of $U(t,3t)$ with any 3 matrices satisfy Equation \ref{eq:p_in_LLL}. 
+\begin{algorithmic}[1]
+	\STATE {$\left[\textbf{L}_{0},\ldots,\boldsymbol{L}_{\left|U(t,3t)\right|-1}\right]\leftarrow U(t,3t)$ // Assign all matrices into a list.}
+	\STATE {$\boldsymbol{j}\leftarrow\left[\boldsymbol{L}_{0},\ldots,\boldsymbol{L}_{\left|U(t,3t)\right|-1}\right]$}
+	\REPEAT
+	\STATE {$\boldsymbol{g}\leftarrow\left[0,\ldots,0\right]$ with $\left|\boldsymbol{g}\right|=\left|\boldsymbol{j}\right|$ // Number of occurences for bad matrices}
+	\FORALL{$\left[c_{0},c_{1},c_{2}\right]\in\left(\begin{array}{c} \left|\boldsymbol{j}\right|\\ 3 \end{array}\right)$}
+		\IF{$rk\left[\begin{array}{c} \boldsymbol{j}_{c_{0}}\\ \boldsymbol{j}_{c_{1}}\\ \boldsymbol{j}_{c_{2}} \end{array}\right]\leq2t$}	
+			\STATE {$\textbf{g}_{c_{0}}\leftarrow \textbf{g}_{c_{0}}+1$}
+			\STATE {$\textbf{g}_{c_{1}}\leftarrow \textbf{g}_{c_{1}}+1$}
+			\STATE {$\textbf{g}_{c_{2}}\leftarrow \textbf{g}_{c_{2}}+1$}
+		\ENDIF
+	\ENDFOR
+	\STATE {remove $\boldsymbol{j}_{max\left[\boldsymbol{g}\right]\neq0}$ from $\boldsymbol{j}$}
+	\UNTIL{$max\left[\boldsymbol{g}\right]=0$}
+\end{algorithmic}
+\end{algorithm}
+Finally, construction 1 mentioned in Section \ref{sec:Main-Approach}
+to achieve a vector solution for the $\left(1,1\right)-\mathcal{N}_{3,r,4}$
+network with $t=3$, which has not been yet found in any other papers.
+When $t=3$, a $3-\left(9,3,3\right)_{4}^{c}$ code is required for
+a vector solution of the network by Theorem \ref{theo:scalar_sol_exist}.
+Its orthogonal complement is a $3-\left(9,6,2\right)_{q}^{m}$ code,
+and the bound for this code is denoted by $\mathcal{A}_{2}\left(9,6,3;2\right)$
+following to Corollary \ref{cor:dual_subspaces}. In \cite{Etzion:2018},
+they only covered $\mathcal{A}_{2}\left(6,k,t;2\right),\mathcal{A}_{2}\left(7,k,t;2\right)$,
+and $\mathcal{A}_{2}\left(8,k,t;2\right)$, this is thus a newly found
+bound for a vector solution of the $\left(1,1\right)-\mathcal{N}_{3,r,4}$
+network. We listed 166 three-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$
+in Appendix \ref{sec:166-Three-Dimensional-Subspaces}. Therefore,
+we conclude $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)$. By Theorem
+\ref{theo:zhang-theorem10}, we achieve its upper bound $\mathcal{A}_{2}\left(9,6,3;2\right)\leq1129$.
+The upper bound can be improved by Theorem \ref{theo:zhang-theorem11}
+with $\mathcal{A}_{2}\left(9,6,3;2\right)\leq\left\lfloor \frac{85}{21}\mathcal{A}_{2}\left(8,5,2;2\right)\right\rfloor \leq537$,
+where $33\leq\mathcal{A}_{2}\left(8,5,2;2\right)\leq128$ in \cite[Table 3]{Etzion:2018}.
+Hence, we have $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$.
+\begin{thm}[{\cite[Theorem 10]{Zhang:2019}\label{theo:zhang-theorem10}}]
+ If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
+$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
+\end{array}\right]_{q}$, then,
+\[
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+n\\
+\mathrm{t}
+\end{array}\right]_{q}}{\left[\begin{array}{c}
+k\\
+\mathrm{t}
+\end{array}\right]_{q}}\right\rfloor 
+\]
+\end{thm}
+%
+\begin{thm}[{\cite[Theorem 11]{Zhang:2019}\label{theo:zhang-theorem11}}]
+ If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
+$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
+\end{array}\right]_{q}$, then,
+\[
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
+\]
+\end{thm}
+
+\part{Conclusion}
+
+In this thesis, we have shown combinatorial proofs for an existence
+of new gaps for 3 generalized combination networks. The $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=2$ has been studied in \cite{Wachter-Zeh:2018,Etzion:2016,Zhang:2019,Etzion:2018}
+but no general gap was found. We also got computational results for
+this network with 89 two-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$,
+which is better the constructed set of 51 two-dimensional subspaces
+of $\ensuremath{\mathbb{F}}_{2}^{6}$ found in \cite{Wachter-Zeh:2018}.
+
+In Chapter 5, by applying the Local lemma, we proved that if $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$,
+there always exists a vector solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network . The optimal scalar solution for such network exists, when
+$r\leq\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$. Therefore, the
+general gap $g=q^{t^{2}/4+\mathcal{O}(t)}$ exists for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. Similarly we derived the gaps for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+network, respectively with $g=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
+and $g=q^{t^{2}/2\ell+\mathcal{O}(t)}$. A comparison with known results
+can be found in Table \ref{tab:New-gap-found} and Table \ref{tab:r_over_t}.
+
+In Chapter 6, we introduced 4 different approaches in computing vector
+solutions that outperform the optimal scalar solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=2$. All approaches gave us such vector solutions,
+and the Algorithm \ref{alg:Increasing-Method} called ``Increasing
+Method'' generated the best result among 4 approaches. The best result
+is about 2 times 42 results of the optimal scalar solution, i.e. we
+found $r_{vector}=89$. When we mention the results of the optimal
+scalar solution, it means that such a solution exists if and only
+if $r_{scalar}\leq42$. However, our computational result of $r_{vector}$
+is still less than the upper bound of $\mathcal{A}_{2}\left(6,4,3;2\right)$
+in \cite{Etzion:2018}. Hence, we can only conclude $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=2$. This motivates an open research to find a computational
+method for generating a vector solution of 126 two-dimensional subspaces
+of $\ensuremath{\mathbb{F}}_{2}^{6}$. At the time writing this thesis,
+the best computational result is $r_{vector}=121$ stated in \cite{Etzion:2018}.
+In Appendix \ref{sec:89-Two-Dimensional-Subspaces}, we listed one
+of 2 different sets of our 89 two-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$,
+which are slightly different in 2 subspaces. We also find an interesting
+result that there are $\left|U(2,6)\right|=715$ matrices whose different
+row spaces among $\left|M(2,6)\right|=4096$ matrices over $\ensuremath{\mathbb{F}}_{2}^{6}$.
+Furthermore, we used the Algorithm \ref{alg:Increasing-Method} and
+got $r_{vector}=166$ for $t=3$ by Construction 1, which is better
+than the optimal scalar solution existing if and only $r_{scalar}\leq146$.
+This computational result was not found in any previous studies in
+our scope of knowledge. For the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=3$, we therefore state a new bound $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$.
+In Appendix \ref{sec:166-Three-Dimensional-Subspaces}, we wrote down
+one of 18 found variants of 166 three-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$.
+From $\left|M(3,6)\right|=262144$ matrices, we found $\left|U(3,6)\right|=2110$
+matrices whose different row spaces. All of computational results
+in this study was listed in Table \ref{tab:r_over_t}. 
+
+Another open research is to study a gap for the general network $\left(\epsilon,\ell\right)-\mathcal{N}_{h,r,s}$.
+The most challenging problem is to define the optimal scalar solution
+for such network.
+
+\part{Appendices}
+
+\section{89 Two-Dimensional Subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+Network \label{sec:89-Two-Dimensional-Subspaces}}
+
+\begin{lstlisting}
+[1 0 0 0 0 0] [1 0 0 0 0 0] [0 0 1 0 0 0] [0 0 0 1 0 0] 
+[0 1 0 0 0 0] [0 0 1 0 0 0] [0 0 0 0 0 1] [0 0 0 0 1 0] 
+
+[1 0 0 0 1 0] [1 0 0 0 0 0] [1 0 0 0 0 0] [0 1 0 0 1 0] 
+[0 0 0 0 0 1] [0 0 1 0 1 0] [0 0 0 1 0 1] [0 0 0 1 0 0] 
+
+[0 1 0 0 0 1] [0 0 1 0 0 1] [0 0 0 1 0 1] [1 1 1 0 0 0] 
+[0 0 1 0 0 0] [0 0 0 1 0 0] [0 0 0 0 1 0] [0 0 0 0 1 0] 
+
+[1 0 1 0 0 0] [1 0 1 0 0 0] [1 0 1 0 0 0] [1 0 0 1 0 0] 
+[1 0 0 1 0 0] [0 1 0 1 0 0] [0 0 0 1 1 0] [1 0 0 0 0 1] 
+
+[1 0 0 0 1 1] [1 0 0 0 1 0] [1 0 0 0 0 1] [0 1 1 1 0 0] 
+[0 0 0 1 0 0] [1 0 0 0 0 1] [0 1 0 1 0 0] [0 0 0 0 1 0] 
+
+[0 1 1 0 0 0] [0 1 1 0 0 0] [0 1 0 0 0 1] [0 1 0 0 0 0] 
+[0 1 0 0 1 0] [0 0 0 1 0 1] [0 0 1 1 0 0] [0 0 1 1 1 0] 
+
+[0 0 1 1 1 0] [0 0 1 1 0 0] [1 1 1 0 0 0] [1 1 1 0 0 0] 
+[0 0 0 0 0 1] [0 0 0 0 1 1] [1 0 0 0 1 0] [0 1 0 1 0 0] 
+
+[1 1 0 1 0 0] [1 1 0 0 1 0] [1 1 0 0 1 0] [1 1 0 0 0 1] 
+[0 1 0 0 1 0] [0 1 0 1 0 0] [0 1 0 0 0 1] [1 0 0 1 0 0] 
+
+[1 1 0 0 0 0] [1 1 0 0 0 0] [1 0 1 1 1 0] [1 0 1 1 0 0] 
+[1 0 1 0 0 1] [0 0 0 1 1 1] [0 0 0 0 0 1] [0 1 0 0 0 1] 
+
+[1 0 1 1 0 0] [1 0 1 0 1 1] [1 0 1 0 1 1] [1 0 0 1 1 0] 
+[0 0 1 0 0 1] [0 1 0 0 0 0] [0 0 0 1 0 0] [0 0 0 0 1 1] 
+
+[1 0 0 0 0 1] [0 1 1 0 0 1] [0 1 0 1 1 1] [0 0 1 1 0 1] 
+[0 1 0 1 1 0] [0 0 1 0 1 0] [0 0 1 0 0 0] [0 0 1 0 1 0] 
+
+[0 0 1 1 0 0] [1 1 1 1 1 0] [1 1 1 1 0 0] [1 1 1 0 1 0] 
+[0 0 1 0 1 1] [0 0 0 0 0 1] [0 1 0 0 0 1] [0 0 1 0 0 1] 
+
+[1 1 1 0 0 1] [1 1 0 1 1 0] [1 1 0 1 0 1] [1 1 0 1 0 0] 
+[0 0 0 1 1 0] [1 0 1 0 0 0] [0 1 1 0 0 0] [1 0 0 0 1 1] 
+
+[1 1 0 1 0 0] [1 1 0 0 1 1] [1 1 0 0 1 1] [1 1 0 0 1 0] 
+[0 0 1 1 0 1] [0 1 1 0 0 0] [0 0 1 1 0 0] [0 1 1 1 0 0] 
+
+[1 1 0 0 0 1] [1 1 0 0 0 1] [1 0 1 1 0 0] [1 0 1 1 0 0] 
+[1 0 1 0 1 0] [0 1 1 0 1 0] [0 1 0 1 0 1] [0 0 0 1 1 1] 
+
+[1 0 1 0 1 0] [1 0 1 0 0 1] [1 0 1 0 0 1] [1 0 0 1 1 0] 
+[0 1 0 1 1 0] [0 1 1 1 0 0] [0 1 0 1 0 1] [0 1 0 1 0 1] 
+
+[1 0 0 1 0 1] [1 0 0 1 0 1] [1 0 0 0 0 1] [0 1 1 1 0 1] 
+[0 1 1 0 1 0] [0 0 1 0 1 1] [0 1 1 1 1 0] [0 0 0 1 1 0] 
+
+[0 1 1 0 1 1] [0 1 1 0 0 1] [0 1 0 1 0 1] [0 1 0 0 1 1] 
+[0 1 0 1 0 0] [0 1 0 1 1 0] [0 0 1 0 1 1] [0 0 1 1 1 0] 
+
+[1 1 1 1 1 0] [1 1 1 1 1 0] [1 1 1 1 0 0] [1 1 1 0 0 1] 
+[0 0 0 1 0 1] [0 0 0 0 1 1] [0 1 0 0 1 1] [0 0 1 1 1 0] 
+
+[1 1 0 1 1 0] [1 1 0 1 1 0] [1 1 0 1 0 1] [1 1 0 1 0 0] 
+[1 0 1 0 0 1] [0 0 1 1 0 1] [0 0 1 0 1 1] [0 1 1 0 1 1] 
+
+[1 1 0 0 1 1] [1 1 0 0 0 1] [1 0 1 1 0 1] [1 0 1 0 1 0] 
+[0 0 1 1 1 0] [1 0 1 1 1 0] [0 1 1 0 1 0] [0 1 0 1 1 1] 
+
+[1 0 0 1 1 1] [1 0 0 1 1 1] [1 1 1 0 1 0] [1 1 1 0 1 0] 
+[0 1 1 1 0 0] [0 1 1 0 1 0] [1 0 1 1 0 1] [1 0 0 1 1 1] 
+
+[1 1 0 1 1 0] 
+[1 0 1 1 0 1]
+\end{lstlisting}
+
+
+\section{166 Three-Dimensional Subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+Network \label{sec:166-Three-Dimensional-Subspaces}}
+
+\begin{lstlisting}
+[1 0 0 0 0 1 0 0 0] [1 0 0 0 0 0 1 0 0] 
+[0 1 0 0 0 0 0 1 0] [0 1 0 0 0 0 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 1 1 0 1 0 1] 
+[0 1 0 1 0 0 1 0 0] [0 1 0 1 0 1 0 0 0] 
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 1 0 0 1 0 0] [1 0 0 0 0 1 1 1 0] 
+[0 1 0 0 1 1 0 1 0] [0 1 0 0 0 0 0 1 1] 
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 0 0 1 1 0 1] 
+[0 1 0 0 1 1 1 0 0] [0 1 0 0 0 0 1 1 0] 
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 1 0 1 0] 
+[0 1 0 0 0 0 0 1 0] [0 1 0 0 1 0 1 1 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 0 1] 
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 0 0 0 0 1] 
+[0 1 0 0 0 1 0 0 0] [0 1 0 0 0 0 1 0 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 1 0 1 0 0] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 1 0 1 0 1 0] [0 1 0 0 1 0 0 0 1] 
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 0 1 0 0 0] 
+[0 0 1 0 0 1 0 0 0] [0 0 1 0 0 0 1 0 0] 
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 0 1 0 0 1 0] 
+[0 1 0 0 0 0 1 0 0] [0 1 0 0 0 0 0 0 1] 
+[0 0 1 0 0 0 0 1 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 1 0 0 1 0] [1 0 0 0 1 0 0 0 0] 
+[0 1 0 1 0 0 1 0 1] [0 1 0 0 0 1 0 0 0] 
+[0 0 1 0 1 1 0 0 1] [0 0 1 0 0 0 1 0 0] 
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 0 0 0 1 1 0] [0 1 0 1 0 0 0 1 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 1 0 0 0 0 1] 
+
+[1 0 0 0 0 1 0 1 0] [1 0 0 1 1 0 0 0 1] 
+[0 1 0 0 0 0 1 0 0] [0 1 0 0 1 1 0 0 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 1 1] 
+
+[1 0 0 1 1 0 1 0 0] [1 0 0 1 0 0 0 1 1] 
+[0 1 0 0 1 1 0 0 0] [0 1 0 0 1 0 1 0 0] 
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 0 0] 
+
+[1 0 0 1 1 0 1 0 0] [1 0 0 0 0 0 1 0 0] 
+[0 1 0 0 0 1 1 1 1] [0 1 0 0 0 0 0 1 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 1] 
+
+[1 0 0 0 0 1 0 1 0] [1 0 0 1 1 0 1 1 0] 
+[0 1 0 0 0 1 0 0 1] [0 1 0 1 0 1 0 0 0] 
+[0 0 1 0 0 0 1 0 0] [0 0 1 0 1 0 0 0 1] 
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 1 0 0 1 1] 
+[0 1 0 1 0 0 0 0 1] [0 1 0 1 0 0 1 0 0] 
+[0 0 1 0 1 1 0 0 0] [0 0 1 0 0 1 0 0 0] 
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 1 0 1 1 0] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 0 1 1 0 0 0] 
+[0 0 1 0 1 0 1 0 1] [0 0 1 0 0 0 1 0 1] 
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 0 1 0 0 1] 
+[0 1 0 0 1 1 1 0 0] [0 1 0 0 1 1 0 1 0] 
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 1 0 1 0 0] 
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 1 1 0 1 0 1] 
+[0 1 0 0 1 0 0 0 1] [0 1 0 0 0 0 0 0 0] 
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 1 0 1 0 1] [0 1 0 1 0 1 1 0 0] 
+[0 0 1 0 0 1 0 1 0] [0 0 1 0 1 1 0 0 1] 
+
+[1 0 0 1 0 1 0 0 0] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 1 1 0 0 0] 
+[0 0 1 0 0 0 0 1 0] [0 0 1 0 1 0 1 0 0] 
+
+[1 0 0 1 1 0 0 1 0] [1 0 0 1 0 0 1 0 0] 
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 1 1 0 0 0] 
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 1 0 1 0 1] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 1 1 0 0 0] 
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 1 0 0 1 0] 
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 1 0 0 0 1] 
+[0 1 0 1 0 1 1 1 0] [0 1 0 1 0 1 0 0 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 1 0 0 1 0 0] 
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 0 0 0 1 1] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 0 1 1 0 1 0] 
+[0 0 1 0 1 1 0 0 0] [0 0 1 0 1 0 1 0 0] 
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 1 0 0 0 1] 
+[0 1 0 0 1 1 0 1 0] [0 1 0 0 1 0 1 1 0] 
+[0 0 1 0 0 0 1 0 0] [0 0 1 0 0 1 0 0 0] 
+
+[1 0 0 0 1 1 0 0 0] [1 0 0 1 0 1 0 0 0] 
+[0 1 0 0 1 0 0 0 1] [0 1 0 1 0 0 0 1 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 1 0 1 1 0] 
+
+[1 0 0 0 1 0 1 0 0] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 0 0 1 0 0 0] [0 1 0 1 0 1 0 0 0] 
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 0 0 1 1 1] 
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 1 1 0 0 0 1] 
+[0 1 0 0 1 1 0 1 0] [0 1 0 1 0 1 0 1 0] 
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 1 1 1 0 0] 
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 1 0 1 0 1 0] [0 1 0 0 1 0 1 0 0] 
+[0 0 1 0 1 0 1 1 0] [0 0 1 0 1 0 0 1 1] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 0 0 0] 
+[0 1 0 1 0 1 1 0 0] [0 1 0 1 0 1 0 1 0] 
+[0 0 1 0 0 1 0 0 1] [0 0 1 0 0 1 1 0 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 1 0 1 0 0 1] [0 1 0 0 1 1 1 0 1] 
+[0 0 1 1 0 0 0 1 0] [0 0 1 0 1 0 0 1 0] 
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 0 0 0 1 0 0] [0 1 0 0 0 1 1 0 1] 
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 1 1 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 1 0 0 1 0 1] [0 1 0 0 1 1 0 0 1] 
+[0 0 1 1 0 0 0 1 0] [0 0 1 0 0 1 1 1 0] 
+
+[1 0 0 0 0 1 1 0 0] [1 0 0 1 0 1 0 0 0] 
+[0 1 0 0 0 1 0 1 0] [0 1 0 1 0 0 1 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 1 0 0 1 1] 
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 0 1 0 0 1] 
+[0 1 0 1 0 0 1 1 0] [0 1 0 1 0 0 1 1 0] 
+[0 0 1 0 1 1 1 0 0] [0 0 1 0 1 1 0 1 0] 
+
+[1 0 0 0 1 1 1 1 0] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 0 1 0 0 1] [0 1 0 1 0 1 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 1 0 0] 
+
+[1 0 0 1 1 0 0 1 1] [1 0 0 0 1 0 1 0 0] 
+[0 1 0 1 0 1 1 0 1] [0 1 0 0 1 0 0 1 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 0 0 0] 
+
+[1 0 0 0 1 1 1 0 0] [1 0 0 0 0 0 1 1 0] 
+[0 1 0 0 0 0 1 1 0] [0 1 0 0 0 0 1 0 1] 
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 0 1 1 0 1 0] [1 0 0 1 0 0 1 1 0] 
+[0 1 0 0 0 1 1 0 0] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 1 1 0 1 0] 
+
+[1 0 0 1 0 1 1 0 1] [1 0 0 0 1 1 0 0 1] 
+[0 1 0 0 1 0 1 1 0] [0 1 0 0 1 0 0 1 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 0 0] 
+
+[1 0 0 0 1 1 0 0 1] [1 0 0 0 1 1 1 0 0] 
+[0 1 0 0 0 1 0 1 0] [0 1 0 0 1 0 0 1 0] 
+[0 0 1 0 0 0 1 0 0] [0 0 1 0 0 0 1 0 1] 
+
+[1 0 0 0 1 1 0 0 0] [1 0 0 1 0 1 1 0 0] 
+[0 1 0 0 1 0 1 0 1] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 0 0 1 1 0] 
+
+[1 0 0 0 1 1 1 0 0] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 0 1 0 0 1] [0 1 0 0 1 0 0 0 1] 
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 0 1 1 1 0] 
+
+[1 0 0 0 1 1 0 0 0] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 0 1 1 1 0] 
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 0 1] 
+
+[1 0 0 1 0 1 1 0 0] [1 0 0 1 0 1 0 1 1] 
+[0 1 0 0 0 1 0 1 0] [0 1 0 1 0 0 1 0 0] 
+[0 0 1 0 0 0 1 0 1] [0 0 1 0 1 0 0 0 0] 
+
+[1 0 0 1 0 0 1 0 1] [1 0 0 1 1 0 0 0 1] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 1 1 0 0] 
+[0 0 1 0 1 1 1 0 0] [0 0 1 0 1 0 0 1 0] 
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 0 1 1 0 1 0] 
+[0 1 0 1 0 0 1 0 0] [0 1 0 0 1 0 1 0 0] 
+[0 0 1 0 0 1 0 1 1] [0 0 1 0 0 1 0 0 1] 
+
+[1 0 0 1 0 0 1 0 0] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 1 0 0 0 1 1] [0 1 0 0 0 1 0 0 0] 
+[0 0 1 0 1 1 0 0 1] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 0 0 0] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 0 1 0 0 0] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 0 1 1 0 0 1] [1 0 0 1 1 1 0 1 0] 
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 0 0 0 1 1] 
+[0 0 1 0 0 1 0 1 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 0 1 0 0 1] 
+[0 1 0 1 0 0 1 0 0] [0 1 0 0 1 0 0 1 1] 
+[0 0 1 1 0 0 0 1 0] [0 0 1 0 0 0 1 0 0] 
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 0 0 1 0 0 1] [0 1 0 0 0 1 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 0 0] 
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 0 0 1 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 1 0 0 0] 
+[0 1 0 1 0 1 0 1 1] [0 1 0 1 0 0 1 0 0] 
+[0 0 1 1 0 0 1 0 0] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 1 0 1 0 0 0] [1 0 0 0 1 0 0 1 1] 
+[0 1 0 1 0 0 0 0 1] [0 1 0 0 0 1 1 1 0] 
+[0 0 1 0 1 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 1 0 0 0 1 1] [0 1 0 1 0 1 0 0 1] 
+[0 0 1 0 0 1 1 1 0] [0 0 1 0 1 0 0 1 1] 
+
+[1 0 0 1 0 0 1 0 1] [1 0 0 1 0 0 1 0 0] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 0 1 0 0 0] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 1 0 0 1 0 0] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 1 0 1 0 0 0] 
+[0 0 1 0 0 1 0 1 0] [0 0 1 0 0 0 1 0 0] 
+
+[1 0 0 1 1 0 0 1 0] [1 0 0 1 0 1 0 0 0] 
+[0 1 0 0 1 0 1 0 1] [0 1 0 0 1 0 1 1 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 1 1] 
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 0 0 0 1 0] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 0 1 0 0 0] 
+[0 0 1 0 0 1 0 0 1] [0 0 1 0 0 0 1 0 1] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 0 0 0] 
+[0 1 0 1 0 1 0 0 0] [0 1 0 1 0 0 1 0 0] 
+[0 0 1 1 0 0 0 0 1] [0 0 1 1 0 0 0 0 1] 
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 0 0 1 1 0 1] [0 1 0 0 1 0 0 1 0] 
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 0 1 0 0 0] 
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 0 0 0 1 1 0] [0 1 0 1 0 0 1 0 1] 
+[0 0 1 0 0 0 1 0 1] [0 0 1 0 1 0 1 1 0] 
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+[0 1 0 0 1 0 0 1 0] [0 1 0 0 0 1 1 0 0] 
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 0 1] 
+
+[1 0 0 1 1 1 1 0 0] [1 0 0 1 0 1 1 1 0] 
+[0 1 0 1 0 0 1 1 1] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 1 1 1 0 0] [1 0 0 1 1 1 1 0 0] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 1 0] 
+
+[1 0 0 0 1 1 1 0 0] [1 0 0 1 0 1 1 0 0] 
+[0 1 0 0 0 0 1 0 1] [0 1 0 0 0 1 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 1 0] 
+
+[1 0 0 1 0 1 1 0 0] [1 0 0 0 1 1 0 0 1] 
+[0 1 0 0 0 0 1 1 1] [0 1 0 0 0 1 1 0 0] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 0 1 0 1] [1 0 0 1 1 1 1 0 1] 
+[0 1 0 0 1 1 1 0 0] [0 1 0 0 0 1 0 1 0] 
+[0 0 1 0 0 0 0 1 0] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 1 0 0 0 1 1] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 0 1 1 1 0 1] [0 1 0 0 1 1 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 0 1 0] 
+
+[1 0 0 0 1 0 1 0 1] [1 0 0 0 1 0 1 0 0] 
+[0 1 0 0 1 0 0 1 0] [0 1 0 0 1 0 0 0 1] 
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 0 0 0] 
+
+[1 0 0 1 1 1 0 1 0] [1 0 0 1 0 1 0 0 0] 
+[0 1 0 0 1 0 1 0 0] [0 1 0 1 0 0 0 1 0] 
+[0 0 1 0 0 0 0 1 1] [0 0 1 1 0 0 0 0 1] 
+
+[1 0 0 1 1 1 0 0 1] [1 0 0 1 1 1 0 0 1] 
+[0 1 0 0 0 1 1 0 0] [0 1 0 1 0 0 1 0 0] 
+[0 0 1 0 0 0 0 1 0] [0 0 1 1 0 0 0 1 0] 
+
+[1 0 0 1 1 1 0 0 1] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 1 0 0] 
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 0 1 0 1 0] 
+
+[1 0 0 1 1 1 0 0 0] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 0 0 1] 
+[0 0 1 0 1 0 1 0 0] [0 0 1 0 1 0 1 0 0] 
+
+[1 0 0 0 1 0 0 0 1] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 0 0 1 0 0 0] [0 1 0 0 1 0 1 0 0] 
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 1 0 0 1 0] 
+
+[1 0 0 1 1 1 0 0 0] [1 0 0 1 1 1 0 0 0] 
+[0 1 0 0 1 0 0 1 0] [0 1 0 0 1 0 0 0 1] 
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 0 0 1 1 0] 
+
+[1 0 0 1 1 1 0 0 0] [1 0 0 1 1 0 1 0 0] 
+[0 1 0 0 0 1 1 1 0] [0 1 0 1 0 0 0 1 1] 
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 1 1 0 1 0] 
+
+[1 0 0 1 0 0 1 1 0] [1 0 0 1 0 0 1 0 1] 
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 0 1 0 1 1] 
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 0 0 0] 
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 1 0 0 1 0] 
+[0 1 0 0 0 1 0 1 0] [0 1 0 0 0 1 0 0 0] 
+[0 0 1 0 0 1 0 0 1] [0 0 1 0 0 0 0 1 1] 
+\end{lstlisting}
 
 \bibliographystyle{IEEEtran}
 \bibliography{../refs/final_ref_bib}

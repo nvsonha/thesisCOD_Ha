@@ -9,9 +9,11 @@ sections. Both construction 1 and 2 provide better results than scalar
 solutions. 
 
 Construction 1: $\begin{array}{c|c}
-\boldsymbol{I}_{t} & \boldsymbol{T}\end{array}$, with $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$
+\boldsymbol{I}_{t} & \boldsymbol{T}\end{array}$, with $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$,
+which is clearly explained in Section \ref{sec:Alternative-Approaches}.
 
-Construction 2: $\boldsymbol{T}\in MatrixSpaceUrs\left(t,3t\right)$
+Construction 2: $\boldsymbol{T}\in U\left(t,3t\right)$, which is
+described in the following Section \ref{sec:Main-Approach}.
 
 \section{Main Approach \label{sec:Main-Approach}}
 
@@ -31,7 +33,7 @@ of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can be used twice
 in the code; therefore, we have in total 146 possible codesword, but
 only 89 codewords are required. In this case, the gap size $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$i.e.
 we achieve a gap size $q^{t^{2}/2}$, which is better the asymptotic
-behavior in \ref{eq:gap_e1l1h3rs4}. 
+behavior in Equation \ref{eq:gap_e1l1h3rs4}. 
 
 Before introducing the algorithm used to generate such 89 codewords,
 we have to state some definitions for a beter explanation. We denote
@@ -39,11 +41,9 @@ a matrix space of dimension $\left[n\times m\right]$ by $M(n,m)=\left\{ \boldsym
 \begin{defn}[Matrix Space with Unique Row Space]
  $U(n,m)$ is a subset of $M(n,m)$, where any $\boldsymbol{A},\boldsymbol{B}\in U(n,m)$
 have their row spaces such that:
-
 \[
 \mathcal{R}_{q}\left(\boldsymbol{A}\right)\neq\mathcal{R}_{q}\left(\boldsymbol{B}\right),
 \]
-
 where $\mathcal{R}_{q}\left(.\right)$ denotes the row space of a
 matrix.
 \end{defn}
@@ -56,7 +56,6 @@ $N\lll\left(\begin{array}{c}
 \end{array}\right)$, then a set $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{H}_{j}$
 such that:
-
 \[
 rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{A}\\
@@ -64,20 +63,19 @@ rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{C}
 \end{array}\right]\geq2n,\forall j\in\left\{ 1,\ldots,N\right\} .
 \]
-\end{defn}
 For ease of notations, we denote $\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
 \end{array}\right]$ by $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $
 for the rest of this thesis.
-
+\end{defn}
+%
 \begin{defn}[Relative]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$.
 Then $\boldsymbol{C}$ is called a \textit{relative} of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
 if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in\mathcal{H}_{n=3t,m=3t}$
 and denoted as following:
-
 \[
 rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}.
 \]
@@ -93,7 +91,6 @@ There are maximum $3\cdot\left(\begin{array}{c}
 Each sufficient global coding vector $\boldsymbol{H}_{j}$ contains
 a $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $.
 Thus, each of these 3 matrices can form 3 different relatives:
-
 \[
 \begin{array}{c}
 rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}\\
@@ -101,7 +98,6 @@ rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=\boldsymbol{B}\\
 rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
 \end{array}.
 \]
-
 Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ is $q^{3t^{2}}$.
 Therefore, $\mathcal{H}_{t=3}$ can have only maximum $3q^{3t^{2}}$
 relatives.
@@ -111,7 +107,6 @@ relatives.
 Then $\boldsymbol{D}$ is called a \textit{sub-relative} of a tuple
 $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\in\mathcal{H}_{n=3t,m=3t}$
 if:
-
 \[
 \left\{ \begin{array}{c}
 \left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right\} \in\mathcal{H}_{t=3}\\
@@ -119,12 +114,10 @@ if:
 \left\{ \boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} \in\mathcal{H}_{t=3}
 \end{array}\right..
 \]
-
 A sub-relative is denoted by: 
 \[
-subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}.
 \]
-
 This definition about Sub-relative is similarly again used for a set
 of 5 or more matrices.
 \end{defn}
@@ -185,33 +178,68 @@ itself under the while-loop of Line 11 to Line 15.
 Now, we prove that Algorithm \ref{alg:Increasing-Method} always give
 us our expected output. Then we compute its complexity based on number
 of necessary computation.
+\begin{thm}
+Let $n=\left|U(t,3t)\right|$, then the Algorithm \ref{alg:Increasing-Method}
+finds all matrices satisfying Equation \ref{eq:rk_rqm_e1l1h3s4} for
+the $\left(1,1\right)-\ensuremath{N}_{3,r,4}$ network in $\mathcal{O}\left(n^{3}\right)$
+operations.
+\end{thm}
 \begin{proof}
-Our problem can be described like finding all matrices such that any
-3 of them can accompany together. The companion is possible, when
-the 3 matrices satisfy the rank requirement in \ref{eq:rk_rqm_e1l1h3s4}.
-The input $\mathcal{H}_{n=3t,m=3t}$ of Algorithm \ref{alg:Increasing-Method}
-lists all such 3 matrices by tuples of 3 matrices (called 3-tuples).
-Line 1 to Line 3 gives us all pairs or 2-tuples from these 3-tuples
-as well as their relatives. Then the algorithm starts searching for
-its output initially based on 2 matrices having the largest number
-of relatives, i.e. it appears mostly in $\mathcal{H}_{n=3t,m=3t}$
-in comparison with any other pairs of matrices. This number of relatives
-plus 2 by themselves is actually the upper bound for a code size,
-when a $3-\left(3t,t,t\right)_{q=2}^{c}$ code is considered \cite[Sec. V-D]{Zhang:2019}.
-Furthermore, from Line 10 to Line 26, the algorithm extends the inital
-2-tuples based on all of these relatives. That's why the algorithm's
-output gives us all of our expected matrices.
-\end{proof}
-Our algorithm is based on $C_{relatives}\lll3\left(\begin{array}{c}
-2^{3t^{2}}\\
-3
-\end{array}\right)\Rightarrow C_{relatives}\lll\mathcal{O}\left(\frac{t^{6}}{6}\right)$. In case $t=2$, $U(t,3t)$ helps us reduce $\left|M(t,3t)\right|=4096$
-matrices to $\left|U(t,3t)\right|=715$ matrices, $C_{relatives}\approx3\left(\begin{array}{c}
-\frac{715}{4096}2^{3t^{2}}\\
-3
-\end{array}\right)\approx\mathcal{O}\left(\frac{2}{3000}t^{6}\right)$. Therefore, we are able to achieve the output of Algorithm \ref{alg:Increasing-Method}
-for $\mathcal{H}_{n=6,m=6}$ in a short amount of time.
+Our problem can be described by searching for a matrix subset $\boldsymbol{c}=\left[\boldsymbol{C}_{1},\ldots,\boldsymbol{C}_{w}\right]$
+of the set $U(t,3t)$ over $\ensuremath{\mathbb{F}}_{2}^{t\times3t}$
+with $w\leq n$, such that any 3 matrices in $\boldsymbol{c}$ satisfy
+Equation \ref{eq:rk_rqm_e1l1h3s4}. 
 
+Line 1 to Line 3 (\textit{Step 1}) of the algorithm is for the purpose
+of generating all relatives of pairs of 2 matrices in $U(2,6)$. With
+a large $n$, we have $3\cdot\left(\begin{array}{c}
+n\\
+3
+\end{array}\right)\approx3n^{3}$ such pairs for generating relatives. Outputs of this step are in
+the format of 
+\[
+rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right],\forall\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\in Combination\left(U(2,6),2\right),
+\]
+where $Combination(S,k)$ gives us all k-tuples of elements in $S$.
+Let us denote the size of each $rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+by $m$, and we achive $3n^{3}$ different sizes in a vector $\boldsymbol{m}=\left[m_{1},\ldots,m_{3n^{3}}\right].$
+Step 1 therefore can be implemented in $\mathcal{O}\left(n^{3}\right)$
+operations. Following to Theorem \ref{theo:size_rel}, $max\left\{ \boldsymbol{m}\right\} $
+is the upper bound for a code size, when $3-\left(3t,t,t\right)_{q=2}^{c}$
+code for a vector solution is considered \cite[Sec. V-D]{Zhang:2019}.
+
+Line 4 to Line 9 (\textit{Step 2}) is designed to find all pairs $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+whose $m=max\left\{ \boldsymbol{m}\right\} $. This step ensures that
+our output of the algorithm generate the largest size for the subset
+$\boldsymbol{c}$, which is equivalent to an optimal vector solution
+regarding to the use of $3-\left(3t,t,t\right)_{q=2}^{c}$ code. Step
+2 checks all elements in $\boldsymbol{m}$, and thus it can be computed
+in $\mathcal{O}\left(n^{3}\right)$ operations.
+
+Line 10 to Line 15 (\textit{Step 3}) is designed to keep only one
+of above intial pairs $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+if its set $\left\{ \boldsymbol{C}_{i},\boldsymbol{C}_{j}\right\} \cup rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+is duplicated with any other such pairs. Step 3 can be implemented
+in $\mathcal{O}\left(n^{3}\right)$ operations.
+
+Line 16 to Line 23 (\textit{Step 4}) is for the purpose of extending
+a next matrix for this pair to form sub-relatives $subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+by checking all relatives of each pair $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+from Step 3. We have $max\left\{ \boldsymbol{m}\right\} \leq n-2$
+because such a pair can have maximum $n-2$ relatives. Step 4 thus
+can be computed in $\mathcal{O}\left(n\right)$ operations.
+
+Line 24 to Line 26 (\textit{Step 5}): if there exist a non-empty set
+$subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+from outputs of Step 4. We run a loop of Step 3 and Step 4. This first
+loop checks maximum $n-3$ elements, because such a triplet can have
+maximum $n-3$. It will linearly reduce over each loop, and each loop
+is designed to generate sub-relative, which costs maximum $\mathcal{O}\left(n\right)$
+operations. Therefore, step 5 can be implemented in $\mathcal{O}\left(n^{2}\right)$
+operations.
+
+Summarized, we obtain the complexity claimed in the theorem.
+\end{proof}
 We are going to list some toy examples for the algorithm as well as
 illustrate it in Figure \ref{fig:rel_example}.
 \begin{example}
@@ -226,7 +254,6 @@ Then we have $N=4$ matrices (vectors):
 \boldsymbol{D}=[1,1]
 \end{array}
 \]
-
 \uline{Step 1} (Line 1 to Line 3): Due to, any 3 of them form a
 sufficient global coding vector, i.e. a matrix with $rk\geq2n$, we
 have the relative as following:
@@ -240,7 +267,6 @@ rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\bold
 rel\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{B}]
 \end{array}
 \]
-
 \uline{Step 2} (Line 4 to Line 9): We get the maximum size of these
 steps is $2$ and $P_{max}$ results in all $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $,
 because $\underset{\begin{array}{c}
@@ -265,13 +291,13 @@ and we get $P_{potential}=\left\{ \left(\boldsymbol{A},\boldsymbol{B},\boldsymbo
 \end{example}
 %
 \begin{example}
-For further understading, we use Figure \ref{fig:rel_example} for
-illustration. In the right, we observe that the size of relative becomes
-smaller when its tuple identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
-or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.
-It explains why the maximum numbers of matrices that we can find for
-a vector solution of this network is the output of Algorithm \ref{alg:Increasing-Method}.
-Regarding to the left, the visual explanation of $subrel$ is shown.
+For further understanding of Algorithm \ref{alg:Increasing-Method},
+we use Figure \ref{fig:rel_example} for illustration. In Figure \ref{fig:rel_example}(c),
+we observe that the size of relative becomes smaller when its tuple
+identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
+or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.Regarding
+to Figure \ref{fig:rel_example}(a) and \ref{fig:rel_example}(b),
+the visual explanation of $subrel$ is shown.
 \end{example}
 \begin{figure}[H]
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
@@ -280,8 +306,30 @@ represents as a matrix problem\label{fig:rel_example}}
 \centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
 \end{figure}
 
+\begin{thm}
+The size of relatives and sub-relatives become smaller with there
+are more elements in their identity tuples. \label{theo:size_rel}
+\end{thm}
+\begin{proof}
+We call $\left(\boldsymbol{A},\boldsymbol{B}\right)$ of $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+$\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$ of $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]$,
+or such $n$-tuples with $2\leq n\leq U\left(t,3t\right)$ by \textit{identity
+tuples}. In Figure \ref{fig:rel_example}(a), we can see that 
+\[
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\]
 
-\section{Alternative Approaches}
+so $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+$subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$,
+and $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$.
+Therefore,
+\[
+\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
+\]
+which is still true when the size of identity tuples becomes smaller.
+\end{proof}
+
+\section{Alternative Approaches \label{sec:Alternative-Approaches}}
 
 Firstly, instead of using \textit{matrix space with unique row space},
 we use the whole matrix space $M\left(n,m\right)$. In case $t=2$,
@@ -296,7 +344,6 @@ $N\leq\left(\begin{array}{c}
 \end{array}\right)$, then a set $\mathcal{T}_{n=3t,m=3t}=\left\{ \boldsymbol{T}_{1},\ldots,\boldsymbol{T}_{N}\right\} $
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{T}_{j}$
 such that:
-
 \[
 rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{A}\\
@@ -304,22 +351,103 @@ rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
 \boldsymbol{C}
 \end{array}\right]\geq2n,\forall j\in\left\{ 1,\ldots,N\right\} .
 \]
-\end{defn}
 In Algorithm \ref{alg:Increasing-Method}, we substitute the input
 by $\mathcal{T}_{n=3t,m=3t}$ instead of $\mathcal{H}_{n=3t,m=3t}$.
 This will give us an output with upper bound of $\mathcal{A}_{2}\left(3t,2t,3;2t\right)=126$
-\cite[Sec. V-B]{Zhang:2019}.
-
+\cite[Sec. V-B]{Zhang:2019}. We can see that $\left|\mathcal{T}_{n=3t,m=3t}\right|\approx11\cdot10^{9}\gg\left|\mathcal{H}_{n=3t,m=3t}\right|\approx60\cdot10^{6}$.
+\end{defn}
 Secondly, we tried another approach called ``Randomly Increasing
 Method''. We got about 72 codewords instead of 89 codewords as Algorithm
-\ref{alg:Increasing-Method}, due to a limited number of tries.
+\ref{alg:Increasing-Method}, due to a limited number of tries. Briefly,
+this approach started with a pair of 2 potential matrices $\left[\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right]$ and $\left[\begin{array}{cccccc}
+1 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0 & 0
+\end{array}\right]$. Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
+into a list containing this pair. The random matrix is extended to
+the list, if the matrix and any 2 existing matrices in the list satisfy
+Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
+all matrices in $U\left(t=2,3t=6\right)$ are checked.
 
-Finally, we tried removing bad matrices from a set of all 4096 matrices,
+Thirdly, in Algorithm \ref{alg:Decreasing-Method} called ``Decreasing
+Method'', we tried removing bad matrices from a set of 715 matrices,
 until any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
-A matrix with the less number of existence in $\mathcal{T}_{n=3t,m=3t}$
+A matrix with the less number of occurence in $\mathcal{T}_{n=3t,m=3t}$
 or $\mathcal{H}_{n=3t,m=3t}$ is evaluated as a bad matrix, and it
 is removed for each step. If many bad matrices exist, we only remove
-the first one. In case $t=2$, we unfortunately got about 69 codewords
-instead of 89 codewords as Algorithm \ref{alg:Increasing-Method}.
+the first one, which makes this algorithm a random one and require
+multiple tries. In case $t=2$, we tried once with $\left|U\left(t,3t\right)\right|=715$
+matrices as the algorithm's input, and unfortunately got about 69
+codewords instead of 89 codewords as Algorithm \ref{alg:Increasing-Method}. 
+
+\begin{algorithm}[H]
+\caption{Decreasing Method \label{alg:Decreasing-Method}}
+
+\hspace*{\algorithmicindent} \textbf{Input}: $U(t,3t)$. \\
+\hspace*{\algorithmicindent} \textbf{Output}: A subset of $U(t,3t)$ with any 3 matrices satisfy Equation \ref{eq:p_in_LLL}. 
+\begin{algorithmic}[1]
+	\STATE {$\left[\textbf{L}_{0},\ldots,\boldsymbol{L}_{\left|U(t,3t)\right|-1}\right]\leftarrow U(t,3t)$ // Assign all matrices into a list.}
+	\STATE {$\boldsymbol{j}\leftarrow\left[\boldsymbol{L}_{0},\ldots,\boldsymbol{L}_{\left|U(t,3t)\right|-1}\right]$}
+	\REPEAT
+	\STATE {$\boldsymbol{g}\leftarrow\left[0,\ldots,0\right]$ with $\left|\boldsymbol{g}\right|=\left|\boldsymbol{j}\right|$ // Number of occurences for bad matrices}
+	\FORALL{$\left[c_{0},c_{1},c_{2}\right]\in\left(\begin{array}{c} \left|\boldsymbol{j}\right|\\ 3 \end{array}\right)$}
+		\IF{$rk\left[\begin{array}{c} \boldsymbol{j}_{c_{0}}\\ \boldsymbol{j}_{c_{1}}\\ \boldsymbol{j}_{c_{2}} \end{array}\right]\leq2t$}	
+			\STATE {$\textbf{g}_{c_{0}}\leftarrow \textbf{g}_{c_{0}}+1$}
+			\STATE {$\textbf{g}_{c_{1}}\leftarrow \textbf{g}_{c_{1}}+1$}
+			\STATE {$\textbf{g}_{c_{2}}\leftarrow \textbf{g}_{c_{2}}+1$}
+		\ENDIF
+	\ENDFOR
+	\STATE {remove $\boldsymbol{j}_{max\left[\boldsymbol{g}\right]\neq0}$ from $\boldsymbol{j}$}
+	\UNTIL{$max\left[\boldsymbol{g}\right]=0$}
+\end{algorithmic}
+\end{algorithm}
+Finally, construction 1 mentioned in Section \ref{sec:Main-Approach}
+to achieve a vector solution for the $\left(1,1\right)-\mathcal{N}_{3,r,4}$
+network with $t=3$, which has not been yet found in any other papers.
+When $t=3$, a $3-\left(9,3,3\right)_{4}^{c}$ code is required for
+a vector solution of the network by Theorem \ref{theo:scalar_sol_exist}.
+Its orthogonal complement is a $3-\left(9,6,2\right)_{q}^{m}$ code,
+and the bound for this code is denoted by $\mathcal{A}_{2}\left(9,6,3;2\right)$
+following to Corollary \ref{cor:dual_subspaces}. In \cite{Etzion:2018},
+they only covered $\mathcal{A}_{2}\left(6,k,t;2\right),\mathcal{A}_{2}\left(7,k,t;2\right)$,
+and $\mathcal{A}_{2}\left(8,k,t;2\right)$, this is thus a newly found
+bound for a vector solution of the $\left(1,1\right)-\mathcal{N}_{3,r,4}$
+network. We listed 166 three-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$
+in Appendix \ref{sec:166-Three-Dimensional-Subspaces}. Therefore,
+we conclude $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)$. By Theorem
+\ref{theo:zhang-theorem10}, we achieve its upper bound $\mathcal{A}_{2}\left(9,6,3;2\right)\leq1129$.
+The upper bound can be improved by Theorem \ref{theo:zhang-theorem11}
+with $\mathcal{A}_{2}\left(9,6,3;2\right)\leq\left\lfloor \frac{85}{21}\mathcal{A}_{2}\left(8,5,2;2\right)\right\rfloor \leq537$,
+where $33\leq\mathcal{A}_{2}\left(8,5,2;2\right)\leq128$ in \cite[Table 3]{Etzion:2018}.
+Hence, we have $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$.
+\begin{thm}[{\cite[Theorem 10]{Zhang:2019}\label{theo:zhang-theorem10}}]
+ If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
+$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
+\end{array}\right]_{q}$, then,
+\[
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+n\\
+\mathrm{t}
+\end{array}\right]_{q}}{\left[\begin{array}{c}
+k\\
+\mathrm{t}
+\end{array}\right]_{q}}\right\rfloor 
+\]
+\end{thm}
+%
+\begin{thm}[{\cite[Theorem 11]{Zhang:2019}\label{theo:zhang-theorem11}}]
+ If $n,k,\mathrm{t}$ and $\lambda$ are positive integers such that
+$1\leq\mathrm{t}<k<n$ and $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
+\end{array}\right]_{q}$, then,
+\[
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
+\]
+\end{thm}
 
 \clearpage

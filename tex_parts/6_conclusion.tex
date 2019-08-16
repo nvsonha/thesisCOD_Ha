@@ -2,4 +2,60 @@
 \chapter{Conclusion} \label{chap:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+In this thesis, we have shown combinatorial proofs for an existence
+of new gaps for 3 generalized combination networks. The $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=2$ has been studied in \cite{Wachter-Zeh:2018,Etzion:2016,Zhang:2019,Etzion:2018}
+but no general gap was found. We also got computational results for
+this network with 89 two-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$,
+which is better the constructed set of 51 two-dimensional subspaces
+of $\ensuremath{\mathbb{F}}_{2}^{6}$ found in \cite{Wachter-Zeh:2018}.
+
+In Chapter 5, by applying the Local lemma, we proved that if $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$,
+there always exists a vector solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network . The optimal scalar solution for such network exists, when
+$r\leq\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$. Therefore, the
+general gap $g=q^{t^{2}/4+\mathcal{O}(t)}$ exists for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. Similarly we derived the gaps for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+network, respectively with $g=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
+and $g=q^{t^{2}/2\ell+\mathcal{O}(t)}$. A comparison with known results
+can be found in Table \ref{tab:New-gap-found} and Table \ref{tab:r_over_t}.
+
+In Chapter 6, we introduced 4 different approaches in computing vector
+solutions that outperform the optimal scalar solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=2$. All approaches gave us such vector solutions,
+and the Algorithm \ref{alg:Increasing-Method} called ``Increasing
+Method'' generated the best result among 4 approaches. The best result
+is about 2 times 42 results of the optimal scalar solution, i.e. we
+found $r_{vector}=89$. When we mention the results of the optimal
+scalar solution, it means that such a solution exists if and only
+if $r_{scalar}\leq42$. However, our computational result of $r_{vector}$
+is still less than the upper bound of $\mathcal{A}_{2}\left(6,4,3;2\right)$
+in \cite{Etzion:2018}. Hence, we can only conclude $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=2$. This motivates an open research to find a computational
+method for generating a vector solution of 126 two-dimensional subspaces
+of $\ensuremath{\mathbb{F}}_{2}^{6}$. At the time writing this thesis,
+the best computational result is $r_{vector}=121$ stated in \cite{Etzion:2018}.
+In Appendix \ref{sec:89-Two-Dimensional-Subspaces}, we listed one
+of 2 different sets of our 89 two-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$,
+which are slightly different in 2 subspaces. We also find an interesting
+result that there are $\left|U(2,6)\right|=715$ matrices whose different
+row spaces among $\left|M(2,6)\right|=4096$ matrices over $\ensuremath{\mathbb{F}}_{2}^{6}$.
+Furthermore, we used the Algorithm \ref{alg:Increasing-Method} and
+got $r_{vector}=166$ for $t=3$ by Construction 1, which is better
+than the optimal scalar solution existing if and only $r_{scalar}\leq146$.
+This computational result was not found in any previous studies in
+our scope of knowledge. For the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network with $t=3$, we therefore state a new bound $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$.
+In Appendix \ref{sec:166-Three-Dimensional-Subspaces}, we wrote down
+one of 18 found variants of 166 three-dimensional subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$.
+From $\left|M(3,6)\right|=262144$ matrices, we found $\left|U(3,6)\right|=2110$
+matrices whose different row spaces. All of computational results
+in this study was listed in Table \ref{tab:r_over_t}. 
+
+Another open research is to study a gap for the general network $\left(\epsilon,\ell\right)-\mathcal{N}_{h,r,s}$.
+The most challenging problem is to define the optimal scalar solution
+for such network.
+
 \clearpage

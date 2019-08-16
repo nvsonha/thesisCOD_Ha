@@ -115,6 +115,7 @@
 \usepackage{placeins}
 \usepackage{graphicx}
 \usepackage{algorithmic}
+\usepackage{listings}
 
 \makeatother
 
@@ -177,8 +178,7 @@
     %\include{./tex_parts/3_network_as_matrix_channel}
     \include{./tex_parts/4_combinatorial_results}
     \include{./tex_parts/5_computational_results}
-    \include{./tex_parts/6_conclusion}  
-    \include{./tex_parts/7_appendices}   
+    \include{./tex_parts/6_conclusion}
         
         \cleardoubleemptypage
 
@@ -190,7 +190,8 @@
 % roman page numbering, starting with page number 1 (capitals)/ roemische Seitennummerierung beginnend mit Seite 1 (gross)
     \appendix
     \setcounter{page}{1}
-    \pagenumbering{Roman}
+    \pagenumbering{Roman}  
+    \include{./tex_parts/7_appendices}   
 
         % Use IEEE DIN 1505 style for bibliography / Literaturverzeichnisses
         \bibliographystyle{ieeetransa}

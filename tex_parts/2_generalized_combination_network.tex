@@ -37,20 +37,20 @@ satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 \label{nw_parameters}The $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
 network has a trivial solution if $\ell+\epsilon\geq h$, and it has
 no solution if $\alpha\ell+\epsilon<h$.
-
-Proof: Following to the network coding max-flow min-cut theorem for
-multicast networks, the maximum number of messages from the source
-to each receiver is equal to the smallest min-cut between the source
-and any receiver. For our considered network, $s$ links have to be
-deleted to disconnect the source from the receiver, which implies
-that the min-cut between the source and each receiver is at least
-$s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ $\Square$
+\end{thm}
+\begin{proof}
+Following to the network coding max-flow min-cut theorem for multicast
+networks, the maximum number of messages from the source to each receiver
+is equal to the smallest min-cut between the source and any receiver.
+For our considered network, $s$ links have to be deleted to disconnect
+the source from the receiver, which implies that the min-cut between
+the source and each receiver is at least $s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ 
 
 There exist at least $\ell+\epsilon$ disjoint links connected to
 each receiver. If $\ell+\epsilon\geq h$, each receiver can always
 reconstruct its requested messages on its links. Then we only need
-to do routing to select paths for the network. $\Square$
-\end{thm}
+to do routing to select paths for the network.
+\end{proof}
 \begin{table}[H]
 \caption{Parameters of network coding \label{tab:Parameters-of-network}}
 
@@ -157,17 +157,21 @@ network. \label{cor:dual_subspaces}
 Given $h=3,q=2,t=2$, we consider the extension field $\ensuremath{\mathbb{F}}_{q^{t}=2^{2}}$.
 This example shows how mapping messages from scalar coding to vector
 coding.
-\end{example}
 \begin{figure}[H]
 \caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
 to the equivalent vector solution\label{fig:x_mapping}}
 
 \centering{}\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping}
 \end{figure}
-
+\end{example}
 We use the table of the extension field $\ensuremath{\mathbb{F}}_{2^{2}}$
 with the primitive polynomial $f(x)=x^{2}+x+1$:
 \begin{center}
+\begin{table}
+
+\caption{The extension field $\ensuremath{\mathbb{F}}_{2^{2}}$}
+
+\centering{}%
 \begin{tabular}{|c|c|c|}
 \hline 
 power of $\alpha$ & polynomial & binary vector\tabularnewline
@@ -181,15 +185,13 @@ $\alpha^{1}$ & $\alpha$ & 10\tabularnewline
 $\alpha^{2}$ & $\alpha+1$ & 11\tabularnewline
 \hline 
 \end{tabular}
-\par\end{center}
-
+\end{table}
 For scalar coding, the messages are $x_{1},\ldots,x_{h=3}\in\ensuremath{\mathbb{F}}_{2^{2}}$
 , and for vector coding the messages are $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{h=3}\in\ensuremath{\mathbb{F}}_{2}^{2}$.
 From the polynomial column, let's choose arbitrarily a scalar vector
 $\boldsymbol{x}_{scalar}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$.
 Then, we map it to $\boldsymbol{x}_{vector}=(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3})$
 by using the binary vector column as following:
-
 \[
 \left[\begin{array}{c}
 x_{1}=1\\
@@ -210,6 +212,7 @@ x_{3}=\alpha+1
 \end{array}\right)
 \end{array}\right],
 \]
+\par\end{center}
 
 where we use the following rule for mapping $x_{i}$ individually:
 $a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\mapsto\left(\begin{array}{c}
@@ -264,7 +267,6 @@ code when $r=q^{\ell t\left(t+1\right)},$and scalar solutions only
 if $q_{s}>q^{t^{2}/2}$. Therefore, this network has a gap tending
 to $q^{t^{2}/2+\mathcal{O}\left(t\right)}$ with a vector solution
 .
-
 \begin{figure}[H]
 \caption{The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
 \label{fig:network_special2}}
@@ -284,7 +286,6 @@ we show that there exists vector solutions generating the gaps $g=q^{t^{2}/4+\ma
 and $g=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
 respectively for the $\left(1,1\right)-\mathcal{N}_{3,r,4}$ network
 and the $\left(1,1\right)-\mathcal{N}_{h,r,s}$ network. 
-
 \begin{figure}[H]
 \caption{The $\left(\epsilon\protect\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network \label{fig:network_special3}}
@@ -302,8 +303,7 @@ $MDS$ bound, i.e. Singleton bound $d\leq n-k+1$, to outperform the
 scalar one. In paper \cite[Sec. IV-A, Sec. IX-1,2]{Wachter-Zeh:2018},
 it is proved that vector solutions based on subspace codes cannot
 outperform optimal scalar linear solutions for some combination networks,
-e.g. $\mathcal{N}_{2,r,2}$, and they conjecture it for all $h$. 
-
+e.g. $\mathcal{N}_{2,r,2}$, and they conjecture it for all $h$.
 \begin{figure}[H]
 \caption{The $\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ combination
 network \label{fig:network_special4}}
@@ -353,10 +353,9 @@ of the alphabet size is $q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
 \end{rem}
 We are summarizing the instances of GCN with their bounds on gap found
 in \cite{Wachter-Zeh:2018} and list our findings in this study.
-
 \begin{table}
 
-\caption{New gap found in this study}
+\caption{New gap found in this study \label{tab:New-gap-found}}
 
 \begin{centering}
 \begin{tabular}{|>{\centering}p{0.15\paperwidth}|>{\centering}p{0.1\paperwidth}|>{\centering}p{0.2\paperwidth}|}
@@ -386,7 +385,6 @@ $\mathcal{N}_{h=2\ell,r,s=3\ell-1}$ & \centering{}$q^{t^{2}/2+\mathcal{O}\left(t
 network.
 \par\end{centering}
 \end{table}
-
 Some of them has global coding vectors as square matrices, so the
 decoding base easily by inversing such global coding vectors to get
 each receiver's requested messages. However, we do not go into details

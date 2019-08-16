@@ -87,6 +87,366 @@ theorems-ams-chap-bytype
 \begin_body
 
 \begin_layout Part
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Network coding
+\shape default
+ was first introduced in Ahlswede et al.'s seminal paper 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ahlswede:2000"
+literal "true"
+
+\end_inset
+
+.
+ Network coding gives a huge advantage in increasing throughput of information
+ transmission in comparison with simple routing methods for a communication
+ network.
+ This throughput gain is achieved in network coding, since nodes in a network
+ are allowed to forward a 
+\shape italic
+function
+\shape default
+ of their received packets, while in routing such packets can only be forwarded
+ to another node.
+ K
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"o
+\end_layout
+
+\end_inset
+
+tter and M
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+dard provided an algebraic formulation for a 
+\shape italic
+linear network coding
+\shape default
+ problem and its scalar solvability.
+ If functions on all nodes are linear, then we obtain a linear network coding
+ solution, and a 
+\shape italic
+solution
+\shape default
+ is an assignment of all functions such that all destination nodes can recover
+ all of their requested messages transmitted from a source node.
+ Network coding was further developed with 
+\shape italic
+vector network coding
+\shape default
+ by Ebrahimi 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ebrahimi:2011"
+literal "true"
+
+\end_inset
+
+, where all packets are vectors of length 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "true"
+
+\end_inset
+
+, Etzion and Wachter-Zeh proved that vector network coding based on subspace
+ codes outperforms linear network coding.
+ It gives the motivation for our study in this thesis on vector network
+ coding, especially the study of 
+\shape italic
+gap
+\shape default
+ measuring the difference in 
+\shape italic
+alphabet sizes
+\shape default
+ between solutions of scalar and vector network coding.
+ The alphabet size is an important parameter determining the amount of computati
+on performed at each network node 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "true"
+
+\end_inset
+
+.
+ The problem of finding the minimum required alphabet size of a (linear
+ or nonlinear) scalar network code for a certain multicast network is NP-complet
+e 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Langberg:2009,Lehman:2004,Gone:2018"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Generalized combination networks
+\shape default
+ (GCN) were first introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "true"
+
+\end_inset
+
+, where they have shown many instances of the network with vector solutions
+ outperforming scalar solutions.
+ However, no general vector solution was found a generalized combination
+ network with 3 source messages.
+ It motivates us to study it in this study, together with the gap for such
+ a solution.
+ We further develope the study on gap for 2 families of GCN by both combinatoria
+l approaches and computational approaches.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Outline
+\end_layout
+
+\begin_layout Standard
+In 
+\series bold
+Chapter 2
+\series default
+, we first recall coding-theory-specific notions and give an introduction
+ to the known codes that we consider in this thesis.
+ Then, we give the definition of 
+\shape italic
+maximum rank distance
+\shape default
+ (MRD) code and its properties.
+ This code was mainly used to study vector solutions for multiple families
+ of the 
+\shape italic
+generalized combination network
+\shape default
+ (GCN) in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "true"
+
+\end_inset
+
+.
+ Finally, we give the definition of Grassmannian code, Covering Grassmannian
+ code, Multiple Grassmannian code and the notion of the maximum size of
+ a Multiple Grammanian code.
+ Because Grassmannian codes contain subspaces of the same dimension over
+ a finite field 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+, they have been recently applied in the study of network coding problems,
+ such as 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2016,Etzion:2018,Wachter-Zeh:2018,Zhang:2019"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The remaining chapters contain our study of new gap sizes for GCN.
+ We divided them into three main parts: Chapter 3 and 4 explain how we transfer
+ vector network coding problems for GCN to problems of finding matrices
+ or Grassmanian codes, Chapter 5 contains new gap sizes for 2 families of
+ GCN with combinatorial proofs based on Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz Local Lemma (LLL), and Chapter 6 contains new computational results of
+ vector solutions outperforming scalar solutions for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network.
+ The details of each chapter are mentioned below.
+\end_layout
+
+\begin_layout Standard
+In 
+\series bold
+Chapter 3
+\series default
+ and 
+\series bold
+Chapter 4
+\series default
+, we represent network as a matrix channel and introduce an advantage of
+ vector solutions in alphabet sizes in comparison with scalar solutions
+ for network coding problems.
+ We firstly recall the motivation of network coding, and secondly we introduce
+ how we approach such problems by fomulating the relationship between source's
+ messages and receiver's packets by linear equation systems.
+ Thirdly, we explain why we choose GCN for our study, and we recall separately
+ known theorems on an existence of a scalar or a vector solution for GCN.
+ Finally, we formulate the 
+\shape italic
+gap
+\shape default
+ to measure the difference in alphabet sizes between a vector solution and
+ a corresponding optimal scalar solution.
+ We list known gaps for some instances of GCN in previous studies together
+ with our new found gaps in this study.
+\end_layout
+
+\begin_layout Standard
+In 
+\series bold
+Chapter 5
+\series default
+, we present new gaps found by an approach based on LLL.
+ We start this chapter with a simple network 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+.
+ No general vector solution outperforming scalar network coding was found
+ in previous studies.
+ The gap of the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network for such purpose is found with combinatorial proofs in this study.
+ During the proof of the gap, we also prove there always exists vector solutions
+ for the network, if and only if the number 
+\begin_inset Formula $r$
+\end_inset
+
+ of intermediate nodes is less than or equal to a certain number.
+ After achieving the gap for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network, we develop the proofs further for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network and the 
+\begin_inset Formula $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{2\ell,r,2\ell+1}$
+\end_inset
+
+ network.
+ Knowing the gap motivates us to search for vector solutions achieving such
+ gap, which leads to computational results presented in Chapter 6.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Chapter 6
+\series default
+ shows the core steps of 4 different computational approaches to find a
+ vector solution outperforming the optimal scalar solution for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ with 
+\begin_inset Formula $t=2$
+\end_inset
+
+ and 
+\begin_inset Formula $t=3$
+\end_inset
+
+.
+ We have found a vector solution of 89 nodes which is roughly two times
+ 42 nodes of the optimal scalar solution for the network with 
+\begin_inset Formula $t=2$
+\end_inset
+
+.
+ For the network with 
+\begin_inset Formula $t=3$
+\end_inset
+
+, a vector solution of 166 nodes is found when the optimal scalar solution
+ of such network exists if and only the number of nodes is less than or
+ equal to 146.
+ We then conclude the new bound on maximum size of Grassmanian codes for
+ such network respectively, 
+\begin_inset Formula $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
+\end_inset
+
+ and 
+\begin_inset Formula $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$
+\end_inset
+
+.
+ While writing this thesis, the bound of the code when 
+\begin_inset Formula $t=2$
+\end_inset
+
+ has been improved in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2018"
+literal "true"
+
+\end_inset
+
+.
+ The result of 
+\begin_inset Formula $t=3$
+\end_inset
+
+ have not yet been found in our scope of knowledge.
+ 
+\end_layout
+
+\begin_layout Part
 Preliminaries
 \end_layout
 
@@ -141,229 +501,6 @@ A vector space of dimension
 
 .
  
-\end_layout
-
-\begin_layout Paragraph
-Linear Block Code
-\end_layout
-
-\begin_layout Standard
->>> WHY ONLY LINEAR?
-\end_layout
-
-\begin_layout Standard
-
-\shape italic
-Block codes
-\shape default
- are finite length codes first studied by Golay 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Golay:1949"
-literal "false"
-
-\end_inset
-
- and Hamming 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Hamming:1950"
-literal "false"
-
-\end_inset
-
-.
- A 
-\shape italic
-linear
-\shape default
- 
-\begin_inset Formula $\left[n,k\right]_{q}$
-\end_inset
-
- 
-\shape italic
-block code
-\shape default
- 
-\begin_inset Formula $\ensuremath{\mathcal{C}}$
-\end_inset
-
- of length 
-\begin_inset Formula $n$
-\end_inset
-
-, dimension 
-\begin_inset Formula $k$
-\end_inset
-
- and codimension (or redundancy) 
-\begin_inset Formula $r=n-k$
-\end_inset
-
-, is a 
-\begin_inset Formula $k$
-\end_inset
-
--dimensional 
-\shape italic
-linear subspace
-\shape default
- of 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{n}$
-\end_inset
-
-.
- A 
-\shape italic
-generator matrix
-\shape default
- 
-\begin_inset Formula $\boldsymbol{G}$
-\end_inset
-
- has 
-\begin_inset Formula $k$
-\end_inset
-
- rows, which form a 
-\shape italic
-basis
-\shape default
- of 
-\begin_inset Formula $\ensuremath{\mathcal{C}}$
-\end_inset
-
-, i.e., 
-\begin_inset Formula $\boldsymbol{G}$
-\end_inset
-
-'s row space is a set of 
-\begin_inset Formula $k$
-\end_inset
-
- linearly independent vectors generating 
-\begin_inset Formula $\ensuremath{\mathcal{C}}$
-\end_inset
-
-.
- The codeword 
-\begin_inset Formula $\underline{c}\in\ensuremath{\mathcal{C}}$
-\end_inset
-
- is encoded by the 
-\shape italic
-information vector
-\shape default
- (or 
-\shape italic
-message
-\shape default
-) 
-\begin_inset Formula $\boldsymbol{m}$
-\end_inset
-
-, with 
-\begin_inset Formula $\boldsymbol{c}=\boldsymbol{m}\cdot\boldsymbol{G}$
-\end_inset
-
-.
- For any 
-\begin_inset Formula $\boldsymbol{c}\in\ensuremath{\mathcal{C}}$
-\end_inset
-
-: 
-\begin_inset Formula $\boldsymbol{c}\cdot\boldsymbol{H}^{T}=\boldsymbol{0}$
-\end_inset
-
-, with 
-\begin_inset Formula $\boldsymbol{H}$
-\end_inset
-
- is a 
-\shape italic
-parity-check matrix
-\shape default
- of 
-\begin_inset Formula $\ensuremath{\mathcal{C}}$
-\end_inset
-
-, whose row space generates the 
-\begin_inset Formula $\left[n,n-k\right]_{q}$
-\end_inset
-
- dual code 
-\begin_inset Formula $\ensuremath{\mathcal{C}}^{\perp}$
-\end_inset
-
-.
- 
-\begin_inset Formula $\left[n,k,d\right]_{q}$
-\end_inset
-
- is equivalent to 
-\begin_inset Formula $\left[n,k\right]_{q}$
-\end_inset
-
- with minimum distance 
-\begin_inset Formula $d$
-\end_inset
-
- fulfills 
-\begin_inset Formula $d=\underset{\boldsymbol{c}\in\ensuremath{\mathcal{C}\setminus\left\{ \boldsymbol{0}\right\} }}{min}d\left(\boldsymbol{c},\boldsymbol{0}\right)$
-\end_inset
-
- with respect to a metric 
-\begin_inset Formula $d\left(\cdot,\cdot\right):\ensuremath{\mathbb{F}}^{n}\times\ensuremath{\mathbb{F}}^{n}\rightarrow\mathbb{R}_{\geq0}$
-\end_inset
-
- on 
-\begin_inset Formula $\ensuremath{\mathbb{F}}^{n}$
-\end_inset
-
- 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-i.e., 
-\begin_inset Formula $d\left(\boldsymbol{x},\boldsymbol{y}\right)\geq0$
-\end_inset
-
-,
-\begin_inset Formula $d\left(\boldsymbol{x},\boldsymbol{y}\right)=0$
-\end_inset
-
- iff 
-\begin_inset Formula $\boldsymbol{x}=\boldsymbol{y}$
-\end_inset
-
-, 
-\begin_inset Formula $d\left(\boldsymbol{x},\boldsymbol{y}\right)=d\left(\boldsymbol{y},\boldsymbol{x}\right)$
-\end_inset
-
- and 
-\begin_inset Formula $d\left(\boldsymbol{x},\boldsymbol{z}\right)\leq d\left(\boldsymbol{x},\boldsymbol{y}\right)+d\left(\boldsymbol{y},\boldsymbol{z}\right)$
-\end_inset
-
- for all 
-\begin_inset Formula $\boldsymbol{x},\boldsymbol{y},\boldsymbol{z}\in\ensuremath{\mathbb{F}}^{n}$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Paragraph
-Maximum Rank Distance (MRD) code
-\end_layout
-
-\begin_layout Standard
->>> EXPLANATION
 \end_layout
 
 \begin_layout Paragraph
@@ -493,8 +630,104 @@ For the combinatorial results, we study the asymtotic behaviour of some
 Definition
 \end_layout
 
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Rank-metric code
+\end_layout
+
+\end_inset
+
+ A linear 
+\begin_inset Formula $\left[m\times n,k,\delta\right]_{q}^{R}$
+\end_inset
+
+ rank-metric code 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is a 
+\begin_inset Formula $k$
+\end_inset
+
+-dimensional subspace of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+\end_inset
+
+ with mimum rank distance 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Maximum Rank Distance (MRD) code
+\end_layout
+
 \begin_layout Standard
->>> EXPLAIN WHY I NEED EACH DEFINITION?
+Let 
+\begin_inset Formula $rk\left[\boldsymbol{V}\right]$
+\end_inset
+
+ be the rank of a matrix 
+\begin_inset Formula $\boldsymbol{V}\in\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+\end_inset
+
+.
+ The 
+\shape italic
+rank distance
+\shape default
+ between 
+\begin_inset Formula $\boldsymbol{U},\boldsymbol{V}\in\ensuremath{\mathbb{F}}_{q}^{m\times n}$
+\end_inset
+
+ is defined by 
+\begin_inset Formula $d_{R}\left(\boldsymbol{U},\boldsymbol{V}\right)=rk\left[\boldsymbol{U}-\boldsymbol{V}\right]$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Delsarte:1978,Gabidulin:1985,Roth:1991"
+literal "true"
+
+\end_inset
+
+.
+ The minimum rank distance of a 
+\begin_inset Formula $\left[m\times n,k,\delta\right]_{q}^{R}$
+\end_inset
+
+ rank-metric code 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is defined by: 
+\begin_inset Formula $\delta=\underset{\boldsymbol{V}\in\mathcal{C},\boldsymbol{V}\neq\boldsymbol{0}}{min}\left\{ rk\left[\boldsymbol{V}\right]\right\} $
+\end_inset
+
+.
+ Rank-metric codes that attained the Singleton-like upper bound 
+\begin_inset Formula $k\leq max\left\{ m,n\right\} \left(min\left\{ m,n\right\} -\delta+1\right)$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Delsarte:1978,Gabidulin:1985,Roth:1991"
+literal "true"
+
+\end_inset
+
+ are called maximum rank distance (MRD) codes and denoted by 
+\begin_inset Formula $\mathcal{MRD}\left[m\times n,\delta\right]_{q}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
@@ -656,7 +889,7 @@ literal "false"
 \end_layout
 
 \begin_layout Paragraph
-The cardinality of a Grassmannian code
+The Cardinality of a Grassmannian Code
 \end_layout
 
 \begin_layout Standard
@@ -770,31 +1003,11 @@ blocks
  
 \end_layout
 
+\begin_layout Paragraph*
+Maximum Size of a Multiple Grassmannian Code
+\end_layout
+
 \begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Etzion:2018"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula $\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)$
 \end_inset
 
@@ -804,123 +1017,10 @@ literal "false"
 
  code, where there are no repeated codewords.
  
-\end_layout
-
-\begin_layout Section
-Theorem
-\end_layout
-
-\begin_layout Standard
->>> EXPLAIN BEFORE WHY I NEED EACH THEOREM?
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Zhang:2019"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- If 
-\begin_inset Formula $n,k,\mathrm{t}$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda$
-\end_inset
-
- are positive integers such that 
-\begin_inset Formula $1\leq\mathrm{t}<k<n$
-\end_inset
-
- and 
-\begin_inset Formula $1\leq\lambda\leq\left[\begin{array}{c}
-n-\mathrm{t}\\
-k-\mathrm{t}
-\end{array}\right]_{q}$
-\end_inset
-
-, then
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Formula 
-\[
-\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
-n\\
-\mathrm{t}
-\end{array}\right]_{q}}{\left[\begin{array}{c}
-k\\
-\mathrm{t}
-\end{array}\right]_{q}}\right\rfloor 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Zhang:2019"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- If 
-\begin_inset Formula $n,k,\mathrm{t}$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda$
-\end_inset
-
- are positive integers such that 
-\begin_inset Formula $1\leq\mathrm{t}<k<n$
-\end_inset
-
- and 
-\begin_inset Formula $1\leq\lambda\leq\left[\begin{array}{c}
-n-\mathrm{t}\\
-k-\mathrm{t}
-\end{array}\right]_{q}$
-\end_inset
-
-, then
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Formula 
-\[
-\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
-\]
+key "Etzion:2018"
+literal "false"
 
 \end_inset
 
@@ -1052,9 +1152,6 @@ literal "true"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -1084,7 +1181,7 @@ name "fig:incoming_links"
 \align center
 \begin_inset Graphics
 	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/incoming_edges.pdf
-	height 10page%
+	height 15page%
 	rotateOrigin center
 
 \end_inset
@@ -1094,10 +1191,6 @@ name "fig:incoming_links"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In simple routing, information is transmitted from the source to receivers
  through a chain of 
 \shape italic
@@ -1249,7 +1342,20 @@ noprefix "false"
 scalar solution
 \shape default
 .
- Based on these coding coefficients, Kötter and M
+ Based on these coding coefficients, K
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"o
+\end_layout
+
+\end_inset
+
+tter and M
 \begin_inset ERT
 status open
 
@@ -1302,9 +1408,6 @@ literal "false"
 
  as a multicast in a wireline network is a standard example for an increase
  of throughput.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -1344,10 +1447,6 @@ name "fig:The-butterfly-network"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1603,7 +1702,7 @@ alphabet size
 
  respectively for such a scalar solution or a vector solution.
  The alphabet size is an important parameter determining the amount of computati
-on performed at each network vertice 
+on performed at each network node 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wachter-Zeh:2018"
@@ -1741,9 +1840,6 @@ literal "false"
 \end_inset
 
  has to solve is as following:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{c|c}
@@ -1770,10 +1866,6 @@ x_{h}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 The transfer matrix 
 \begin_inset Formula $\boldsymbol{A}_{j}$
 \end_inset
@@ -1796,9 +1888,6 @@ ts of linear combinations on
 \end_inset
 
 :
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \begin{array}{c|c}
@@ -1821,10 +1910,6 @@ Scalar & Vector\\
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In general, the network is represented as a matrix channel for both scalar
  and vector coding: 
 \begin_inset Formula $\boldsymbol{Y}_{j}=\boldsymbol{A}_{j}\cdot\boldsymbol{X}$
@@ -1928,9 +2013,6 @@ ref{tab:notations}
 \end_inset
 
 :
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
@@ -2429,10 +2511,6 @@ name "fig:butterfly_nw_cn"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 A generalization of a CN 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2547,7 +2625,7 @@ gap
 , and we find the lower bound of the maximum number of nodes such vector
  solution can achieve, i.e.
  
-\begin_inset Formula $r_{max,vector}\geq f_{1}(q,t)$
+\begin_inset Formula $r_{max,vector}\geq f_{1}(q,t,\alpha,h)$
 \end_inset
 
 , with 
@@ -2571,7 +2649,7 @@ gap
 
  required for a scalar solution to reach the maximum achievable vector solution'
 s nodes in this setting, we consider 
-\begin_inset Formula $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t)=min\left[r_{max,vector}\right]$
+\begin_inset Formula $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=min\left[r_{max,vector}\right]$
 \end_inset
 
 .
@@ -2845,10 +2923,10 @@ The
 .
 \end_layout
 
-\begin_layout Theorem
-Proof: Following to the network coding max-flow min-cut theorem for multicast
- networks, the maximum number of messages from the source to each receiver
- is equal to the smallest min-cut between the source and any receiver.
+\begin_layout Proof
+Following to the network coding max-flow min-cut theorem for multicast networks,
+ the maximum number of messages from the source to each receiver is equal
+ to the smallest min-cut between the source and any receiver.
  For our considered network, 
 \begin_inset Formula $s$
 \end_inset
@@ -2865,13 +2943,9 @@ Proof: Following to the network coding max-flow min-cut theorem for multicast
 \end_inset
 
  
-\begin_inset Formula $\Square$
-\end_inset
-
-
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Proof
 There exist at least 
 \begin_inset Formula $\ell+\epsilon$
 \end_inset
@@ -2883,11 +2957,6 @@ There exist at least
 
 , each receiver can always reconstruct its requested messages on its links.
  Then we only need to do routing to select paths for the network.
- 
-\begin_inset Formula $\Square$
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3540,9 +3609,6 @@ Given
 
 .
  This example shows how mapping messages from scalar coding to vector coding.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -3602,6 +3668,33 @@ We use the table of the extension field
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The extension field 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
@@ -3780,7 +3873,8 @@ binary vector
 
 \end_layout
 
-\begin_layout Standard
+\end_inset
+
 For scalar coding, the messages are 
 \begin_inset Formula $x_{1},\ldots,x_{h=3}\in\ensuremath{\mathbb{F}}_{2^{2}}$
 \end_inset
@@ -3800,9 +3894,6 @@ For scalar coding, the messages are
 \end_inset
 
  by using the binary vector column as following:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \left[\begin{array}{c}
@@ -4058,9 +4149,6 @@ and scalar solutions only if
 \end_inset
 
  with a vector solution .
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -4157,9 +4245,6 @@ noprefix "false"
 
  network.
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -4249,10 +4334,6 @@ literal "false"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -4472,9 +4553,6 @@ literal "true"
 \end_inset
 
  and list our findings in this study.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
@@ -4488,7 +4566,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New gap found in this study
+New gap found in this study 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:New-gap-found"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4732,10 +4817,6 @@ N/A
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Some of them has global coding vectors as square matrices, so the decoding
  base easily by inversing such global coding vectors to get each receiver's
  requested messages.
@@ -4771,7 +4852,59 @@ literal "false"
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 \end_inset
 
+ network and the 
+\begin_inset Formula $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+\end_inset
+
  network.
+ As explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:What-is-NC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, multiple parallel links 
+\begin_inset Formula $\ell$
+\end_inset
+
+ of a data unit help us to show networks with large-capacity transmission
+ between source and receivers.
+ The direct links among them are not really usual in reality, i.e.
+ a server and a client often has long-distance connection thorugh multiple
+ intermediate nodes, it is thus interesting to study networks with 
+\begin_inset Formula $\epsilon=1$
+\end_inset
+
+.
+ We formally use 
+\begin_inset Formula $r_{scalar}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{vector}$
+\end_inset
+
+ to distinguish the 
+\begin_inset Formula $r$
+\end_inset
+
+ parameter of GCN for scalar solutions and vector solutions to compare their
+ gap.
+ Because they both have the same meaning as a number of intermediate nodes
+ in a network, we use 
+\begin_inset Formula $r$
+\end_inset
+
+ when we need to state a vector solution or a scalar solution exists under
+ some conditions of 
+\begin_inset Formula $r$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -4832,10 +4965,6 @@ name "fig:nw_e1_l1_h3_r_s4"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In this subsection, we derive a lower bound on the maximum number of receivers
  for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
@@ -4867,9 +4996,6 @@ noprefix "false"
  To derive the lower bound, we introduce a rank requirement on incoming
  packets to each receiver.
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -4913,10 +5039,6 @@ name "fig:rk_h3"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Following to Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4937,9 +5059,6 @@ noprefix "false"
 \end_inset
 
  messages as below:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \left[\begin{array}{c}
@@ -4961,10 +5080,6 @@ noprefix "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 with 
 \begin_inset Formula $\boldsymbol{x}_{i},\boldsymbol{y}_{j}^{\left(v\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j}^{\left(r_{v}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 \end_inset
@@ -4991,9 +5106,6 @@ The network is solvable, if
 \end_inset
 
  must satisfy:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 rk\left[\begin{array}{c}
@@ -5006,10 +5118,6 @@ rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Because coding coefficients for 
 \begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$
 \end_inset
@@ -5023,9 +5131,6 @@ Because coding coefficients for
 \end_inset
 
  such that,
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 rk\left[\begin{array}{c}
@@ -5037,10 +5142,6 @@ rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 if and only if 
 \begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
 \end_inset
@@ -5050,9 +5151,6 @@ if and only if
 
 \begin_layout Standard
 By this constraint, the problem is thus described as below:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 \underset{rk\left[\boldsymbol{A}_{j}\right]\geq3t}{min}\,r_{vector}
@@ -5061,9 +5159,6 @@ By this constraint, the problem is thus described as below:
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
 \end_inset
 
@@ -5176,14 +5271,29 @@ name "thm:LLL"
 \end_layout
 
 \begin_layout Lemma
-\begin_inset Formula $p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2$
-\end_inset
-
-.
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "lem:prob_p_LLL_formula"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$
+\end_inset
+
+, and 
+\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+\end_inset
+
+, then, 
+\begin_inset Formula 
+\[
+p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
+\]
 
 \end_inset
 
@@ -5233,9 +5343,6 @@ noprefix "false"
 \end_inset
 
 ) as following,
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{equation}
 Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
@@ -5247,14 +5354,7 @@ Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 Regarding to the left-hand side,
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray}
 Pr\left[rk\left[\begin{array}{c}
@@ -5360,9 +5460,6 @@ Therefore, we have:
 \begin_layout Proof
 To maximize the sum, we set derivation of it to 0 and find the corresponding
  root: 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
  & \left(i6t-i^{2}\right)^{'} & =0\\
@@ -5372,10 +5469,6 @@ To maximize the sum, we set derivation of it to 0 and find the corresponding
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 However, the upper limit of the sum is 
 \begin_inset Formula $\left(2t-1\right)$
 \end_inset
@@ -5389,9 +5482,6 @@ However, the upper limit of the sum is
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
@@ -5399,18 +5489,11 @@ However, the upper limit of the sum is
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 Hence, by using the exact bound 
 \begin_inset Formula $\Theta$
 \end_inset
 
 , we have:
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \underset{i}{max}\left[\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
@@ -5419,9 +5502,6 @@ Hence, by using the exact bound
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow\underset{i}{max}\left[\frac{\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\right]\in\Theta\left(q^{-t^{2}-2t-1}\right)
@@ -5430,9 +5510,6 @@ Hence, by using the exact bound
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow p\leq\Theta\left(q^{-t^{2}-2t-1}\right)
@@ -5444,6 +5521,27 @@ Hence, by using the exact bound
 \end_layout
 
 \begin_layout Lemma
+Let 
+\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$
+\end_inset
+
+ with 
+\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+\end_inset
+
+, and each event 
+\begin_inset Formula $\mathcal{E}_{i}$
+\end_inset
+
+ is independent of all others except for at most 
+\begin_inset Formula $d$
+\end_inset
+
+ of them, then 
 \begin_inset Formula $d\leq\frac{3}{2}r^{2}$
 \end_inset
 
@@ -5557,9 +5655,6 @@ r-1\\
 \end_inset
 
  as following,
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 d(r)\leq3\cdot\left(\begin{array}{c}
@@ -5571,9 +5666,6 @@ r-1\\
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow d(r)\leq\frac{3}{2}r^{2}
@@ -5584,11 +5676,7 @@ r-1\\
 
 \end_layout
 
-\begin_layout Standard
-Example:
-\end_layout
-
-\begin_layout Standard
+\begin_layout Example
 \begin_inset Formula $r\in\left\{ 1,2,3,4\right\} $
 \end_inset
 
@@ -5603,7 +5691,7 @@ Example:
  samples.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
 Assume the link 1 is firstly chosen to form the matrix 
 \begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)}$
 \end_inset
@@ -5676,7 +5764,7 @@ Assume the link 1 is firstly chosen to form the matrix
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
 We also have 3 posibilities, when we choose the link 1 to form the matrix
  
 \begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
@@ -5706,7 +5794,7 @@ We also have 3 posibilities, when we choose the link 1 to form the matrix
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
 There are again 3 posibilities, when we choose the link 
 \begin_inset Formula $1$
 \end_inset
@@ -5738,7 +5826,7 @@ There are again 3 posibilities, when we choose the link
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
 Let's denote the event 
 \begin_inset Formula $rk\left[\begin{array}{c}
 1\\
@@ -5853,9 +5941,6 @@ noprefix "false"
 \end_inset
 
 :
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=rk\left[\begin{array}{c}
@@ -5867,10 +5952,6 @@ T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 The probability of event 
 \begin_inset Formula $T$
 \end_inset
@@ -5925,7 +6006,7 @@ noprefix "false"
 
 .
  Thus, finding 
-\begin_inset Formula $min\left[r_{max,vector}\right]$
+\begin_inset Formula $min\left\{ r_{max,vector}\right\} $
 \end_inset
 
  is equivalent to maximize 
@@ -5933,7 +6014,6 @@ noprefix "false"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Proof
@@ -5952,20 +6032,13 @@ noprefix "false"
 \end_inset
 
 ,
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
-\Rightarrow min\left[r_{max,vector}\right]\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
+\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 Hence, the Local lemma in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6014,10 +6087,7 @@ literal "false"
 \begin_inset Formula $r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$
 \end_inset
 
-, where they proved that 
-\end_layout
-
-\begin_layout Standard
+, where they proved that
 \begin_inset Formula 
 \begin{equation}
 r_{scalar}\leq2\left[\begin{array}{c}
@@ -6028,10 +6098,6 @@ r_{scalar}\leq2\left[\begin{array}{c}
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
 Following to Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6052,13 +6118,10 @@ noprefix "false"
 
 \end_inset
 
-, we have the gap size 
-\end_layout
-
-\begin_layout Standard
+, we have the gap size
 \begin_inset Formula 
 \begin{eqnarray}
- & r_{max,scalar} & =min\left[r_{max,vector}\right]\nonumber \\
+ & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \nonumber \\
 \Leftrightarrow & q_{\mathrm{s}}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\label{eq:gap_e1l1h3rs4}
@@ -6066,10 +6129,6 @@ noprefix "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 By varying 
 \begin_inset Formula $t$
 \end_inset
@@ -6085,9 +6144,6 @@ noprefix "false"
 \end_inset
 
 , we have the following table:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
@@ -6376,10 +6432,6 @@ Vector Solution
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In the table 
 \begin_inset CommandInset ref
 LatexCommand eqref
@@ -6439,9 +6491,6 @@ As previous,
 \end_inset
 
  and we need to satisfy the following:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 rk\left[\begin{array}{c}
@@ -6453,10 +6502,6 @@ rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 We can formulate it by the following coding problem in Grassmannian:
 \end_layout
 
@@ -6497,10 +6542,6 @@ Find the largest set of subspaces from
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Similar with 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$
 \end_inset
@@ -6520,9 +6561,6 @@ noprefix "false"
 \end_inset
 
 :
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
@@ -6534,10 +6572,27 @@ Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
 \end_layout
 
 \begin_layout Lemma
-\begin_inset Formula $p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2$
+Let 
+\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$
 \end_inset
 
-.
+ and 
+\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+\end_inset
+
+, then, 
+\begin_inset Formula 
+\[
+p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -6552,9 +6607,6 @@ noprefix "false"
 \end_inset
 
 :
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray}
 Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}Pr\left[rk\left[\boldsymbol{A}\right]=i\right]\nonumber \\
@@ -6677,9 +6729,6 @@ Regarding to the upper bound:
 
 , i.e.
  this maximum point is over then upper-range limit.
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
 \Rightarrow & max\left\{ q^{i(\alpha t+ht)-i^{2}}:i=1,\ldots,(h-1)t-1\right\}  & =\left.q^{i(\alpha t+ht)-i^{2}}\right|_{i=(h-1)t-1}\\
@@ -6688,26 +6737,16 @@ Regarding to the upper bound:
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 Secondly, we apply the maximum value with the sum, we have:
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
- & max\left[\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\right] & \in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)\\
-\Rightarrow & max\left[\frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right] & \in\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
+ & max\left\{ \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\right\}  & \in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)\\
+\Rightarrow & max\left\{ \frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right\}  & \in\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
 \end{eqnarray*}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right)
@@ -6719,6 +6758,27 @@ Secondly, we apply the maximum value with the sum, we have:
 \end_layout
 
 \begin_layout Lemma
+Let 
+\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+\end_inset
+
+, and each event 
+\begin_inset Formula $\mathcal{E}_{i}$
+\end_inset
+
+ is independent of all others except for at most 
+\begin_inset Formula $d$
+\end_inset
+
+ of them, then 
 \begin_inset Formula $d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$
 \end_inset
 
@@ -6738,9 +6798,6 @@ Similar with
 \end_inset
 
 , we have:
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 d\leq\alpha\left(\begin{array}{c}
@@ -6823,7 +6880,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-\begin_inset Formula $\Rightarrow min\left[r_{max,vector}\right]\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
+\begin_inset Formula $\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
 \end_inset
 
 .
@@ -6979,9 +7036,6 @@ For
 
 \begin_layout Standard
 Hence,
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
@@ -7002,10 +7056,10 @@ Calculate Gap
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
- & r_{max,scalar} & =min\left[r_{max,vector}\right]\\
+ & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \\
 \Leftrightarrow & q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
-\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\Square
+\Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}
 \end{eqnarray*}
 
 \end_inset
@@ -7021,14 +7075,29 @@ Calculate Gap
 \end_layout
 
 \begin_layout Lemma
-\begin_inset Formula $p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2$
-\end_inset
-
-.
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "lem:p_e1l2"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<\left(2\ell-1\right)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times2\ell t}$
+\end_inset
+
+, then,
+\begin_inset Formula 
+\[
+p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
+\]
 
 \end_inset
 
@@ -7037,11 +7106,8 @@ name "lem:p_e1l2"
 
 \begin_layout Proof
 A bad event in this vector network coding problem has the following probability:
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
-\begin{eqnarray*}
+\begin{eqnarray}
 Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
@@ -7050,10 +7116,10 @@ Pr\left[rk\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]=i\right]\\
- & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{N_{i,m,n}}{q^{m\cdot n}}\\
- & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}
-\end{eqnarray*}
+\end{array}\right]=i\right]\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{N_{i,m,n}}{q^{m\cdot n}}\nonumber \\
+ & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}\label{eq:p_product_e1l2}
+\end{eqnarray}
 
 \end_inset
 
@@ -7103,15 +7169,49 @@ noprefix "false"
 \begin_inset Formula $\Rightarrow\alpha=2$
 \end_inset
 
-, so we consider 
-\begin_inset Formula $\left[2\ell\times2\ell\right]$
+, so 
+\begin_inset Formula $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{2\ell t\times2\ell t}$
 \end_inset
 
- matrices.
+ with 
+\begin_inset Formula $\boldsymbol{A}_{j}=\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]$
+\end_inset
+
+, and 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+ contains
+\begin_inset Formula $\left(2\ell\right)$
+\end_inset
+
+ 
+\begin_inset Formula $t$
+\end_inset
+
+-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}^{2\ell t}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
-We consider XYZ: 
+We consider the product in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:p_product_e1l2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+: 
 \begin_inset Formula $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$
 \end_inset
 
@@ -7148,9 +7248,6 @@ Therefore, we have:
 \begin_layout Proof
 To maximize the sum, we set derivation of it to 0 and find the corresponding
  root: 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
  & \left(i4\ell t-i^{2}\right)^{'} & =0\\
@@ -7160,10 +7257,6 @@ To maximize the sum, we set derivation of it to 0 and find the corresponding
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 However, the upper limit of the sum is 
 \begin_inset Formula $\left(2\ell-1\right)t-1$
 \end_inset
@@ -7187,40 +7280,27 @@ However, the upper limit of the sum is
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 Hence, by using the exact bound 
 \begin_inset Formula $\Theta$
 \end_inset
 
 , we have:
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
-\underset{i}{max}\left[\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(q^{4\ell^{2}t^{2}-t^{2}-2t-1}\right)
+\underset{i}{max}\left\{ \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right\} \in\Theta\left(q^{4\ell^{2}t^{2}-t^{2}-2t-1}\right)
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
-\Rightarrow\underset{i}{max}\left[\frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(q^{-t^{2}-2t-1}\right)
+\Rightarrow\underset{i}{max}\left\{ \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}p^{(i)}(q)\right\} \in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow p\leq\Theta\left(q^{-t^{2}-2t-1}\right)
@@ -7232,6 +7312,27 @@ Hence, by using the exact bound
 \end_layout
 
 \begin_layout Lemma
+Let 
+\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<\left(2\ell-1\right)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times2\ell t}$
+\end_inset
+
+, and each event 
+\begin_inset Formula $\mathcal{E}_{i}$
+\end_inset
+
+ is independent of all others except for at most 
+\begin_inset Formula $d$
+\end_inset
+
+ of them, then 
 \begin_inset Formula $d\leq2r$
 \end_inset
 
@@ -7248,9 +7349,6 @@ name "lem:d_e1l2"
 
 \begin_layout Proof
 Being similar with the previous subsections, we have: 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 d\leq\alpha\left(\begin{array}{c}
@@ -7329,7 +7427,7 @@ noprefix "false"
 
 .
  Thus, 
-\begin_inset Formula $min\left[r_{max,vector}\right]\in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$
+\begin_inset Formula $min\left\{ r_{max,vector}\right\} \in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$
 \end_inset
 
 .
@@ -7440,9 +7538,6 @@ Let's denote any 2 subspaces of
 \end_inset
 
  of such subspaces can have such vectors, 
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \Rightarrow r_{scalar}\leq\left(2\ell-1\right)\left[\begin{array}{c}
@@ -7490,12 +7585,9 @@ noprefix "false"
 \end_inset
 
 , we have the gap size 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray}
- & r_{max,scalar} & =min\left[r_{max,vector}\right]\nonumber \\
+ & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \nonumber \\
 \Leftrightarrow & q_{\mathrm{s}}^{\ell} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/2\ell+\mathcal{O}(t)}\nonumber \\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/2\ell+\mathcal{O}(t)}\label{eq:gap_e1l2}
@@ -7576,15 +7668,35 @@ Construction 1:
 \begin_inset Formula $\boldsymbol{T}\in\ensuremath{\mathbb{F}}_{q}^{t\times t\left(h-1\right)}$
 \end_inset
 
+, which is clearly explained in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Alternative-Approaches"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 Construction 2: 
-\begin_inset Formula $\boldsymbol{T}\in MatrixSpaceUrs\left(t,3t\right)$
+\begin_inset Formula $\boldsymbol{T}\in U\left(t,3t\right)$
 \end_inset
 
+, which is described in the following Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Main-Approach"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -7740,9 +7852,6 @@ Matrix Space with Unique Row Space
 \end_inset
 
  have their row spaces such that:
-\end_layout
-
-\begin_layout Definition
 \begin_inset Formula 
 \[
 \mathcal{R}_{q}\left(\boldsymbol{A}\right)\neq\mathcal{R}_{q}\left(\boldsymbol{B}\right),
@@ -7750,10 +7859,6 @@ Matrix Space with Unique Row Space
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 where 
 \begin_inset Formula $\mathcal{R}_{q}\left(.\right)$
 \end_inset
@@ -7802,9 +7907,6 @@ sufficient global coding vectors
 \end_inset
 
  such that:
-\end_layout
-
-\begin_layout Definition
 \begin_inset Formula 
 \[
 rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
@@ -7816,10 +7918,6 @@ rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 For ease of notations, we denote 
 \begin_inset Formula $\left[\begin{array}{c}
 \boldsymbol{A}\\
@@ -7874,9 +7972,6 @@ relative
 \end_inset
 
  and denoted as following:
-\end_layout
-
-\begin_layout Definition
 \begin_inset Formula 
 \[
 rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}.
@@ -7921,9 +8016,6 @@ Each sufficient global coding vector
 
 .
  Thus, each of these 3 matrices can form 3 different relatives:
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \[
 \begin{array}{c}
@@ -7935,10 +8027,6 @@ rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
 Furthermore, the maximum size of 
 \begin_inset Formula $\mathcal{H}_{n=3t,m=3t}$
 \end_inset
@@ -7987,9 +8075,6 @@ sub-relative
 \end_inset
 
  if:
-\end_layout
-
-\begin_layout Definition
 \begin_inset Formula 
 \[
 \left\{ \begin{array}{c}
@@ -8001,22 +8086,14 @@ sub-relative
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 A sub-relative is denoted by: 
 \begin_inset Formula 
 \[
-subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}.
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Definition
 This definition about Sub-relative is similarly again used for a set of
  5 or more matrices.
 \end_layout
@@ -8585,11 +8662,64 @@ noprefix "false"
  Then we compute its complexity based on number of necessary computation.
 \end_layout
 
+\begin_layout Theorem
+Let 
+\begin_inset Formula $n=\left|U(t,3t)\right|$
+\end_inset
+
+, then the Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ finds all matrices satisfying Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rk_rqm_e1l1h3s4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(1,1\right)-\ensuremath{N}_{3,r,4}$
+\end_inset
+
+ network in 
+\begin_inset Formula $\mathcal{O}\left(n^{3}\right)$
+\end_inset
+
+ operations.
+\end_layout
+
 \begin_layout Proof
-Our problem can be described like finding all matrices such that any 3 of
- them can accompany together.
- The companion is possible, when the 3 matrices satisfy the rank requirement
- in 
+Our problem can be described by searching for a matrix subset 
+\begin_inset Formula $\boldsymbol{c}=\left[\boldsymbol{C}_{1},\ldots,\boldsymbol{C}_{w}\right]$
+\end_inset
+
+ of the set 
+\begin_inset Formula $U(t,3t)$
+\end_inset
+
+ over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{t\times3t}$
+\end_inset
+
+ with 
+\begin_inset Formula $w\leq n$
+\end_inset
+
+, such that any 3 matrices in 
+\begin_inset Formula $\boldsymbol{c}$
+\end_inset
+
+ satisfy Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:rk_rqm_e1l1h3s4"
@@ -8600,36 +8730,89 @@ noprefix "false"
 \end_inset
 
 .
- The input 
-\begin_inset Formula $\mathcal{H}_{n=3t,m=3t}$
+ 
+\end_layout
+
+\begin_layout Proof
+Line 1 to Line 3 (
+\shape italic
+Step 1
+\shape default
+) of the algorithm is for the purpose of generating all relatives of pairs
+ of 2 matrices in 
+\begin_inset Formula $U(2,6)$
 \end_inset
 
- of Algorithm 
+.
+ With a large 
+\begin_inset Formula $n$
+\end_inset
+
+, we have 
+\begin_inset Formula $3\cdot\left(\begin{array}{c}
+n\\
+3
+\end{array}\right)\approx3n^{3}$
+\end_inset
+
+ such pairs for generating relatives.
+ Outputs of this step are in the format of 
+\begin_inset Formula 
+\[
+rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right],\forall\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\in Combination\left(U(2,6),2\right),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Combination(S,k)$
+\end_inset
+
+ gives us all k-tuples of elements in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Let us denote the size of each 
+\begin_inset Formula $rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+\end_inset
+
+ by 
+\begin_inset Formula $m$
+\end_inset
+
+, and we achive 
+\begin_inset Formula $3n^{3}$
+\end_inset
+
+ different sizes in a vector 
+\begin_inset Formula $\boldsymbol{m}=\left[m_{1},\ldots,m_{3n^{3}}\right].$
+\end_inset
+
+ Step 1 therefore can be implemented in 
+\begin_inset Formula $\mathcal{O}\left(n^{3}\right)$
+\end_inset
+
+ operations.
+ Following to Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:Increasing-Method"
+reference "theo:size_rel"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- lists all such 3 matrices by tuples of 3 matrices (called 3-tuples).
- Line 1 to Line 3 gives us all pairs or 2-tuples from these 3-tuples as
- well as their relatives.
- Then the algorithm starts searching for its output initially based on 2
- matrices having the largest number of relatives, i.e.
- it appears mostly in 
-\begin_inset Formula $\mathcal{H}_{n=3t,m=3t}$
+, 
+\begin_inset Formula $max\left\{ \boldsymbol{m}\right\} $
 \end_inset
 
- in comparison with any other pairs of matrices.
- This number of relatives plus 2 by themselves is actually the upper bound
- for a code size, when a 
+ is the upper bound for a code size, when 
 \begin_inset Formula $3-\left(3t,t,t\right)_{q=2}^{c}$
 \end_inset
 
- code is considered 
+ code for a vector solution is considered 
 \begin_inset CommandInset citation
 LatexCommand cite
 after "Sec. V-D"
@@ -8639,59 +8822,131 @@ literal "true"
 \end_inset
 
 .
- Furthermore, from Line 10 to Line 26, the algorithm extends the inital
- 2-tuples based on all of these relatives.
- That's why the algorithm's output gives us all of our expected matrices.
 \end_layout
 
-\begin_layout Standard
-Our algorithm is based on 
-\begin_inset Formula $C_{relatives}\lll3\left(\begin{array}{c}
-2^{3t^{2}}\\
-3
-\end{array}\right)\Rightarrow C_{relatives}\lll\mathcal{O}\left(\frac{t^{6}}{6}\right)$
+\begin_layout Proof
+Line 4 to Line 9 (
+\shape italic
+Step 2
+\shape default
+) is designed to find all pairs 
+\begin_inset Formula $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+\end_inset
+
+ whose 
+\begin_inset Formula $m=max\left\{ \boldsymbol{m}\right\} $
 \end_inset
 
 .
- In case 
-\begin_inset Formula $t=2$
+ This step ensures that our output of the algorithm generate the largest
+ size for the subset 
+\begin_inset Formula $\boldsymbol{c}$
 \end_inset
 
-, 
-\begin_inset Formula $U(t,3t)$
+, which is equivalent to an optimal vector solution regarding to the use
+ of 
+\begin_inset Formula $3-\left(3t,t,t\right)_{q=2}^{c}$
 \end_inset
 
- helps us reduce 
-\begin_inset Formula $\left|M(t,3t)\right|=4096$
+ code.
+ Step 2 checks all elements in 
+\begin_inset Formula $\boldsymbol{m}$
 \end_inset
 
- matrices to 
-\begin_inset Formula $\left|U(t,3t)\right|=715$
+, and thus it can be computed in 
+\begin_inset Formula $\mathcal{O}\left(n^{3}\right)$
 \end_inset
 
- matrices, 
-\begin_inset Formula $C_{relatives}\approx3\left(\begin{array}{c}
-\frac{715}{4096}2^{3t^{2}}\\
-3
-\end{array}\right)\approx\mathcal{O}\left(\frac{2}{3000}t^{6}\right)$
+ operations.
+\end_layout
+
+\begin_layout Proof
+Line 10 to Line 15 (
+\shape italic
+Step 3
+\shape default
+) is designed to keep only one of above intial pairs 
+\begin_inset Formula $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+\end_inset
+
+ if its set 
+\begin_inset Formula $\left\{ \boldsymbol{C}_{i},\boldsymbol{C}_{j}\right\} \cup rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+\end_inset
+
+ is duplicated with any other such pairs.
+ Step 3 can be implemented in 
+\begin_inset Formula $\mathcal{O}\left(n^{3}\right)$
+\end_inset
+
+ operations.
+\end_layout
+
+\begin_layout Proof
+Line 16 to Line 23 (
+\shape italic
+Step 4
+\shape default
+) is for the purpose of extending a next matrix for this pair to form sub-relati
+ves 
+\begin_inset Formula $subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+\end_inset
+
+ by checking all relatives of each pair 
+\begin_inset Formula $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
+\end_inset
+
+ from Step 3.
+ We have 
+\begin_inset Formula $max\left\{ \boldsymbol{m}\right\} \leq n-2$
+\end_inset
+
+ because such a pair can have maximum 
+\begin_inset Formula $n-2$
+\end_inset
+
+ relatives.
+ Step 4 thus can be computed in 
+\begin_inset Formula $\mathcal{O}\left(n\right)$
+\end_inset
+
+ operations.
+\end_layout
+
+\begin_layout Proof
+Line 24 to Line 26 (
+\shape italic
+Step 5
+\shape default
+): if there exist a non-empty set 
+\begin_inset Formula $subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+\end_inset
+
+ from outputs of Step 4.
+ We run a loop of Step 3 and Step 4.
+ This first loop checks maximum 
+\begin_inset Formula $n-3$
+\end_inset
+
+ elements, because such a triplet can have maximum 
+\begin_inset Formula $n-3$
 \end_inset
 
 .
- Therefore, we are able to achieve the output of Algorithm 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:Increasing-Method"
-plural "false"
-caps "false"
-noprefix "false"
-
+ It will linearly reduce over each loop, and each loop is designed to generate
+ sub-relative, which costs maximum 
+\begin_inset Formula $\mathcal{O}\left(n\right)$
 \end_inset
 
- for 
-\begin_inset Formula $\mathcal{H}_{n=6,m=6}$
+ operations.
+ Therefore, step 5 can be implemented in 
+\begin_inset Formula $\mathcal{O}\left(n^{2}\right)$
 \end_inset
 
- in a short amount of time.
+ operations.
+\end_layout
+
+\begin_layout Proof
+Summarized, we obtain the complexity claimed in the theorem.
 \end_layout
 
 \begin_layout Standard
@@ -8747,10 +9002,6 @@ noprefix "false"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Example
-
 \bar under
 Step 1
 \bar default
@@ -8775,10 +9026,6 @@ rel\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\bold
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Example
 
 \bar under
 Step 2
@@ -8896,7 +9143,17 @@ Step 6
 \end_layout
 
 \begin_layout Example
-For further understading, we use Figure 
+For further understanding of Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we use Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rel_example"
@@ -8907,8 +9164,18 @@ noprefix "false"
 \end_inset
 
  for illustration.
- In the right, we observe that the size of relative becomes smaller when
- its tuple identity is larger, i.e.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rel_example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+(c), we observe that the size of relative becomes smaller when its tuple
+ identity is larger, i.e.
  
 \begin_inset Formula $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
 \end_inset
@@ -8917,20 +9184,27 @@ noprefix "false"
 \begin_inset Formula $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$
 \end_inset
 
-.
- It explains why the maximum numbers of matrices that we can find for a
- vector solution of this network is the output of Algorithm 
+.Regarding to Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "alg:Increasing-Method"
+reference "fig:rel_example"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
- Regarding to the left, the visual explanation of 
+(a) and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rel_example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+(b), the visual explanation of 
 \begin_inset Formula $subrel$
 \end_inset
 
@@ -8984,8 +9258,104 @@ name "fig:rel_example"
 
 \end_layout
 
+\begin_layout Theorem
+The size of relatives and sub-relatives become smaller with there are more
+ elements in their identity tuples.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "theo:size_rel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We call 
+\begin_inset Formula $\left(\boldsymbol{A},\boldsymbol{B}\right)$
+\end_inset
+
+ of 
+\begin_inset Formula $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$
+\end_inset
+
+ of 
+\begin_inset Formula $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]$
+\end_inset
+
+, or such 
+\begin_inset Formula $n$
+\end_inset
+
+-tuples with 
+\begin_inset Formula $2\leq n\leq U\left(t,3t\right)$
+\end_inset
+
+ by 
+\shape italic
+identity tuples
+\shape default
+.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rel_example"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+(a), we can see that 
+\begin_inset Formula 
+\[
+subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+so 
+\begin_inset Formula $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$
+\end_inset
+
+, 
+\begin_inset Formula $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$
+\end_inset
+
+, and 
+\begin_inset Formula $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$
+\end_inset
+
+.
+ Therefore,
+\begin_inset Formula 
+\[
+\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
+\]
+
+\end_inset
+
+which is still true when the size of identity tuples becomes smaller.
+\end_layout
+
 \begin_layout Section
-Alternative Approaches
+Alternative Approaches 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Alternative-Approaches"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9070,9 +9440,6 @@ sufficient global coding vectors
 \end_inset
 
  such that:
-\end_layout
-
-\begin_layout Definition
 \begin_inset Formula 
 \[
 rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
@@ -9084,10 +9451,6 @@ rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9118,6 +9481,11 @@ after "Sec. V-B"
 key "Zhang:2019"
 literal "true"
 
+\end_inset
+
+.
+ We can see that 
+\begin_inset Formula $\left|\mathcal{T}_{n=3t,m=3t}\right|\approx11\cdot10^{9}\gg\left|\mathcal{H}_{n=3t,m=3t}\right|\approx60\cdot10^{6}$
 \end_inset
 
 .
@@ -9184,7 +9552,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Finally, in Algorithm 
+Thirdly, in Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:Decreasing-Method"
@@ -9557,6 +9925,2689 @@ end{algorithmic}
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+Finally, construction 1 mentioned in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Main-Approach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to achieve a vector solution for the 
+\begin_inset Formula $\left(1,1\right)-\mathcal{N}_{3,r,4}$
+\end_inset
+
+ network with 
+\begin_inset Formula $t=3$
+\end_inset
+
+, which has not been yet found in any other papers.
+ When 
+\begin_inset Formula $t=3$
+\end_inset
+
+, a 
+\begin_inset Formula $3-\left(9,3,3\right)_{4}^{c}$
+\end_inset
+
+ code is required for a vector solution of the network by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "theo:scalar_sol_exist"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Its orthogonal complement is a 
+\begin_inset Formula $3-\left(9,6,2\right)_{q}^{m}$
+\end_inset
+
+ code, and the bound for this code is denoted by 
+\begin_inset Formula $\mathcal{A}_{2}\left(9,6,3;2\right)$
+\end_inset
+
+ following to Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:dual_subspaces"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2018"
+literal "true"
+
+\end_inset
+
+, they only covered 
+\begin_inset Formula $\mathcal{A}_{2}\left(6,k,t;2\right),\mathcal{A}_{2}\left(7,k,t;2\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathcal{A}_{2}\left(8,k,t;2\right)$
+\end_inset
+
+, this is thus a newly found bound for a vector solution of the 
+\begin_inset Formula $\left(1,1\right)-\mathcal{N}_{3,r,4}$
+\end_inset
+
+ network.
+ We listed 166 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+three-dimensional subspaces of 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{9}$
+\end_inset
+
+ in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:166-Three-Dimensional-Subspaces"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Therefore, we conclude 
+\begin_inset Formula $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)$
+\end_inset
+
+.
+ By Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "theo:zhang-theorem10"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we achieve its upper bound 
+\begin_inset Formula $\mathcal{A}_{2}\left(9,6,3;2\right)\leq1129$
+\end_inset
+
+.
+ The upper bound can be improved by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "theo:zhang-theorem11"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\mathcal{A}_{2}\left(9,6,3;2\right)\leq\left\lfloor \frac{85}{21}\mathcal{A}_{2}\left(8,5,2;2\right)\right\rfloor \leq537$
+\end_inset
+
+, where 
+\begin_inset Formula $33\leq\mathcal{A}_{2}\left(8,5,2;2\right)\leq128$
+\end_inset
+
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Table 3"
+key "Etzion:2018"
+literal "true"
+
+\end_inset
+
+.
+ Hence, we have 
+\begin_inset Formula $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem 10"
+key "Zhang:2019"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "theo:zhang-theorem10"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $n,k,\mathrm{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are positive integers such that 
+\begin_inset Formula $1\leq\mathrm{t}<k<n$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
+\end{array}\right]_{q}$
+\end_inset
+
+, then,
+\begin_inset Formula 
+\[
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \lambda\frac{\left[\begin{array}{c}
+n\\
+\mathrm{t}
+\end{array}\right]_{q}}{\left[\begin{array}{c}
+k\\
+\mathrm{t}
+\end{array}\right]_{q}}\right\rfloor 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Theorem 11"
+key "Zhang:2019"
+literal "true"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "theo:zhang-theorem11"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $n,k,\mathrm{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are positive integers such that 
+\begin_inset Formula $1\leq\mathrm{t}<k<n$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq\lambda\leq\left[\begin{array}{c}
+n-\mathrm{t}\\
+k-\mathrm{t}
+\end{array}\right]_{q}$
+\end_inset
+
+, then,
+\begin_inset Formula 
+\[
+\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Conclusion
+\end_layout
+
+\begin_layout Standard
+In this thesis, we have shown combinatorial proofs for an existence of new
+ gaps for 3 generalized combination networks.
+ The 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network with 
+\begin_inset Formula $t=2$
+\end_inset
+
+ has been studied in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018,Etzion:2016,Zhang:2019,Etzion:2018"
+literal "true"
+
+\end_inset
+
+ but no general gap was found.
+ We also got computational results for this network with 89 two-dimensional
+ subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+, which is better the constructed set of 51 two-dimensional subspaces of
+ 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+ found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In Chapter 5, by applying the Local lemma, we proved that if 
+\begin_inset Formula $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$
+\end_inset
+
+, there always exists a vector solution for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network .
+ The optimal scalar solution for such network exists, when 
+\begin_inset Formula $r\leq\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$
+\end_inset
+
+.
+ Therefore, the general gap 
+\begin_inset Formula $g=q^{t^{2}/4+\mathcal{O}(t)}$
+\end_inset
+
+ exists for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network.
+ Similarly we derived the gaps for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network and the 
+\begin_inset Formula $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+\end_inset
+
+ network, respectively with 
+\begin_inset Formula $g=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
+\end_inset
+
+ and 
+\begin_inset Formula $g=q^{t^{2}/2\ell+\mathcal{O}(t)}$
+\end_inset
+
+.
+ A comparison with known results can be found in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:New-gap-found"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:r_over_t"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In Chapter 6, we introduced 4 different approaches in computing vector solutions
+ that outperform the optimal scalar solution for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network with 
+\begin_inset Formula $t=2$
+\end_inset
+
+.
+ All approaches gave us such vector solutions, and the Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ called 
+\begin_inset Quotes eld
+\end_inset
+
+Increasing Method
+\begin_inset Quotes erd
+\end_inset
+
+ generated the best result among 4 approaches.
+ The best result is about 2 times 42 results of the optimal scalar solution,
+ i.e.
+ we found 
+\begin_inset Formula $r_{vector}=89$
+\end_inset
+
+.
+ When we mention the results of the optimal scalar solution, it means that
+ such a solution exists if and only if 
+\begin_inset Formula $r_{scalar}\leq42$
+\end_inset
+
+.
+ However, our computational result of 
+\begin_inset Formula $r_{vector}$
+\end_inset
+
+ is still less than the upper bound of 
+\begin_inset Formula $\mathcal{A}_{2}\left(6,4,3;2\right)$
+\end_inset
+
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2018"
+literal "true"
+
+\end_inset
+
+.
+ Hence, we can only conclude 
+\begin_inset Formula $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network with 
+\begin_inset Formula $t=2$
+\end_inset
+
+.
+ This motivates an open research to find a computational method for generating
+ a vector solution of 126 two-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+.
+ At the time writing this thesis, the best computational result is 
+\begin_inset Formula $r_{vector}=121$
+\end_inset
+
+ stated in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2018"
+literal "true"
+
+\end_inset
+
+.
+ In Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:89-Two-Dimensional-Subspaces"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we listed one of 2 different sets of our 89 two-dimensional subspaces
+ of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+, which are slightly different in 2 subspaces.
+ We also find an interesting result that there are 
+\begin_inset Formula $\left|U(2,6)\right|=715$
+\end_inset
+
+ matrices whose different row spaces among 
+\begin_inset Formula $\left|M(2,6)\right|=4096$
+\end_inset
+
+ matrices over 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ Furthermore, we used the Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and got 
+\begin_inset Formula $r_{vector}=166$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ for 
+\begin_inset Formula $t=3$
+\end_inset
+
+ by Construction 1, which is better than the optimal scalar solution existing
+ if and only 
+\begin_inset Formula $r_{scalar}\leq146$
+\end_inset
+
+.
+ This computational result was not found in any previous studies in our
+ scope of knowledge.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+For the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network with 
+\begin_inset Formula $t=3$
+\end_inset
+
+, we therefore state a new bound 
+\begin_inset Formula $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$
+\end_inset
+
+.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ In Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:166-Three-Dimensional-Subspaces"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we wrote down one of 18 found variants of 166 three-dimensional subspaces
+ of 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{9}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+ From 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $\left|M(3,6)\right|=262144$
+\end_inset
+
+ matrices, we found
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $\left|U(3,6)\right|=2110$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ matrices whose different row spaces.
+ All of computational results in this study was listed in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:r_over_t"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+Another open research is to study a gap for the general network 
+\begin_inset Formula $\left(\epsilon,\ell\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+.
+ The most challenging problem is to define the optimal scalar solution for
+ such network.
+\end_layout
+
+\begin_layout Part
+Appendices
+\end_layout
+
+\begin_layout Section
+89 Two-Dimensional Subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ Network 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:89-Two-Dimensional-Subspaces"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+[1 0 0 0 0 0] [1 0 0 0 0 0] [0 0 1 0 0 0] [0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0] [0 0 1 0 0 0] [0 0 0 0 0 1] [0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0] [1 0 0 0 0 0] [1 0 0 0 0 0] [0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 0 0 0 1] [0 0 1 0 1 0] [0 0 0 1 0 1] [0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1] [0 0 1 0 0 1] [0 0 0 1 0 1] [1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0] [0 0 0 1 0 0] [0 0 0 0 1 0] [0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 0 0 0] [1 0 1 0 0 0] [1 0 1 0 0 0] [1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0] [0 1 0 1 0 0] [0 0 0 1 1 0] [1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1] [1 0 0 0 1 0] [1 0 0 0 0 1] [0 1 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 0 1 0 0] [1 0 0 0 0 1] [0 1 0 1 0 0] [0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 1 0 0 0] [0 1 1 0 0 0] [0 1 0 0 0 1] [0 1 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0] [0 0 0 1 0 1] [0 0 1 1 0 0] [0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 1 0] [0 0 1 1 0 0] [1 1 1 0 0 0] [1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 0 0 0 1] [0 0 0 0 1 1] [1 0 0 0 1 0] [0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 1 0 0] [1 1 0 0 1 0] [1 1 0 0 1 0] [1 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0] [0 1 0 1 0 0] [0 1 0 0 0 1] [1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 0 0 0] [1 1 0 0 0 0] [1 0 1 1 1 0] [1 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 0 0 1] [0 0 0 1 1 1] [0 0 0 0 0 1] [0 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 1 0 0] [1 0 1 0 1 1] [1 0 1 0 1 1] [1 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1] [0 1 0 0 0 0] [0 0 0 1 0 0] [0 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 0 1] [0 1 1 0 0 1] [0 1 0 1 1 1] [0 0 1 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 1 0] [0 0 1 0 1 0] [0 0 1 0 0 0] [0 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 0] [1 1 1 1 1 0] [1 1 1 1 0 0] [1 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1] [0 0 0 0 0 1] [0 1 0 0 0 1] [0 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 1 0 0 1] [1 1 0 1 1 0] [1 1 0 1 0 1] [1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 0 1 1 0] [1 0 1 0 0 0] [0 1 1 0 0 0] [1 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 1 0 0] [1 1 0 0 1 1] [1 1 0 0 1 1] [1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 1] [0 1 1 0 0 0] [0 0 1 1 0 0] [0 1 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 0 0 1] [1 1 0 0 0 1] [1 0 1 1 0 0] [1 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 0 1 0] [0 1 1 0 1 0] [0 1 0 1 0 1] [0 0 0 1 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 0 1 0] [1 0 1 0 0 1] [1 0 1 0 0 1] [1 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 1 0] [0 1 1 1 0 0] [0 1 0 1 0 1] [0 1 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1] [1 0 0 1 0 1] [1 0 0 0 0 1] [0 1 1 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 1 0 1 0] [0 0 1 0 1 1] [0 1 1 1 1 0] [0 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 1 0 1 1] [0 1 1 0 0 1] [0 1 0 1 0 1] [0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0] [0 1 0 1 1 0] [0 0 1 0 1 1] [0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 1 1 1 0] [1 1 1 1 1 0] [1 1 1 1 0 0] [1 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 0 1 0 1] [0 0 0 0 1 1] [0 1 0 0 1 1] [0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 1 1 0] [1 1 0 1 1 0] [1 1 0 1 0 1] [1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 0 0 1] [0 0 1 1 0 1] [0 0 1 0 1 1] [0 1 1 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 0 1 1] [1 1 0 0 0 1] [1 0 1 1 0 1] [1 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 1 0] [1 0 1 1 1 0] [0 1 1 0 1 0] [0 1 0 1 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1] [1 0 0 1 1 1] [1 1 1 0 1 0] [1 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 1 1 0 0] [0 1 1 0 1 0] [1 0 1 1 0 1] [1 0 0 1 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 1 1 0 1]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+166 Three-Dimensional Subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{9}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ Network 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:166-Three-Dimensional-Subspaces"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+[1 0 0 0 0 1 0 0 0] [1 0 0 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 0 1 0] [0 1 0 0 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 1 1 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 0 0] [0 1 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 0 0] [1 0 0 0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 0 1 0] [0 1 0 0 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 0 0 1 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 1 0 0] [0 1 0 0 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 0 1 0] [0 1 0 0 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 0] [0 1 0 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 1 0 0] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 0 1 0] [0 1 0 0 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 0 0] [0 0 1 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 0 0] [0 1 0 0 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 1 0] [1 0 0 0 1 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 0 1] [0 1 0 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1 0 0 1] [0 0 1 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 1 0] [0 1 0 1 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 0 1 0 1 0] [1 0 0 1 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 0 0] [0 1 0 0 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 1 0 0] [1 0 0 1 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 0 0 0] [0 1 0 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 1 0 0] [1 0 0 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 1 1 1] [0 1 0 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 0 1 0 1 0] [1 0 0 1 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 1] [0 1 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 0 0] [0 0 1 0 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 0 1] [0 1 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1 0 0 0] [0 0 1 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 0 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 1 0 1] [0 0 1 0 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 1 0 0] [0 1 0 0 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 1 1 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 1] [0 1 0 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 1] [0 1 0 1 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 1 0] [0 0 1 0 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 0] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 0] [0 0 1 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 1 0] [1 0 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 1 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 1 1 0] [0 1 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 0 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1 0 0 0] [0 0 1 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 0 1 0] [0 1 0 0 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 0 0] [0 0 1 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 0 0 0] [1 0 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 1] [0 1 0 1 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 1 0 0] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 0] [0 1 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 0 0 1 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 1 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 0 1 0] [0 1 0 1 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 1 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 0 1 0] [0 1 0 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 1 1 0] [0 0 1 0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 1 0 0] [0 1 0 1 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 0 1] [0 0 1 0 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 0 0 1] [0 1 0 0 1 1 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 0 0 1 0] [0 0 1 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 0 0] [0 1 0 0 0 1 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 0 1] [0 1 0 0 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 0 0 1 0] [0 0 1 0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 0 1 1 0 0] [1 0 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 1 0] [0 1 0 1 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 1 0] [0 1 0 1 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1 1 0 0] [0 0 1 0 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 1 1 0] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 1] [0 1 0 1 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 1 1] [1 0 0 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 1 0 1] [0 1 0 0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 1 0 0] [1 0 0 0 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 1 0] [0 1 0 0 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 0 1 0] [1 0 0 1 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 1 0 0] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 1 0 1] [1 0 0 0 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 1 0] [0 1 0 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 0 0 1] [1 0 0 0 1 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 1 0] [0 1 0 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 0 0] [0 0 1 0 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 0 0 0] [1 0 0 1 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 1] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 1 0 0] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 1] [0 1 0 0 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 0 0 0] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 1 0 0] [1 0 0 1 0 1 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 1 0] [0 1 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 0 1] [0 0 1 0 1 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 0 1] [1 0 0 1 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1 1 0 0] [0 0 1 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 1] [1 0 0 0 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 0 0] [0 1 0 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 1 1] [0 0 1 0 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 0 0] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 1] [0 1 0 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 1 0 0 1] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 0 0] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 0 0 1] [1 0 0 1 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 1 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 0 0] [0 1 0 0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 0 0 1 0] [0 0 1 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 1 0] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 1] [0 1 0 0 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 1] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 0] [0 1 0 0 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 0 1 1] [0 1 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 0 1 0 0] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 0 0 0] [1 0 0 0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 0 1] [0 1 0 0 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 1] [0 1 0 1 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 1 1 0] [0 0 1 0 1 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 0 1] [1 0 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 0 0] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 0 0] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 1 0] [0 0 1 0 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 1 0] [1 0 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 1] [0 1 0 0 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 1 0] [1 0 0 1 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 0 1] [0 0 1 0 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 1 0 0 0] [0 1 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 1 0 0 0 0 1] [0 0 1 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 1 0 1] [0 1 0 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 0 0 0 0] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 1 0] [0 1 0 1 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 0 1] [0 0 1 0 1 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 0 0] [1 0 0 1 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 1 0] [0 1 0 0 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 1 0 0] [1 0 0 1 0 1 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 1 1 1] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 1 0 0] [1 0 0 1 1 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 0 0 1] [0 0 1 0 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 1 1 0 0] [1 0 0 1 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 0 1] [0 1 0 0 0 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 1 1 0 0] [1 0 0 0 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 0 1 1 1] [0 1 0 0 0 1 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 0 1] [1 0 0 1 1 1 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 1 0 0] [0 1 0 0 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 0] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 0 1 1] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 1 1 0 1] [0 1 0 0 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 1 0 1] [1 0 0 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 1 0] [0 1 0 0 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 0] [0 0 1 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 0 1 0] [1 0 0 1 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 1 0 0] [0 1 0 1 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 1] [0 0 1 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 0 0 1] [1 0 0 1 1 1 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 1 0 0] [0 1 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 0] [0 0 1 1 0 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 0 0 1] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 0 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 0 0 0] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 1 0 0 0 1 0] [0 1 0 1 0 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 1 0 1 0 0] [0 0 1 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 0 0 1] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 0 0] [0 1 0 0 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 1 1 0] [0 0 1 0 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 0 0 0] [1 0 0 1 1 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 1 0] [0 1 0 0 1 0 0 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 1 0 0] [0 0 1 0 0 0 1 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 1 1 0 0 0] [1 0 0 1 1 0 1 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 1 1 0] [0 1 0 1 0 0 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 0 1] [0 0 1 0 1 1 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 1 0 0 1 1 0] [1 0 0 1 0 0 1 0 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 1 0 0 0 0] [0 1 0 0 0 1 0 1 1] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 0 0 1 1] [0 0 1 0 0 0 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[1 0 0 0 1 0 0 0 0] [1 0 0 1 1 0 0 1 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 1 0 0 0 1 0 1 0] [0 1 0 0 0 1 0 0 0] 
+\end_layout
+
+\begin_layout Plain Layout
+
+[0 0 1 0 0 1 0 0 1] [0 0 1 0 0 0 0 1 1] 
 \end_layout
 
 \end_inset
