@@ -104,11 +104,21 @@ literal "true"
 \end_inset
 
 .
- Network coding gives a huge advantage in increasing throughput of information
+ Network coding gives an advantage in increasing throughput of information
  transmission in comparison with simple routing methods for a communication
- network.
- This throughput gain is achieved in network coding, since nodes in a network
- are allowed to forward a 
+ network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Li:2003,Ho:2003"
+literal "true"
+
+\end_inset
+
+.
+ The considered communication network was a directed graph with nodes connected
+ with each other by multiple links.
+ The throughput gain is achieved in network coding, since the nodes are
+ allowed to forward a 
 \shape italic
 function
 \shape default
@@ -145,13 +155,13 @@ dard provided an algebraic formulation for a
 linear network coding
 \shape default
  problem and its scalar solvability.
- If functions on all nodes are linear, then we obtain a linear network coding
- solution, and a 
+ If functions of the packets on the links of the network, then we obtain
+ a linear network coding solution, and a 
 \shape italic
 solution
 \shape default
- is an assignment of all functions such that all destination nodes can recover
- all of their requested messages transmitted from a source node.
+ is an assignment of these functions such that all destination nodes can
+ recover all of their requested messages transmitted from a source node.
  Network coding was further developed with 
 \shape italic
 vector network coding
@@ -178,7 +188,16 @@ literal "true"
 \end_inset
 
 , Etzion and Wachter-Zeh proved that vector network coding based on subspace
- codes outperforms linear network coding.
+ codes outperforms linear network coding for several generalizations of
+ the well-known combination networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Riis:2006"
+literal "true"
+
+\end_inset
+
+.
  It gives the motivation for our study in this thesis on vector network
  coding, especially the study of 
 \shape italic
@@ -190,7 +209,7 @@ alphabet sizes
 \shape default
  between solutions of scalar and vector network coding.
  The alphabet size is an important parameter determining the amount of computati
-on performed at each network node 
+on performed at each node 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wachter-Zeh:2018"
@@ -199,26 +218,22 @@ literal "true"
 \end_inset
 
 .
- The problem of finding the minimum required alphabet size of a (linear
- or nonlinear) scalar network code for a certain multicast network is NP-complet
-e 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Langberg:2009,Lehman:2004,Gone:2018"
-literal "true"
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Matrix-channel"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-.
- 
-\end_layout
-
-\begin_layout Standard
-
+, we show that smaller alphabet sizes can be achieved by vector network
+ coding for 
 \shape italic
-Generalized combination networks
+generalized combination networks
 \shape default
- (GCN) were first introduced in 
+ (GCN) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wachter-Zeh:2018"
@@ -226,14 +241,8 @@ literal "true"
 
 \end_inset
 
-, where they have shown many instances of the network with vector solutions
- outperforming scalar solutions.
- However, no general vector solution was found a generalized combination
- network with 3 source messages.
- It motivates us to study it in this study, together with the gap for such
- a solution.
- We further develope the study on gap for 2 families of GCN by both combinatoria
-l approaches and computational approaches.
+, which allows higher number of destination nodes to be connected to the
+ network in comparison with scalar network coding.
 \end_layout
 
 \begin_layout Standard
@@ -247,19 +256,15 @@ In
 \series bold
 Chapter 2
 \series default
-, we first recall coding-theory-specific notions and give an introduction
- to the known codes that we consider in this thesis.
- Then, we give the definition of 
+, we recall coding-theory-specific notions and give an introduction to the
+ known codes that we consider in this thesis.
+ We first give the definition of 
 \shape italic
 maximum rank distance
 \shape default
  (MRD) code and its properties.
- This code was mainly used to study vector solutions for multiple families
- of the 
-\shape italic
-generalized combination network
-\shape default
- (GCN) in 
+ This code was mainly used to study vector solutions for several families
+ of the GCN in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wachter-Zeh:2018"
@@ -268,7 +273,7 @@ literal "true"
 \end_inset
 
 .
- Finally, we give the definition of Grassmannian code, Covering Grassmannian
+ Then, we give the definition of Grassmannian code, Covering Grassmannian
  code, Multiple Grassmannian code and the notion of the maximum size of
  a Multiple Grammanian code.
  Because Grassmannian codes contain subspaces of the same dimension over
@@ -306,8 +311,8 @@ status open
 
 \end_inset
 
-sz Local Lemma (LLL), and Chapter 6 contains new computational results of
- vector solutions outperforming scalar solutions for the 
+sz Local Lemma (LLL), and Chapter 6 and 7 contains new computational results
+ of vector solutions outperforming scalar solutions for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
@@ -347,19 +352,12 @@ In
 \series bold
 Chapter 5
 \series default
-, we present new gaps found by an approach based on LLL.
- We start this chapter with a simple network 
+, we present new gaps found by combinatorial approaches based on LLL.
+ We begin this chapter with a simple network, namely the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
-.
- No general vector solution outperforming scalar network coding was found
- in previous studies.
- The gap of the 
-\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-\end_inset
-
- network for such purpose is found with combinatorial proofs in this study.
+ network, and the gap of this network is first found in our study.
  During the proof of the gap, we also prove there always exists vector solutions
  for the network, if and only if the number 
 \begin_inset Formula $r$
@@ -388,8 +386,8 @@ Chapter 5
 \series bold
 Chapter 6
 \series default
- shows the core steps of 4 different computational approaches to find a
- vector solution outperforming the optimal scalar solution for the 
+ shows the core steps of 4 different computational approaches to find vector
+ solutions outperforming the optimal scalar solutions for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
@@ -402,21 +400,18 @@ Chapter 6
 \end_inset
 
 .
- We have found a vector solution of 89 nodes which is roughly two times
- 42 nodes of the optimal scalar solution for the network with 
-\begin_inset Formula $t=2$
+ We have found vector solutions of 89 nodes and 166 nodes, while the scalar
+ solution of such network exists if and only if 
+\begin_inset Formula $r\leq42$
 \end_inset
 
-.
- For the network with 
-\begin_inset Formula $t=3$
+ and 
+\begin_inset Formula $r\leq146$
 \end_inset
 
-, a vector solution of 166 nodes is found when the optimal scalar solution
- of such network exists if and only the number of nodes is less than or
- equal to 146.
+ respectively.
  We then conclude the new bound on maximum size of Grassmanian codes for
- such network respectively, 
+ the network, 
 \begin_inset Formula $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
 \end_inset
 
@@ -425,8 +420,8 @@ Chapter 6
 \end_inset
 
 .
- While writing this thesis, the bound of the code when 
-\begin_inset Formula $t=2$
+ While writing this thesis, the bound of 
+\begin_inset Formula $\mathcal{A}_{2}\left(6,4,3;2\right)$
 \end_inset
 
  has been improved in 
@@ -437,12 +432,20 @@ literal "true"
 
 \end_inset
 
-.
- The result of 
+ and the result of 
 \begin_inset Formula $t=3$
 \end_inset
 
- have not yet been found in our scope of knowledge.
+ have not yet been found in any studies.
+ 
+\end_layout
+
+\begin_layout Standard
+The thesis is concluded in 
+\series bold
+Chapter 7
+\series default
+.
  
 \end_layout
 

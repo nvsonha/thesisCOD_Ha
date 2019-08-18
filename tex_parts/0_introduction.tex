@@ -3,52 +3,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textit{Network coding} was first introduced in Ahlswede et al.'s
-seminal paper \cite{Ahlswede:2000}. Network coding gives a huge advantage
+seminal paper \cite{Ahlswede:2000}. Network coding gives an advantage
 in increasing throughput of information transmission in comparison
-with simple routing methods for a communication network. This throughput
-gain is achieved in network coding, since nodes in a network are allowed
-to forward a \textit{function} of their received packets, while in
-routing such packets can only be forwarded to another node. K\"otter
-and M\'edard provided an algebraic formulation for a \textit{linear
-network coding} problem and its scalar solvability. If functions on
-all nodes are linear, then we obtain a linear network coding solution,
-and a \textit{solution} is an assignment of all functions such that
+with simple routing methods for a communication network \cite{Li:2003,Ho:2003}.
+The considered communication network was a directed graph with nodes
+connected with each other by multiple links. The throughput gain is
+achieved in network coding, since the nodes are allowed to forward
+a \textit{function} of their received packets, while in routing such
+packets can only be forwarded to another node. K\"otter and M\'edard
+provided an algebraic formulation for a \textit{linear network coding}
+problem and its scalar solvability. If functions of the packets on
+the links of the network, then we obtain a linear network coding solution,
+and a \textit{solution} is an assignment of these functions such that
 all destination nodes can recover all of their requested messages
 transmitted from a source node. Network coding was further developed
 with \textit{vector network coding} by Ebrahimi \cite{Ebrahimi:2011},
 where all packets are vectors of length $t$. In \cite{Wachter-Zeh:2018},
 Etzion and Wachter-Zeh proved that vector network coding based on
-subspace codes outperforms linear network coding. It gives the motivation
-for our study in this thesis on vector network coding, especially
-the study of \textit{gap} measuring the difference in \textit{alphabet
+subspace codes outperforms linear network coding for several generalizations
+of the well-known combination networks \cite{Riis:2006}. It gives
+the motivation for our study in this thesis on vector network coding,
+especially the study of \textit{gap} measuring the difference in \textit{alphabet
 sizes} between solutions of scalar and vector network coding. The
 alphabet size is an important parameter determining the amount of
-computation performed at each network node \cite{Wachter-Zeh:2018}.
-The problem of finding the minimum required alphabet size of a (linear
-or nonlinear) scalar network code for a certain multicast network
-is NP-complete \cite{Langberg:2009,Lehman:2004,Gone:2018}. 
-
-\textit{Generalized combination networks} (GCN) were first introduced
-in \cite{Wachter-Zeh:2018}, where they have shown many instances
-of the network with vector solutions outperforming scalar solutions.
-However, no general vector solution was found a generalized combination
-network with 3 source messages. It motivates us to study it in this
-study, together with the gap for such a solution. We further develope
-the study on gap for 2 families of GCN by both combinatorial approaches
-and computational approaches. 
+computation performed at each node \cite{Wachter-Zeh:2018}. In Section
+\ref{subsec:Matrix-channel}, we show that smaller alphabet sizes
+can be achieved by vector network coding for \textit{generalized combination
+networks} (GCN) \cite{Wachter-Zeh:2018}, which allows higher number
+of destination nodes to be connected to the network in comparison
+with scalar network coding.
 
 \textbf{Outline}
 
-In \textbf{Chapter 2}, we first recall coding-theory-specific notions
-and give an introduction to the known codes that we consider in this
-thesis. Then, we give the definition of \textit{maximum rank distance}
-(MRD) code and its properties. This code was mainly used to study
-vector solutions for multiple families of the \textit{generalized
-combination network} (GCN) in \cite{Wachter-Zeh:2018}. Finally, we
-give the definition of Grassmannian code, Covering Grassmannian code,
-Multiple Grassmannian code and the notion of the maximum size of a
-Multiple Grammanian code. Because Grassmannian codes contain subspaces
-of the same dimension over a finite field $\ensuremath{\mathbb{F}}_{q}$,
+In \textbf{Chapter 2}, we recall coding-theory-specific notions and
+give an introduction to the known codes that we consider in this thesis.
+We first give the definition of \textit{maximum rank distance} (MRD)
+code and its properties. This code was mainly used to study vector
+solutions for several families of the GCN in \cite{Wachter-Zeh:2018}.
+Then, we give the definition of Grassmannian code, Covering Grassmannian
+code, Multiple Grassmannian code and the notion of the maximum size
+of a Multiple Grammanian code. Because Grassmannian codes contain
+subspaces of the same dimension over a finite field $\ensuremath{\mathbb{F}}_{q}$,
 they have been recently applied in the study of network coding problems,
 such as \cite{Etzion:2016,Etzion:2018,Wachter-Zeh:2018,Zhang:2019}.
 
@@ -57,9 +52,10 @@ We divided them into three main parts: Chapter 3 and 4 explain how
 we transfer vector network coding problems for GCN to problems of
 finding matrices or Grassmanian codes, Chapter 5 contains new gap
 sizes for 2 families of GCN with combinatorial proofs based on Lov\'asz
-Local Lemma (LLL), and Chapter 6 contains new computational results
-of vector solutions outperforming scalar solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network. The details of each chapter are mentioned below.
+Local Lemma (LLL), and Chapter 6 and 7 contains new computational
+results of vector solutions outperforming scalar solutions for the
+$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ network.
+The details of each chapter are mentioned below.
 
 In \textbf{Chapter 3} and \textbf{Chapter 4}, we represent network
 as a matrix channel and introduce an advantage of vector solutions
@@ -75,15 +71,14 @@ vector solution and a corresponding optimal scalar solution. We list
 known gaps for some instances of GCN in previous studies together
 with our new found gaps in this study.
 
-In \textbf{Chapter 5}, we present new gaps found by an approach based
-on LLL. We start this chapter with a simple network $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$.
-No general vector solution outperforming scalar network coding was
-found in previous studies. The gap of the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network for such purpose is found with combinatorial proofs in this
-study. During the proof of the gap, we also prove there always exists
-vector solutions for the network, if and only if the number $r$ of
-intermediate nodes is less than or equal to a certain number. After
-achieving the gap for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+In \textbf{Chapter 5}, we present new gaps found by combinatorial
+approaches based on LLL. We begin this chapter with a simple network,
+namely the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network, and the gap of this network is first found in our study.
+During the proof of the gap, we also prove there always exists vector
+solutions for the network, if and only if the number $r$ of intermediate
+nodes is less than or equal to a certain number. After achieving the
+gap for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network, we develop the proofs further for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{2\ell,r,2\ell+1}$
 network. Knowing the gap motivates us to search for vector solutions
@@ -91,18 +86,17 @@ achieving such gap, which leads to computational results presented
 in Chapter 6.
 
 \textbf{Chapter 6} shows the core steps of 4 different computational
-approaches to find a vector solution outperforming the optimal scalar
-solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-with $t=2$ and $t=3$. We have found a vector solution of 89 nodes
-which is roughly two times 42 nodes of the optimal scalar solution
-for the network with $t=2$. For the network with $t=3$, a vector
-solution of 166 nodes is found when the optimal scalar solution of
-such network exists if and only the number of nodes is less than or
-equal to 146. We then conclude the new bound on maximum size of Grassmanian
-codes for such network respectively, $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$
-and $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$. While writing
-this thesis, the bound of the code when $t=2$ has been improved in
-\cite{Etzion:2018}. The result of $t=3$ have not yet been found
-in our scope of knowledge. 
+approaches to find vector solutions outperforming the optimal scalar
+solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+with $t=2$ and $t=3$. We have found vector solutions of 89 nodes
+and 166 nodes, while the scalar solution of such network exists if
+and only if $r\leq42$ and $r\leq146$ respectively. We then conclude
+the new bound on maximum size of Grassmanian codes for the network,
+$89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$ and $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$.
+While writing this thesis, the bound of $\mathcal{A}_{2}\left(6,4,3;2\right)$
+has been improved in \cite{Etzion:2018} and the result of $t=3$
+have not yet been found in any studies. 
+
+The thesis is concluded in \textbf{Chapter 7}. 
 
 \clearpage
