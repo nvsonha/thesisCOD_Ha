@@ -2652,7 +2652,7 @@ gap
 
  required for a scalar solution to reach the maximum achievable vector solution'
 s nodes in this setting, we consider 
-\begin_inset Formula $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=min\left[r_{max,vector}\right]$
+\begin_inset Formula $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=min\left\{ r_{max,vector}\right\} $
 \end_inset
 
 .
@@ -7074,7 +7074,7 @@ Calculate Gap
 \begin_inset Formula $\left(\epsilon=1,\ell\geq2\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
 \end_inset
 
-
+ Network
 \end_layout
 
 \begin_layout Lemma

@@ -1,0 +1,95 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=white dot] (0) at (-12, 2) {Source};
+		\node [style=white dot] (1) at (-16, -2) {1};
+		\node [style=white dot] (2) at (-8, -2) {r};
+		\node [style=white dot] (3) at (-19, -6) {};
+		\node [style=white dot] (4) at (-5, -6) {};
+		\node [style=none] (5) at (-12, 5) {Scalar Network Coding};
+		\node [style=none] (6) at (0, 8) {};
+		\node [style=none] (7) at (0, -8.75) {};
+		\node [style=none] (8) at (-14.5, -2) {};
+		\node [style=none] (9) at (-13.5, -2) {};
+		\node [style=none] (10) at (-9.5, -2) {};
+		\node [style=none] (11) at (-10.5, -2) {};
+		\node [style=none] (12) at (-17, -1) {};
+		\node [style=none] (13) at (-17, -3) {};
+		\node [style=none] (14) at (-7, -3) {};
+		\node [style=none] (15) at (-7, -1) {};
+		\node [style=none] (16) at (-20, -5) {};
+		\node [style=none] (17) at (-20, -7) {};
+		\node [style=none] (18) at (-4, -5) {};
+		\node [style=none] (19) at (-4, -7) {};
+		\node [style=none] (20) at (-6.25, 0) {$r\leq42$};
+		\node [style=none] (21) at (-2.75, -3.75) { $\left(\begin{array}{c}
+r\\
+3
+\end{array}\right) \leq 11480$};
+		\node [style=white dot] (22) at (9, 2) {Source};
+		\node [style=white dot] (23) at (5, -2) {1};
+		\node [style=white dot] (24) at (13, -2) {r};
+		\node [style=white dot] (25) at (2, -6) {};
+		\node [style=white dot] (26) at (16, -6) {};
+		\node [style=none] (27) at (9, 5) {Vector Network Coding};
+		\node [style=none] (28) at (6.5, -2) {};
+		\node [style=none] (29) at (7.5, -2) {};
+		\node [style=none] (30) at (11.5, -2) {};
+		\node [style=none] (31) at (10.5, -2) {};
+		\node [style=none] (32) at (4, -1) {};
+		\node [style=none] (33) at (4, -3) {};
+		\node [style=none] (34) at (14, -3) {};
+		\node [style=none] (35) at (14, -1) {};
+		\node [style=none] (36) at (1, -5) {};
+		\node [style=none] (37) at (1, -7) {};
+		\node [style=none] (38) at (17, -5) {};
+		\node [style=none] (39) at (17, -7) {};
+		\node [style=none] (40) at (14.75, 0) {$r\leq126$};
+		\node [style=none] (41) at (18.25, -3.75) { $\left(\begin{array}{c}
+r\\
+3
+\end{array}\right) \leq 325500$};
+		\node [style=none] (42) at (-2.25, -5) {receivers};
+		\node [style=none] (43) at (19.25, -5) {receivers};
+		\node [style=none] (44) at (12.25, 2) {$\underline{x}_{1},\underline{x}_{2},\underline{x}_{3}$};
+		\node [style=none] (45) at (-8.75, 2) {$x_1,x_2,x_3$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=dashed edge] (6.center) to (7.center);
+		\draw [style=arrow] (0) to (1);
+		\draw [style=arrow] (1) to (3);
+		\draw [style=arrow] (0) to (2);
+		\draw [style=arrow] (2) to (4);
+		\draw [style=arrow] (8.center) to (3);
+		\draw [style=arrow] (9.center) to (3);
+		\draw [style=arrow] (10.center) to (4);
+		\draw [style=arrow] (11.center) to (4);
+		\draw [style=arrow, bend right=15, looseness=1.25] (0) to (3);
+		\draw [style=arrow, bend left=15] (0) to (4);
+		\draw [style=dashed edge] (12.center) to (15.center);
+		\draw [style=dashed edge] (15.center) to (14.center);
+		\draw [style=dashed edge] (14.center) to (13.center);
+		\draw [style=dashed edge] (13.center) to (12.center);
+		\draw [style=dashed edge] (16.center) to (18.center);
+		\draw [style=dashed edge] (18.center) to (19.center);
+		\draw [style=dashed edge] (19.center) to (17.center);
+		\draw [style=dashed edge] (17.center) to (16.center);
+		\draw [style=arrow] (22) to (23);
+		\draw [style=arrow] (23) to (25);
+		\draw [style=arrow] (22) to (24);
+		\draw [style=arrow] (24) to (26);
+		\draw [style=arrow] (28.center) to (25);
+		\draw [style=arrow] (29.center) to (25);
+		\draw [style=arrow] (30.center) to (26);
+		\draw [style=arrow] (31.center) to (26);
+		\draw [style=arrow, bend right=15, looseness=1.25] (22) to (25);
+		\draw [style=arrow, bend left=15] (22) to (26);
+		\draw [style=dashed edge] (32.center) to (35.center);
+		\draw [style=dashed edge] (35.center) to (34.center);
+		\draw [style=dashed edge] (34.center) to (33.center);
+		\draw [style=dashed edge] (33.center) to (32.center);
+		\draw [style=dashed edge] (36.center) to (38.center);
+		\draw [style=dashed edge] (38.center) to (39.center);
+		\draw [style=dashed edge] (39.center) to (37.center);
+		\draw [style=dashed edge] (37.center) to (36.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
