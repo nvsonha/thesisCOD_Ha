@@ -1183,7 +1183,7 @@ name "fig:incoming_links"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/incoming_edges.pdf
+	filename ../figures/incoming_edges.pdf
 	height 15page%
 	rotateOrigin center
 
@@ -1439,7 +1439,7 @@ name "fig:The-butterfly-network"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network.pdf
+	filename ../figures/ahlswede_butterfly_network.pdf
 	width 50page%
 	rotateOrigin center
 
@@ -1848,17 +1848,17 @@ literal "false"
 \begin{array}{c|c}
 Scalar & Vector\\
 \underset{\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s}}{\underbrace{\left[\begin{array}{c}
-y_{j_{1}}\\
+y_{j}^{\left(1\right)}\\
 \vdots\\
-y_{j_{s}}
+y_{j}^{\left(s\right)}
 \end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{h}}{\underbrace{\left[\begin{array}{c}
 x_{1}\\
 \vdots\\
 x_{h}
 \end{array}\right]}} & \underset{\ensuremath{\mathbb{F}}_{q}^{st}}{\underbrace{\left[\begin{array}{c}
-\boldsymbol{y}_{j_{1}}\\
+\boldsymbol{y}_{j}^{\left(1\right)}\\
 \vdots\\
-\boldsymbol{y}_{j_{s}}
+\boldsymbol{y}_{j}^{\left(s\right)}
 \end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q}^{st\times th}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q}^{th}}{\underbrace{\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \vdots\\
@@ -1896,17 +1896,19 @@ ts of linear combinations on
 \begin{array}{c|c}
 Scalar & Vector\\
 \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{a}_{j_{1}}\\
+\boldsymbol{a}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{a}_{j_{\alpha\ell}}\\
+\boldsymbol{a}^{\left(r_{\alpha l}\right)}\\
+\boldsymbol{b}^{\left(\epsilon\left(j-1\right)+1\right)}\\
 \vdots\\
-\boldsymbol{a}_{j_{\alpha\ell+\epsilon}}
+\boldsymbol{b}^{\left(\epsilon\left(j-1\right)+\epsilon\right)}
 \end{array}\right] & \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha l}}\\
+\boldsymbol{A}^{\left(r_{\alpha l}\right)}\\
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha l+\epsilon}}
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+\epsilon\right)}
 \end{array}\right]
 \end{array}
 \]
@@ -2503,7 +2505,7 @@ name "fig:butterfly_nw_cn"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network_CN.pdf
+	filename ../figures/ahlswede_butterfly_network_CN.pdf
 	width 50page%
 	rotateOrigin center
 
@@ -2873,7 +2875,7 @@ name "fig:The-generalized-network"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/generalized_combination_nw.pdf
+	filename ../figures/generalized_combination_nw.pdf
 	width 50page%
 	rotateOrigin center
 
@@ -3644,7 +3646,7 @@ name "fig:x_mapping"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping.pdf
+	filename ../figures/x_mapping.pdf
 	width 30page%
 	rotateOrigin center
 
@@ -4085,7 +4087,7 @@ name "fig:network_l1e2h4rs5"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l2_h4_r_s5.pdf
+	filename ../figures/nw_e1_l2_h4_r_s5.pdf
 	width 40page%
 	rotateOrigin center
 
@@ -4184,7 +4186,7 @@ name "fig:network_special2"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special2.pdf
+	filename ../figures/nw_special2.pdf
 	width 45page%
 	rotateOrigin center
 
@@ -4280,7 +4282,7 @@ name "fig:network_special3"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special3.pdf
+	filename ../figures/nw_special3.pdf
 	width 45page%
 	rotateOrigin center
 
@@ -4369,7 +4371,7 @@ name "fig:network_special4"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special4_combination.pdf
+	filename ../figures/nw_special4_combination.pdf
 	width 40page%
 	rotateOrigin center
 
@@ -4957,7 +4959,7 @@ name "fig:nw_e1_l1_h3_r_s4"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4.pdf
+	filename ../figures/nw_e1_l1_h3_r_s4.pdf
 	width 50page%
 	rotateOrigin center
 
@@ -4968,8 +4970,7 @@ name "fig:nw_e1_l1_h3_r_s4"
 
 \end_inset
 
-In this subsection, we derive a lower bound on the maximum number of receivers
- for the 
+In this subsection, we derive a maximum number of receivers for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
@@ -4980,7 +4981,7 @@ In this subsection, we derive a lower bound on the maximum number of receivers
 
 , the number of receivers is 
 \begin_inset Formula $N=\left(\begin{array}{c}
-r_{vector}\\
+r\\
 3
 \end{array}\right)$
 \end_inset
@@ -4996,8 +4997,41 @@ noprefix "false"
 \end_inset
 
 .
- To derive the lower bound, we introduce a rank requirement on incoming
- packets to each receiver.
+ A problem of finding the maximum number of receivers is thus equivalent
+ to find a maximum number of intermediate nodes 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ For a vector solution, let us denote the maximum number of such nodes by
+ 
+\begin_inset Formula $r_{\mathrm{max,vector}}$
+\end_inset
+
+.
+ Our goal is then to derive 
+\begin_inset Formula $r_{\mathrm{max,vector}}$
+\end_inset
+
+ such that the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,vector}}$
+\end_inset
+
+.
+ For the solvability of the network, we introduce a rank requirement on
+ the transfer matrix 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+ corresponding to each receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+.
  
 \begin_inset Float figure
 placement H
@@ -5031,7 +5065,7 @@ name "fig:rk_h3"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3.pdf
+	filename ../figures/rk_h3.pdf
 	width 60page%
 	rotateOrigin center
 
@@ -5056,8 +5090,15 @@ noprefix "false"
 \begin_inset Formula $R_{j}$
 \end_inset
 
- must solve a linear equation system of 3 variables with 4 equations to
- recover 
+ must solve a linear equation system of 
+\begin_inset Formula $3t$
+\end_inset
+
+ variables with 
+\begin_inset Formula $4t$
+\end_inset
+
+ equations to recover 
 \begin_inset Formula $h=3$
 \end_inset
 
@@ -5065,15 +5106,15 @@ noprefix "false"
 \begin_inset Formula 
 \[
 \left[\begin{array}{c}
-\boldsymbol{y}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{y}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{y}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{y}_{j}^{\left(r_{4}\right)}
+\boldsymbol{y}_{j}^{\left(1\right)}\\
+\boldsymbol{y}_{j}^{\left(2\right)}\\
+\boldsymbol{y}_{j}^{\left(3\right)}\\
+\boldsymbol{y}_{j}^{\left(4\right)}
 \end{array}\right]=\boldsymbol{A}_{j}\cdot\underline{x}=\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{4}\right)}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}\\
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
 \end{array}\right]\cdot\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \boldsymbol{x}_{2}\\
@@ -5084,18 +5125,29 @@ noprefix "false"
 \end_inset
 
 with 
-\begin_inset Formula $\boldsymbol{x}_{i},\boldsymbol{y}_{j}^{\left(v\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j}^{\left(r_{v}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+\begin_inset Formula $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{3}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{y}_{j}^{\left(1\right)},\ldots,\boldsymbol{y}_{j}^{\left(4\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}^{\left(r_{v}\right)},\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 \end_inset
 
  for 
-\begin_inset Formula $v=1,\ldots,4$
+\begin_inset Formula $v=1,\ldots,3$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r_{\mathrm{vector}}$
 \end_inset
 
 , and 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
+\begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 \end_inset
 
- must be distinct.
+ for 
+\begin_inset Formula $j\in\left\{ 1,\ldots,\left(\begin{array}{c}
+r_{\mathrm{vector}}\\
+3
+\end{array}\right)\right\} $
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5103,26 +5155,21 @@ The network is solvable, if
 \begin_inset Formula $\boldsymbol{A}_{j}$
 \end_inset
 
- has full-rank, i.e.
- 
-\begin_inset Formula $\boldsymbol{A}_{j_{v}}$
-\end_inset
-
- must satisfy:
+ has full-rank:
 \begin_inset Formula 
 \[
-rk\left[\begin{array}{c}
+\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{4}\right)}
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
 \end{array}\right]\geq3t
 \]
 
 \end_inset
 
 Because coding coefficients for 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$
+\begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
 \end_inset
 
  can be independently chosen for any receiver 
@@ -5130,23 +5177,23 @@ Because coding coefficients for
 \end_inset
 
 , there always exists 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$
+\begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
 \end_inset
 
  such that,
 \begin_inset Formula 
 \begin{equation}
-rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]\geq2t\label{eq:rk_rqm_e1l1h3s4}
 \end{equation}
 
 \end_inset
 
 if and only if 
-\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
+\begin_inset Formula $\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq3t$
 \end_inset
 
 .
@@ -5156,7 +5203,7 @@ if and only if
 By this constraint, the problem is thus described as below:
 \begin_inset Formula 
 \[
-\underset{rk\left[\boldsymbol{A}_{j}\right]\geq3t}{min}\,r_{vector}
+\underset{\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq3t}{\mathrm{min}}\,r_{\mathrm{vector}}
 \]
 
 \end_inset
@@ -5199,6 +5246,57 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ be an event that a receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ is assigned a transfer matrix 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+such that 
+\begin_inset Formula $\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]<2t$
+\end_inset
+
+, i.e.,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{E}_{r_{1},r_{2},r_{3}}=\left\{ \mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right\} ,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for 
+\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r_{\mathrm{vector}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+\end_inset
+
+, chosen idenpendently and uniformly random.
+\end_layout
+
 \begin_layout Lemma
 \begin_inset Argument 1
 status open
@@ -5231,11 +5329,11 @@ literal "false"
 \end_inset
 
  A set of events 
-\begin_inset Formula $\mathcal{E}_{i}$
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
 \end_inset
 
 , with 
-\begin_inset Formula $i=1,\ldots,n$
+\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r$
 \end_inset
 
 , such that each event occurs with probability at most 
@@ -5252,7 +5350,7 @@ literal "false"
 \end_inset
 
 , then: 
-\begin_inset Formula $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
+\begin_inset Formula $\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
 \end_inset
 
 .
@@ -5267,7 +5365,35 @@ name "thm:LLL"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator plain
+The number of 
+\begin_inset Formula $\left[n\times m\right]$
+\end_inset
+
+ matrices of rank 
+\begin_inset Formula $i$
+\end_inset
+
+ over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+ is given in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Overbeck:2007"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+NM_{i,n,m}=\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}\label{eq:num_of_rank_t_matrices}
+\end{equation}
+
 \end_inset
 
 
@@ -5280,22 +5406,14 @@ name "lem:prob_p_LLL_formula"
 
 \end_inset
 
- Let 
-\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$
+ If 
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]\leq p$
 \end_inset
 
-, and 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
-\end_inset
-
-, then, 
+, then,
 \begin_inset Formula 
 \[
-p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
+p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
 \]
 
 \end_inset
@@ -5315,7 +5433,7 @@ noprefix "false"
 \end_inset
 
 , each event 
-\begin_inset Formula $\mathcal{E}_{i}$
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
 \end_inset
 
  is a 
@@ -5334,7 +5452,7 @@ noprefix "false"
 \end_inset
 
 , such a event occurs when 
-\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]<3t$
+\begin_inset Formula $\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<3t$
 \end_inset
 
 , and its probability is bounded by 
@@ -5347,31 +5465,18 @@ noprefix "false"
 
 ) as following,
 \begin_inset Formula 
-\begin{equation}
-Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right]\leq p.\label{eq:p_in_LLL}
-\end{equation}
-
-\end_inset
-
-Regarding to the left-hand side,
-\begin_inset Formula 
 \begin{eqnarray}
-Pr\left[rk\left[\begin{array}{c}
+\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]=i\right]\nonumber \\
- & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{N_{i,m,n}}{q^{m\cdot n}}\nonumber \\
- & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}}{q^{m\cdot n}}\nonumber \\
- & \overset{2}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
+\end{array}\right]=i\right]\label{eq:p_in_LLL}\\
+ & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{NM_{2t,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
+ & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
 \end{eqnarray}
 
 \end_inset
@@ -5380,8 +5485,18 @@ Pr\left[rk\left[\begin{array}{c}
 \end_layout
 
 \begin_layout Proof
-(1): The formula for the umber of 
-\begin_inset Formula $\left[m\times n\right]$
+(1): Applying 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:num_of_rank_t_matrices"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for 
+\begin_inset Formula $\left[3t\times3t\right]$
 \end_inset
 
  matrices of rank 
@@ -5392,19 +5507,7 @@ Pr\left[rk\left[\begin{array}{c}
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
 \end_inset
 
- was proved in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Overbeck:2007"
-literal "true"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-(2): 
+, because 
 \begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
 \end_inset
 
@@ -5416,7 +5519,19 @@ literal "true"
 \end_layout
 
 \begin_layout Proof
-We consider the numerator of Equation 
+In the following, we view 
+\begin_inset Formula $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}$
+\end_inset
+
+ as a polynomial in 
+\begin_inset Formula $q$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We consider the numerator of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:p_eq_h3"
@@ -5467,11 +5582,15 @@ To maximize the sum, we set derivation of it to 0 and find the corresponding
 \begin{eqnarray*}
  & \left(i6t-i^{2}\right)^{'} & =0\\
 \Leftrightarrow & 6t-2i & =0\\
-\Leftrightarrow & i & =3t
+\Leftrightarrow & i & =3t.
 \end{eqnarray*}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Proof
 However, the upper limit of the sum is 
 \begin_inset Formula $\left(2t-1\right)$
 \end_inset
@@ -5487,16 +5606,16 @@ However, the upper limit of the sum is
 .
 \begin_inset Formula 
 \[
-\Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
+\Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}.
 \]
 
 \end_inset
 
-Hence, by using the exact bound 
-\begin_inset Formula $\Theta$
-\end_inset
 
-, we have:
+\end_layout
+
+\begin_layout Proof
+Hence,
 \begin_inset Formula 
 \[
 \underset{i}{max}\left[\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
@@ -5515,7 +5634,7 @@ Hence, by using the exact bound
 
 \begin_inset Formula 
 \[
-\Rightarrow p\leq\Theta\left(q^{-t^{2}-2t-1}\right)
+\Rightarrow p\in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 
 \end_inset
@@ -5523,43 +5642,7 @@ Hence, by using the exact bound
 
 \end_layout
 
-\begin_layout Lemma
-Let 
-\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$
-\end_inset
-
- with 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
-\end_inset
-
-, and each event 
-\begin_inset Formula $\mathcal{E}_{i}$
-\end_inset
-
- is independent of all others except for at most 
-\begin_inset Formula $d$
-\end_inset
-
- of them, then 
-\begin_inset Formula $d\leq\frac{3}{2}r^{2}$
-\end_inset
-
-.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:dependecy_d_LLL"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
+\begin_layout Standard
 Because 
 \begin_inset Formula $d$
 \end_inset
@@ -5602,62 +5685,73 @@ noprefix "false"
 \end_inset
 
  events, i.e.
- each event considered under the Local lemma must no be independent to each
- other.
+ each event considered under the Local lemma is not required to be independent
+ to all other events.
+\end_layout
+
+\begin_layout Lemma
+Each event 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ is dependent on at most 
+\begin_inset Formula $d\leq\frac{3}{2}r^{2}$
+\end_inset
+
+ other events.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:dependecy_d_LLL"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
-Furthermore, 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
+It is clear that 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
 \end_inset
 
- are matrices formed on any 3 of 
-\begin_inset Formula $r$
+ is dependent on 
+\begin_inset Formula $\mathcal{E}_{r_{1}^{'},r_{2}^{'},r_{3}^{'}}$
 \end_inset
 
- links from nodes to receivers.
- Assume that 1 of 
-\begin_inset Formula $r$
+ if and only if 
+\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} \neq\emptyset$
 \end_inset
 
- links is firstly chosen to form the matrix 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)}$
+.
+ Let 
+\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{1}\right\} $
 \end_inset
 
-, then there are 
+ with 
+\begin_inset Formula $r_{1}=r_{1}^{'}$
+\end_inset
+
+, we have maximum 
 \begin_inset Formula $\left(\begin{array}{c}
 r-1\\
 2
 \end{array}\right)$
 \end_inset
 
- posibilities left to choose 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
+ such 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ events.
+ Similarly with 
+\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{2}\right\} $
 \end_inset
 
  and 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
+\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{3}\right\} $
 \end_inset
 
- from 
-\begin_inset Formula $r-1$
-\end_inset
-
- links.
- However, such a link can also be chosen firstly to form 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
-\end_inset
-
- or 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-\end_inset
-
- instead.
- Therefore, we have a upper bound for 
-\begin_inset Formula $d(r)$
-\end_inset
-
- as following,
+, we obtain
 \begin_inset Formula 
 \[
 d(r)\leq3\cdot\left(\begin{array}{c}
@@ -5679,218 +5773,14 @@ r-1\\
 
 \end_layout
 
-\begin_layout Example
-\begin_inset Formula $r\in\left\{ 1,2,3,4\right\} $
-\end_inset
-
-.
- Our sample space to draw any 3 matrices with orders has in total 
-\begin_inset Formula $\left(\begin{array}{c}
-4\\
-3
-\end{array}\right)=4$
-\end_inset
-
- samples.
-\end_layout
-
-\begin_layout Example
-Assume the link 1 is firstly chosen to form the matrix 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)}$
-\end_inset
-
-, we have 
-\begin_inset Formula $\left(\begin{array}{c}
-3\\
-2
-\end{array}\right)=3$
-\end_inset
-
- possibilities: 
-\begin_inset Formula $\left[\begin{array}{c}
-1\\
-2\\
-3
-\end{array}\right],\left[\begin{array}{c}
-1\\
-2\\
-4
-\end{array}\right]$
-\end_inset
-
- and 
-\begin_inset Formula $\left[\begin{array}{c}
-1\\
-3\\
-4
-\end{array}\right]$
-\end_inset
-
-.
- The existence of 
-\begin_inset Formula $1$
-\end_inset
-
- in 
-\begin_inset Formula $\left[\begin{array}{c}
-1\\
-2\\
-3
-\end{array}\right]$
-\end_inset
-
- gives us some information on 
-\begin_inset Formula $rk\left[\begin{array}{c}
-1\\
-2\\
-4
-\end{array}\right]$
-\end_inset
-
- or 
-\begin_inset Formula $rk\left[\begin{array}{c}
-1\\
-3\\
-4
-\end{array}\right]$
-\end_inset
-
-, which means these events 
-\begin_inset Formula $rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t$
-\end_inset
-
- are dependent.
- 
-\end_layout
-
-\begin_layout Example
-We also have 3 posibilities, when we choose the link 1 to form the matrix
- 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
-\end_inset
-
-: 
-\begin_inset Formula $\left[\begin{array}{c}
-2\\
-1\\
-3
-\end{array}\right],\left[\begin{array}{c}
-2\\
-1\\
-4
-\end{array}\right]$
-\end_inset
-
- and 
-\begin_inset Formula $\left[\begin{array}{c}
-3\\
-1\\
-4
-\end{array}\right]$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Example
-There are again 3 posibilities, when we choose the link 
-\begin_inset Formula $1$
-\end_inset
-
- to form the matrix 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-\end_inset
-
-: 
-\begin_inset Formula $\left[\begin{array}{c}
-2\\
-3\\
-1
-\end{array}\right],\left[\begin{array}{c}
-2\\
-4\\
-1
-\end{array}\right]$
-\end_inset
-
- and 
-\begin_inset Formula $\left[\begin{array}{c}
-3\\
-4\\
-1
-\end{array}\right]$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Example
-Let's denote the event 
-\begin_inset Formula $rk\left[\begin{array}{c}
-1\\
-2\\
-3
-\end{array}\right]<2t$
-\end_inset
-
- by 
-\begin_inset Formula $\mathcal{E}_{1}$
-\end_inset
-
-.
- It is clearly to see that 
-\begin_inset Formula $Pr\left[\begin{array}{c|c}
-rk\left[\begin{array}{c}
-2\\
-1\\
-3
-\end{array}\right]<2t & \mathcal{E}_{1}\end{array}\right]=1$
-\end_inset
-
-.
- The bound in Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:dependecy_d_LLL"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- is a bit loose, because we do not neglect unsuitable matrices, e.g.
- 
-\begin_inset Formula $\left[\begin{array}{c}
-3\\
-1\\
-4
-\end{array}\right]$
-\end_inset
-
-.
- In the other words, there exists at most 9 events are dependent.
- 
-\end_layout
-
-\begin_layout Standard
->>> IS THIS EXAMPLE CONVINCING ENOUGH? WHY IS IT NOT 
-\begin_inset Formula $d(r)\leq3\cdot r\cdot\left(\begin{array}{c}
-r-1\\
-2
-\end{array}\right)=$
-\end_inset
-
-?
-\end_layout
-
 \begin_layout Theorem
-If 
-\begin_inset Formula $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$
+If there is an 
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$
+\end_inset
+
+ s.t.
+ for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,vector}}$
 \end_inset
 
 , then there exists a vector solution for the 
@@ -5909,31 +5799,13 @@ name "theo:r_for_vector_sol_e1l1h3rs4"
 \end_layout
 
 \begin_layout Proof
-The Local lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:LLL"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that there is a positive probability that none of bad events occurs:
+By the intersection rule, none of the bad events is equivalent to an event
  
-\begin_inset Formula $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-By the intersection rule, none of bad events is equivalent to an event 
 \begin_inset Formula $T$
 \end_inset
 
  that its set of outcomes are all desirable, i.e.
- these outcomes satisfy the Equation 
+ these outcomes satisfy 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:rk_rqm_e1l1h3s4"
@@ -5946,11 +5818,11 @@ noprefix "false"
 :
 \begin_inset Formula 
 \[
-T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r.
+T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r\right\} .
 \]
 
 \end_inset
@@ -5959,17 +5831,23 @@ The probability of event
 \begin_inset Formula $T$
 \end_inset
 
- indicates a measure quantifying the likelihood that we are able to construct
- 
-\begin_inset Formula $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
+ indicates a measure quantifying the likelihood that we are able to independentl
+y and randomly choose 
+\begin_inset Formula $\boldsymbol{A}^{\left(r_{1}\right)},\boldsymbol{A}^{\left(r_{2}\right)},\boldsymbol{A}^{\left(r_{3}\right)}$
 \end_inset
 
- given 
-\begin_inset Formula $r$
+ such that 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rk_rqm_e1l1h3s4"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- links.
- It means that a vector solution exists if and only if the Local lemma 
+ is satisfied.
+ The Local lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -5979,13 +5857,13 @@ noprefix "false"
 
 \end_inset
 
- is satisfied such that: 
-\begin_inset Formula $4\cdot p\cdot d(r)\leq1,\forall r\leq r_{max,vector}$
+ shows that there is such a positive probability that none of the bad events
+ occurs: 
+\begin_inset Formula $\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
 \end_inset
 
-.
- Therefore, we must find a lower bound of 
-\begin_inset Formula $r_{max,vector}$
+ if 
+\begin_inset Formula $4\cdot p\cdot d(r)\leq1,\forall r\leq r_{\mathrm{max,vector}}$
 \end_inset
 
 .
@@ -6004,16 +5882,7 @@ noprefix "false"
 \end_inset
 
 , which gives: 
-\begin_inset Formula $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max,vector}$
-\end_inset
-
-.
- Thus, finding 
-\begin_inset Formula $min\left\{ r_{max,vector}\right\} $
-\end_inset
-
- is equivalent to maximize 
-\begin_inset Formula $p$
+\begin_inset Formula $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{\mathrm{max,vector}}$
 \end_inset
 
 .
@@ -6031,13 +5900,13 @@ noprefix "false"
 \end_inset
 
 , we have 
-\begin_inset Formula $p\leq\Theta\left(q^{-t^{2}-2t-1}\right)$
+\begin_inset Formula $p\in\Theta\left(q^{-t^{2}-2t-1}\right)$
 \end_inset
 
 ,
 \begin_inset Formula 
 \[
-\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
+\Rightarrow r_{\mathrm{max,vector}}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
 \]
 
 \end_inset
@@ -6052,8 +5921,8 @@ noprefix "false"
 
 \end_inset
 
- is satisfied, when 
-\begin_inset Formula $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$
+ is satisfied for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,vector}}\in\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$
 \end_inset
 
 .
@@ -6076,7 +5945,7 @@ The
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6132,11 +6001,15 @@ noprefix "false"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 By varying 
 \begin_inset Formula $t$
 \end_inset
 
- in Equation 
+ in 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:p_eq_h3"
@@ -6154,6 +6027,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -6178,7 +6052,7 @@ name "tab:r_over_t"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="3">
+<lyxtabular version="3" rows="6" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -6217,41 +6091,6 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $r_{scalar}\leq14$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $r_{vector}\geq3$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 2
 \end_layout
 
@@ -6273,7 +6112,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{vector}\geq7\,\left(67^{*},\,89^{**}\right)$
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(7\right)$
 \end_inset
 
 
@@ -6308,7 +6147,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{vector}\geq62\,\left(166^{*}\right)$
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(62\right)$
 \end_inset
 
  
@@ -6343,7 +6182,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{vector}\geq1317$
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(1317\right)$
 \end_inset
 
 
@@ -6378,7 +6217,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{vector}\geq58472$
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(58472\right)$
 \end_inset
 
 
@@ -6413,7 +6252,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{vector}>10^{6}$
+\begin_inset Formula $r_{\mathrm{max,vector}}>10^{6}$
 \end_inset
 
 
@@ -6430,14 +6269,15 @@ Vector Solution
 \end_layout
 
 \begin_layout Plain Layout
-*, **: computational results in construction 1 and construction 2 respectively
+\align center
+*, **: Computational results in Construction 1 and Construction 2 respectively
 \end_layout
 
 \end_inset
 
-In the table 
+In the Table 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "tab:r_over_t"
 plural "false"
 caps "false"
@@ -6454,8 +6294,28 @@ noprefix "false"
 \end_inset
 
 .
- This is sufficient, we show in Section 6 computational results which vector
- solutions outperform scalar solutions in case of 
+ In Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Main-Approach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Alternative-Approaches"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for computational results of the network, we introduce vector solutions
+ outperforming scalar solutions in case of 
 \begin_inset Formula $t=2$
 \end_inset
 
@@ -6496,11 +6356,11 @@ As previous,
  and we need to satisfy the following:
 \begin_inset Formula 
 \[
-rk\left[\begin{array}{c}
+\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]\geq ht-t\Leftrightarrow rk\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
+\end{array}\right]\geq ht-t\Leftrightarrow\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
 \]
 
 \end_inset
@@ -6566,7 +6426,7 @@ noprefix "false"
 :
 \begin_inset Formula 
 \begin{equation}
-Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
+\mathrm{Pr}\left[\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
 \end{equation}
 
 \end_inset
@@ -6576,7 +6436,7 @@ Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
 
 \begin_layout Lemma
 Let 
-\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -6612,7 +6472,7 @@ noprefix "false"
 :
 \begin_inset Formula 
 \begin{eqnarray}
-Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}Pr\left[rk\left[\boldsymbol{A}\right]=i\right]\nonumber \\
+\mathrm{Pr}\left[\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\boldsymbol{A}\right]=i\right]\nonumber \\
  & \overset{1}{=} & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\frac{N_{i,\alpha t,ht}}{q^{\left(\alpha t\right)\left(ht\right)}}\nonumber \\
  & = & \frac{1}{q^{\left(\alpha h\right)t^{2}}}\cdot\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}.\label{eq:general_nw_calc_p}
 \end{eqnarray}
@@ -6762,7 +6622,7 @@ Secondly, we apply the maximum value with the sum, we have:
 
 \begin_layout Lemma
 Let 
-\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -6979,7 +6839,7 @@ Find
 \begin_layout Standard
 Following to Theorem 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "nw_parameters"
 plural "false"
 caps "false"
@@ -7085,7 +6945,7 @@ name "lem:p_e1l2"
 \end_inset
 
  Let 
-\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -7111,11 +6971,11 @@ p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
 A bad event in this vector network coding problem has the following probability:
 \begin_inset Formula 
 \begin{eqnarray}
-Pr\left[rk\left[\begin{array}{c}
+\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]<\left(2\ell-1\right)t\right] & = & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}Pr\left[rk\left[\begin{array}{c}
+\end{array}\right]<\left(2\ell-1\right)t\right] & = & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -7316,7 +7176,7 @@ Hence, by using the exact bound
 
 \begin_layout Lemma
 Let 
-\begin_inset Formula $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -7912,7 +7772,7 @@ sufficient global coding vectors
  such that:
 \begin_inset Formula 
 \[
-rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
+\mathrm{rk}\left[\boldsymbol{H}_{j}\right]=\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
@@ -9247,7 +9107,7 @@ name "fig:rel_example"
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example.pdf
+	filename ../figures/rel_example.pdf
 	width 50page%
 	rotateOrigin center
 
@@ -9445,7 +9305,7 @@ sufficient global coding vectors
  such that:
 \begin_inset Formula 
 \[
-rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
+\mathrm{rk}\left[\boldsymbol{T}_{j}\right]=\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
@@ -10223,6 +10083,449 @@ k-\mathrm{t}
 \[
 \mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $r$
+\end_inset
+
+ over variations of t
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:r_over_t-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+t
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scalar Solution (*)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vector Solution (*)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etzion
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construction 1 (IM)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Construction 2 (IM)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq42$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(7\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}=121$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}=89$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq146$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(62\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}=166$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq546$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(1317\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq2114$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(58472\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{scalar}\leq8322$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{\mathrm{max,vector}}>10^{6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+*: Theoretical results based on Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:r_over_t"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
 
 \end_inset
 
