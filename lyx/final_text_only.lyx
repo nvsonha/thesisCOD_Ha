@@ -4970,11 +4970,15 @@ name "fig:nw_e1_l1_h3_r_s4"
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 In this subsection, we derive a maximum number of receivers for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
- network.
+ network such that a vector solution for the network exists.
  Due to 
 \begin_inset Formula $\alpha=3$
 \end_inset
@@ -4997,23 +5001,25 @@ noprefix "false"
 \end_inset
 
 .
- A problem of finding the maximum number of receivers is thus equivalent
- to find a maximum number of intermediate nodes 
+ A problem of finding the maximum 
+\begin_inset Formula $N$
+\end_inset
+
+ is thus equivalent to find a maximum number of intermediate nodes 
 \begin_inset Formula $r$
 \end_inset
 
 .
- For a vector solution, let us denote the maximum number of such nodes by
- 
+ We denote the maximum number of such nodes for a vector solution by 
 \begin_inset Formula $r_{\mathrm{max,vector}}$
 \end_inset
 
 .
- Our goal is then to derive 
+ Our goal is therefore to derive 
 \begin_inset Formula $r_{\mathrm{max,vector}}$
 \end_inset
 
- such that the 
+ such that there exists a vector solution for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
@@ -5022,8 +5028,51 @@ noprefix "false"
 \end_inset
 
 .
- For the solvability of the network, we introduce a rank requirement on
- the transfer matrix 
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Section VIII.C"
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+, Etzion and Wachter-Zeh stated that there exists a scalar solution for
+ the network for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,scalar}}$
+\end_inset
+
+ with 
+\begin_inset Formula $r_{\mathrm{max,scalar}}=2\left(q_{s}^{2}+q_{s}+1\right)$
+\end_inset
+
+.
+ Based on 
+\begin_inset Formula $r_{\mathrm{max,scalar}}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{\mathrm{max,vector}}$
+\end_inset
+
+, we then calculate the gap in alphabet sizes for such scalar and vector
+ solutions of the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network following to Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Comparison-between-scalar-and-vector-sol"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ To discuss the vector solvability of the network, we introduce a rank requireme
+nt on the transfer matrix 
 \begin_inset Formula $\boldsymbol{A}_{j}$
 \end_inset
 
@@ -5032,7 +5081,77 @@ noprefix "false"
 \end_inset
 
 .
- 
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nw_e1_l1_h3_r_s4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, each receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ obtains 4 linear combinations of the 3 source messages.
+ In other words, the transfer matrix 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+ maps the messages 
+\begin_inset Formula $x_{1},x_{2},x_{3}$
+\end_inset
+
+ to 
+\begin_inset Formula $y_{j}^{\left(1\right)},y_{j}^{\left(2\right)},y_{j}^{\left(3\right)},y_{j}^{\left(4\right)}$
+\end_inset
+
+ or 
+\begin_inset Formula $\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3}$
+\end_inset
+
+ to 
+\begin_inset Formula $\boldsymbol{y}_{j}^{\left(1\right)},\boldsymbol{y}_{j}^{\left(2\right)},\boldsymbol{y}_{j}^{\left(3\right)},\boldsymbol{y}_{j}^{\left(4\right)}$
+\end_inset
+
+ respectively regarding to scalar or vector network coding, which are illustrate
+d as linear systems of equations for 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rk_h3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Both 
+\begin_inset Formula $r_{\mathrm{scalar}}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{\mathrm{vector}}$
+\end_inset
+
+ indicate the number of nodes 
+\begin_inset Formula $r$
+\end_inset
+
+ and we mostly use 
+\begin_inset Formula $r$
+\end_inset
+
+ in this subsection for ease of notation.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -5047,7 +5166,7 @@ The vector network coding of
 \begin_inset Formula $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
- represents as a matrix problem
+ represents as a matrix problem 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rk_h3"
@@ -5076,9 +5195,13 @@ name "fig:rk_h3"
 
 \end_inset
 
-Following to Equation 
+
+\end_layout
+
+\begin_layout Standard
+Following to 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:linear_system"
 plural "false"
 caps "false"
@@ -5090,7 +5213,7 @@ noprefix "false"
 \begin_inset Formula $R_{j}$
 \end_inset
 
- must solve a linear equation system of 
+ has to solve a linear equation system of 
 \begin_inset Formula $3t$
 \end_inset
 

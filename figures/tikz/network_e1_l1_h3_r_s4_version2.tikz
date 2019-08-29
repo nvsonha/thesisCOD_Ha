@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=white dot] (0) at (0, 6) {Source};
+		\node [style=white dot] (1) at (-7.5, 0) {Node 1};
+		\node [style=white dot] (2) at (-2.5, 0) {Node 2};
+		\node [style=white dot] (3) at (7.5, 0) {Node r};
+		\node [style={medium_white_dot}] (4) at (-10.5, -7) {Recv 1};
+		\node [style=none] (5) at (5.25, 0) {...};
+		\node [style=white dot] (10) at (2.5, 0) {Node 3};
+		\node [style={medium_white_dot}] (12) at (-3.5, -7) {Recv 2};
+		\node [style=none] (16) at (1.5, -7.25) {...};
+		\node [style={medium_white_dot}] (17) at (8, -7) {Recv $\left(\begin{array}{c}
+r\\
+3
+\end{array}\right)$};
+		\node [style=none] (21) at (-10, -4.25) {};
+		\node [style=none] (22) at (-7, -6) {};
+		\node [style=none] (23) at (-7, -6.25) {$\alpha=3$};
+		\node [style=none] (25) at (4.75, -0.25) {};
+		\node [style=none] (26) at (5.75, -0.25) {};
+		\node [style=none] (27) at (-3.75, -4.25) {};
+		\node [style=none] (28) at (-0.75, -6) {};
+		\node [style=none] (29) at (0, -6.25) {s=4};
+		\node [style=none] (31) at (5.75, -4.25) {};
+		\node [style=none] (32) at (10.25, -4.5) {};
+		\node [style=none] (33) at (11, -4.75) {s=4};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=arrow] (0) to (1);
+		\draw [style=arrow] (0) to (2);
+		\draw [style=arrow] (0) to (3);
+		\draw [style=red arrow] (1) to (4);
+		\draw [style=green arrow] (2) to (4);
+		\draw [style=orange arrow, bend left=300, looseness=1.25] (0) to (4);
+		\draw [style=blue arrow] (10) to (4);
+		\draw [style=green arrow] (2) to (12);
+		\draw [style=blue arrow] (10) to (12);
+		\draw [style=purple arrow] (3) to (12);
+		\draw [style=pink arrow, bend left=15, looseness=1.25] (0) to (12);
+		\draw [style={dashed_arrow}, bend left=75, looseness=1.25] (21.center) to (22.center);
+		\draw [style=purple arrow] (3) to (17);
+		\draw [style=dark-cyan arrow] (25.center) to (17);
+		\draw [style=brown arrow] (26.center) to (17);
+		\draw [style={dashed_arrow}, bend left=75, looseness=1.25] (27.center) to (28.center);
+		\draw [style=yellow arrow, bend left=60, looseness=1.25] (0) to (17);
+		\draw [style={dashed_arrow}, bend left=75, looseness=1.25] (31.center) to (32.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
