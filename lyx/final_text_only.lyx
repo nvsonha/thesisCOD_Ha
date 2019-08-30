@@ -2630,7 +2630,7 @@ gap
 , and we find the lower bound of the maximum number of nodes such vector
  solution can achieve, i.e.
  
-\begin_inset Formula $r_{max,vector}\geq f_{1}(q,t,\alpha,h)$
+\begin_inset Formula $r_{\mathrm{max,vector}}\in f_{1}(q,t,\alpha,h)$
 \end_inset
 
 , with 
@@ -2639,8 +2639,8 @@ gap
 
 .
  Meanwhile, we has a scalar solution for the same network existing if and
- only if: 
-\begin_inset Formula $r_{scalar}\leq f_{2}\left(q_{\mathrm{s}}\right)$
+ only if 
+\begin_inset Formula $r\leq r_{\mathrm{max,scalar}}=f_{2}\left(q_{\mathrm{s}}\right)$
 \end_inset
 
 , with 
@@ -2654,7 +2654,7 @@ gap
 
  required for a scalar solution to reach the maximum achievable vector solution'
 s nodes in this setting, we consider 
-\begin_inset Formula $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=min\left\{ r_{max,vector}\right\} $
+\begin_inset Formula $r_{\mathrm{max,scalar}}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=r_{\mathrm{max,vector}}$
 \end_inset
 
 .
@@ -5020,7 +5020,7 @@ noprefix "false"
 \end_inset
 
  such that there exists a vector solution for the 
-\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\begin_inset Formula $\left(1,1\right)-\mathcal{N}_{3,r,4}$
 \end_inset
 
  network for any 
@@ -5057,7 +5057,7 @@ literal "false"
 
 , we then calculate the gap in alphabet sizes for such scalar and vector
  solutions of the 
-\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\begin_inset Formula $\left(1,1\right)-\mathcal{N}_{3,r,4}$
 \end_inset
 
  network following to Section 
@@ -5256,7 +5256,7 @@ with
 \end_inset
 
  and 
-\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r_{\mathrm{vector}}$
+\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r$
 \end_inset
 
 , and 
@@ -5265,7 +5265,7 @@ with
 
  for 
 \begin_inset Formula $j\in\left\{ 1,\ldots,\left(\begin{array}{c}
-r_{\mathrm{vector}}\\
+r\\
 3
 \end{array}\right)\right\} $
 \end_inset
@@ -5286,12 +5286,16 @@ The network is solvable, if
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
 \boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
-\end{array}\right]\geq3t
+\end{array}\right]\geq3t.
 \]
 
 \end_inset
 
-Because coding coefficients for 
+
+\end_layout
+
+\begin_layout Standard
+Since coding coefficients for 
 \begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
 \end_inset
 
@@ -5310,7 +5314,7 @@ Because coding coefficients for
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}
-\end{array}\right]\geq2t\label{eq:rk_rqm_e1l1h3s4}
+\end{array}\right]\geq2t,\label{eq:rk_rqm_e1l1h3s4}
 \end{equation}
 
 \end_inset
@@ -5323,29 +5327,7 @@ if and only if
 \end_layout
 
 \begin_layout Standard
-By this constraint, the problem is thus described as below:
-\begin_inset Formula 
-\[
-\underset{\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq3t}{\mathrm{min}}\,r_{\mathrm{vector}}
-\]
-
-\end_inset
-
-
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-\end_inset
-
- are matrices formed on any 3 of 
-\begin_inset Formula $r$
-\end_inset
-
- links from nodes to receivers, i.e.
- these 3 matrices are randomly chosen from a set of 
-\begin_inset Formula $r$
-\end_inset
-
- matrices.
- We formalize the problem by an approach with Lov
+We formalize the problem by an approach with Lov
 \begin_inset ERT
 status open
 
@@ -5410,7 +5392,7 @@ such that
 
 \begin_layout Standard
 for 
-\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r_{\mathrm{vector}}$
+\begin_inset Formula $1\leq r_{1}<r_{2}<r_{3}\leq r$
 \end_inset
 
  and 
@@ -5465,11 +5447,11 @@ literal "false"
 
 .
  If each event is independent of all others except for at most 
-\begin_inset Formula $d$
+\begin_inset Formula $d\left(r\right)$
 \end_inset
 
  of them and 
-\begin_inset Formula $4dp\leq1$
+\begin_inset Formula $4pd\left(r\right)\leq1$
 \end_inset
 
 , then: 
@@ -5488,7 +5470,15 @@ name "thm:LLL"
 \end_layout
 
 \begin_layout Standard
-The number of 
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Overbeck:2007"
+literal "false"
+
+\end_inset
+
+, the number of 
 \begin_inset Formula $\left[n\times m\right]$
 \end_inset
 
@@ -5500,26 +5490,70 @@ The number of
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
 \end_inset
 
- is given in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Overbeck:2007"
-literal "false"
-
-\end_inset
-
-:
+ is given,
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-NM_{i,n,m}=\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}\label{eq:num_of_rank_t_matrices}
+NM_{i,n,m}=\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}.\label{eq:num_of_rank_t_matrices}
 \end{equation}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We therefore have 
+\begin_inset Formula $NM_{i<2t,3t,3t}$
+\end_inset
+
+ as the number of 
+\begin_inset Formula $\left[3t\times3t\right]$
+\end_inset
+
+ matrices whose ranks are less than 
+\begin_inset Formula $2t$
+\end_inset
+
+.
+ Each event 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ has a probability calculated by dividing 
+\begin_inset Formula $NM_{i<2t,3t,3t}$
+\end_inset
+
+ by 
+\begin_inset Formula $q^{9t^{2}}$
+\end_inset
+
+, where 
+\begin_inset Formula $q^{9t^{2}}$
+\end_inset
+
+ is the number of all possible 
+\begin_inset Formula $\left[3t\times3t\right]$
+\end_inset
+
+ matrices over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
+\end_inset
+
+.
+ The probability is bounded as stated in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:prob_p_LLL_formula"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Lemma
@@ -5545,28 +5579,9 @@ p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
 \end_layout
 
 \begin_layout Proof
-In Lemma 
+Following to 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:LLL"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, each event 
-\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
-\end_inset
-
- is a 
-\shape italic
-bad event
-\shape default
-, whose occurrence is undesirable.
- Following to Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:rk_rqm_e1l1h3s4"
 plural "false"
 caps "false"
@@ -5574,7 +5589,11 @@ noprefix "false"
 
 \end_inset
 
-, such a event occurs when 
+, a event 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ occurs when 
 \begin_inset Formula $\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<3t$
 \end_inset
 
@@ -5598,7 +5617,7 @@ noprefix "false"
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}
 \end{array}\right]=i\right]\label{eq:p_in_LLL}\\
- & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{NM_{2t,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{NM_{i,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
  & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
 \end{eqnarray}
 
@@ -5622,23 +5641,15 @@ noprefix "false"
 \begin_inset Formula $\left[3t\times3t\right]$
 \end_inset
 
- matrices of rank 
-\begin_inset Formula $i$
-\end_inset
-
- over 
+ matrices over 
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
 \end_inset
 
-, because 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
+ of rank 
+\begin_inset Formula $i=0,\ldots,2t-1$
 \end_inset
 
- vertically together form a 
-\begin_inset Formula $\left[3t\times3t\right]$
-\end_inset
-
- matrix.
+.
 \end_layout
 
 \begin_layout Proof
@@ -5766,19 +5777,7 @@ Hence,
 \end_layout
 
 \begin_layout Standard
-Because 
-\begin_inset Formula $d$
-\end_inset
-
- is a function of 
-\begin_inset Formula $r$
-\end_inset
-
- in our problem, we denote 
-\begin_inset Formula $d$
-\end_inset
-
- in Lemma 
+Each event considered under the Local lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -5788,28 +5787,18 @@ noprefix "false"
 
 \end_inset
 
- specifically by 
-\begin_inset Formula $d(r)$
+ is not required to be independent to all other events, and it allows some
+ dependence among events stated in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:dependecy_d_LLL"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 .
- The Local lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:LLL"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- allows dependence among at most 
-\begin_inset Formula $d(r)$
-\end_inset
-
- events, i.e.
- each event considered under the Local lemma is not required to be independent
- to all other events.
 \end_layout
 
 \begin_layout Lemma
@@ -5818,7 +5807,7 @@ Each event
 \end_inset
 
  is dependent on at most 
-\begin_inset Formula $d\leq\frac{3}{2}r^{2}$
+\begin_inset Formula $d(r)\leq\frac{3}{2}r^{2}$
 \end_inset
 
  other events.
@@ -5846,12 +5835,8 @@ It is clear that
 \end_inset
 
 .
- Let 
-\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{1}\right\} $
-\end_inset
-
- with 
-\begin_inset Formula $r_{1}=r_{1}^{'}$
+ Let us consider 
+\begin_inset Formula $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{1}\right\} =\left\{ r_{1}^{'}\right\} $
 \end_inset
 
 , we have maximum 
@@ -5901,16 +5886,15 @@ If there is an
 \begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$
 \end_inset
 
- s.t.
- for any 
-\begin_inset Formula $r\leq r_{\mathrm{max,vector}}$
-\end_inset
-
 , then there exists a vector solution for the 
 \begin_inset Formula $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
 \end_inset
 
- network.
+ network for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,vector}}$
+\end_inset
+
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -5922,15 +5906,17 @@ name "theo:r_for_vector_sol_e1l1h3rs4"
 \end_layout
 
 \begin_layout Proof
-By the intersection rule, none of the bad events is equivalent to an event
- 
+By the intersection rule, none of the 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ events occuring is equivalent to an event 
 \begin_inset Formula $T$
 \end_inset
 
- that its set of outcomes are all desirable, i.e.
- these outcomes satisfy 
+ whose set of outcomes satisfy 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:rk_rqm_e1l1h3s4"
 plural "false"
 caps "false"
@@ -5938,7 +5924,7 @@ noprefix "false"
 
 \end_inset
 
-:
+ as following,
 \begin_inset Formula 
 \[
 T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[\begin{array}{c}
@@ -5950,27 +5936,7 @@ T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[
 
 \end_inset
 
-The probability of event 
-\begin_inset Formula $T$
-\end_inset
-
- indicates a measure quantifying the likelihood that we are able to independentl
-y and randomly choose 
-\begin_inset Formula $\boldsymbol{A}^{\left(r_{1}\right)},\boldsymbol{A}^{\left(r_{2}\right)},\boldsymbol{A}^{\left(r_{3}\right)}$
-\end_inset
-
- such that 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:rk_rqm_e1l1h3s4"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- is satisfied.
- The Local lemma 
+The Local lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -5980,9 +5946,8 @@ noprefix "false"
 
 \end_inset
 
- shows that there is such a positive probability that none of the bad events
- occurs: 
-\begin_inset Formula $\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
+ shows that 
+\begin_inset Formula $\mathrm{Pr}\left[T\right]=\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
 \end_inset
 
  if 
@@ -6034,7 +5999,7 @@ noprefix "false"
 
 \end_inset
 
-Hence, the Local lemma in 
+Hence, the sufficient condition of the Local lemma in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -6049,7 +6014,11 @@ noprefix "false"
 \end_inset
 
 .
- None of bad events occurs, so there exists a vector solution for such 
+ None of the 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
+ events occurs, so there exists a vector solution for such 
 \begin_inset Formula $r$
 \end_inset
 
@@ -6116,7 +6085,7 @@ noprefix "false"
 , we have the gap size
 \begin_inset Formula 
 \begin{eqnarray}
- & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \nonumber \\
+ & r_{\mathrm{max,scalar}} & =r_{\mathrm{max,vector}}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\label{eq:gap_e1l1h3rs4}
@@ -6223,7 +6192,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{scalar}\leq42$
+\begin_inset Formula $r_{\mathrm{max,scalar}}=42$
 \end_inset
 
 
@@ -6258,7 +6227,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{scalar}\leq146$
+\begin_inset Formula $r_{\mathrm{max,scalar}}=146$
 \end_inset
 
 
@@ -6293,7 +6262,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{scalar}\leq546$
+\begin_inset Formula $r_{\mathrm{max,scalar}}=546$
 \end_inset
 
 
@@ -6328,7 +6297,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{scalar}\leq2114$
+\begin_inset Formula $r_{\mathrm{max,scalar}}=2114$
 \end_inset
 
 
@@ -6363,7 +6332,7 @@ Vector Solution
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $r_{scalar}\leq8322$
+\begin_inset Formula $r_{\mathrm{max,scalar}}=8322$
 \end_inset
 
 
@@ -6389,11 +6358,6 @@ Vector Solution
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-*, **: Computational results in Construction 1 and Construction 2 respectively
 \end_layout
 
 \end_inset
@@ -6437,8 +6401,8 @@ noprefix "false"
 
 \end_inset
 
- for computational results of the network, we introduce vector solutions
- outperforming scalar solutions in case of 
+ for computational results of the network, we show vector solutions outperformin
+g scalar solutions in case of 
 \begin_inset Formula $t=2$
 \end_inset
 
@@ -6463,55 +6427,41 @@ name "sec:e1l1_nw"
 
 \end_layout
 
-\begin_layout Subsection
-Find the lower bound of 
-\begin_inset Formula $r_{max,vector}$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-As previous, 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+In this subsection, we consider
+\begin_inset Formula $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
 \end_inset
 
- and we need to satisfy the following:
+ and each receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ of the 
+\begin_inset Formula $\left(1,1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network can reconstruct 
+\begin_inset Formula $h$
+\end_inset
+
+ source messages if and only if
 \begin_inset Formula 
 \[
 \mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]\geq ht-t\Leftrightarrow\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]\geq ht-t\Leftrightarrow\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq(h-1)t.
 \]
 
 \end_inset
 
-We can formulate it by the following coding problem in Grassmannian:
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-Find the largest set of subspaces from 
+We can formulate it by a problem of finding the largest set of subspaces
+ from 
 \begin_inset Formula $\mathcal{G}_{q}\left(ht,t\right)$
 \end_inset
 
@@ -6524,19 +6474,11 @@ Find the largest set of subspaces from
 \end_inset
 
 .
-\end_layout
-
-\end_inset
-
-Similar with 
+ Similar to 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$
 \end_inset
 
-, we consider 
-\begin_inset Formula $p$
-\end_inset
-
- to proceed the Local lemma 
+, we apply the Local lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -6546,34 +6488,82 @@ noprefix "false"
 
 \end_inset
 
-:
+ to study the gap between scalar and vector solutions for the 
+\begin_inset Formula $\left(1,1\right)-\mathcal{N}_{h,r,s}$
+\end_inset
+
+ network.
+ Instead of the event 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2,}r_{3}}$
+\end_inset
+
+, we now consider an event 
+\begin_inset Formula $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
+\end_inset
+
+ be an event that a receiver 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ is assigned a transfer matrix 
+\begin_inset Formula $\boldsymbol{A}_{j}$
+\end_inset
+
+such that 
+\begin_inset Formula $\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t$
+\end_inset
+
+, i.e.,
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-\mathrm{Pr}\left[\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
-\end{equation}
+\[
+\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}=\left\{ \mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right\} ,
+\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Lemma
-Let 
-\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$
+\begin_layout Standard
+for 
+\begin_inset Formula $1\leq r_{1}<\ldots<r_{3}\leq r$
 \end_inset
 
  and 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+\begin_inset Formula $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
 \end_inset
 
-, then, 
+, chosen idenpendently and uniformly random.
+\end_layout
+
+\begin_layout Lemma
+If 
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$
+\end_inset
+
+, then,
 \begin_inset Formula 
 \[
-p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
+p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
 \]
 
 \end_inset
@@ -6582,20 +6572,17 @@ p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\
 \end_layout
 
 \begin_layout Proof
-Regarding to the left-hand side in Equation 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:p_e1l1"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-:
 \begin_inset Formula 
 \begin{eqnarray}
-\mathrm{Pr}\left[\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\boldsymbol{A}\right]=i\right]\nonumber \\
+\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]=i\right]\nonumber \\
  & \overset{1}{=} & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\frac{N_{i,\alpha t,ht}}{q^{\left(\alpha t\right)\left(ht\right)}}\nonumber \\
  & = & \frac{1}{q^{\left(\alpha h\right)t^{2}}}\cdot\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}.\label{eq:general_nw_calc_p}
 \end{eqnarray}
@@ -6606,8 +6593,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-(1): The formula for the umber of 
-\begin_inset Formula $\left[m\times n\right]$
+(1): The formula for the number of 
+\begin_inset Formula $\left[\alpha t\times ht\right]$
 \end_inset
 
  matrices of rank 
@@ -6618,23 +6605,26 @@ noprefix "false"
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q}$
 \end_inset
 
- was proved in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Overbeck:2007"
-literal "true"
-
-\end_inset
-
-.
+ was introduced in the previous subsection.
 \end_layout
 
 \begin_layout Proof
-We consider firstly the product
-\begin_inset Formula $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$
+We consider firstly the product as a polynomial in 
+\begin_inset Formula $q$
 \end_inset
 
-.
+ as following,
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q).
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -6727,7 +6717,7 @@ Secondly, we apply the maximum value with the sum, we have:
 \begin_inset Formula 
 \begin{eqnarray*}
  & max\left\{ \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\right\}  & \in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)\\
-\Rightarrow & max\left\{ \frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right\}  & \in\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
+\Rightarrow & max\left\{ \frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right\}  & \in\Theta\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -6735,7 +6725,7 @@ Secondly, we apply the maximum value with the sum, we have:
 
 \begin_inset Formula 
 \[
-\Rightarrow p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right)
+\Rightarrow p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right)
 \]
 
 \end_inset
@@ -6744,38 +6734,23 @@ Secondly, we apply the maximum value with the sum, we have:
 \end_layout
 
 \begin_layout Lemma
-Let 
-\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$
+Each event 
+\begin_inset Formula $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
 \end_inset
 
- and 
-\begin_inset Formula $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+ is dependent for at most 
+\begin_inset Formula $d\left(r\right)\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$
 \end_inset
 
-, and each event 
-\begin_inset Formula $\mathcal{E}_{i}$
-\end_inset
-
- is independent of all others except for at most 
-\begin_inset Formula $d$
-\end_inset
-
- of them, then 
-\begin_inset Formula $d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$
-\end_inset
-
-
+ other events.
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "lem:d_e1l1"
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Proof
@@ -6798,15 +6773,19 @@ r-1\\
 \end_layout
 
 \begin_layout Theorem
-If 
-\begin_inset Formula $r\leq\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
+If there is 
+\begin_inset Formula $r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
 \end_inset
 
 , then there exists a vector solution for the 
 \begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
 \end_inset
 
- network.
+ network for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,vector}}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -6840,11 +6819,6 @@ noprefix "false"
 \end_inset
 
 .
- We thus again find a lower bound of 
-\begin_inset Formula $r_{max,vector}$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Proof
@@ -6866,14 +6840,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-\begin_inset Formula $\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
+\begin_inset Formula $\Rightarrow r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Proof
-Hence, the Local lemma 
+Hence, the sufficient condition of the Local lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -6883,8 +6857,8 @@ noprefix "false"
 
 \end_inset
 
- is satisfied, when 
-\begin_inset Formula $r\leq\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
+ is satisfied for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
 \end_inset
 
 , and a vector solution exists for such 
@@ -6894,72 +6868,27 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Subsection
-Find the Upper Bound of 
-\begin_inset Formula $r_{max,scalar}$
-\end_inset
-
-
+\begin_layout Standard
+To calculate the gap, we then consider scalar solutions of the network.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "3pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-Find 
-\begin_inset Formula $\left(\alpha+1\right)$
+\begin_layout Theorem
+If there exists 
+\begin_inset Formula $r_{\mathrm{max,scalar}}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)$
 \end_inset
 
- received vectors that span a subspace of dimension 
-\begin_inset Formula $h$
+, then there exists a scalar solution for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
 \end_inset
 
-.
- This implies that the 
-\begin_inset Formula $\alpha$
-\end_inset
-
- links from the middle layer carry 
-\begin_inset Formula $\alpha$
-\end_inset
-
- vectors which span a subspace of 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$
-\end_inset
-
- whose dimension is at least 
-\begin_inset Formula $\left(h-1\right)$
-\end_inset
-
-, with 
-\begin_inset Formula $q_{\mathrm{s}}=q^{t}$
+ network for any 
+\begin_inset Formula $r\leq r_{\mathrm{max,scalar}}$
 \end_inset
 
 .
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\begin_layout Proof
 Following to Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6977,7 +6906,7 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 For 
 \begin_inset Formula $3\leq\alpha<h$
 \end_inset
@@ -6993,10 +6922,10 @@ For
 \end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r\leq\mathcal{O}\left(q_{s}^{\alpha-1}\right)$
 \end_inset
 
-
+.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 For 
 \begin_inset Formula $\alpha\geq h\geq3$
 \end_inset
@@ -7020,14 +6949,14 @@ For
 -subspace.
 \end_layout
 
-\begin_layout Standard
-Hence,
+\begin_layout Proof
+Hence, a scalar solution exists if
 \begin_inset Formula 
 \[
-r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
+r\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
 h-2
-\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
+\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r_{\mathrm{max,scalar}}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
 \]
 
 \end_inset
@@ -7035,14 +6964,36 @@ h-2
 
 \end_layout
 
-\begin_layout Subsection
-Calculate Gap 
+\begin_layout Corollary
+The 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
+\end_inset
+
+ network has a vector solution with a gap 
+\begin_inset Formula $q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
+Following to Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Comparison-between-scalar-and-vector-sol"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
- & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \\
+ & r_{\mathrm{max,scalar}} & =r_{\mathrm{max,vector}}\\
 \Leftrightarrow & q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}
@@ -7413,7 +7364,7 @@ noprefix "false"
 
 .
  Thus, 
-\begin_inset Formula $min\left\{ r_{max,vector}\right\} \in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$
+\begin_inset Formula $r_{max,vector}\in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$
 \end_inset
 
 .
@@ -7464,50 +7415,7 @@ A scalar solution for the
 \end_layout
 
 \begin_layout Proof
-Let's denote any 2 subspaces of 
-\begin_inset Formula $\mathcal{G}_{q}\left(h=2\ell,\ell\right)$
-\end_inset
-
- as 
-\begin_inset Formula $\mathcal{U}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{V}$
-\end_inset
-
-.
- If 
-\begin_inset Formula $\mathcal{U}$
-\end_inset
-
- and 
-\begin_inset Formula $\mathcal{V}$
-\end_inset
-
- span a subspace of dimension at least 
-\begin_inset Formula $2\ell-1$
-\end_inset
-
-, then we have 
-\begin_inset Formula $dim\left(\mathcal{U}+\mathcal{V}\right)=2\ell-1$
-\end_inset
-
-, with 
-\begin_inset Formula $\mathcal{U}+\mathcal{V}$
-\end_inset
-
-.
- Therefore, 
-\begin_inset Formula $dim\left(\mathcal{U}\cap\mathcal{V}\right)=dim\left(\mathcal{U}\right)+dim\left(\mathcal{V}\right)-dim\left(\mathcal{U}+\mathcal{V}\right)=1$
-\end_inset
-
-, which leads to the subspace distance 
-\begin_inset Formula $d_{s}(\mathcal{U},\mathcal{V})=2dim\left(\mathcal{U}+\mathcal{V}\right)-dim\left(\mathcal{U}\right)-dim\left(\mathcal{V}\right)=2\ell-2$
-\end_inset
-
-.
- No 2 
+Any 2 
 \begin_inset Formula $\ell$
 \end_inset
 
@@ -7515,21 +7423,31 @@ Let's denote any 2 subspaces of
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$
 \end_inset
 
- will contain a vector which is contained in the same 
-\begin_inset Formula $\left(2\ell-2\right)$
+ are distincts, so any 2 subspaces of the 
+\begin_inset Formula $\mathcal{G}_{q}\left(2\ell,\ell\right)$
 \end_inset
 
--subspace, but 
-\begin_inset Formula $\left(2\ell-1\right)$
+ span a subspace of dimension at least 
+\begin_inset Formula $2\ell-1$
 \end_inset
 
- of such subspaces can have such vectors, 
+.
+ The number of intermediate nodes is therefore at most the number of distinct
+ 
+\begin_inset Formula $\ell$
+\end_inset
+
+-dimensional subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$
+\end_inset
+
+, and a scalar solution exists if
 \begin_inset Formula 
 \[
-\Rightarrow r_{scalar}\leq\left(2\ell-1\right)\left[\begin{array}{c}
+r\leq\left[\begin{array}{c}
 2\ell\\
 2\ell-2
-\end{array}\right]_{q_{s}}\Rightarrow r_{scalar}\leq\mathcal{O}\left(q_{s}^{l}\right)
+\end{array}\right]_{q_{s}}\Rightarrow r_{\mathrm{max,scalar}}\in\mathcal{O}\left(q_{s}^{l}\right)
 \]
 
 \end_inset
@@ -7686,7 +7604,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-Main Approach 
+Incremental Algorithm 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Main-Approach"
@@ -9333,19 +9251,9 @@ so
 which is still true when the size of identity tuples becomes smaller.
 \end_layout
 
-\begin_layout Section
-Alternative Approaches 
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Alternative-Approaches"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-Firstly, instead of using 
+We have tried 2 variants of the above algorithm as following.
+ Firstly, instead of using 
 \shape italic
 matrix space with unique row space
 \shape default
@@ -9537,8 +9445,19 @@ noprefix "false"
  are checked.
 \end_layout
 
+\begin_layout Section
+Decremental Algorithm 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Alternative-Approaches"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-Thirdly, in Algorithm 
+In Algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:Decreasing-Method"
@@ -9548,16 +9467,9 @@ noprefix "false"
 
 \end_inset
 
- called 
-\begin_inset Quotes eld
-\end_inset
-
-Decreasing Method
-\begin_inset Quotes erd
-\end_inset
-
-, we tried removing bad matrices from a set of 715 matrices, until any 3
- of the matrices left in the set satisfy the Equation 
+, we introduce a decremental algorithm by removing bad matrices from a set
+ of 715 matrices, until any 3 of the matrices left in the set satisfy the
+ Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:rk_rqm_e1l1h3s4"
@@ -10216,7 +10128,7 @@ k-\mathrm{t}
 \begin_inset Float table
 placement H
 wide false
-sideways false
+sideways true
 status open
 
 \begin_layout Plain Layout

@@ -15,7 +15,7 @@ which is clearly explained in Section \ref{sec:Alternative-Approaches}.
 Construction 2: $\boldsymbol{T}\in U\left(t,3t\right)$, which is
 described in the following Section \ref{sec:Main-Approach}.
 
-\section{Main Approach \label{sec:Main-Approach}}
+\section{Incremental Algorithm \label{sec:Main-Approach}}
 
 Regarding to $t=2$, for a scalar network coding solution we need
 a $3-\left(3,1,1\right)_{4}^{c}$ code ($q_{v}=2^{2}=4)$ by Theorem
@@ -57,7 +57,7 @@ $N\lll\left(\begin{array}{c}
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{H}_{j}$
 such that:
 \[
-rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
+\mathrm{rk}\left[\boldsymbol{H}_{j}\right]=\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
@@ -303,7 +303,7 @@ the visual explanation of $subrel$ is shown.
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 represents as a matrix problem\label{fig:rel_example}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
+\centering{}\includegraphics[width=0.5\paperwidth]{../figures/rel_example}
 \end{figure}
 
 \begin{thm}
@@ -328,14 +328,12 @@ Therefore,
 \]
 which is still true when the size of identity tuples becomes smaller.
 \end{proof}
-
-\section{Alternative Approaches \label{sec:Alternative-Approaches}}
-
-Firstly, instead of using \textit{matrix space with unique row space},
-we use the whole matrix space $M\left(n,m\right)$. In case $t=2$,
-we cover all $2^{3t^{2}}=4096$ matrices instead of only 715 matrices
-in Section \ref{sec:Main-Approach}, which will help the Algorithm
-\ref{alg:Increasing-Method} cover the optimal vector solution.
+We have tried 2 variants of the above algorithm as following. Firstly,
+instead of using \textit{matrix space with unique row space}, we use
+the whole matrix space $M\left(n,m\right)$. In case $t=2$, we cover
+all $2^{3t^{2}}=4096$ matrices instead of only 715 matrices in Section
+\ref{sec:Main-Approach}, which will help the Algorithm \ref{alg:Increasing-Method}
+cover the optimal vector solution.
 \begin{defn}[Good Global Coding Vector\label{def:almost_sufficient_global_coding_vector}]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ and
 $N\leq\left(\begin{array}{c}
@@ -345,7 +343,7 @@ $N\leq\left(\begin{array}{c}
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{T}_{j}$
 such that:
 \[
-rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
+\mathrm{rk}\left[\boldsymbol{T}_{j}\right]=\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
@@ -371,9 +369,11 @@ the list, if the matrix and any 2 existing matrices in the list satisfy
 Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
 all matrices in $U\left(t=2,3t=6\right)$ are checked.
 
-Thirdly, in Algorithm \ref{alg:Decreasing-Method} called ``Decreasing
-Method'', we tried removing bad matrices from a set of 715 matrices,
-until any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
+\section{Decremental Algorithm \label{sec:Alternative-Approaches}}
+
+In Algorithm \ref{alg:Decreasing-Method}, we introduce a decremental
+algorithm by removing bad matrices from a set of 715 matrices, until
+any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
 A matrix with the less number of occurence in $\mathcal{T}_{n=3t,m=3t}$
 or $\mathcal{H}_{n=3t,m=3t}$ is evaluated as a bad matrix, and it
 is removed for each step. If many bad matrices exist, we only remove
@@ -449,5 +449,29 @@ k-\mathrm{t}
 \mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
 \]
 \end{thm}
+\begin{sidewaystable}[H]
+\begin{centering}
+\caption{$r$ over variations of t\label{tab:r_over_t-1}}
+\par\end{centering}
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+t & Scalar Solution ({*}) & Vector Solution ({*}) & Etzion & Construction 1 (IM) & Construction 2 (IM)\tabularnewline
+\hline 
+\hline 
+2 & $r_{scalar}\leq42$ & $r_{\mathrm{max,vector}}\in\Omega\left(7\right)$ & $r_{\mathrm{max,vector}}=121$ & $r_{\mathrm{max,vector}}=89$ & N/A\tabularnewline
+\hline 
+3 & $r_{scalar}\leq146$ & $r_{\mathrm{max,vector}}\in\Omega\left(62\right)$ & N/A & N/A & $r_{\mathrm{max,vector}}=166$\tabularnewline
+\hline 
+4 & $r_{scalar}\leq546$ & $r_{\mathrm{max,vector}}\in\Omega\left(1317\right)$ & N/A & N/A & N/A\tabularnewline
+\hline 
+5 & $r_{scalar}\leq2114$ & $r_{\mathrm{max,vector}}\in\Omega\left(58472\right)$ & N/A & N/A & N/A\tabularnewline
+\hline 
+6 & $r_{scalar}\leq8322$ & $r_{\mathrm{max,vector}}>10^{6}$ & N/A & N/A & N/A\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\centering{}{*}: Theoretical results based on Table \ref{tab:r_over_t}.
+\end{sidewaystable}
 
 \clearpage

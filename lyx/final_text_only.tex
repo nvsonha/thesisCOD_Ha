@@ -5,7 +5,7 @@
 \usepackage[latin9]{inputenc}
 \usepackage{array}
 \usepackage{float}
-\usepackage{calc}
+\usepackage{rotfloat}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -339,7 +339,7 @@ applicable to present-day wireline networks\footnote{Wireless network coding was
 \begin{figure}[H]
 \caption{Incoming links and outgoing links of a node in network coding \label{fig:incoming_links}}
 
-\centering{}\includegraphics[height=0.15\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/incoming_edges}
+\centering{}\includegraphics[height=0.15\paperwidth]{../figures/incoming_edges}
 \end{figure}
 In simple routing, information is transmitted from the source to receivers
 through a chain of \textit{intermediate nodes} by a method known as
@@ -388,7 +388,7 @@ in a wireline network is a standard example for an increase of throughput.
 \begin{figure}[H]
 \caption{The butterfly network \label{fig:The-butterfly-network}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network}
+\centering{}\includegraphics[width=0.5\paperwidth]{../figures/ahlswede_butterfly_network}
 \end{figure}
 In Figure \ref{fig:The-butterfly-network}, we denoted a receiver
 by ``Recv'', which is used for all of figures in this study. With
@@ -473,17 +473,17 @@ is as following:
 \begin{array}{c|c}
 Scalar & Vector\\
 \underset{\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s}}{\underbrace{\left[\begin{array}{c}
-y_{j_{1}}\\
+y_{j}^{\left(1\right)}\\
 \vdots\\
-y_{j_{s}}
+y_{j}^{\left(s\right)}
 \end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{h}}{\underbrace{\left[\begin{array}{c}
 x_{1}\\
 \vdots\\
 x_{h}
 \end{array}\right]}} & \underset{\ensuremath{\mathbb{F}}_{q}^{st}}{\underbrace{\left[\begin{array}{c}
-\boldsymbol{y}_{j_{1}}\\
+\boldsymbol{y}_{j}^{\left(1\right)}\\
 \vdots\\
-\boldsymbol{y}_{j_{s}}
+\boldsymbol{y}_{j}^{\left(s\right)}
 \end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q}^{st\times th}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q}^{th}}{\underbrace{\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \vdots\\
@@ -499,17 +499,19 @@ to the corresponding receiver $R_{j}$:
 \begin{array}{c|c}
 Scalar & Vector\\
 \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{a}_{j_{1}}\\
+\boldsymbol{a}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{a}_{j_{\alpha\ell}}\\
+\boldsymbol{a}^{\left(r_{\alpha l}\right)}\\
+\boldsymbol{b}^{\left(\epsilon\left(j-1\right)+1\right)}\\
 \vdots\\
-\boldsymbol{a}_{j_{\alpha\ell+\epsilon}}
+\boldsymbol{b}^{\left(\epsilon\left(j-1\right)+\epsilon\right)}
 \end{array}\right] & \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha l}}\\
+\boldsymbol{A}^{\left(r_{\alpha l}\right)}\\
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha l+\epsilon}}
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+\epsilon\right)}
 \end{array}\right]
 \end{array}
 \]
@@ -604,7 +606,7 @@ discussed in \cite[Sec. 4.3]{Fragouli:2006}, \cite[Sec. 4.1]{Yeung:2006},
 \begin{figure}[H]
 \caption{The butterfly network is represented as a combination network \label{fig:butterfly_nw_cn}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network_CN}
+\centering{}\includegraphics[width=0.5\paperwidth]{../figures/ahlswede_butterfly_network_CN}
 \end{figure}
 A generalization of a CN \cite{Riis:2006} is called generalized combination
 network (GCN). GCN defined in \cite{Etzion:2016,Wachter-Zeh:2018}
@@ -636,12 +638,12 @@ smallest alphatbet size for which we can construct a vector solution.
 In this study, we define a solvable vector network coding over the
 field size $\ensuremath{\mathbb{F}}_{q}^{t}$, and we find the lower
 bound of the maximum number of nodes such vector solution can achieve,
-i.e. $r_{max,vector}\geq f_{1}(q,t,\alpha,h)$, with $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$.
+i.e. $r_{\mathrm{max,vector}}\in f_{1}(q,t,\alpha,h)$, with $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$.
 Meanwhile, we has a scalar solution for the same network existing
-if and only if: $r_{scalar}\leq f_{2}\left(q_{\mathrm{s}}\right)$,
+if and only if $r\leq r_{\mathrm{max,scalar}}=f_{2}\left(q_{\mathrm{s}}\right)$,
 with $f_{2}:\mathbb{Z}\mapsto\mathbb{Z}$. To find the field size
 $q_{\mathrm{s}}$ required for a scalar solution to reach the maximum
-achievable vector solution's nodes in this setting, we consider $r_{max,scalar}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=min\left[r_{max,vector}\right]$.
+achievable vector solution's nodes in this setting, we consider $r_{\mathrm{max,scalar}}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=r_{\mathrm{max,vector}}$.
 Finally, we calculate the gap by $g=q_{\mathrm{s}}-q_{v}=q_{\mathrm{s}}-q^{t}.$
 Throughout this study, we show that vectors solutions significantly
 reduce the required alphabet size by this gap.
@@ -676,7 +678,7 @@ satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 \begin{figure}[H]
 \caption{The generalized network $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$\label{fig:The-generalized-network}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/generalized_combination_nw}
+\centering{}\includegraphics[width=0.5\paperwidth]{../figures/generalized_combination_nw}
 \end{figure}
 
 \begin{thm}[\cite{Wachter-Zeh:2018}]
@@ -807,7 +809,7 @@ coding.
 \caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
 to the equivalent vector solution\label{fig:x_mapping}}
 
-\centering{}\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping}
+\centering{}\includegraphics[width=0.3\paperwidth]{../figures/x_mapping}
 \end{figure}
 \end{example}
 We use the table of the extension field $\ensuremath{\mathbb{F}}_{2^{2}}$
@@ -895,7 +897,7 @@ for large $\ell$.
 \caption{The $\left(1,2\right)-\mathcal{N}_{4,r,5}$ network as an example
 of the $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ \label{fig:network_l1e2h4rs5}}
 
-\centering{}\includegraphics[width=0.4\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l2_h4_r_s5}
+\centering{}\includegraphics[width=0.4\paperwidth]{../figures/nw_e1_l2_h4_r_s5}
 \end{figure}
 
 
@@ -917,7 +919,7 @@ to $q^{t^{2}/2+\mathcal{O}\left(t\right)}$ with a vector solution
 \caption{The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
 \label{fig:network_special2}}
 
-\centering{}\includegraphics[width=0.45\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special2}
+\centering{}\includegraphics[width=0.45\paperwidth]{../figures/nw_special2}
 \end{figure}
 
 
@@ -936,7 +938,7 @@ and the $\left(1,1\right)-\mathcal{N}_{h,r,s}$ network.
 \caption{The $\left(\epsilon\protect\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network \label{fig:network_special3}}
 
-\centering{}\includegraphics[width=0.45\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special3}
+\centering{}\includegraphics[width=0.45\paperwidth]{../figures/nw_special3}
 \end{figure}
 
 
@@ -954,7 +956,7 @@ e.g. $\mathcal{N}_{2,r,2}$, and they conjecture it for all $h$.
 \caption{The $\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ combination
 network \label{fig:network_special4}}
 
-\centering{}\includegraphics[width=0.4\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special4_combination}
+\centering{}\includegraphics[width=0.4\paperwidth]{../figures/nw_special4_combination}
 \end{figure}
 
 
@@ -1063,131 +1065,172 @@ or a scalar solution exists under some conditions of $r$.
 \begin{figure}[H]
 \caption{The $(\epsilon=1,\ell=1)-\mathcal{N}_{h=3,r,s=4}$ network\label{fig:nw_e1_l1_h3_r_s4}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l1_h3_r_s4}
+\centering{}\includegraphics[width=0.5\paperwidth]{../figures/nw_e1_l1_h3_r_s4}
 \end{figure}
-In this subsection, we derive a lower bound on the maximum number
-of receivers for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network. Due to $\alpha=3$, the number of receivers is $N=\left(\begin{array}{c}
-r_{vector}\\
+
+In this subsection, we derive a maximum number of receivers for the
+$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ network
+such that a vector solution for the network exists. Due to $\alpha=3$,
+the number of receivers is $N=\left(\begin{array}{c}
+r\\
 3
-\end{array}\right)$ by definition in Section \ref{sec:Description_GCN}. To derive the
-lower bound, we introduce a rank requirement on incoming packets to
-each receiver. 
+\end{array}\right)$ by definition in Section \ref{sec:Description_GCN}. A problem of
+finding the maximum $N$ is thus equivalent to find a maximum number
+of intermediate nodes $r$. We denote the maximum number of such nodes
+for a vector solution by $r_{\mathrm{max,vector}}$. Our goal is therefore
+to derive $r_{\mathrm{max,vector}}$ such that there exists a vector
+solution for the $\left(1,1\right)-\mathcal{N}_{3,r,4}$ network for
+any $r\leq r_{\mathrm{max,vector}}$. In \cite[Section VIII.C]{Wachter-Zeh:2018},
+Etzion and Wachter-Zeh stated that there exists a scalar solution
+for the network for any $r\leq r_{\mathrm{max,scalar}}$ with $r_{\mathrm{max,scalar}}=2\left(q_{s}^{2}+q_{s}+1\right)$.
+Based on $r_{\mathrm{max,scalar}}$ and $r_{\mathrm{max,vector}}$,
+we then calculate the gap in alphabet sizes for such scalar and vector
+solutions of the $\left(1,1\right)-\mathcal{N}_{3,r,4}$ network following
+to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}.
+To discuss the vector solvability of the network, we introduce a rank
+requirement on the transfer matrix $\boldsymbol{A}_{j}$ corresponding
+to each receiver $R_{j}$. In Figure \ref{fig:nw_e1_l1_h3_r_s4},
+each receiver $R_{j}$ obtains 4 linear combinations of the 3 source
+messages. In other words, the transfer matrix $\boldsymbol{A}_{j}$
+maps the messages $x_{1},x_{2},x_{3}$ to $y_{j}^{\left(1\right)},y_{j}^{\left(2\right)},y_{j}^{\left(3\right)},y_{j}^{\left(4\right)}$
+or $\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3}$ to
+$\boldsymbol{y}_{j}^{\left(1\right)},\boldsymbol{y}_{j}^{\left(2\right)},\boldsymbol{y}_{j}^{\left(3\right)},\boldsymbol{y}_{j}^{\left(4\right)}$
+respectively regarding to scalar or vector network coding, which are
+illustrated as linear systems of equations for $R_{1}$ in Figure
+\ref{fig:rk_h3}. Both $r_{\mathrm{scalar}}$ and $r_{\mathrm{vector}}$
+indicate the number of nodes $r$ and we mostly use $r$ in this subsection
+for ease of notation.
+
 \begin{figure}[H]
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
-represents as a matrix problem\label{fig:rk_h3}}
+represents as a matrix problem \label{fig:rk_h3}}
 
-\centering{}\includegraphics[width=0.6\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rk_h3}
+\centering{}\includegraphics[width=0.6\paperwidth]{../figures/rk_h3}
 \end{figure}
-Following to Equation \ref{eq:linear_system}, each receiver $R_{j}$
-must solve a linear equation system of 3 variables with 4 equations
+
+Following to (\ref{eq:linear_system}), each receiver $R_{j}$ has
+to solve a linear equation system of $3t$ variables with $4t$ equations
 to recover $h=3$ messages as below:
 \[
 \left[\begin{array}{c}
-\boldsymbol{y}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{y}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{y}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{y}_{j}^{\left(r_{4}\right)}
+\boldsymbol{y}_{j}^{\left(1\right)}\\
+\boldsymbol{y}_{j}^{\left(2\right)}\\
+\boldsymbol{y}_{j}^{\left(3\right)}\\
+\boldsymbol{y}_{j}^{\left(4\right)}
 \end{array}\right]=\boldsymbol{A}_{j}\cdot\underline{x}=\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{4}\right)}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}\\
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
 \end{array}\right]\cdot\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \boldsymbol{x}_{2}\\
 \boldsymbol{x}_{3}
 \end{array}\right],
 \]
-with $\boldsymbol{x}_{i},\boldsymbol{y}_{j}^{\left(v\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}_{j}^{\left(r_{v}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
-for $v=1,\ldots,4$, and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-must be distinct.
+with $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{3}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{y}_{j}^{\left(1\right)},\ldots,\boldsymbol{y}_{j}^{\left(4\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}^{\left(r_{v}\right)},\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+for $v=1,\ldots,3$ and $1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+for $j\in\left\{ 1,\ldots,\left(\begin{array}{c}
+r\\
+3
+\end{array}\right)\right\} $.
 
-The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank, i.e.
-$\boldsymbol{A}_{j_{v}}$ must satisfy:
+The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank:
 \[
-rk\left[\begin{array}{c}
+\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{4}\right)}
-\end{array}\right]\geq3t
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\end{array}\right]\geq3t.
 \]
-Because coding coefficients for $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$
-can be independently chosen for any receiver $R_{j}$, there always
-exists $\boldsymbol{A}_{j}^{\left(r_{4}\right)}$ such that,
-\begin{equation}
-rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]\geq2t\label{eq:rk_rqm_e1l1h3s4}
-\end{equation}
-if and only if $rk\left[\boldsymbol{A}_{j}\right]\geq3t$.
 
-By this constraint, the problem is thus described as below:
-\[
-\underset{rk\left[\boldsymbol{A}_{j}\right]\geq3t}{min}\,r_{vector}
-\]
-$\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-are matrices formed on any 3 of $r$ links from nodes to receivers,
-i.e. these 3 matrices are randomly chosen from a set of $r$ matrices.
+Since coding coefficients for $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
+can be independently chosen for any receiver $R_{j}$, there always
+exists $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
+such that,
+\begin{equation}
+\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]\geq2t,\label{eq:rk_rqm_e1l1h3s4}
+\end{equation}
+if and only if $\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq3t$.
+
 We formalize the problem by an approach with Lov\'asz local lemma,
 which was initially proposed by Schwartz in \cite{MosheSchwartz:2018}.
+
+Let $\mathcal{E}_{r_{1},r_{2},r_{3}}$ be an event that a receiver
+$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$such that
+$\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]<2t$, i.e.,
+
+\[
+\mathcal{E}_{r_{1},r_{2},r_{3}}=\left\{ \mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right\} ,
+\]
+
+for $1\leq r_{1}<r_{2}<r_{3}\leq r$ and $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$,
+chosen idenpendently and uniformly random.
 \begin{lem}[Symmetric Lov\'asz local lemma (LLL) \cite{Schwarz:2013}]
- A set of events $\mathcal{E}_{i}$, with $i=1,\ldots,n$, such that
-each event occurs with probability at most $p$. If each event is
-independent of all others except for at most $d$ of them and $4dp\leq1$,
-then: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
+ A set of events $\mathcal{E}_{r_{1},r_{2},r_{3}}$, with $1\leq r_{1}<r_{2}<r_{3}\leq r$,
+such that each event occurs with probability at most $p$. If each
+event is independent of all others except for at most $d\left(r\right)$
+of them and $4pd\left(r\right)\leq1$, then: $\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
 \label{thm:LLL}
 \end{lem}
-%
+In \cite{Overbeck:2007}, the number of $\left[n\times m\right]$
+matrices of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ is given,
+
+\begin{equation}
+NM_{i,n,m}=\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}.\label{eq:num_of_rank_t_matrices}
+\end{equation}
+
+We therefore have $NM_{i<2t,3t,3t}$ as the number of $\left[3t\times3t\right]$
+matrices whose ranks are less than $2t$. Each event $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+has a probability calculated by dividing $NM_{i<2t,3t,3t}$ by $q^{9t^{2}}$,
+where $q^{9t^{2}}$ is the number of all possible $\left[3t\times3t\right]$
+matrices over $\ensuremath{\mathbb{F}}_{q}$. The probability is bounded
+as stated in Lemma \ref{lem:prob_p_LLL_formula}.
 \begin{lem}
-\label{lem:prob_p_LLL_formula} Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$,
-then, 
+\label{lem:prob_p_LLL_formula} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]\leq p$,
+then,
 \[
-p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
+p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
 \]
 \end{lem}
 \begin{proof}
-In Lemma \ref{thm:LLL}, each event $\mathcal{E}_{i}$ is a \textit{bad
-event}, whose occurrence is undesirable. Following to Equation \ref{eq:rk_rqm_e1l1h3s4},
-such a event occurs when $rk\left[\boldsymbol{A}_{j}\right]<3t$,
-and its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
-\begin{equation}
-Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right]\leq p.\label{eq:p_in_LLL}
-\end{equation}
-Regarding to the left-hand side,
+Following to (\ref{eq:rk_rqm_e1l1h3s4}), a event $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+occurs when $\mathrm{rk}\left[\boldsymbol{A}_{j}\right]<3t$, and
+its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
 \begin{eqnarray}
-Pr\left[rk\left[\begin{array}{c}
+\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]=i\right]\nonumber \\
- & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{N_{i,m,n}}{q^{m\cdot n}}\nonumber \\
- & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{m}-q^{j}\right)\left(q^{n}-q^{j}\right)}{q^{i}-q^{j}}}{q^{m\cdot n}}\nonumber \\
- & \overset{2}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
+\end{array}\right]=i\right]\label{eq:p_in_LLL}\\
+ & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{NM_{i,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
+ & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
 \end{eqnarray}
 
-(1): The formula for the umber of $\left[m\times n\right]$ matrices
-of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}.
+(1): Applying \ref{eq:num_of_rank_t_matrices} for $\left[3t\times3t\right]$
+matrices over $\ensuremath{\mathbb{F}}_{q}$ of rank $i=0,\ldots,2t-1$.
 
-(2): $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-vertically together form a $\left[3t\times3t\right]$ matrix.
+In the following, we view $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}$
+as a polynomial in $q$.
 
-We consider the numerator of Equation (\ref{eq:p_eq_h3}): $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
+We consider the numerator of (\ref{eq:p_eq_h3}): $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
 
 Due to $i$-times product and large $t$: $\left.\begin{array}{c}
 deg\left(p_{N}^{(i)}(q)\right)=q^{i6t}\\
@@ -1201,14 +1244,16 @@ root:
 \begin{eqnarray*}
  & \left(i6t-i^{2}\right)^{'} & =0\\
 \Leftrightarrow & 6t-2i & =0\\
-\Leftrightarrow & i & =3t
+\Leftrightarrow & i & =3t.
 \end{eqnarray*}
+
 However, the upper limit of the sum is $\left(2t-1\right)$, which
 is less than $3t$ for all $t\geq2$.
 \[
-\Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}
+\Rightarrow max\left\{ q^{i6t-i^{2}}:i=0,2\ldots,2t-1\right\} =\left.q^{i6t-i^{2}}\right|_{i=2t-1}=q^{8t^{2}-2t-1}.
 \]
-Hence, by using the exact bound $\Theta$, we have:
+
+Hence,
 \[
 \underset{i}{max}\left[\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)\right]\in\Theta\left(max\left\{ q^{i6t-i^{2}}:i=1,2\ldots,2t-1\right\} \right)=\Theta\left(q^{8t^{2}-2t-1}\right)
 \]
@@ -1216,35 +1261,26 @@ Hence, by using the exact bound $\Theta$, we have:
 \Rightarrow\underset{i}{max}\left[\frac{\stackrel[i=0]{2t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{9t^{2}}}\right]\in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 \[
-\Rightarrow p\leq\Theta\left(q^{-t^{2}-2t-1}\right)
+\Rightarrow p\in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 \end{proof}
+Each event considered under the Local lemma \ref{thm:LLL} is not
+required to be independent to all other events, and it allows some
+dependence among events stated in Lemma \ref{lem:dependecy_d_LLL}.
 \begin{lem}
-Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t\right]\leq p,\forall1\leq r_{1}<r_{2}<r_{3}\leq r$ with $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{3}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$,
-and each event $\mathcal{E}_{i}$ is independent of all others except
-for at most $d$ of them, then $d\leq\frac{3}{2}r^{2}$. \label{lem:dependecy_d_LLL}
+Each event $\mathcal{E}_{r_{1},r_{2},r_{3}}$ is dependent on at most
+$d(r)\leq\frac{3}{2}r^{2}$ other events. \label{lem:dependecy_d_LLL}
 \end{lem}
 \begin{proof}
-Because $d$ is a function of $r$ in our problem, we denote $d$
-in Lemma \ref{thm:LLL} specifically by $d(r)$. The Local lemma \ref{thm:LLL}
-allows dependence among at most $d(r)$ events, i.e. each event considered
-under the Local lemma must no be independent to each other.
-
-Furthermore, $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\boldsymbol{A}_{j}^{\left(r_{2}\right)},\boldsymbol{A}_{j}^{\left(r_{3}\right)}$
-are matrices formed on any 3 of $r$ links from nodes to receivers.
-Assume that 1 of $r$ links is firstly chosen to form the matrix $\boldsymbol{A}_{j}^{\left(r_{1}\right)}$,
-then there are $\left(\begin{array}{c}
+It is clear that $\mathcal{E}_{r_{1},r_{2},r_{3}}$ is dependent on
+$\mathcal{E}_{r_{1}^{'},r_{2}^{'},r_{3}^{'}}$ if and only if $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} \neq\emptyset$.
+Let us consider $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{1}\right\} =\left\{ r_{1}^{'}\right\} $,
+we have maximum $\left(\begin{array}{c}
 r-1\\
 2
-\end{array}\right)$ posibilities left to choose $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
-and $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$ from $r-1$ links.
-However, such a link can also be chosen firstly to form $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$
-or $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$ instead. Therefore,
-we have a upper bound for $d(r)$ as following,
+\end{array}\right)$ such $\mathcal{E}_{r_{1},r_{2},r_{3}}$ events. Similarly with $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{2}\right\} $
+and $\left\{ r_{1},r_{2},r_{3}\right\} \cap\left\{ r_{1}^{'},r_{2}^{'},r_{3}^{'}\right\} =\left\{ r_{3}\right\} $,
+we obtain
 \[
 d(r)\leq3\cdot\left(\begin{array}{c}
 r-1\\
@@ -1255,139 +1291,41 @@ r-1\\
 \Rightarrow d(r)\leq\frac{3}{2}r^{2}
 \]
 \end{proof}
-\begin{example}
-$r\in\left\{ 1,2,3,4\right\} $. Our sample space to draw any 3 matrices
-with orders has in total $\left(\begin{array}{c}
-4\\
-3
-\end{array}\right)=4$ samples.
-
-Assume the link 1 is firstly chosen to form the matrix $\boldsymbol{A}_{j}^{\left(r_{1}\right)}$,
-we have $\left(\begin{array}{c}
-3\\
-2
-\end{array}\right)=3$ possibilities: $\left[\begin{array}{c}
-1\\
-2\\
-3
-\end{array}\right],\left[\begin{array}{c}
-1\\
-2\\
-4
-\end{array}\right]$ and $\left[\begin{array}{c}
-1\\
-3\\
-4
-\end{array}\right]$. The existence of $1$ in $\left[\begin{array}{c}
-1\\
-2\\
-3
-\end{array}\right]$ gives us some information on $rk\left[\begin{array}{c}
-1\\
-2\\
-4
-\end{array}\right]$ or $rk\left[\begin{array}{c}
-1\\
-3\\
-4
-\end{array}\right]$, which means these events $rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]<2t$ are dependent. 
-
-We also have 3 posibilities, when we choose the link 1 to form the
-matrix $\boldsymbol{A}_{j}^{\left(r_{2}\right)}$: $\left[\begin{array}{c}
-2\\
-1\\
-3
-\end{array}\right],\left[\begin{array}{c}
-2\\
-1\\
-4
-\end{array}\right]$ and $\left[\begin{array}{c}
-3\\
-1\\
-4
-\end{array}\right]$. 
-
-There are again 3 posibilities, when we choose the link $1$ to form
-the matrix $\boldsymbol{A}_{j}^{\left(r_{3}\right)}$: $\left[\begin{array}{c}
-2\\
-3\\
-1
-\end{array}\right],\left[\begin{array}{c}
-2\\
-4\\
-1
-\end{array}\right]$ and $\left[\begin{array}{c}
-3\\
-4\\
-1
-\end{array}\right]$.
-
-Let's denote the event $rk\left[\begin{array}{c}
-1\\
-2\\
-3
-\end{array}\right]<2t$ by $\mathcal{E}_{1}$. It is clearly to see that $Pr\left[\begin{array}{c|c}
-rk\left[\begin{array}{c}
-2\\
-1\\
-3
-\end{array}\right]<2t & \mathcal{E}_{1}\end{array}\right]=1$. The bound in Lemma \ref{lem:dependecy_d_LLL} is a bit loose, because
-we do not neglect unsuitable matrices, e.g. $\left[\begin{array}{c}
-3\\
-1\\
-4
-\end{array}\right]$. In the other words, there exists at most 9 events are dependent. 
-\end{example}
->\textcompwordmark >\textcompwordmark > IS THIS EXAMPLE CONVINCING
-ENOUGH? WHY IS IT NOT $d(r)\leq3\cdot r\cdot\left(\begin{array}{c}
-r-1\\
-2
-\end{array}\right)=$?
 \begin{thm}
-If $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$,
+If there is an $r_{\mathrm{max,vector}}\in\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$,
 then there exists a vector solution for the $\left(\epsilon=1,l=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network. \label{theo:r_for_vector_sol_e1l1h3rs4}
+network for any $r\leq r_{\mathrm{max,vector}}$. \label{theo:r_for_vector_sol_e1l1h3rs4}
 \end{thm}
 \begin{proof}
-The Local lemma \ref{thm:LLL} shows that there is a positive probability
-that none of bad events occurs: $Pr\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$.
-
-By the intersection rule, none of bad events is equivalent to an event
-$T$ that its set of outcomes are all desirable, i.e. these outcomes
-satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}:
+By the intersection rule, none of the $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+events occuring is equivalent to an event $T$ whose set of outcomes
+satisfy (\ref{eq:rk_rqm_e1l1h3s4}) as following,
 \[
-T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
-\end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r.
+T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
+\end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r\right\} .
 \]
-The probability of event $T$ indicates a measure quantifying the
-likelihood that we are able to construct $rk\left[\boldsymbol{A}_{j}\right]\geq3t$
-given $r$ links. It means that a vector solution exists if and only
-if the Local lemma \ref{thm:LLL} is satisfied such that: $4\cdot p\cdot d(r)\leq1,\forall r\leq r_{max,vector}$.
-Therefore, we must find a lower bound of $r_{max,vector}$. Furthermore,
-we have $d\leq\frac{3}{2}r^{2}$ following to Lemma \ref{lem:dependecy_d_LLL},
-which gives: $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{max,vector}$.
-Thus, finding $min\left\{ r_{max,vector}\right\} $ is equivalent
-to maximize $p$.
+The Local lemma \ref{thm:LLL} shows that $\mathrm{Pr}\left[T\right]=\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
+if $4\cdot p\cdot d(r)\leq1,\forall r\leq r_{\mathrm{max,vector}}$.
+Furthermore, we have $d\leq\frac{3}{2}r^{2}$ following to Lemma \ref{lem:dependecy_d_LLL},
+which gives: $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{\mathrm{max,vector}}$.
 
-By Lemma \ref{lem:prob_p_LLL_formula}, we have $p\leq\Theta\left(q^{-t^{2}-2t-1}\right)$,
+By Lemma \ref{lem:prob_p_LLL_formula}, we have $p\in\Theta\left(q^{-t^{2}-2t-1}\right)$,
 \[
-\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
+\Rightarrow r_{\mathrm{max,vector}}\in\Omega\left(\sqrt{\frac{1}{6p}}\right)=\Omega\left(\sqrt{\frac{1}{6q^{-t^{2}-2t-1}}}\right)=\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right).
 \]
-Hence, the Local lemma in \ref{thm:LLL} is satisfied, when $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$.
-None of bad events occurs, so there exists a vector solution for such
-$r$.
+Hence, the sufficient condition of the Local lemma in \ref{thm:LLL}
+is satisfied for any $r\leq r_{\mathrm{max,vector}}\in\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$.
+None of the $\mathcal{E}_{r_{1},r_{2},r_{3}}$ events occurs, so there
+exists a vector solution for such $r$.
 \end{proof}
 \begin{cor}
 The $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ network
 has a vector solution with a gap $q^{t^{2}/4+\mathcal{O}(t)}$.
 \end{cor}
+\begin{proof}
 In \cite[Sec. VIII-C]{Wachter-Zeh:2018}, we have that $r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{2}\right)$,
 where they proved that
 \begin{equation}
@@ -1400,93 +1338,112 @@ Following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
 and Theorem \ref{theo:r_for_vector_sol_e1l1h3rs4}, we have the gap
 size
 \begin{eqnarray}
- & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \nonumber \\
+ & r_{\mathrm{max,scalar}} & =r_{\mathrm{max,vector}}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}}^{2} & =q^{t^{2}/2+\mathcal{O}(t)}\nonumber \\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{t^{2}/4+\mathcal{O}(t)}\nonumber \\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{t^{2}/4+\mathcal{O}(t)}\label{eq:gap_e1l1h3rs4}
 \end{eqnarray}
-By varying $t$ in Equation (\ref{eq:p_eq_h3}), we have the following
-table:
+\end{proof}
+By varying $t$ in (\ref{eq:p_eq_h3}), we have the following table:
 \begin{table}[H]
-\caption{$r$ over variations of t\label{tab:r_over_t}}
-
 \begin{centering}
+\caption{$r$ over variations of t\label{tab:r_over_t}}
+\par\end{centering}
+\centering{}%
 \begin{tabular}{|c|c|c|}
 \hline 
 t & Scalar Solution & Vector Solution\tabularnewline
 \hline 
 \hline 
-1 & $r_{scalar}\leq14$ & $r_{vector}\geq3$\tabularnewline
+2 & $r_{\mathrm{max,scalar}}=42$ & $r_{\mathrm{max,vector}}\in\Omega\left(7\right)$\tabularnewline
 \hline 
-2 & $r_{scalar}\leq42$ & $r_{vector}\geq7\,\left(67^{*},\,89^{**}\right)$\tabularnewline
+3 & $r_{\mathrm{max,scalar}}=146$ & $r_{\mathrm{max,vector}}\in\Omega\left(62\right)$ \tabularnewline
 \hline 
-3 & $r_{scalar}\leq146$ & $r_{vector}\geq62\,\left(166^{*}\right)$ \tabularnewline
+4 & $r_{\mathrm{max,scalar}}=546$ & $r_{\mathrm{max,vector}}\in\Omega\left(1317\right)$\tabularnewline
 \hline 
-4 & $r_{scalar}\leq546$ & $r_{vector}\geq1317$\tabularnewline
+5 & $r_{\mathrm{max,scalar}}=2114$ & $r_{\mathrm{max,vector}}\in\Omega\left(58472\right)$\tabularnewline
 \hline 
-5 & $r_{scalar}\leq2114$ & $r_{vector}\geq58472$\tabularnewline
-\hline 
-6 & $r_{scalar}\leq8322$ & $r_{vector}>10^{6}$\tabularnewline
+6 & $r_{\mathrm{max,scalar}}=8322$ & $r_{\mathrm{max,vector}}>10^{6}$\tabularnewline
 \hline 
 \end{tabular}
-\par\end{centering}
-{*}, {*}{*}: computational results in construction 1 and construction
-2 respectively
 \end{table}
-In the table (\ref{tab:r_over_t}), the vector solution outperforms
+In the Table \ref{tab:r_over_t}, the vector solution outperforms
 the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h=3,r,s=4}$.
-This is sufficient, we show in Section 6 computational results which
-vector solutions outperform scalar solutions in case of $t=2$ and
-$t=3$.
+In Section \ref{sec:Main-Approach} and Section \ref{sec:Alternative-Approaches}
+for computational results of the network, we show vector solutions
+outperforming scalar solutions in case of $t=2$ and $t=3$.
 
 \section{$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$ Network \label{sec:e1l1_nw}}
 
-\subsection{Find the lower bound of $r_{max,vector}$}
-
-As previous, $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
-and we need to satisfy the following:
+In this subsection, we consider$\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$
+and each receiver $R_{j}$ of the $\left(1,1\right)-\mathcal{N}_{h,r,s}$
+network can reconstruct $h$ source messages if and only if
 \[
-rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]\geq ht-t\Leftrightarrow rk\left[\boldsymbol{A}_{j}\right]\geq(h-1)t
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]\geq ht-t\Leftrightarrow\mathrm{rk}\left[\boldsymbol{A}_{j}\right]\geq(h-1)t.
 \]
-We can formulate it by the following coding problem in Grassmannian:
 
-\noindent\fbox{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
-Find the largest set of subspaces from $\mathcal{G}_{q}\left(ht,t\right)$
-such that any $\alpha$ subspaces of the set span a subspace of dimension
-at least $\left(h-1\right)t$.%
-\end{minipage}}Similar with $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
-we consider $p$ to proceed the Local lemma \ref{thm:LLL}:
-\begin{equation}
-Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right]\leq p\label{eq:p_e1l1}
-\end{equation}
+We can formulate it by a problem of finding the largest set of subspaces
+from $\mathcal{G}_{q}\left(ht,t\right)$ such that any $\alpha$ subspaces
+of the set span a subspace of dimension at least $\left(h-1\right)t$.
+Similar to $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
+we apply the Local lemma \ref{thm:LLL} to study the gap between scalar
+and vector solutions for the $\left(1,1\right)-\mathcal{N}_{h,r,s}$
+network. Instead of the event $\mathcal{E}_{r_{1},r_{2,}r_{3}}$,
+we now consider an event $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$.
 
-\begin{lem}
-Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+Let $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$ be an event that
+a receiver $R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$such
+that $\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
-then, 
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t$, i.e.,
+
 \[
-p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
+\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}=\left\{ \mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right\} ,
+\]
+
+for $1\leq r_{1}<\ldots<r_{3}\leq r$ and $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
+chosen idenpendently and uniformly random.
+\begin{lem}
+If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$,
+then,
+\[
+p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
 \]
 \end{lem}
 \begin{proof}
-Regarding to the left-hand side in Equation \ref{eq:p_e1l1}:
 \begin{eqnarray}
-Pr\left[rk\left[\boldsymbol{A}_{j}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}Pr\left[rk\left[\boldsymbol{A}\right]=i\right]\nonumber \\
+\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]<(h-1)t\right] & = & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
+\end{array}\right]=i\right]\nonumber \\
  & \overset{1}{=} & \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\frac{N_{i,\alpha t,ht}}{q^{\left(\alpha t\right)\left(ht\right)}}\nonumber \\
  & = & \frac{1}{q^{\left(\alpha h\right)t^{2}}}\cdot\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}.\label{eq:general_nw_calc_p}
 \end{eqnarray}
 
-(1): The formula for the umber of $\left[m\times n\right]$ matrices
-of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}.
+(1): The formula for the number of $\left[\alpha t\times ht\right]$
+matrices of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was introduced
+in the previous subsection.
 
-We consider firstly the product$\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
+We consider firstly the product as a polynomial in $q$ as following,
+
+\[
+\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{\alpha t}-q^{j}\right)\left(q^{ht}-q^{j}\right)}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q).
+\]
 
 For $t\rightarrow\infty$: $\left.\begin{array}{c}
 deg\left(p_{N}^{(i)}(q)\right)=q^{i(\alpha t+ht)}\\
@@ -1515,20 +1472,16 @@ over then upper-range limit.
 Secondly, we apply the maximum value with the sum, we have:
 \begin{eqnarray*}
  & max\left\{ \stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)\right\}  & \in\Theta\left(q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}\right)\\
-\Rightarrow & max\left\{ \frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right\}  & \in\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
+\Rightarrow & max\left\{ \frac{\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)}{q^{\left(\alpha h\right)t^{2}}}\right\}  & \in\Theta\left(\frac{q^{\left[\left(h-1\right)\left(\alpha+1\right)\right]t^{2}+\mathcal{O}(t)}}{q^{\left(\alpha h\right)t^{2}}}\right)
 \end{eqnarray*}
 \[
-\Rightarrow p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right)
+\Rightarrow p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right)
 \]
 \end{proof}
 \begin{lem}
-Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]<(h-1)t\right]\leq p,\forall1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}_{j}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
-and each event $\mathcal{E}_{i}$ is independent of all others except
-for at most $d$ of them, then $d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$\label{lem:d_e1l1}.
+Each event $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$ is dependent
+for at most $d\left(r\right)\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}$
+other events. \label{lem:d_e1l1}
 \end{lem}
 \begin{proof}
 Similar with $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{3,r,4}$,
@@ -1541,67 +1494,69 @@ r-1\\
 \]
 \end{proof}
 \begin{thm}
-If $r\leq\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$,
+If there is $r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$,
 then there exists a vector solution for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
-network.
+network for any $r\leq r_{\mathrm{max,vector}}$.
 \end{thm}
 \begin{proof}
 As previous, satisfying LLL \ref{thm:LLL} is equivalent to an existence
 of a vector solution. We need $4dp\leq1$, and following to Lemma
 \ref{lem:d_e1l1}: $d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}\Rightarrow r\leq\left(\frac{\left(\alpha-1\right)!}{4\alpha}\cdot\frac{1}{p}\right)^{\frac{1}{\alpha-1}}=r_{max,vector}$.
-We thus again find a lower bound of $r_{max,vector}$.
 
 By Lemma \ref{lem:d_e1l1}, we have $p\leq\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2$,
 
-$\Rightarrow min\left\{ r_{max,vector}\right\} \in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$.
+$\Rightarrow r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$.
 
-Hence, the Local lemma \ref{thm:LLL} is satisfied, when $r\leq\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$,
+Hence, the sufficient condition of the Local lemma \ref{thm:LLL}
+is satisfied for any $r\leq r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$,
 and a vector solution exists for such $r$.
 \end{proof}
-
-\subsection{Find the Upper Bound of $r_{max,scalar}$}
-
-\noindent\fbox{\begin{minipage}[t]{1\columnwidth - 2\fboxsep - 2\fboxrule}%
-Find $\left(\alpha+1\right)$ received vectors that span a subspace
-of dimension $h$. This implies that the $\alpha$ links from the
-middle layer carry $\alpha$ vectors which span a subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$
-whose dimension is at least $\left(h-1\right)$, with $q_{\mathrm{s}}=q^{t}$.%
-\end{minipage}}
-
-Following to Theorem (\ref{nw_parameters}), we are interested in
-the following range: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
+To calculate the gap, we then consider scalar solutions of the network.
+\begin{thm}
+If there exists $r_{\mathrm{max,scalar}}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)$,
+then there exists a scalar solution for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
+network for any $r\leq r_{\mathrm{max,scalar}}$.
+\end{thm}
+\begin{proof}
+Following to Theorem \ref{nw_parameters}, we are interested in the
+following range: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 
 For $3\leq\alpha<h$: all $\alpha$ links must be distinct $\Rightarrow r\leq\left[\begin{array}{c}
 \alpha\\
 1
-\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r\leq\mathcal{O}\left(q_{s}^{\alpha-1}\right)$
+\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r\leq\mathcal{O}\left(q_{s}^{\alpha-1}\right)$.
 
 For $\alpha\geq h\geq3$: to achieve $(h-1)$-subspaces of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$,
 no $\alpha$ links will contain a vector which is contained in the
 same $(h-2)$-subspace.
 
-Hence,
+Hence, a scalar solution exists if
 \[
-r_{max,scalar}\leq\left(\alpha-1\right)\left[\begin{array}{c}
+r\leq\left(\alpha-1\right)\left[\begin{array}{c}
 \alpha\\
 h-2
-\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r_{max,scalar}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
+\end{array}\right]_{q_{\mathrm{s}}}\Rightarrow r_{\mathrm{max,scalar}}\in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}}\right)
 \]
-
-
-\subsection{Calculate Gap }
+\end{proof}
+\begin{cor}
+The $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$ network
+has a vector solution with a gap $q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$.
+\end{cor}
+\begin{proof}
+Following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol},
 
 \begin{eqnarray*}
- & r_{max,scalar} & =min\left\{ r_{max,vector}\right\} \\
+ & r_{\mathrm{max,scalar}} & =r_{\mathrm{max,vector}}\\
 \Leftrightarrow & q_{\mathrm{s}}^{\left(\alpha-h+2\right)\left(h-2\right)t^{2}} & =q^{\frac{h-\alpha-1}{1-\alpha}t^{2}+\mathcal{O}(t)}\\
 \Leftrightarrow & q_{\mathrm{s}} & ^{=}q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}\\
 \Rightarrow & g & =q_{\mathrm{s}}-q_{v}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}
 \end{eqnarray*}
+\end{proof}
 
-
-\section{$\left(\epsilon=1,\ell\protect\geq2\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$}
+\section{$\left(\epsilon=1,\ell\protect\geq2\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
+Network}
 \begin{lem}
-\label{lem:p_e1l2} Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+\label{lem:p_e1l2} Let $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -1615,11 +1570,11 @@ p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
 A bad event in this vector network coding problem has the following
 probability:
 \begin{eqnarray}
-Pr\left[rk\left[\begin{array}{c}
+\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
-\end{array}\right]<\left(2\ell-1\right)t\right] & = & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}Pr\left[rk\left[\begin{array}{c}
+\end{array}\right]<\left(2\ell-1\right)t\right] & = & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -1674,7 +1629,7 @@ Hence, by using the exact bound $\Theta$, we have:
 \]
 \end{proof}
 \begin{lem}
-Let $Pr\left[\mathcal{E}_{i}\right]=Pr\left[rk\left[\begin{array}{c}
+Let $\mathrm{Pr}\left[\mathcal{E}_{i}\right]=\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \vdots\\
 \boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
@@ -1702,7 +1657,7 @@ so that a vector solution exists. Following to Lemma \ref{lem:d_e1l2},
 we have $d\leq2r\Rightarrow4\cdot p\cdot2r\leq1\Rightarrow r\leq\frac{1}{8p}$.
 We still need to maximize $p$ to get lower on $r_{max,vector}$,
 and we have $p\leq\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2$
-in Lemma \ref{lem:p_e1l2}. Thus, $min\left\{ r_{max,vector}\right\} \in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$.
+in Lemma \ref{lem:p_e1l2}. Thus, $r_{max,vector}\in\Omega\left(\frac{1}{8p}\right)=\Omega\left(q^{t^{2}+2t+1}\right)$.
 
 Hence, the Local lemma in \ref{thm:LLL} is satisfied, when $r\leq\Omega\left(q^{t^{2}/2+\mathcal{O}\left(t\right)}\right)$.
 None of bad events occurs, so there exists a vector solution for such
@@ -1715,19 +1670,17 @@ such that any $\alpha=2$ subspaces of the set span a subspace of
 dimension at least $2\ell-1$. 
 \end{lem}
 \begin{proof}
-Let's denote any 2 subspaces of $\mathcal{G}_{q}\left(h=2\ell,\ell\right)$
-as $\mathcal{U}$ and $\mathcal{V}$. If $\mathcal{U}$ and $\mathcal{V}$
-span a subspace of dimension at least $2\ell-1$, then we have $dim\left(\mathcal{U}+\mathcal{V}\right)=2\ell-1$,
-with $\mathcal{U}+\mathcal{V}$. Therefore, $dim\left(\mathcal{U}\cap\mathcal{V}\right)=dim\left(\mathcal{U}\right)+dim\left(\mathcal{V}\right)-dim\left(\mathcal{U}+\mathcal{V}\right)=1$,
-which leads to the subspace distance $d_{s}(\mathcal{U},\mathcal{V})=2dim\left(\mathcal{U}+\mathcal{V}\right)-dim\left(\mathcal{U}\right)-dim\left(\mathcal{V}\right)=2\ell-2$.
-No 2 $\ell$-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$
-will contain a vector which is contained in the same $\left(2\ell-2\right)$-subspace,
-but $\left(2\ell-1\right)$ of such subspaces can have such vectors,
+Any 2 $\ell$-dimensional subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$
+are distincts, so any 2 subspaces of the $\mathcal{G}_{q}\left(2\ell,\ell\right)$
+span a subspace of dimension at least $2\ell-1$. The number of intermediate
+nodes is therefore at most the number of distinct $\ell$-dimensional
+subspaces of $\ensuremath{\mathbb{F}}_{q_{s}}^{2\ell}$, and a scalar
+solution exists if
 \[
-\Rightarrow r_{scalar}\leq\left(2\ell-1\right)\left[\begin{array}{c}
+r\leq\left[\begin{array}{c}
 2\ell\\
 2\ell-2
-\end{array}\right]_{q_{s}}\Rightarrow r_{scalar}\leq\mathcal{O}\left(q_{s}^{l}\right)
+\end{array}\right]_{q_{s}}\Rightarrow r_{\mathrm{max,scalar}}\in\mathcal{O}\left(q_{s}^{l}\right)
 \]
 \end{proof}
 \begin{cor}
@@ -1761,7 +1714,7 @@ which is clearly explained in Section \ref{sec:Alternative-Approaches}.
 Construction 2: $\boldsymbol{T}\in U\left(t,3t\right)$, which is
 described in the following Section \ref{sec:Main-Approach}.
 
-\section{Main Approach \label{sec:Main-Approach}}
+\section{Incremental Algorithm \label{sec:Main-Approach}}
 
 Regarding to $t=2$, for a scalar network coding solution we need
 a $3-\left(3,1,1\right)_{4}^{c}$ code ($q_{v}=2^{2}=4)$ by Theorem
@@ -1803,7 +1756,7 @@ $N\lll\left(\begin{array}{c}
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{H}_{j}$
 such that:
 \[
-rk\left[\boldsymbol{H}_{j}\right]=rk\left[\begin{array}{c}
+\mathrm{rk}\left[\boldsymbol{H}_{j}\right]=\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
@@ -2049,7 +2002,7 @@ the visual explanation of $subrel$ is shown.
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 represents as a matrix problem\label{fig:rel_example}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/rel_example}
+\centering{}\includegraphics[width=0.5\paperwidth]{../figures/rel_example}
 \end{figure}
 
 \begin{thm}
@@ -2074,14 +2027,12 @@ Therefore,
 \]
 which is still true when the size of identity tuples becomes smaller.
 \end{proof}
-
-\section{Alternative Approaches \label{sec:Alternative-Approaches}}
-
-Firstly, instead of using \textit{matrix space with unique row space},
-we use the whole matrix space $M\left(n,m\right)$. In case $t=2$,
-we cover all $2^{3t^{2}}=4096$ matrices instead of only 715 matrices
-in Section \ref{sec:Main-Approach}, which will help the Algorithm
-\ref{alg:Increasing-Method} cover the optimal vector solution.
+We have tried 2 variants of the above algorithm as following. Firstly,
+instead of using \textit{matrix space with unique row space}, we use
+the whole matrix space $M\left(n,m\right)$. In case $t=2$, we cover
+all $2^{3t^{2}}=4096$ matrices instead of only 715 matrices in Section
+\ref{sec:Main-Approach}, which will help the Algorithm \ref{alg:Increasing-Method}
+cover the optimal vector solution.
 \begin{defn}[Good Global Coding Vector\label{def:almost_sufficient_global_coding_vector}]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ and
 $N\leq\left(\begin{array}{c}
@@ -2091,7 +2042,7 @@ $N\leq\left(\begin{array}{c}
 contains distinct \textit{sufficient global coding vectors} $\boldsymbol{T}_{j}$
 such that:
 \[
-rk\left[\boldsymbol{T}_{j}\right]=rk\left[\begin{array}{c}
+\mathrm{rk}\left[\boldsymbol{T}_{j}\right]=\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}\\
 \boldsymbol{B}\\
 \boldsymbol{C}
@@ -2117,9 +2068,11 @@ the list, if the matrix and any 2 existing matrices in the list satisfy
 Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
 all matrices in $U\left(t=2,3t=6\right)$ are checked.
 
-Thirdly, in Algorithm \ref{alg:Decreasing-Method} called ``Decreasing
-Method'', we tried removing bad matrices from a set of 715 matrices,
-until any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
+\section{Decremental Algorithm \label{sec:Alternative-Approaches}}
+
+In Algorithm \ref{alg:Decreasing-Method}, we introduce a decremental
+algorithm by removing bad matrices from a set of 715 matrices, until
+any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
 A matrix with the less number of occurence in $\mathcal{T}_{n=3t,m=3t}$
 or $\mathcal{H}_{n=3t,m=3t}$ is evaluated as a bad matrix, and it
 is removed for each step. If many bad matrices exist, we only remove
@@ -2195,6 +2148,31 @@ k-\mathrm{t}
 \mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
 \]
 \end{thm}
+\begin{sidewaystable}[H]
+\begin{centering}
+\caption{$r$ over variations of t\label{tab:r_over_t-1}}
+\par\end{centering}
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+t & Scalar Solution ({*}) & Vector Solution ({*}) & Etzion & Construction 1 (IM) & Construction 2 (IM)\tabularnewline
+\hline 
+\hline 
+2 & $r_{scalar}\leq42$ & $r_{\mathrm{max,vector}}\in\Omega\left(7\right)$ & $r_{\mathrm{max,vector}}=121$ & $r_{\mathrm{max,vector}}=89$ & N/A\tabularnewline
+\hline 
+3 & $r_{scalar}\leq146$ & $r_{\mathrm{max,vector}}\in\Omega\left(62\right)$ & N/A & N/A & $r_{\mathrm{max,vector}}=166$\tabularnewline
+\hline 
+4 & $r_{scalar}\leq546$ & $r_{\mathrm{max,vector}}\in\Omega\left(1317\right)$ & N/A & N/A & N/A\tabularnewline
+\hline 
+5 & $r_{scalar}\leq2114$ & $r_{\mathrm{max,vector}}\in\Omega\left(58472\right)$ & N/A & N/A & N/A\tabularnewline
+\hline 
+6 & $r_{scalar}\leq8322$ & $r_{\mathrm{max,vector}}>10^{6}$ & N/A & N/A & N/A\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+\centering{}{*}: Theoretical results based on Table \ref{tab:r_over_t}.
+\end{sidewaystable}
+
 
 \part{Conclusion}
 
