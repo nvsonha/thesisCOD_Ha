@@ -15,7 +15,7 @@ which is clearly explained in Section \ref{sec:Alternative-Approaches}.
 Construction 2: $\boldsymbol{T}\in U\left(t,3t\right)$, which is
 described in the following Section \ref{sec:Main-Approach}.
 
-\section{Incremental Algorithm \label{sec:Main-Approach}}
+\section{Incremental Algorithm (IM) \label{sec:Main-Approach}}
 
 Regarding to $t=2$, for a scalar network coding solution we need
 a $3-\left(3,1,1\right)_{4}^{c}$ code ($q_{v}=2^{2}=4)$ by Theorem
@@ -77,7 +77,7 @@ Then $\boldsymbol{C}$ is called a \textit{relative} of a tuple $\left(\boldsymbo
 if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in\mathcal{H}_{n=3t,m=3t}$
 and denoted as following:
 \[
-rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}.
+\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}.
 \]
 \end{defn}
 \begin{lem}
@@ -93,9 +93,9 @@ a $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} $.
 Thus, each of these 3 matrices can form 3 different relatives:
 \[
 \begin{array}{c}
-rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}\\
-rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=\boldsymbol{B}\\
-rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
+\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=\boldsymbol{C}\\
+\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=\boldsymbol{B}\\
+\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
 \end{array}.
 \]
 Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ is $q^{3t^{2}}$.
@@ -116,7 +116,7 @@ if:
 \]
 A sub-relative is denoted by: 
 \[
-subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}.
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]=\boldsymbol{D}.
 \]
 This definition about Sub-relative is similarly again used for a set
 of 5 or more matrices.
@@ -131,31 +131,31 @@ of 5 or more matrices.
     	\STATE {$R\leftarrow$ Generate all relatives; ({*})}
 	\ENDFOR
 
-	\STATE {$P_{max}\leftarrow\{\}$ // an empty set}
+	\STATE {$P_{\mathrm{max}}\leftarrow\{\}$ // an empty set}
 	\FORALL{$\left(\textbf{X},\textbf{Y}\right) \in R$} 
-		\IF{$\left|rel\left[\left(\textbf{X},\textbf{Y}\right)\right]\right|$ is maximum}
-			\STATE {$P_{max}\leftarrow P_{max}\oplus\left(\textbf{X},\textbf{Y}\right)$ ({**})} 
+		\IF{$\left|\mathrm{rel}\left[\left(\textbf{X},\textbf{Y}\right)\right]\right|$ is maximum}
+			\STATE {$P_{\mathrm{max}}\leftarrow P_{\mathrm{max}}\oplus\left(\textbf{X},\textbf{Y}\right)$ ({**})} 
 		\ENDIF
 	\ENDFOR
 
 	\STATE {$P_{potential}\leftarrow\{\}$ // an empty set}
 	\FORALL{$\left(\textbf{E},\textbf{Q}\right) \in P_{max}$}
 		\IF{$\left|\left(\textbf{E},\textbf{Q}\right)\cup rel\left[\left(\textbf{E},\textbf{Q}\right)\right]\right|\notin P_{potential}$}
-			\STATE {$P_{potential}\leftarrow P_{potential}\oplus\left(\textbf{E},\textbf{Q}\right)$}
+			\STATE {$P_{\mathrm{potential}}\leftarrow P_{\mathrm{potential}}\oplus\left(\textbf{E},\textbf{Q}\right)$}
 		\ENDIF
 	\ENDFOR
 	
 	\STATE {$P\leftarrow\{\}$ // an empty set}
-	\FORALL{$\left(\textbf{K},\textbf{L}\right) \in P_{potential}$}
-		\FORALL{$\textbf{Z} \in rel\left[\left(\textbf{X},\textbf{Y}\right)\right]$}
-			\IF{$subrel\left[\left(\boldsymbol{K},\boldsymbol{L},\boldsymbol{Z}\right)\right]$ is maximum}
-				\STATE {$P\leftarrow P_{potential}\oplus\left(\textbf{K},\textbf{L},\textbf{Z}\right)$ ({***})}
+	\FORALL{$\left(\textbf{K},\textbf{L}\right) \in P_{\mathrm{potential}}$}
+		\FORALL{$\textbf{Z} \in \mathrm{rel}\left[\left(\textbf{X},\textbf{Y}\right)\right]$}
+			\IF{$\mathrm{subrel}\left[\left(\boldsymbol{K},\boldsymbol{L},\boldsymbol{Z}\right)\right]$ is maximum}
+				\STATE {$P\leftarrow P_{\mathrm{potential}}\oplus\left(\textbf{K},\textbf{L},\textbf{Z}\right)$ ({***})}
 			\ENDIF
 		\ENDFOR 
 	\ENDFOR
 	
-	\WHILE{$\exists subrel$ in $P$ is not empty ({****})}
-		\STATE {Line 10 to Line 23, but elements of $P_{max}$ is replaced by $P$ and the size of subrel or tuples are thus increased over each while loop.}
+	\WHILE{$\exists \mathrm{subrel}$ in $P$ is not empty ({****})}
+		\STATE {Line 10 to Line 23, but elements of $P_{\mathrm{max}}$ is replaced by $P$ and the size of subrel tuple is thus increased over each while loop.}
 	\ENDWHILE
 \end{algorithmic}
 \end{algorithm}
@@ -198,13 +198,13 @@ n\\
 \end{array}\right)\approx3n^{3}$ such pairs for generating relatives. Outputs of this step are in
 the format of 
 \[
-rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right],\forall\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\in Combination\left(U(2,6),2\right),
+\mathrm{rel}\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right],\forall\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\in\mathrm{Combination}\left(U(2,6),2\right),
 \]
-where $Combination(S,k)$ gives us all k-tuples of elements in $S$.
-Let us denote the size of each $rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+where $\mathrm{Combination}(S,k)$ gives us all k-tuples of elements
+in $S$. Let us denote the size of each $\mathrm{rel}\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
 by $m$, and we achive $3n^{3}$ different sizes in a vector $\boldsymbol{m}=\left[m_{1},\ldots,m_{3n^{3}}\right].$
 Step 1 therefore can be implemented in $\mathcal{O}\left(n^{3}\right)$
-operations. Following to Theorem \ref{theo:size_rel}, $max\left\{ \boldsymbol{m}\right\} $
+operations. Following to Theorem \ref{theo:size_rel}, $\mathrm{max}\left\{ \boldsymbol{m}\right\} $
 is the upper bound for a code size, when $3-\left(3t,t,t\right)_{q=2}^{c}$
 code for a vector solution is considered \cite[Sec. V-D]{Zhang:2019}.
 
@@ -218,19 +218,19 @@ in $\mathcal{O}\left(n^{3}\right)$ operations.
 
 Line 10 to Line 15 (\textit{Step 3}) is designed to keep only one
 of above intial pairs $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
-if its set $\left\{ \boldsymbol{C}_{i},\boldsymbol{C}_{j}\right\} \cup rel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
+if its set $\left\{ \boldsymbol{C}_{i},\boldsymbol{C}_{j}\right\} \cup\mathrm{rel}\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)\right]$
 is duplicated with any other such pairs. Step 3 can be implemented
 in $\mathcal{O}\left(n^{3}\right)$ operations.
 
 Line 16 to Line 23 (\textit{Step 4}) is for the purpose of extending
-a next matrix for this pair to form sub-relatives $subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+a next matrix for this pair to form sub-relatives $\mathrm{subrel}\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
 by checking all relatives of each pair $\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j}\right)$
-from Step 3. We have $max\left\{ \boldsymbol{m}\right\} \leq n-2$
+from Step 3. We have $\mathrm{max}\left\{ \boldsymbol{m}\right\} \leq n-2$
 because such a pair can have maximum $n-2$ relatives. Step 4 thus
 can be computed in $\mathcal{O}\left(n\right)$ operations.
 
 Line 24 to Line 26 (\textit{Step 5}): if there exist a non-empty set
-$subrel\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
+$\mathrm{subrel}\left[\left(\boldsymbol{C}_{i},\boldsymbol{C}_{j},\boldsymbol{C}_{p}\right)\right]$
 from outputs of Step 4. We run a loop of Step 3 and Step 4. This first
 loop checks maximum $n-3$ elements, because such a triplet can have
 maximum $n-3$. It will linearly reduce over each loop, and each loop
@@ -255,16 +255,16 @@ Then we have $N=4$ matrices (vectors):
 \end{array}
 \]
 \uline{Step 1} (Line 1 to Line 3): Due to, any 3 of them form a
-sufficient global coding vector, i.e. a matrix with $rk\geq2n$, we
-have the relative as following:
+sufficient global coding vector, i.e. a matrix whose rank is greater
+than or equal to $2n$, we have the relative as following:
 \[
 \begin{array}{c}
-rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=[\boldsymbol{C},\boldsymbol{D}]\\
-rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=[\boldsymbol{B},\boldsymbol{D}]\\
-rel\left[\left(\boldsymbol{A},\boldsymbol{D}\right)\right]=[\boldsymbol{B},\boldsymbol{C}]\\
-rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]=[\boldsymbol{A},\boldsymbol{D}]\\
-rel\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{C}]\\
-rel\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{B}]
+\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]=[\boldsymbol{C},\boldsymbol{D}]\\
+\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]=[\boldsymbol{B},\boldsymbol{D}]\\
+\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{D}\right)\right]=[\boldsymbol{B},\boldsymbol{C}]\\
+\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]=[\boldsymbol{A},\boldsymbol{D}]\\
+\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{C}]\\
+\mathrm{rel}\left[\left(\boldsymbol{C},\boldsymbol{D}\right)\right]=[\boldsymbol{A},\boldsymbol{B}]
 \end{array}
 \]
 \uline{Step 2} (Line 4 to Line 9): We get the maximum size of these
@@ -272,20 +272,20 @@ steps is $2$ and $P_{max}$ results in all $\left\{ \boldsymbol{A},\boldsymbol{B}
 because $\underset{\begin{array}{c}
 \forall\boldsymbol{X},\boldsymbol{Y}\in M(1,2)\\
 \boldsymbol{X}\neq\boldsymbol{Y}
-\end{array}}{max}\left(rel\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$.
+\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$.
 
 \uline{Step 3} (Line 10 to Line 14): Due to $\left\{ \boldsymbol{E},\boldsymbol{Q}\right\} \cup rel\left[\left(\boldsymbol{E},\boldsymbol{Q}\right)\right]=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $
 with $\left(\boldsymbol{E},\boldsymbol{Q}\right)$ are tuples from
-$P_{max}$ found in Step 2. We keep only $P_{potential}=\left\{ \left(\boldsymbol{A},\boldsymbol{B}\right):rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right\} $
+$P_{max}$ found in Step 2. We keep only $P_{\mathrm{potential}}=\left\{ \left(\boldsymbol{A},\boldsymbol{B}\right):\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right\} $
 
-\uline{Step 4} (Line 16 to 23): Regarding to $rel\left[\left(\boldsymbol{K},\boldsymbol{L}\right)\right]=rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+\uline{Step 4} (Line 16 to 23): Regarding to $\mathrm{rel}\left[\left(\boldsymbol{K},\boldsymbol{L}\right)\right]=\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
 we have $\boldsymbol{Z}\in\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $.
-Then, $\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|=\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|=1$,
+Then, $\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|=\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|=1$,
 so we get $P=\left\{ \left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right),\left(\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right)\right\} $.
 
 \uline{Step 5}: The maximum size of subrel in $P$ is larger than
 $0$, so we proceed the while loop. Step 3 will be looped firstly,
-and we get $P_{potential}=\left\{ \left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right):rel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right\} $.
+and we get $P_{\mathrm{potential}}=\left\{ \left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right):\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right\} $.
 
 \uline{Step 6}: As step 4, we get a result $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $.
 \end{example}
@@ -294,16 +294,16 @@ and we get $P_{potential}=\left\{ \left(\boldsymbol{A},\boldsymbol{B},\boldsymbo
 For further understanding of Algorithm \ref{alg:Increasing-Method},
 we use Figure \ref{fig:rel_example} for illustration. In Figure \ref{fig:rel_example}(c),
 we observe that the size of relative becomes smaller when its tuple
-identity is larger, i.e. $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
-or $\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.Regarding
+identity is larger, i.e. $\left|\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|$
+or $\left|\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{D}\right)\right]\right|$.Regarding
 to Figure \ref{fig:rel_example}(a) and \ref{fig:rel_example}(b),
-the visual explanation of $subrel$ is shown.
+the visual explanation of $\mathrm{subrel}$ is shown.
 \end{example}
 \begin{figure}[H]
 \caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
 represents as a matrix problem\label{fig:rel_example}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{../figures/rel_example}
+\centering{}\includegraphics[width=0.5\paperwidth]{./figures/rel_example}
 \end{figure}
 
 \begin{thm}
@@ -311,20 +311,20 @@ The size of relatives and sub-relatives become smaller with there
 are more elements in their identity tuples. \label{theo:size_rel}
 \end{thm}
 \begin{proof}
-We call $\left(\boldsymbol{A},\boldsymbol{B}\right)$ of $rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
-$\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$ of $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]$,
+We call $\left(\boldsymbol{A},\boldsymbol{B}\right)$ of $\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+$\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$ of $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]$,
 or such $n$-tuples with $2\leq n\leq U\left(t,3t\right)$ by \textit{identity
 tuples}. In Figure \ref{fig:rel_example}(a), we can see that 
 \[
-subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
 \]
 
-so $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
-$subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$,
-and $subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq rel\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$.
+so $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
+$\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$,
+and $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$.
 Therefore,
 \[
-\left|rel\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|subrel\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
+\left|\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
 \]
 which is still true when the size of identity tuples becomes smaller.
 \end{proof}
@@ -369,7 +369,7 @@ the list, if the matrix and any 2 existing matrices in the list satisfy
 Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
 all matrices in $U\left(t=2,3t=6\right)$ are checked.
 
-\section{Decremental Algorithm \label{sec:Alternative-Approaches}}
+\section{Decremental Algorithm (DM) \label{sec:Alternative-Approaches}}
 
 In Algorithm \ref{alg:Decreasing-Method}, we introduce a decremental
 algorithm by removing bad matrices from a set of 715 matrices, until
@@ -449,29 +449,36 @@ k-\mathrm{t}
 \mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
 \]
 \end{thm}
+
+\newpage{}
 \begin{sidewaystable}[H]
-\begin{centering}
-\caption{$r$ over variations of t\label{tab:r_over_t-1}}
-\par\end{centering}
 \begin{centering}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
-t & Scalar Solution ({*}) & Vector Solution ({*}) & Etzion & Construction 1 (IM) & Construction 2 (IM)\tabularnewline
+t & Scalar Solution ({*}) & Vector Solution ({*}) & Etzion and Kurz & Construction 1 (IM) & Construction 2 (IM)\tabularnewline
 \hline 
 \hline 
-2 & $r_{scalar}\leq42$ & $r_{\mathrm{max,vector}}\in\Omega\left(7\right)$ & $r_{\mathrm{max,vector}}=121$ & $r_{\mathrm{max,vector}}=89$ & N/A\tabularnewline
+2 & $r_{\mathrm{max,scalar}}=42$ & $r_{\mathrm{max,vector}}\geq7$ & $r_{\mathrm{max,vector}}=121$ & $r_{\mathrm{max,vector}}=89$ & N/A\tabularnewline
 \hline 
-3 & $r_{scalar}\leq146$ & $r_{\mathrm{max,vector}}\in\Omega\left(62\right)$ & N/A & N/A & $r_{\mathrm{max,vector}}=166$\tabularnewline
+3 & $r_{\mathrm{max,scalar}}=146$ & $r_{\mathrm{max,vector}}\geq62$  & N/A & N/A & $r_{\mathrm{max,vector}}=166$\tabularnewline
 \hline 
-4 & $r_{scalar}\leq546$ & $r_{\mathrm{max,vector}}\in\Omega\left(1317\right)$ & N/A & N/A & N/A\tabularnewline
+4 & $r_{\mathrm{max,scalar}}=546$ & $r_{\mathrm{max,vector}}\geq1317$ & N/A & N/A & N/A\tabularnewline
 \hline 
-5 & $r_{scalar}\leq2114$ & $r_{\mathrm{max,vector}}\in\Omega\left(58472\right)$ & N/A & N/A & N/A\tabularnewline
+5 & $r_{\mathrm{max,scalar}}=2114$ & $r_{\mathrm{max,vector}}\geq58472$ & N/A & N/A & N/A\tabularnewline
 \hline 
-6 & $r_{scalar}\leq8322$ & $r_{\mathrm{max,vector}}>10^{6}$ & N/A & N/A & N/A\tabularnewline
+6 & $r_{\mathrm{max,scalar}}=8322$ & $r_{\mathrm{max,vector}}>10^{6}$ & N/A & N/A & N/A\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
-\centering{}{*}: Theoretical results based on Table \ref{tab:r_over_t}.
+\centering{}\caption{Vector solutions outperform the optimal scalar solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network over $t=2,\ldots,6$. For $t=2$, the vector solution found
+in \cite{Etzion:2018} gives the largest number of the intermediate
+nodes with $r_{\mathrm{max,vector}}=121$. For $t=3$, our vector
+solution gives a better result than both the optimal scalar solution
+and the combinatorial vector solution with $r_{\mathrm{max,vector}}=166$.
+For $t=3,\ldots,6$, all of our combinatorial vector solutions outperform
+the optimal scalar one. ({*}): Theoretical results based on Table
+\ref{tab:r_over_t}.\label{tab:r_over_t-1}}
 \end{sidewaystable}
 
 \clearpage

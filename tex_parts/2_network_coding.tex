@@ -22,7 +22,7 @@ applicable to present-day wireline networks\footnote{Wireless network coding was
 \begin{figure}[H]
 \caption{Incoming links and outgoing links of a node in network coding \label{fig:incoming_links}}
 
-\centering{}\includegraphics[height=0.15\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/incoming_edges}
+\centering{}\includegraphics[height=0.15\paperwidth]{./figures/incoming_edges}
 \end{figure}
 In simple routing, information is transmitted from the source to receivers
 through a chain of \textit{intermediate nodes} by a method known as
@@ -71,7 +71,7 @@ in a wireline network is a standard example for an increase of throughput.
 \begin{figure}[H]
 \caption{The butterfly network \label{fig:The-butterfly-network}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network}
+\centering{}\includegraphics[width=0.5\paperwidth]{./figures/ahlswede_butterfly_network}
 \end{figure}
 In Figure \ref{fig:The-butterfly-network}, we denoted a receiver
 by ``Recv'', which is used for all of figures in this study. With
@@ -154,19 +154,19 @@ The linear equation system that any receiver $R_{j}$ has to solve
 is as following:
 \begin{equation}
 \begin{array}{c|c}
-Scalar & Vector\\
+\mathrm{Scalar} & \mathrm{Vector}\\
 \underset{\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s}}{\underbrace{\left[\begin{array}{c}
-y_{j_{1}}\\
+y_{j}^{\left(1\right)}\\
 \vdots\\
-y_{j_{s}}
+y_{j}^{\left(s\right)}
 \end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s\times h}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q_{s}}^{h}}{\underbrace{\left[\begin{array}{c}
 x_{1}\\
 \vdots\\
 x_{h}
 \end{array}\right]}} & \underset{\ensuremath{\mathbb{F}}_{q}^{st}}{\underbrace{\left[\begin{array}{c}
-\boldsymbol{y}_{j_{1}}\\
+\boldsymbol{y}_{j}^{\left(1\right)}\\
 \vdots\\
-\boldsymbol{y}_{j_{s}}
+\boldsymbol{y}_{j}^{\left(s\right)}
 \end{array}\right]}}=\underset{\ensuremath{\mathbb{F}}_{q}^{st\times th}}{\underbrace{\boldsymbol{A}_{j}}}\cdot\underset{\ensuremath{\mathbb{F}}_{q}^{th}}{\underbrace{\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \vdots\\
@@ -180,19 +180,21 @@ on $\alpha l$ links from $\alpha$ nodes and $\epsilon$ direct-links
 to the corresponding receiver $R_{j}$:
 \[
 \begin{array}{c|c}
-Scalar & Vector\\
+\mathrm{Scalar} & \mathrm{Vector}\\
 \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{a}_{j_{1}}\\
+\boldsymbol{a}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{a}_{j_{\alpha\ell}}\\
+\boldsymbol{a}^{\left(r_{\alpha l}\right)}\\
+\boldsymbol{b}^{\left(\epsilon\left(j-1\right)+1\right)}\\
 \vdots\\
-\boldsymbol{a}_{j_{\alpha\ell+\epsilon}}
+\boldsymbol{b}^{\left(\epsilon j\right)}
 \end{array}\right] & \boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j_{1}}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha l}}\\
+\boldsymbol{A}^{\left(r_{\alpha l}\right)}\\
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\\
 \vdots\\
-\boldsymbol{A}_{j_{\alpha l+\epsilon}}
+\boldsymbol{B}^{\left(\epsilon j\right)}
 \end{array}\right]
 \end{array}
 \]
@@ -232,19 +234,25 @@ x_{1},\ldots,x_{h}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\\
 \boldsymbol{x}\in\ensuremath{\mathbb{F}}_{q}^{th}
 \end{array}$\tabularnewline
 \hline 
-Global Coding Vectors Of Receiver $R_{j}$ & $\boldsymbol{a}_{j_{1}},\ldots,\boldsymbol{a}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$ & $\boldsymbol{A}_{j_{1}},\ldots,\boldsymbol{A}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}$\tabularnewline
+Global Coding Vectors Of Receiver $R_{j}$ & $\begin{array}{c}
+\boldsymbol{a}^{\left(r_{1}\right)},\ldots,\boldsymbol{a}^{\left(r_{\alpha l}\right)}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}\\
+\boldsymbol{b}^{\left(\epsilon\left(j-1\right)+1\right)},\ldots,\boldsymbol{b}^{\left(\epsilon j\right)}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}
+\end{array}$ & $\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{\alpha l}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}\\
+\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)},\ldots,\boldsymbol{B}^{\left(\epsilon j\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times th}
+\end{array}$\tabularnewline
 \hline 
 Transfer Matrix Of Receiver $R_{j}$ & $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s\times h}$ & $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{st\times th}$\tabularnewline
 \hline 
 Packets On Receiver $R_{j}$ & $\begin{array}{c}
-y_{j_{1}},\ldots,y_{j_{s}}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\\
-\boldsymbol{y}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s}
+y_{j}^{\left(1\right)},\ldots,y_{j}^{\left(s\right)}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\\
+\boldsymbol{y}_{j}\in\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{s}
 \end{array}$ & $\begin{array}{c}
-\boldsymbol{y}_{j_{1}},\ldots,\boldsymbol{y}_{j_{s}}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
+\boldsymbol{y}_{j}^{\left(1\right)},\ldots,\boldsymbol{y}_{j}^{\left(s\right)}\in\ensuremath{\mathbb{F}}_{q}^{t}\\
 \boldsymbol{Y}_{j}\in\ensuremath{\mathbb{F}}_{q}^{st}
 \end{array}$\tabularnewline
 \hline 
-Number of nodes & $r_{scalar}$ & $r_{vector}$\tabularnewline
+Number of nodes & $r_{\mathrm{scalar}}$ & $r_{\mathrm{vector}}$\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -287,7 +295,7 @@ discussed in \cite[Sec. 4.3]{Fragouli:2006}, \cite[Sec. 4.1]{Yeung:2006},
 \begin{figure}[H]
 \caption{The butterfly network is represented as a combination network \label{fig:butterfly_nw_cn}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/ahlswede_butterfly_network_CN}
+\centering{}\includegraphics[width=0.5\paperwidth]{./figures/ahlswede_butterfly_network_CN}
 \end{figure}
 A generalization of a CN \cite{Riis:2006} is called generalized combination
 network (GCN). GCN defined in \cite{Etzion:2016,Wachter-Zeh:2018}
@@ -313,20 +321,33 @@ of the gap and GCN can be found in Section \ref{sec:Description_GCN}.
 
 \subsection{Comparison between scalar and vector solutions by the gap size \label{subsec:Comparison-between-scalar-and-vector-sol}}
 
-The \textit{gap} represents the difference between the smallest field
+A \textit{gap} represents the difference between the smallest field
 (alphabet) size for which a scalar linear solution exists and the
-smallest alphatbet size for which we can construct a vector solution.
+smallest alphabet size for which we can construct a vector solution.
 In this study, we define a solvable vector network coding over the
 field size $\ensuremath{\mathbb{F}}_{q}^{t}$, and we find the lower
 bound of the maximum number of nodes such vector solution can achieve,
-i.e. $r_{\mathrm{max,vector}}\in f_{1}(q,t,\alpha,h)$, with $f_{1}:\mathbb{Z}\mapsto\mathbb{Z}$.
-Meanwhile, we has a scalar solution for the same network existing
-if and only if $r\leq r_{\mathrm{max,scalar}}=f_{2}\left(q_{\mathrm{s}}\right)$,
-with $f_{2}:\mathbb{Z}\mapsto\mathbb{Z}$. To find the field size
-$q_{\mathrm{s}}$ required for a scalar solution to reach the maximum
-achievable vector solution's nodes in this setting, we consider $r_{\mathrm{max,scalar}}=f_{2}\left(q_{\mathrm{s}}\right)=f_{1}(q,t,\alpha,h)=r_{\mathrm{max,vector}}$.
-Finally, we calculate the gap by $g=q_{\mathrm{s}}-q_{v}=q_{\mathrm{s}}-q^{t}.$
+i.e. $r_{\mathrm{max,vector}}=f_{\mathrm{1}}(q,t,\alpha,h)\geq f_{\mathrm{1,lower\,bound}}\left(q,t,\alpha,h\right)$,
+with $f_{\mathrm{1}}:\mathbb{Z}\rightarrow\mathbb{Z}$. Meanwhile,
+we has a scalar solution for the same network existing if and only
+if $r\leq r_{\mathrm{max,scalar}}=f_{\mathrm{2}}\left(q_{\mathrm{s}}\right)\leq f_{\mathrm{2,upper\,bound}}\left(q_{\mathrm{s}}\right)$,
+with $f_{\mathrm{2}}:\mathbb{Z}\rightarrow\mathbb{Z}$. To find the
+field size $q_{\mathrm{s}}$ required for a scalar solution to reach
+the maximum achievable vector solution's nodes in this setting, we
+consider $r_{\mathrm{max,scalar}}=f_{\mathrm{2}}\left(q_{\mathrm{s}}\right)=f_{\mathrm{1}}(q,t,\alpha,h)=r_{\mathrm{max,vector}}$
+and express $q_{\mathrm{s}}$ in term of $q,t,\alpha,h$. In other
+words, we compute such field size as following, $q_{\mathrm{s}}\left(q,t,\alpha,h\right)=\mathrm{\mathrm{min}\left\{ q_{\mathrm{s}}:f_{\mathrm{2}}\left(q_{\mathrm{s}}\right)\geq f_{\mathrm{1}}\left(q,t,\alpha,h\right)\right\} }$,
+we then calculate the gap by $g=q_{\mathrm{s}}-q_{v}=q_{\mathrm{s}}-q^{t}$,
+which is similar to the way to compute the gap in \cite{Wachter-Zeh:2018}.
+In this thesis, we focus on a lower bound of the gap as following,
+\[
+\text{g}\geq g_{\mathrm{lower\,bound}}=q_{\mathrm{s,min,from\,bound}}(q,t,\alpha,h)-q^{t}
+\]
+
+, where $q_{\mathrm{s,min,from\,bound}}=\mathrm{min}\left\{ q_{\mathrm{s}}:f_{\mathrm{2,upper\,bound}}\left(q_{\mathrm{s}}\right)\geq f_{\mathrm{1,lower\,bound}}\left(q,t,\alpha,h\right)\right\} $. 
+
 Throughout this study, we show that vectors solutions significantly
-reduce the required alphabet size by this gap.
+reduce the required alphabet size by the lower bound of the gap denoted
+by $g_{\mathrm{lower\,bound}}$.
 
 \clearpage

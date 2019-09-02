@@ -30,7 +30,7 @@ satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 \begin{figure}[H]
 \caption{The generalized network $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$\label{fig:The-generalized-network}}
 
-\centering{}\includegraphics[width=0.5\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/generalized_combination_nw}
+\centering{}\includegraphics[width=0.5\paperwidth]{./figures/generalized_combination_nw}
 \end{figure}
 
 \begin{thm}[\cite{Wachter-Zeh:2018}]
@@ -161,7 +161,7 @@ coding.
 \caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
 to the equivalent vector solution\label{fig:x_mapping}}
 
-\centering{}\includegraphics[width=0.3\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/x_mapping}
+\centering{}\includegraphics[width=0.3\paperwidth]{./figures/x_mapping}
 \end{figure}
 \end{example}
 We use the table of the extension field $\ensuremath{\mathbb{F}}_{2^{2}}$
@@ -189,8 +189,8 @@ $\alpha^{2}$ & $\alpha+1$ & 11\tabularnewline
 For scalar coding, the messages are $x_{1},\ldots,x_{h=3}\in\ensuremath{\mathbb{F}}_{2^{2}}$
 , and for vector coding the messages are $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{h=3}\in\ensuremath{\mathbb{F}}_{2}^{2}$.
 From the polynomial column, let's choose arbitrarily a scalar vector
-$\boldsymbol{x}_{scalar}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$.
-Then, we map it to $\boldsymbol{x}_{vector}=(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3})$
+$\boldsymbol{x}_{\mathrm{scalar}}=(x_{1},x_{2},x_{3})=(1,\alpha,\alpha+1)$.
+Then, we map it to $\boldsymbol{x}_{\mathrm{vector}}=(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3})$
 by using the binary vector column as following:
 \[
 \left[\begin{array}{c}
@@ -224,13 +224,15 @@ a_{t-1}
 
 \section{Instances of Generalized Combination Network}
 
-The subsection lists all instances of the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
+This subsection lists all instances of the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
 network used by Etzion and Wachter-Zeh in \cite{Wachter-Zeh:2018}
-to derive bounds on the corresponding network's gaps between scalar
-and vector network coding. They cover small and large values of the
-pair $(\epsilon,\ell)$, i.e. $(\epsilon=0,\ell=1)$, $(\epsilon=1,\ell)$,
-$(\epsilon,\ell=1)$ and $(\epsilon=l-1,\ell)$. In Section \ref{sec:e1l1_nw},
-we study another interesting case $(\epsilon=1,\ell=1)$.
+to derive gaps between scalar and vector network coding. They cover
+some extreme values of the pair $(\epsilon,\ell)$, i.e. $(\epsilon=0,\ell=1)$,
+$(\epsilon=1,\ell)$, $(\epsilon,\ell=1)$ and $(\epsilon=l-1,\ell)$.
+In Section \ref{sec:e1l1_nw}, we further study these interesting
+cases $(\epsilon=1,\ell=1)$, $(\epsilon>1,\ell=1)$ and $(\epsilon=1,\ell>1)$.
+In Table \ref{tab:New-gap-found}, we show our newly found gaps and
+compare our gaps with known gaps found in \cite{Wachter-Zeh:2018}.
 
 \subsection{The $(\ell-1)$-Direct Links and $\ell$-Parallel Links $\mathcal{N}_{h=2l,r,s=3l-1}$
 Network}
@@ -239,8 +241,8 @@ This network family is denoted by $\left(\ell-1,\ell\geq2\right)-\mathcal{N}_{2\
 This family contains the largest number of direct links from the source
 to the receivers among all families of GCN. Its vector solution can
 be provided by an $\mathcal{MRD}\left[\ell t\times\ell t,t\right]_{q}$
-code for any $r_{vector}\leq q^{\ell\left(\ell-1\right)t^{2}+\ell t}$.
-There is a scalar solution for this network, if and ony if $r_{scalar}\leq\left[\begin{array}{c}
+code for any $r_{\mathrm{vector}}\leq q^{\ell\left(\ell-1\right)t^{2}+\ell t}$.
+There is a scalar solution for this network, if and ony if $r_{\mathrm{scalar}}\leq\left[\begin{array}{c}
 2\ell\\
 \ell
 \end{array}\right]_{q_{s}}<4_{q_{s}}^{\ell^{2}}$. Therefore, the gap tends to $q^{t^{2}+\mathcal{O}\left(t\right)}$
@@ -249,7 +251,7 @@ for large $\ell$.
 \caption{The $\left(1,2\right)-\mathcal{N}_{4,r,5}$ network as an example
 of the $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ \label{fig:network_l1e2h4rs5}}
 
-\centering{}\includegraphics[width=0.4\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_e1_l2_h4_r_s5}
+\centering{}\includegraphics[width=0.4\paperwidth]{./figures/nw_e1_l2_h4_r_s5}
 \end{figure}
 
 
@@ -271,7 +273,7 @@ to $q^{t^{2}/2+\mathcal{O}\left(t\right)}$ with a vector solution
 \caption{The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
 \label{fig:network_special2}}
 
-\centering{}\includegraphics[width=0.45\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special2}
+\centering{}\includegraphics[width=0.45\paperwidth]{./figures/nw_special2}
 \end{figure}
 
 
@@ -290,7 +292,7 @@ and the $\left(1,1\right)-\mathcal{N}_{h,r,s}$ network.
 \caption{The $\left(\epsilon\protect\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network \label{fig:network_special3}}
 
-\centering{}\includegraphics[width=0.45\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special3}
+\centering{}\includegraphics[width=0.45\paperwidth]{./figures/nw_special3}
 \end{figure}
 
 
@@ -308,7 +310,7 @@ e.g. $\mathcal{N}_{2,r,2}$, and they conjecture it for all $h$.
 \caption{The $\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ combination
 network \label{fig:network_special4}}
 
-\centering{}\includegraphics[width=0.4\paperwidth]{E:/Documents/TUM/THESIS/thesisCOD_Ha/figures/nw_special4_combination}
+\centering{}\includegraphics[width=0.4\paperwidth]{./figures/nw_special4_combination}
 \end{figure}
 
 
@@ -355,18 +357,20 @@ We are summarizing the instances of GCN with their bounds on gap found
 in \cite{Wachter-Zeh:2018} and list our findings in this study.
 \begin{table}
 
-\caption{New gap found in this study \label{tab:New-gap-found}}
+\caption{New gaps found in this study \label{tab:New-gap-found}}
 
 \begin{centering}
 \begin{tabular}{|>{\centering}p{0.15\paperwidth}|>{\centering}p{0.1\paperwidth}|>{\centering}p{0.2\paperwidth}|}
 \hline 
-\centering{}Network & \centering{}Gap Bounds for a specific vector solution \cite{Wachter-Zeh:2018} & \centering{}This study proves an existence of these gaps\tabularnewline
+\centering{}Network & \centering{}Gaps for a specific vector solution \cite{Wachter-Zeh:2018}) & \begin{centering}
+Lower bounds on gaps 
+\par\end{centering}
+\centering{}(Corollary \ref{cor:gap_e1l2} and Corollary \ref{cor:e2l1_gap})\tabularnewline
 \hline 
 \hline 
 \centering{}$\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}N/A & \centering{}N/A\tabularnewline
 \hline 
-\centering{}$\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}Unknown & \centering{}$q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
-({*})\tabularnewline
+\centering{}$\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}Unknown & \centering{}$q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$\tabularnewline
 \hline 
 \begin{centering}
 $(\epsilon=1,\ell\geq2)-$
@@ -379,10 +383,6 @@ $\left(\epsilon=\ell-1,\ell\right)-$
 $\mathcal{N}_{h=2\ell,r,s=3\ell-1}$ & \centering{}$q^{t^{2}/2+\mathcal{O}\left(t\right)}$ & \centering{}N/A\tabularnewline
 \hline 
 \end{tabular}
-\par\end{centering}
-\begin{centering}
-({*}): We only consider the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
-network.
 \par\end{centering}
 \end{table}
 Some of them has global coding vectors as square matrices, so the

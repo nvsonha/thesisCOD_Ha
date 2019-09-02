@@ -26,9 +26,9 @@ the motivation for our study in this thesis on vector network coding,
 especially the study of \textit{gap} measuring the difference in \textit{alphabet
 sizes} between solutions of scalar and vector network coding. The
 alphabet size is an important parameter determining the amount of
-computation performed at each node \cite{Wachter-Zeh:2018}. In Section
-\ref{subsec:Matrix-channel}, we show that smaller alphabet sizes
-can be achieved by vector network coding for \textit{generalized combination
+computation performed at each node \cite{Wachter-Zeh:2018}. In this
+thesis, we show that smaller alphabet sizes can be achieved by vector
+network coding for further instances of the \textit{generalized combination
 networks} (GCN) \cite{Wachter-Zeh:2018}, which allows higher number
 of destination nodes to be connected to the network in comparison
 with scalar network coding.
@@ -42,44 +42,41 @@ code and its properties. This code was mainly used to study vector
 solutions for several families of the GCN in \cite{Wachter-Zeh:2018}.
 Then, we give the definition of Grassmannian code, Covering Grassmannian
 code, Multiple Grassmannian code and the notion of the maximum size
-of a Multiple Grammanian code. Because Grassmannian codes contain
-subspaces of the same dimension over a finite field $\ensuremath{\mathbb{F}}_{q}$,
+of a Multiple Grammanian code. Since Grassmannian codes contain subspaces
+of the same dimension over a finite field $\ensuremath{\mathbb{F}}_{q}$,
 they have been recently applied in the study of network coding problems,
 such as \cite{Etzion:2016,Etzion:2018,Wachter-Zeh:2018,Zhang:2019}.
 
-The remaining chapters contain our study of new gap sizes for GCN.
-We divided them into three main parts: Chapter 3 and 4 explain how
-we transfer vector network coding problems for GCN to problems of
-finding matrices or Grassmanian codes, Chapter 5 contains new gap
-sizes for 2 families of GCN with combinatorial proofs based on Lov\'asz
-Local Lemma (LLL), and Chapter 6 and 7 contains new computational
-results of vector solutions outperforming scalar solutions for the
-$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$ network.
-The details of each chapter are mentioned below.
-
-In \textbf{Chapter 3} and \textbf{Chapter 4}, we represent network
-as a matrix channel and introduce an advantage of vector solutions
-in alphabet sizes in comparison with scalar solutions for network
-coding problems. We firstly recall the motivation of network coding,
-and secondly we introduce how we approach such problems by fomulating
-the relationship between source's messages and receiver's packets
-by linear equation systems. Thirdly, we explain why we choose GCN
-for our study, and we recall separately known theorems on an existence
-of a scalar or a vector solution for GCN. Finally, we formulate the
-\textit{gap} to measure the difference in alphabet sizes between a
-vector solution and a corresponding optimal scalar solution. We list
-known gaps for some instances of GCN in previous studies together
+In \textbf{Chapter 3} and \textbf{Chapter 4}, we represent networks
+as matrix channels and introduce how vector solutions outperform scalar
+solutions in alphabet sizes for network coding problems. We firstly
+recall the motivation of network coding, and secondly we explain our
+approach by fomulating the relationship between source's messages
+and receiver's packets by linear equation systems. Thirdly, we explain
+why we choose GCN for our study, and we recall known bounds on alphabet
+size between scalar and vector solutions for GCN. Finally, we formulate
+the \textit{gap} to measure the difference in alphabet sizes between
+a vector solution and a corresponding optimal scalar solution. We
+list known gaps for some instances of GCN in previous studies together
 with our new found gaps in this study.
+
+The remaining chapters contain new results, i.e. our study of new
+gap sizes for GCN. We divided them into two main parts: Chapter 5
+contains new gap sizes for three families of GCN with combinatorial
+proofs based on Lov\'asz Local Lemma (LLL), and Chapter 6 and 7 contains
+new computational results of vector solutions outperforming scalar
+solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. The details of each chapter are mentioned below.
 
 In \textbf{Chapter 5}, we present new gaps found by combinatorial
 approaches based on LLL. We begin this chapter with a simple network,
 namely the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network, and the gap of this network is first found in our study.
-During the proof of the gap, we also prove there always exists vector
-solutions for the network, if and only if the number $r$ of intermediate
-nodes is less than or equal to a certain number. After achieving the
-gap for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+We prove that there exists vector solutions for the network, if and
+only if the number $r$ of intermediate nodes is less than or equal
+to a certain number. After achieving the gap for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network, we develop the proofs further for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+network, the $\left(\epsilon>1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{2\ell,r,2\ell+1}$
 network. Knowing the gap motivates us to search for vector solutions
 achieving such gap, which leads to computational results presented
@@ -95,7 +92,7 @@ the new bound on maximum size of Grassmanian codes for the network,
 $89\leq\mathcal{A}_{2}\left(6,4,3;2\right)\leq126$ and $166\leq\mathcal{A}_{2}\left(9,6,3;2\right)\leq537$.
 While writing this thesis, the bound of $\mathcal{A}_{2}\left(6,4,3;2\right)$
 has been improved in \cite{Etzion:2018} and the result of $t=3$
-have not yet been found in any studies. 
+have not yet been found in any other studies. 
 
 The thesis is concluded in \textbf{Chapter 7}. 
 

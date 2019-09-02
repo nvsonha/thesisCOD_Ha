@@ -2,6 +2,43 @@
 \chapter{Appendices} \label{chap:appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Proofs of Theorem \ref{theo:e2l1_r_max_vector}, Theorem \ref{theo:e2l1_r_max_scalar}
+and Corollary \ref{cor:e2l1_gap} \label{app:proofs_e2l1}}
+\begin{proof}[Proof of Theorem \vref{theo:e2l1_r_max_vector}]
+ As in Section \vref{sec:e1l1_nw}, there exists a vector solution
+for the $\left(\epsilon>1,\ell=1\right)-\mathcal{N}_{h,r,s}$ network
+if
+\[
+\mathrm{rk}\left[\begin{array}{c}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\vdots\\
+\boldsymbol{A}^{\left(r_{\alpha}\right)}
+\end{array}\right]\geq\left(h-\epsilon\right)t.
+\]
+Similar to Lemma \ref{lem:p_e1l1}, we have $p\in\Theta\left(q^{\left(\epsilon h-\epsilon\alpha-\epsilon^{2}\right)t^{2}+\mathcal{O}(t)}\right)$.
+And there is no difference for $d$, we then have $r_{\mathrm{max,vector}}\in\Omega\left(q^{\frac{\epsilon\left(h-\alpha-\epsilon\right)}{1-\alpha}t^{2}+\mathcal{O}(t)}\right)$
+following to the Local lemma \ref{thm:LLL}.
+\end{proof}
+%
+\begin{proof}[Proof of Theorem \vref{theo:e2l1_r_max_scalar}]
+ As in the proof of Theorem \ref{theo:r_scalar_e1l1}, there exists
+a scalar solution for the $\left(\epsilon>1,\ell=1\right)-\mathcal{N}_{h,r,s}$
+network if
+
+\begin{eqnarray*}
+ & r & \leq\left(\alpha-1\right)\stackrel[i=0]{h-\epsilon-2}{\prod}\frac{q_{\mathrm{s}}^{\alpha}-q_{\mathrm{s}}^{i}}{q_{\mathrm{s}}^{h-\epsilon-1}-q_{\mathrm{s}}^{i}}\approx\left(\alpha-1\right)\left(q_{\mathrm{s}}^{\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}\right)\\
+\Rightarrow & r_{\mathrm{max,scalar}} & \in\mathcal{O}\left(q_{\mathrm{s}}^{\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}\right).
+\end{eqnarray*}
+
+Hence, there exists such $r_{\mathrm{max,scalar}}$ such that for
+any $r\leq r_{\mathrm{max,scalar}}$there exists a scalar solution
+for the network.
+\end{proof}
+%
+\begin{proof}[Proof of Corollary \vref{cor:e2l1_gap}]
+ The gap follows by Section \ref{subsec:Comparison-between-scalar-and-vector-sol}.
+\end{proof}
+
 \section{89 Two-Dimensional Subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$
 for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 Network \label{sec:89-Two-Dimensional-Subspaces}}
