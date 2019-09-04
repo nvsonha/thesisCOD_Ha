@@ -3,18 +3,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section contains new results on gaps of 3 different instances
-of the GCN. In previous studies \cite{Wachter-Zeh:2018}, no general
-vector solution outperforming scalar network coding was found for
-multicast networks with $h=3$ messages. Hence, we start with a probabilistic
-argument to prove that there exists a vector solution outperforming
-the optimal linear solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network. Our approach is to study the network as an matrix channel
+of the GCN mentioned in Section \ref{sec:Description_GCN}. In previous
+studies \cite{Wachter-Zeh:2018}, no general vector solution outperforming
+scalar network coding was found for multicast networks with $h=3$
+messages. Hence, we start with a probabilistic argument to prove that
+there exists a vector solution outperforming the optimal linear solution
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. Our approach is to study the network as a matrix channel
 introduced in Section \ref{subsec:Matrix-channel} and apply the Symmetric
-Lov\'asz local lemma (LLL) for the proof. The idea of this approach
-for the vector network coding was proposed by Mosche Schwarz \cite{MosheSchwartz:2018}.
-The optimal scalar linear solution was studied in \cite{Wachter-Zeh:2018}.
-We therefore can compute a gap in alphabet sizes for our vector solutions
-and the optimal scalar linear solution in Section \ref{sec:Network_e1l1h3rs4}. 
+Lov\'asz Local Lemma \ref{thm:LLL} (LLL) for the proof. The idea
+of this approach for the vector network coding was proposed by Schwartz
+\cite{MosheSchwartz:2018} and the optimal scalar linear solution
+was studied in \cite{Wachter-Zeh:2018}. We therefore can compute
+a gap in alphabet sizes for our vector solutions and the optimal scalar
+linear solution in Section \ref{sec:Network_e1l1h3rs4}. 
 
 Then, we generalize the proof to the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network, the $\left(\epsilon>1,\ell=1\right)-\mathcal{N}_{h,r,s}$
@@ -108,7 +110,7 @@ to recover $h=3$ messages as below:
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}\\
-\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\cdot\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \boldsymbol{x}_{2}\\
@@ -116,26 +118,26 @@ to recover $h=3$ messages as below:
 \end{array}\right],\label{eq:linear_system_h3rs4}
 \end{equation}
 with $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{3}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{y}_{j}^{\left(1\right)},\ldots,\boldsymbol{y}_{j}^{\left(4\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}^{\left(r_{v}\right)},\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
-for $v=1,\ldots,3$ and $1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+for $v=1,\ldots,3$ and $1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{B}^{\left(j\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 for $j\in\left\{ 1,\ldots,\left(\begin{array}{c}
 r\\
 3
 \end{array}\right)\right\} $.
 
-The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank:
+The network is solvable, if $\boldsymbol{A}_{j}$ has full rank as
+following,
 \[
 \mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\geq3t.
 \]
 
-Since coding coefficients for $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
-can be independently chosen for any receiver $R_{j}$, there always
-exists $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
-such that,
+Since coding coefficients for $\boldsymbol{B}^{\left(j\right)}$ can
+be independently chosen for any receiver $R_{j}$, there always exists
+$\boldsymbol{B}^{\left(j\right)}$ such that
 \begin{equation}
 \mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}^{\left(r_{1}\right)}\\
@@ -149,7 +151,7 @@ We formalize the problem by an approach with Lov\'asz local lemma,
 which was initially proposed by Schwartz in \cite{MosheSchwartz:2018}.
 
 Let $\mathcal{E}_{r_{1},r_{2},r_{3}}$ be an event that a receiver
-$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$such that
+$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$ such that
 $\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
@@ -210,7 +212,7 @@ its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
  & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
 \end{eqnarray}
 
-(1): Applying \ref{eq:num_of_rank_t_matrices} for $\left[3t\times3t\right]$
+(1): Applying (\ref{eq:num_of_rank_t_matrices}) for $\left[3t\times3t\right]$
 matrices over $\ensuremath{\mathbb{F}}_{q}$ of rank $i=0,\ldots,2t-1$.
 
 In the following, we view $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}$
@@ -250,9 +252,9 @@ Hence,
 \Rightarrow p\in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 \end{proof}
-Each event considered under the Local lemma \ref{thm:LLL} is not
-required to be independent to all other events, and it allows some
-dependence among events stated in Lemma \ref{lem:dependecy_d_LLL}.
+Each event considered under the Lov\'asz Local Lemma \ref{thm:LLL}
+is not required to be independent to all other events, and it allows
+some dependence among events stated in Lemma \ref{lem:dependecy_d_LLL}.
 \begin{lem}
 Each event $\mathcal{E}_{r_{1},r_{2},r_{3}}$ is dependent on at most
 $d\left(r\right)\leq\frac{3}{2}r^{2}$ other events. \label{lem:dependecy_d_LLL}
@@ -297,7 +299,7 @@ T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[
 \boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r\right\} .
 \]
-The Local lemma \ref{thm:LLL} shows that $\mathrm{Pr}\left[T\right]=\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
+The Lov\'asz Local Lemma \ref{thm:LLL} shows that $\mathrm{Pr}\left[T\right]=\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
 if $4\cdot p\cdot d(r)\leq1,\forall r\leq r_{\mathrm{max,vector}}$.
 Furthermore, we have $d\leq\frac{3}{2}r^{2}$ following to Lemma \ref{lem:dependecy_d_LLL},
 which gives: $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{\mathrm{max,vector}}$.
@@ -322,7 +324,7 @@ where they proved that
 r_{\mathrm{scalar}}\leq2\left[\begin{array}{c}
 3\\
 1
-\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right).\label{eq:r_scalar_max}
+\end{array}\right]_{q_{\mathrm{s}}}=2\left(q_{\mathrm{s}}^{2}+q_{\mathrm{s}}+1\right).\label{eq:r_scalar_max}
 \end{equation}
 Following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
 and Theorem \ref{theo:r_for_vector_sol_e1l1h3rs4}, we have the gap
@@ -360,7 +362,7 @@ t & Scalar Solution & Vector Solution\tabularnewline
 network such that scalar and vector solutions exist over $t=2,\ldots,6$.
 Following to (\ref{eq:r_scalar_max}), there exists a scalar solution
 for the network if and only if $r\protect\leq2\left(q_{s}^{2}+q_{s}+1\right)=r_{\mathrm{max,scalar}}$.
-Following to (\ref{eq:p_eq_h3}) and Lemma (\ref{lem:dependecy_d_LLL}),
+Following to (\ref{eq:p_eq_h3}) and Lemma \ref{lem:dependecy_d_LLL},
 we observed that vector solutions outperforming the scalar solution
 when $t\protect\geq4$. \label{tab:r_over_t}}
 \end{table}
@@ -371,7 +373,6 @@ the scalar solution when $t\geq4$ for the network $\left(\epsilon=1,\ell=1\right
 In Section \ref{sec:Main-Approach} and Section \ref{sec:Alternative-Approaches}
 for computational results of the network, we show vector solutions
 outperforming scalar solutions in case of $t=2$ and $t=3$.
-
 
 \section{$\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$ Network \label{sec:e1l1_nw}}
 
@@ -426,7 +427,7 @@ if and only if the transfer matrix $\boldsymbol{A}_{j}$ has full
 rank.
 
 Similar to $\left(1,1\right)-\ensuremath{N}_{3,r,4}$, we apply the
-Local lemma \ref{thm:LLL} for the following $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
+Lov\'asz Local Lemma \ref{thm:LLL} for the following $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
 to study the gap between scalar and vector solutions for the $\left(1,1\right)-\mathcal{N}_{h,r,s}$
 network.
 
@@ -541,7 +542,7 @@ vector solution for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
 network. \label{theo:r_vector_e1l1}
 \end{thm}
 \begin{proof}
-Following to the Local lemma \ref{thm:LLL} and Lemma \ref{lem:d_e1l1},
+Following to the Lov\'asz Local Lemma \ref{thm:LLL} and Lemma \ref{lem:d_e1l1},
 there exists a vector solution for the network if $4dp\leq1\Rightarrow d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}\Rightarrow r\leq\left(\frac{\left(\alpha-1\right)!}{4\alpha}\cdot\frac{1}{p}\right)^{\frac{1}{\alpha-1}}=r_{\mathrm{max,vector}}$.
 By Lemma \ref{lem:d_e1l1}, we further have $p\in\Theta\left(q^{\left(h-\alpha-1\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2$
 as an upper bound of $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]$.
@@ -723,7 +724,8 @@ such that $\mathrm{rk}\left[\begin{array}{c}
 for $1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
 chosen independently and uniformly random.
 
-We then apply the Local lemma \ref{thm:LLL} for events .
+We then apply the Lov\'asz Local Lemma \ref{thm:LLL} for events
+.
 \begin{lem}
 \label{lem:p_e1l2} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$,
 then,
@@ -740,12 +742,13 @@ probability:
 \vdots\\
 \boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]=i\right]\nonumber \\
- & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,m,n}}{q^{m\cdot n}}\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,2\ell t,2\ell t}}{q^{m\cdot n}}\nonumber \\
  & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}\label{eq:p_product_e1l2}
 \end{eqnarray}
 
-(1): The formula for the umber of $\left[m\times n\right]$ matrices
-of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}.
+(1): The formula for the number of $\left[m\times n\right]$ matrices
+of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}
+and was mentioned in (\ref{eq:num_of_rank_t_matrices}).
 
 (2): $s=\alpha\ell+\epsilon$ by definition in Section \ref{sec:Description_GCN}
 $\Rightarrow\alpha=2$, so $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{2\ell t\times2\ell t}$
@@ -756,7 +759,7 @@ with $\boldsymbol{A}_{j}=\left[\begin{array}{c}
 \end{array}\right]$, and $\boldsymbol{A}_{j}$ contains$\left(2\ell\right)$ $t$-dimensional
 subspaces of $\ensuremath{\mathbb{F}}_{q}^{2\ell t}$.
 
-We consider the product in Equation \ref{eq:p_product_e1l2}: $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
+We consider the product in (\ref{eq:p_product_e1l2}): $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
 
 Due to $i$-times product and large $t$: $\left.\begin{array}{c}
 \mathrm{deg}\left(p_{N}^{(i)}(q)\right)=q^{i4\ell t}\\

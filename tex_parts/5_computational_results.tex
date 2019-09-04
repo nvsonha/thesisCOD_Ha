@@ -28,17 +28,17 @@ following to Corollary \ref{cor:dual_subspaces}. This is a new lower
 bound for $\mathcal{A}_{2}\left(6,4,3;2\right)$ compared to a code
 with 51 codewords presented in \cite{Wachter-Zeh:2018}. The smallest
 alphabet size for a scalar solution with 89 nodes exists is $q_{s}=8$.
-By Equation \ref{eq:r_scalar_max}, there are 73 one-dimensional subspaces
+By (\ref{eq:r_scalar_max}), there are 73 one-dimensional subspaces
 of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can be used twice
 in the code; therefore, we have in total 146 possible codesword, but
 only 89 codewords are required. In this case, the gap size $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$i.e.
 we achieve a gap size $q^{t^{2}/2}$, which is better the asymptotic
-behavior in Equation \ref{eq:gap_e1l1h3rs4}. 
+behavior in (\ref{eq:gap_e1l1h3rs4}). 
 
 Before introducing the algorithm used to generate such 89 codewords,
 we have to state some definitions for a beter explanation. We denote
 a matrix space of dimension $\left[n\times m\right]$ by $M(n,m)=\left\{ \boldsymbol{A}:\boldsymbol{A}\in\ensuremath{\mathbb{F}}_{q=2}^{n\times m}\right\} $.
-\begin{defn}[Matrix Space with Unique Row Space]
+\begin{defn}[Matrix Space with Unique Row Space\label{def:urs_matrix_space}]
  $U(n,m)$ is a subset of $M(n,m)$, where any $\boldsymbol{A},\boldsymbol{B}\in U(n,m)$
 have their row spaces such that:
 \[
@@ -48,7 +48,7 @@ where $\mathcal{R}_{q}\left(.\right)$ denotes the row space of a
 matrix.
 \end{defn}
 %
-\begin{defn}[Sufficient Global Coding Vector]
+\begin{defn}[Sufficient Global Coding Vector\label{def:sufficient_global_coding_vectors} ]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ and
 $N\lll\left(\begin{array}{c}
 2^{3t^{2}}\\
@@ -72,8 +72,9 @@ for the rest of this thesis.
 \end{defn}
 %
 \begin{defn}[Relative]
- Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$.
-Then $\boldsymbol{C}$ is called a \textit{relative} of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
+ Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ introduced
+in Definition \ref{def:urs_matrix_space}. Then $\boldsymbol{C}$
+is called a \textit{relative} of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
 if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in\mathcal{H}_{n=3t,m=3t}$
 and denoted as following:
 \[
@@ -98,7 +99,8 @@ Thus, each of these 3 matrices can form 3 different relatives:
 \mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
 \end{array}.
 \]
-Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ is $q^{3t^{2}}$.
+Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ introduced
+in Defnition \ref{def:sufficient_global_coding_vectors} is $q^{3t^{2}}$.
 Therefore, $\mathcal{H}_{t=3}$ can have only maximum $3q^{3t^{2}}$
 relatives.
 \end{proof}
@@ -300,8 +302,9 @@ to Figure \ref{fig:rel_example}(a) and \ref{fig:rel_example}(b),
 the visual explanation of $\mathrm{subrel}$ is shown.
 \end{example}
 \begin{figure}[H]
-\caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
-represents as a matrix problem\label{fig:rel_example}}
+\caption{An illustration of relatives and sub-relatives introduced in this
+study for computational approaches of vector solutions for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h=3,r,s=4}$
+network with $q^{t}=2^{2}$ and $q^{t}=2^{3}$ \label{fig:rel_example}}
 
 \centering{}\includegraphics[width=0.5\paperwidth]{./figures/rel_example}
 \end{figure}
@@ -330,10 +333,11 @@ which is still true when the size of identity tuples becomes smaller.
 \end{proof}
 We have tried 2 variants of the above algorithm as following. Firstly,
 instead of using \textit{matrix space with unique row space}, we use
-the whole matrix space $M\left(n,m\right)$. In case $t=2$, we cover
-all $2^{3t^{2}}=4096$ matrices instead of only 715 matrices in Section
-\ref{sec:Main-Approach}, which will help the Algorithm \ref{alg:Increasing-Method}
-cover the optimal vector solution.
+the whole matrix space $M\left(n,m\right)$ introduced in Definition
+\ref{def:urs_matrix_space}. In case $t=2$, we cover all $2^{3t^{2}}=4096$
+matrices instead of only 715 matrices in Section \ref{sec:Main-Approach},
+which will help the Algorithm \ref{alg:Increasing-Method} cover the
+optimal vector solution.
 \begin{defn}[Good Global Coding Vector\label{def:almost_sufficient_global_coding_vector}]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ and
 $N\leq\left(\begin{array}{c}
@@ -366,14 +370,14 @@ this approach started with a pair of 2 potential matrices $\left[\begin{array}{c
 \end{array}\right]$. Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
 into a list containing this pair. The random matrix is extended to
 the list, if the matrix and any 2 existing matrices in the list satisfy
-Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
-all matrices in $U\left(t=2,3t=6\right)$ are checked.
+(\ref{eq:rk_rqm_e1l1h3s4}). The list will be extended until all matrices
+in $U\left(t=2,3t=6\right)$ are checked.
 
 \section{Decremental Algorithm (DM) \label{sec:Alternative-Approaches}}
 
 In Algorithm \ref{alg:Decreasing-Method}, we introduce a decremental
 algorithm by removing bad matrices from a set of 715 matrices, until
-any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
+any 3 of the matrices left in the set satisfy (\ref{eq:rk_rqm_e1l1h3s4}).
 A matrix with the less number of occurence in $\mathcal{T}_{n=3t,m=3t}$
 or $\mathcal{H}_{n=3t,m=3t}$ is evaluated as a bad matrix, and it
 is removed for each step. If many bad matrices exist, we only remove
@@ -448,9 +452,9 @@ k-\mathrm{t}
 \[
 \mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)\leq\left\lfloor \frac{q^{n}-1}{q^{k}-1}\mathcal{A}_{q}\left(n-1,k-1,\mathrm{t}-1;\lambda\right)\right\rfloor 
 \]
-\end{thm}
 
 \newpage{}
+\end{thm}
 \begin{sidewaystable}[H]
 \begin{centering}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -477,7 +481,7 @@ nodes with $r_{\mathrm{max,vector}}=121$. For $t=3$, our vector
 solution gives a better result than both the optimal scalar solution
 and the combinatorial vector solution with $r_{\mathrm{max,vector}}=166$.
 For $t=3,\ldots,6$, all of our combinatorial vector solutions outperform
-the optimal scalar one. ({*}): Theoretical results based on Table
+the optimal scalar one. ({*}): combinatorial results based on Table
 \ref{tab:r_over_t}.\label{tab:r_over_t-1}}
 \end{sidewaystable}
 

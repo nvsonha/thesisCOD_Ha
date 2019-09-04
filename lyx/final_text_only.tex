@@ -98,12 +98,13 @@ achieved in network coding, since the nodes are allowed to forward
 a \textit{function} of their received packets, while in routing such
 packets can only be forwarded to another node. K\"otter and M\'edard
 provided an algebraic formulation for a \textit{linear network coding}
-problem and its scalar solvability. If functions of the packets on
-the links of the network, then we obtain a linear network coding solution,
-and a \textit{solution} is an assignment of these functions such that
-all destination nodes can recover all of their requested messages
-transmitted from a source node. Network coding was further developed
-with \textit{vector network coding} by Ebrahimi \cite{Ebrahimi:2011},
+problem and its scalar solvability \cite{Koetter:2003}. If functions
+of the packets on the links of the network are linear, then we obtain
+a linear network coding solution, and a \textit{solution} is an assignment
+of these functions such that all destination nodes can recover all
+of their requested messages transmitted from a source node. The algebraic
+approach of network coding in \cite{Koetter:2003} was further extended
+to \textit{vector network coding} by Ebrahimi \cite{Ebrahimi:2011},
 where all packets are vectors of length $t$. In \cite{Wachter-Zeh:2018},
 Etzion and Wachter-Zeh proved that vector network coding based on
 subspace codes outperforms linear network coding for several generalizations
@@ -112,12 +113,13 @@ the motivation for our study in this thesis on vector network coding,
 especially the study of \textit{gap} measuring the difference in \textit{alphabet
 sizes} between solutions of scalar and vector network coding. The
 alphabet size is an important parameter determining the amount of
-computation performed at each node \cite{Wachter-Zeh:2018}. In this
-thesis, we show that smaller alphabet sizes can be achieved by vector
-network coding for further instances of the \textit{generalized combination
-networks} (GCN) \cite{Wachter-Zeh:2018}, which allows higher number
-of destination nodes to be connected to the network in comparison
-with scalar network coding.
+computation performed at each node \cite{Wachter-Zeh:2018}, e.g.
+its relationship in memory buffer overflow and channel errors \cite{Ho:2008,Fragouli:2006,Gone:2018}.
+In this thesis, we show that smaller alphabet sizes can be achieved
+by vector network coding for further instances of the \textit{generalized
+combination networks} (GCN) \cite{Wachter-Zeh:2018}, which allows
+higher number of destination nodes to be connected to the network
+in comparison with scalar network coding.
 
 \textbf{Outline}
 
@@ -146,12 +148,12 @@ a vector solution and a corresponding optimal scalar solution. We
 list known gaps for some instances of GCN in previous studies together
 with our new found gaps in this study.
 
-The remaining chapters contain new results, i.e. our study of new
-gap sizes for GCN. We divided them into two main parts: Chapter 5
-contains new gap sizes for three families of GCN with combinatorial
-proofs based on Lov\'asz Local Lemma (LLL), and Chapter 6 and 7 contains
-new computational results of vector solutions outperforming scalar
-solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+The remaining chapters contain \textbf{new results}, i.e. our study
+of new gap sizes for GCN. We divided them into two main parts: Chapter
+5 contains new gap sizes for three families of GCN with combinatorial
+proofs based on the Lov\'asz Local Lemma (LLL), and Chapter 6 and
+7 contains new computational results of vector solutions outperforming
+scalar solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network. The details of each chapter are mentioned below.
 
 In \textbf{Chapter 5}, we present new gaps found by combinatorial
@@ -217,13 +219,13 @@ k
 \paragraph{Multigraph}
 
 A graph is permitted to have multiple edges. Edges that are incident
-to same vertices can be in parallel. 
+to same nodes can be in parallel. 
 
 \paragraph{Directed Acyclic Graph}
 
 A finite directed graph with no directed cycles, i.e. it consists
-of a finite number vertices and edges, with each edge directed from
-a vertex to another, such that there is no loop from any vertex $v$
+of a finite number nodes and edges, with each edge directed from a
+vertex to another, such that there is no loop from any vertex $v$
 with a sequence of directed edges back to the vertex again $v$.
 
 \paragraph{Multicast}
@@ -403,8 +405,8 @@ under routing in Figure \ref{fig:The-butterfly-network}(a) and (b).
 \textit{Packet loss} is a particular issue in wireless packet networks
 due to several reasons, e.g. buffer overflow or communication failures
 \cite{Ho:2008}. Sharing a common concept with Erasure Coding (EC)
-by exploiting a degree of redundancy to packets on any vertices in
-the network, the receivers are able to successfully recover the original
+by exploiting a degree of redundancy to original packets on any nodes
+in a network, the receivers are able to successfully recover the original
 packets from a large number of packet losses, e.g. $101\circledast10\circledast1$.
 The only difference is that packets are only encoded by the source
 in EC \cite{Fujimura:2008}. This problem is dealed by acknowledgement
@@ -449,11 +451,11 @@ correction here. Furthermore, we consider the solvability of networks
 by proving an existence of an assignment for all functions such that
 all receiver can recover its requested information, so the functions
 or coding coefficients are clearly chosen instead of being arbitrary
-or random as the ones used in \cite{Ho:2003,Ahlswede:2000}. We later
-distinguish scalar and vector network coding more specifically in
-Section \ref{subsec:Matrix-channel} and \ref{sec:Network-Coding-for-GCN}.
+or random as the ones mentioned in \cite{Ho:2003,Ahlswede:2000}.
+We later distinguish scalar and vector network coding more specifically
+in Section \ref{subsec:Matrix-channel} and \ref{sec:Network-Coding-for-GCN}.
 
-\section{Network as a matrix channel \label{subsec:Matrix-channel}}
+\section{Network as a Matrix Channel \label{subsec:Matrix-channel}}
 
 To formulate a network coding problem, the source has a set of disjoint
 messages referred to packets on links which are either symbols from
@@ -574,7 +576,7 @@ Number of nodes & $r_{\mathrm{scalar}}$ & $r_{\mathrm{vector}}$\tabularnewline
 
 \begin{rem}
 By using the vector coding, the upper bound number of solutions increases
-from $q^{tkh}$ to $q^{t^{2}kh}$. Therefore, vector network coding
+from $q^{tsh}$ to $q^{t^{2}sh}$. Therefore, vector network coding
 offers more freedom in choosing the coding coefficients than does
 scalar linear coding for equivalent alphabet sizes, and a smaller
 alphabet size might be achievable \cite{Ebrahimi:2011}. By this advantage,
@@ -634,7 +636,7 @@ extend the approach for a family of GCN called One-Direct Link Combination
 Network, i.e. $(1,1)-\mathcal{N}_{h,r,s}$. More formal definitions
 of the gap and GCN can be found in Section \ref{sec:Description_GCN}.
 
-\subsection{Comparison between scalar and vector solutions by the gap size \label{subsec:Comparison-between-scalar-and-vector-sol}}
+\subsection{Comparison between Scalar and Vector Solutions by the Gap Size \label{subsec:Comparison-between-scalar-and-vector-sol}}
 
 A \textit{gap} represents the difference between the smallest field
 (alphabet) size for which a scalar linear solution exists and the
@@ -644,7 +646,7 @@ field size $\ensuremath{\mathbb{F}}_{q}^{t}$, and we find the lower
 bound of the maximum number of nodes such vector solution can achieve,
 i.e. $r_{\mathrm{max,vector}}=f_{\mathrm{1}}(q,t,\alpha,h)\geq f_{\mathrm{1,lower\,bound}}\left(q,t,\alpha,h\right)$,
 with $f_{\mathrm{1}}:\mathbb{Z}\rightarrow\mathbb{Z}$. Meanwhile,
-we has a scalar solution for the same network existing if and only
+we have a scalar solution for the same network existing if and only
 if $r\leq r_{\mathrm{max,scalar}}=f_{\mathrm{2}}\left(q_{\mathrm{s}}\right)\leq f_{\mathrm{2,upper\,bound}}\left(q_{\mathrm{s}}\right)$,
 with $f_{\mathrm{2}}:\mathbb{Z}\rightarrow\mathbb{Z}$. To find the
 field size $q_{\mathrm{s}}$ required for a scalar solution to reach
@@ -720,7 +722,8 @@ to do routing to select paths for the network.
 \caption{Parameters of network coding \label{tab:Parameters-of-network}}
 
 \centering{}%
-\begin{tabular}{c|>{\centering}p{0.48\paperwidth}}
+\begin{tabular}{|c|>{\centering}p{0.48\paperwidth}|}
+\hline 
 $h$ & The number of source messages\tabularnewline
 \hline 
 $r$ & The number of nodes in the middle layer\tabularnewline
@@ -739,11 +742,12 @@ $\epsilon$ & The source additionally connects to each receiver by $\epsilon$ dir
 parallel links\tabularnewline
 \hline 
 $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsilon$.\tabularnewline
+\hline 
 \end{tabular}
 \end{table}
 
 
-\section{Network Coding for This Network \label{sec:Network-Coding-for-GCN}}
+\section{Network Coding for the Generalized Combination Network \label{sec:Network-Coding-for-GCN}}
 
 We start describing a difference of a source message used in scalar
 network coding and vector network coding. Then we find a condition
@@ -753,7 +757,7 @@ and \textit{global} coding vectors are the same, because the nodes
 are simplified to forward their received packets and only the source
 has its functions on its messages.
 
-\subsection{Scalar network coding \label{subsec:Scalar-network-coding}}
+\subsection{Scalar Network Coding \label{subsec:Scalar-network-coding}}
 
 A message or a packet is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$.
 As a network of the multicast model, all receivers request the same
@@ -784,7 +788,7 @@ exists an $\alpha-\left(h,\ell,h-\ell-\epsilon\right)_{q}^{c}$ code
 with $r$ codewords. \label{theo:scalar_sol_exist}
 \end{thm}
 
-\subsection{Vector network coding \label{subsec:Vector-network-coding}}
+\subsection{Vector Network Coding \label{subsec:Vector-network-coding}}
 
 In vector network coding, a message or a packet is a vector of length
 $t$ over $\ensuremath{\mathbb{F}}_{q}$. A vector solution is therefore
@@ -823,8 +827,8 @@ Given $h=3,q=2,t=2$, we consider the extension field $\ensuremath{\mathbb{F}}_{q
 This example shows how mapping messages from scalar coding to vector
 coding.
 \begin{figure}[H]
-\caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
-to the equivalent vector solution\label{fig:x_mapping}}
+\caption{The mapping of a scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
+to an equivalent vector solution\label{fig:x_mapping}}
 
 \centering{}\includegraphics[width=0.3\paperwidth]{../figures/x_mapping}
 \end{figure}
@@ -982,10 +986,10 @@ network \label{fig:network_special4}}
 \subsection{The Largest Possible Gap between $q_{v}$ and $q_{s}$ in Previous
 Studies}
 
-Etzion and Wachter-Zeh considered 2 cases separately $h\leq2\ell,\epsilon\neq0$
+Etzion and Wachter-Zeh distinguished 2 following cases $h\leq2\ell,\epsilon\neq0$
 and $h\geq2\ell,\epsilon\neq h-2\ell$
 
-\subsubsection{\uline{\mbox{$h\protect\leq2\ell$} and \mbox{$\epsilon\protect\neq0$}}}
+\subsubsection{\uline{For \mbox{$h\protect\leq2\ell$} and \mbox{$\epsilon\protect\neq0$}}}
 
 For this network, the number of direct links is at least 1, i.e. $\epsilon\geq1$,
 and the number of parallel links is less than half of the number of
@@ -1001,7 +1005,7 @@ achieves the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
 The $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$ network
 achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
 
-\subsubsection{\uline{\mbox{$h\protect\geq2\ell$} and \mbox{$\epsilon\protect\neq h-2\ell$}}}
+\subsubsection{\uline{For \mbox{$h\protect\geq2\ell$} and \mbox{$\epsilon\protect\neq h-2\ell$}}}
 
 \paragraph{h is even}
 
@@ -1035,7 +1039,7 @@ Lower bounds on gaps
 \hline 
 \centering{}$\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}N/A & \centering{}N/A\tabularnewline
 \hline 
-\centering{}$\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}Unknown & \centering{}$q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$\tabularnewline
+\centering{}$\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}N/A & \centering{}$q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$\tabularnewline
 \hline 
 \begin{centering}
 $(\epsilon=1,\ell\geq2)-$
@@ -1050,26 +1054,28 @@ $\mathcal{N}_{h=2\ell,r,s=3\ell-1}$ & \centering{}$q^{t^{2}/2+\mathcal{O}\left(t
 \end{tabular}
 \par\end{centering}
 \end{table}
-Some of them has global coding vectors as square matrices, so the
-decoding base easily by inversing such global coding vectors to get
-each receiver's requested messages. However, we do not go into details
-of decoding methods in this study.
+Some of them has global coding vectors as square matrices, so a decoding
+method for each receiver is easily by inversing such global coding
+vectors to get each receiver's requested messages. However, we do
+not go into details of decoding methods in this study.
 
 \part{Combinatorial Results}
 
 This section contains new results on gaps of 3 different instances
-of the GCN. In previous studies \cite{Wachter-Zeh:2018}, no general
-vector solution outperforming scalar network coding was found for
-multicast networks with $h=3$ messages. Hence, we start with a probabilistic
-argument to prove that there exists a vector solution outperforming
-the optimal linear solution for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network. Our approach is to study the network as an matrix channel
+of the GCN mentioned in Section \ref{sec:Description_GCN}. In previous
+studies \cite{Wachter-Zeh:2018}, no general vector solution outperforming
+scalar network coding was found for multicast networks with $h=3$
+messages. Hence, we start with a probabilistic argument to prove that
+there exists a vector solution outperforming the optimal linear solution
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network. Our approach is to study the network as a matrix channel
 introduced in Section \ref{subsec:Matrix-channel} and apply the Symmetric
-Lov\'asz local lemma (LLL) for the proof. The idea of this approach
-for the vector network coding was proposed by Mosche Schwarz \cite{MosheSchwartz:2018}.
-The optimal scalar linear solution was studied in \cite{Wachter-Zeh:2018}.
-We therefore can compute a gap in alphabet sizes for our vector solutions
-and the optimal scalar linear solution in Section \ref{sec:Network_e1l1h3rs4}. 
+Lov\'asz Local Lemma \ref{thm:LLL} (LLL) for the proof. The idea
+of this approach for the vector network coding was proposed by Schwartz
+\cite{MosheSchwartz:2018} and the optimal scalar linear solution
+was studied in \cite{Wachter-Zeh:2018}. We therefore can compute
+a gap in alphabet sizes for our vector solutions and the optimal scalar
+linear solution in Section \ref{sec:Network_e1l1h3rs4}. 
 
 Then, we generalize the proof to the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network, the $\left(\epsilon>1,\ell=1\right)-\mathcal{N}_{h,r,s}$
@@ -1163,7 +1169,7 @@ to recover $h=3$ messages as below:
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}\\
-\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\cdot\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \boldsymbol{x}_{2}\\
@@ -1171,26 +1177,26 @@ to recover $h=3$ messages as below:
 \end{array}\right],\label{eq:linear_system_h3rs4}
 \end{equation}
 with $\boldsymbol{x}_{1},\ldots,\boldsymbol{x}_{3}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{y}_{j}^{\left(1\right)},\ldots,\boldsymbol{y}_{j}^{\left(4\right)}\in\ensuremath{\mathbb{F}}_{q}^{t},\boldsymbol{A}^{\left(r_{v}\right)},\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
-for $v=1,\ldots,3$ and $1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+for $v=1,\ldots,3$ and $1\leq r_{1}<r_{2}<r_{3}\leq r$, and $\boldsymbol{B}^{\left(j\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 for $j\in\left\{ 1,\ldots,\left(\begin{array}{c}
 r\\
 3
 \end{array}\right)\right\} $.
 
-The network is solvable, if $\boldsymbol{A}_{j}$ has full-rank:
+The network is solvable, if $\boldsymbol{A}_{j}$ has full rank as
+following,
 \[
 \mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\geq3t.
 \]
 
-Since coding coefficients for $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
-can be independently chosen for any receiver $R_{j}$, there always
-exists $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
-such that,
+Since coding coefficients for $\boldsymbol{B}^{\left(j\right)}$ can
+be independently chosen for any receiver $R_{j}$, there always exists
+$\boldsymbol{B}^{\left(j\right)}$ such that
 \begin{equation}
 \mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}^{\left(r_{1}\right)}\\
@@ -1265,7 +1271,7 @@ its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
  & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
 \end{eqnarray}
 
-(1): Applying \ref{eq:num_of_rank_t_matrices} for $\left[3t\times3t\right]$
+(1): Applying (\ref{eq:num_of_rank_t_matrices}) for $\left[3t\times3t\right]$
 matrices over $\ensuremath{\mathbb{F}}_{q}$ of rank $i=0,\ldots,2t-1$.
 
 In the following, we view $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}$
@@ -1305,9 +1311,9 @@ Hence,
 \Rightarrow p\in\Theta\left(q^{-t^{2}-2t-1}\right)
 \]
 \end{proof}
-Each event considered under the Local lemma \ref{thm:LLL} is not
-required to be independent to all other events, and it allows some
-dependence among events stated in Lemma \ref{lem:dependecy_d_LLL}.
+Each event considered under the Lov\'asz Local Lemma \ref{thm:LLL}
+is not required to be independent to all other events, and it allows
+some dependence among events stated in Lemma \ref{lem:dependecy_d_LLL}.
 \begin{lem}
 Each event $\mathcal{E}_{r_{1},r_{2},r_{3}}$ is dependent on at most
 $d\left(r\right)\leq\frac{3}{2}r^{2}$ other events. \label{lem:dependecy_d_LLL}
@@ -1352,7 +1358,7 @@ T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[
 \boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]\geq2t,\forall1\leq r_{1}<r_{2}<r_{3}\leq r\right\} .
 \]
-The Local lemma \ref{thm:LLL} shows that $\mathrm{Pr}\left[T\right]=\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
+The Lov\'asz Local Lemma \ref{thm:LLL} shows that $\mathrm{Pr}\left[T\right]=\mathrm{Pr}\left[\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}\right]>0$
 if $4\cdot p\cdot d(r)\leq1,\forall r\leq r_{\mathrm{max,vector}}$.
 Furthermore, we have $d\leq\frac{3}{2}r^{2}$ following to Lemma \ref{lem:dependecy_d_LLL},
 which gives: $4\cdot p\cdot\frac{3}{2}r^{2}\leq1\Rightarrow r\leq\sqrt{\frac{1}{6p}}=r_{\mathrm{max,vector}}$.
@@ -1377,7 +1383,7 @@ where they proved that
 r_{\mathrm{scalar}}\leq2\left[\begin{array}{c}
 3\\
 1
-\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right).\label{eq:r_scalar_max}
+\end{array}\right]_{q_{\mathrm{s}}}=2\left(q_{\mathrm{s}}^{2}+q_{\mathrm{s}}+1\right).\label{eq:r_scalar_max}
 \end{equation}
 Following to Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
 and Theorem \ref{theo:r_for_vector_sol_e1l1h3rs4}, we have the gap
@@ -1415,7 +1421,7 @@ t & Scalar Solution & Vector Solution\tabularnewline
 network such that scalar and vector solutions exist over $t=2,\ldots,6$.
 Following to (\ref{eq:r_scalar_max}), there exists a scalar solution
 for the network if and only if $r\protect\leq2\left(q_{s}^{2}+q_{s}+1\right)=r_{\mathrm{max,scalar}}$.
-Following to (\ref{eq:p_eq_h3}) and Lemma (\ref{lem:dependecy_d_LLL}),
+Following to (\ref{eq:p_eq_h3}) and Lemma \ref{lem:dependecy_d_LLL},
 we observed that vector solutions outperforming the scalar solution
 when $t\protect\geq4$. \label{tab:r_over_t}}
 \end{table}
@@ -1480,7 +1486,7 @@ if and only if the transfer matrix $\boldsymbol{A}_{j}$ has full
 rank.
 
 Similar to $\left(1,1\right)-\ensuremath{N}_{3,r,4}$, we apply the
-Local lemma \ref{thm:LLL} for the following $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
+Lov\'asz Local Lemma \ref{thm:LLL} for the following $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$
 to study the gap between scalar and vector solutions for the $\left(1,1\right)-\mathcal{N}_{h,r,s}$
 network.
 
@@ -1595,7 +1601,7 @@ vector solution for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h,r,s}$
 network. \label{theo:r_vector_e1l1}
 \end{thm}
 \begin{proof}
-Following to the Local lemma \ref{thm:LLL} and Lemma \ref{lem:d_e1l1},
+Following to the Lov\'asz Local Lemma \ref{thm:LLL} and Lemma \ref{lem:d_e1l1},
 there exists a vector solution for the network if $4dp\leq1\Rightarrow d\leq\frac{\alpha}{\left(\alpha-1\right)!}r^{^{\alpha-1}}\Rightarrow r\leq\left(\frac{\left(\alpha-1\right)!}{4\alpha}\cdot\frac{1}{p}\right)^{\frac{1}{\alpha-1}}=r_{\mathrm{max,vector}}$.
 By Lemma \ref{lem:d_e1l1}, we further have $p\in\Theta\left(q^{\left(h-\alpha-1\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2$
 as an upper bound of $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]$.
@@ -1777,7 +1783,8 @@ such that $\mathrm{rk}\left[\begin{array}{c}
 for $1\leq r_{1}<\ldots<r_{h-\epsilon}\leq r$ and $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
 chosen independently and uniformly random.
 
-We then apply the Local lemma \ref{thm:LLL} for events .
+We then apply the Lov\'asz Local Lemma \ref{thm:LLL} for events
+.
 \begin{lem}
 \label{lem:p_e1l2} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$,
 then,
@@ -1794,12 +1801,13 @@ probability:
 \vdots\\
 \boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]=i\right]\nonumber \\
- & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,m,n}}{q^{m\cdot n}}\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,2\ell t,2\ell t}}{q^{m\cdot n}}\nonumber \\
  & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}\label{eq:p_product_e1l2}
 \end{eqnarray}
 
-(1): The formula for the umber of $\left[m\times n\right]$ matrices
-of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}.
+(1): The formula for the number of $\left[m\times n\right]$ matrices
+of rank $i$ over $\ensuremath{\mathbb{F}}_{q}$ was proved in \cite{Overbeck:2007}
+and was mentioned in (\ref{eq:num_of_rank_t_matrices}).
 
 (2): $s=\alpha\ell+\epsilon$ by definition in Section \ref{sec:Description_GCN}
 $\Rightarrow\alpha=2$, so $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{2\ell t\times2\ell t}$
@@ -1810,7 +1818,7 @@ with $\boldsymbol{A}_{j}=\left[\begin{array}{c}
 \end{array}\right]$, and $\boldsymbol{A}_{j}$ contains$\left(2\ell\right)$ $t$-dimensional
 subspaces of $\ensuremath{\mathbb{F}}_{q}^{2\ell t}$.
 
-We consider the product in Equation \ref{eq:p_product_e1l2}: $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
+We consider the product in (\ref{eq:p_product_e1l2}): $\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}=\frac{p_{N}^{(i)}(q)}{p_{D}^{(i)}(q)}=p^{(i)}(q)$.
 
 Due to $i$-times product and large $t$: $\left.\begin{array}{c}
 \mathrm{deg}\left(p_{N}^{(i)}(q)\right)=q^{i4\ell t}\\
@@ -1941,17 +1949,17 @@ following to Corollary \ref{cor:dual_subspaces}. This is a new lower
 bound for $\mathcal{A}_{2}\left(6,4,3;2\right)$ compared to a code
 with 51 codewords presented in \cite{Wachter-Zeh:2018}. The smallest
 alphabet size for a scalar solution with 89 nodes exists is $q_{s}=8$.
-By Equation \ref{eq:r_scalar_max}, there are 73 one-dimensional subspaces
+By (\ref{eq:r_scalar_max}), there are 73 one-dimensional subspaces
 of $\ensuremath{\mathbb{F}}_{8}^{3}$, and each one can be used twice
 in the code; therefore, we have in total 146 possible codesword, but
 only 89 codewords are required. In this case, the gap size $g=q_{s}-q_{v}=2^{3}-2^{2}=8-4=2^{2},$i.e.
 we achieve a gap size $q^{t^{2}/2}$, which is better the asymptotic
-behavior in Equation \ref{eq:gap_e1l1h3rs4}. 
+behavior in (\ref{eq:gap_e1l1h3rs4}). 
 
 Before introducing the algorithm used to generate such 89 codewords,
 we have to state some definitions for a beter explanation. We denote
 a matrix space of dimension $\left[n\times m\right]$ by $M(n,m)=\left\{ \boldsymbol{A}:\boldsymbol{A}\in\ensuremath{\mathbb{F}}_{q=2}^{n\times m}\right\} $.
-\begin{defn}[Matrix Space with Unique Row Space]
+\begin{defn}[Matrix Space with Unique Row Space\label{def:urs_matrix_space}]
  $U(n,m)$ is a subset of $M(n,m)$, where any $\boldsymbol{A},\boldsymbol{B}\in U(n,m)$
 have their row spaces such that:
 \[
@@ -1961,7 +1969,7 @@ where $\mathcal{R}_{q}\left(.\right)$ denotes the row space of a
 matrix.
 \end{defn}
 %
-\begin{defn}[Sufficient Global Coding Vector]
+\begin{defn}[Sufficient Global Coding Vector\label{def:sufficient_global_coding_vectors} ]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ and
 $N\lll\left(\begin{array}{c}
 2^{3t^{2}}\\
@@ -1985,8 +1993,9 @@ for the rest of this thesis.
 \end{defn}
 %
 \begin{defn}[Relative]
- Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$.
-Then $\boldsymbol{C}$ is called a \textit{relative} of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
+ Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ introduced
+in Definition \ref{def:urs_matrix_space}. Then $\boldsymbol{C}$
+is called a \textit{relative} of a tuple $\left(\boldsymbol{A},\boldsymbol{B}\right)$
 if $\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right\} \in\mathcal{H}_{n=3t,m=3t}$
 and denoted as following:
 \[
@@ -2011,7 +2020,8 @@ Thus, each of these 3 matrices can form 3 different relatives:
 \mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{D}\right)\right]=\boldsymbol{A}
 \end{array}.
 \]
-Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ is $q^{3t^{2}}$.
+Furthermore, the maximum size of $\mathcal{H}_{n=3t,m=3t}$ introduced
+in Defnition \ref{def:sufficient_global_coding_vectors} is $q^{3t^{2}}$.
 Therefore, $\mathcal{H}_{t=3}$ can have only maximum $3q^{3t^{2}}$
 relatives.
 \end{proof}
@@ -2213,8 +2223,9 @@ to Figure \ref{fig:rel_example}(a) and \ref{fig:rel_example}(b),
 the visual explanation of $\mathrm{subrel}$ is shown.
 \end{example}
 \begin{figure}[H]
-\caption{The vector network coding of $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
-represents as a matrix problem\label{fig:rel_example}}
+\caption{An illustration of relatives and sub-relatives introduced in this
+study for computational approaches of vector solutions for the $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h=3,r,s=4}$
+network with $q^{t}=2^{2}$ and $q^{t}=2^{3}$ \label{fig:rel_example}}
 
 \centering{}\includegraphics[width=0.5\paperwidth]{../figures/rel_example}
 \end{figure}
@@ -2243,10 +2254,11 @@ which is still true when the size of identity tuples becomes smaller.
 \end{proof}
 We have tried 2 variants of the above algorithm as following. Firstly,
 instead of using \textit{matrix space with unique row space}, we use
-the whole matrix space $M\left(n,m\right)$. In case $t=2$, we cover
-all $2^{3t^{2}}=4096$ matrices instead of only 715 matrices in Section
-\ref{sec:Main-Approach}, which will help the Algorithm \ref{alg:Increasing-Method}
-cover the optimal vector solution.
+the whole matrix space $M\left(n,m\right)$ introduced in Definition
+\ref{def:urs_matrix_space}. In case $t=2$, we cover all $2^{3t^{2}}=4096$
+matrices instead of only 715 matrices in Section \ref{sec:Main-Approach},
+which will help the Algorithm \ref{alg:Increasing-Method} cover the
+optimal vector solution.
 \begin{defn}[Good Global Coding Vector\label{def:almost_sufficient_global_coding_vector}]
  Let $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$ and
 $N\leq\left(\begin{array}{c}
@@ -2279,14 +2291,14 @@ this approach started with a pair of 2 potential matrices $\left[\begin{array}{c
 \end{array}\right]$. Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
 into a list containing this pair. The random matrix is extended to
 the list, if the matrix and any 2 existing matrices in the list satisfy
-Equation \ref{eq:rk_rqm_e1l1h3s4}. The list will be extended until
-all matrices in $U\left(t=2,3t=6\right)$ are checked.
+(\ref{eq:rk_rqm_e1l1h3s4}). The list will be extended until all matrices
+in $U\left(t=2,3t=6\right)$ are checked.
 
 \section{Decremental Algorithm (DM) \label{sec:Alternative-Approaches}}
 
 In Algorithm \ref{alg:Decreasing-Method}, we introduce a decremental
 algorithm by removing bad matrices from a set of 715 matrices, until
-any 3 of the matrices left in the set satisfy the Equation \ref{eq:rk_rqm_e1l1h3s4}.
+any 3 of the matrices left in the set satisfy (\ref{eq:rk_rqm_e1l1h3s4}).
 A matrix with the less number of occurence in $\mathcal{T}_{n=3t,m=3t}$
 or $\mathcal{H}_{n=3t,m=3t}$ is evaluated as a bad matrix, and it
 is removed for each step. If many bad matrices exist, we only remove
@@ -2390,7 +2402,7 @@ nodes with $r_{\mathrm{max,vector}}=121$. For $t=3$, our vector
 solution gives a better result than both the optimal scalar solution
 and the combinatorial vector solution with $r_{\mathrm{max,vector}}=166$.
 For $t=3,\ldots,6$, all of our combinatorial vector solutions outperform
-the optimal scalar one. ({*}): Theoretical results based on Table
+the optimal scalar one. ({*}): combinatorial results based on Table
 \ref{tab:r_over_t}.\label{tab:r_over_t-1}}
 \end{sidewaystable}
 
@@ -2496,12 +2508,20 @@ for the network.
 \end{proof}
 %
 \begin{proof}[Proof of Corollary \vref{cor:e2l1_gap}]
- The gap follows by Section \ref{subsec:Comparison-between-scalar-and-vector-sol}.
+ The gap follows by applying Section \ref{subsec:Comparison-between-scalar-and-vector-sol}
+with Theorem \vref{theo:e2l1_r_max_vector} and Theorem \vref{theo:e2l1_r_max_scalar}.
 \end{proof}
 
 \section{89 Two-Dimensional Subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$
 for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 Network \label{sec:89-Two-Dimensional-Subspaces}}
+
+By applying Algorithm \vref{alg:Increasing-Method} with details mentioned
+in Section (\ref{sec:Main-Approach}), we computed the following 89
+subspaces of $\ensuremath{\mathbb{F}}_{2}^{6}$ for our vector solution
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network, which are equivalently to 89 intermediate nodes in the middle
+layer of the network.
 
 \begin{lstlisting}
 [1 0 0 0 0 0] [1 0 0 0 0 0] [0 0 1 0 0 0] [0 0 0 1 0 0] 
@@ -2578,6 +2598,15 @@ Network \label{sec:89-Two-Dimensional-Subspaces}}
 \section{166 Three-Dimensional Subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$
 for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 Network \label{sec:166-Three-Dimensional-Subspaces}}
+
+By applying Algorithm \vref{alg:Increasing-Method} with details mentioned
+in Section (\ref{sec:Main-Approach}), we computed the following 166
+subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$ for our vector solution
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network, which are equivalently to 89 intermediate nodes in the middle
+layer of the network. A vector solution over $\ensuremath{\mathbb{F}}_{2}^{9}$
+for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+network has not yet been studied in any other studies.
 
 \begin{lstlisting}
 [1 0 0 0 0 1 0 0 0] [1 0 0 0 0 0 1 0 0] 

@@ -11,7 +11,7 @@
 r\\
 2
 \end{array}\right)$};
-		\node [style=none] (42) at (3, 6.5) {$\underline{x}_{1},\underline{x}_{2},\underline{x}_{3},\underline{x}_{4}$};
+		\node [style=none] (42) at (3, 6.5) {$\boldsymbol{x}_{1},\boldsymbol{x}_{2},\boldsymbol{x}_{3},\boldsymbol{x}_{4}$};
 		\node [style=none] (53) at (0.25, -0.5) {};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}

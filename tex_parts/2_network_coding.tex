@@ -88,8 +88,8 @@ under routing in Figure \ref{fig:The-butterfly-network}(a) and (b).
 \textit{Packet loss} is a particular issue in wireless packet networks
 due to several reasons, e.g. buffer overflow or communication failures
 \cite{Ho:2008}. Sharing a common concept with Erasure Coding (EC)
-by exploiting a degree of redundancy to packets on any vertices in
-the network, the receivers are able to successfully recover the original
+by exploiting a degree of redundancy to original packets on any nodes
+in a network, the receivers are able to successfully recover the original
 packets from a large number of packet losses, e.g. $101\circledast10\circledast1$.
 The only difference is that packets are only encoded by the source
 in EC \cite{Fujimura:2008}. This problem is dealed by acknowledgement
@@ -134,11 +134,11 @@ correction here. Furthermore, we consider the solvability of networks
 by proving an existence of an assignment for all functions such that
 all receiver can recover its requested information, so the functions
 or coding coefficients are clearly chosen instead of being arbitrary
-or random as the ones used in \cite{Ho:2003,Ahlswede:2000}. We later
-distinguish scalar and vector network coding more specifically in
-Section \ref{subsec:Matrix-channel} and \ref{sec:Network-Coding-for-GCN}.
+or random as the ones mentioned in \cite{Ho:2003,Ahlswede:2000}.
+We later distinguish scalar and vector network coding more specifically
+in Section \ref{subsec:Matrix-channel} and \ref{sec:Network-Coding-for-GCN}.
 
-\section{Network as a matrix channel \label{subsec:Matrix-channel}}
+\section{Network as a Matrix Channel \label{subsec:Matrix-channel}}
 
 To formulate a network coding problem, the source has a set of disjoint
 messages referred to packets on links which are either symbols from
@@ -259,7 +259,7 @@ Number of nodes & $r_{\mathrm{scalar}}$ & $r_{\mathrm{vector}}$\tabularnewline
 
 \begin{rem}
 By using the vector coding, the upper bound number of solutions increases
-from $q^{tkh}$ to $q^{t^{2}kh}$. Therefore, vector network coding
+from $q^{tsh}$ to $q^{t^{2}sh}$. Therefore, vector network coding
 offers more freedom in choosing the coding coefficients than does
 scalar linear coding for equivalent alphabet sizes, and a smaller
 alphabet size might be achievable \cite{Ebrahimi:2011}. By this advantage,
@@ -319,7 +319,7 @@ extend the approach for a family of GCN called One-Direct Link Combination
 Network, i.e. $(1,1)-\mathcal{N}_{h,r,s}$. More formal definitions
 of the gap and GCN can be found in Section \ref{sec:Description_GCN}.
 
-\subsection{Comparison between scalar and vector solutions by the gap size \label{subsec:Comparison-between-scalar-and-vector-sol}}
+\subsection{Comparison between Scalar and Vector Solutions by the Gap Size \label{subsec:Comparison-between-scalar-and-vector-sol}}
 
 A \textit{gap} represents the difference between the smallest field
 (alphabet) size for which a scalar linear solution exists and the
@@ -329,7 +329,7 @@ field size $\ensuremath{\mathbb{F}}_{q}^{t}$, and we find the lower
 bound of the maximum number of nodes such vector solution can achieve,
 i.e. $r_{\mathrm{max,vector}}=f_{\mathrm{1}}(q,t,\alpha,h)\geq f_{\mathrm{1,lower\,bound}}\left(q,t,\alpha,h\right)$,
 with $f_{\mathrm{1}}:\mathbb{Z}\rightarrow\mathbb{Z}$. Meanwhile,
-we has a scalar solution for the same network existing if and only
+we have a scalar solution for the same network existing if and only
 if $r\leq r_{\mathrm{max,scalar}}=f_{\mathrm{2}}\left(q_{\mathrm{s}}\right)\leq f_{\mathrm{2,upper\,bound}}\left(q_{\mathrm{s}}\right)$,
 with $f_{\mathrm{2}}:\mathbb{Z}\rightarrow\mathbb{Z}$. To find the
 field size $q_{\mathrm{s}}$ required for a scalar solution to reach

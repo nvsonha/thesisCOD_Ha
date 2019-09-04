@@ -12,12 +12,13 @@ achieved in network coding, since the nodes are allowed to forward
 a \textit{function} of their received packets, while in routing such
 packets can only be forwarded to another node. K\"otter and M\'edard
 provided an algebraic formulation for a \textit{linear network coding}
-problem and its scalar solvability. If functions of the packets on
-the links of the network, then we obtain a linear network coding solution,
-and a \textit{solution} is an assignment of these functions such that
-all destination nodes can recover all of their requested messages
-transmitted from a source node. Network coding was further developed
-with \textit{vector network coding} by Ebrahimi \cite{Ebrahimi:2011},
+problem and its scalar solvability \cite{Koetter:2003}. If functions
+of the packets on the links of the network are linear, then we obtain
+a linear network coding solution, and a \textit{solution} is an assignment
+of these functions such that all destination nodes can recover all
+of their requested messages transmitted from a source node. The algebraic
+approach of network coding in \cite{Koetter:2003} was further extended
+to \textit{vector network coding} by Ebrahimi \cite{Ebrahimi:2011},
 where all packets are vectors of length $t$. In \cite{Wachter-Zeh:2018},
 Etzion and Wachter-Zeh proved that vector network coding based on
 subspace codes outperforms linear network coding for several generalizations
@@ -26,12 +27,13 @@ the motivation for our study in this thesis on vector network coding,
 especially the study of \textit{gap} measuring the difference in \textit{alphabet
 sizes} between solutions of scalar and vector network coding. The
 alphabet size is an important parameter determining the amount of
-computation performed at each node \cite{Wachter-Zeh:2018}. In this
-thesis, we show that smaller alphabet sizes can be achieved by vector
-network coding for further instances of the \textit{generalized combination
-networks} (GCN) \cite{Wachter-Zeh:2018}, which allows higher number
-of destination nodes to be connected to the network in comparison
-with scalar network coding.
+computation performed at each node \cite{Wachter-Zeh:2018}, e.g.
+its relationship in memory buffer overflow and channel errors \cite{Ho:2008,Fragouli:2006,Gone:2018}.
+In this thesis, we show that smaller alphabet sizes can be achieved
+by vector network coding for further instances of the \textit{generalized
+combination networks} (GCN) \cite{Wachter-Zeh:2018}, which allows
+higher number of destination nodes to be connected to the network
+in comparison with scalar network coding.
 
 \textbf{Outline}
 
@@ -60,12 +62,12 @@ a vector solution and a corresponding optimal scalar solution. We
 list known gaps for some instances of GCN in previous studies together
 with our new found gaps in this study.
 
-The remaining chapters contain new results, i.e. our study of new
-gap sizes for GCN. We divided them into two main parts: Chapter 5
-contains new gap sizes for three families of GCN with combinatorial
-proofs based on Lov\'asz Local Lemma (LLL), and Chapter 6 and 7 contains
-new computational results of vector solutions outperforming scalar
-solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+The remaining chapters contain \textbf{new results}, i.e. our study
+of new gap sizes for GCN. We divided them into two main parts: Chapter
+5 contains new gap sizes for three families of GCN with combinatorial
+proofs based on the Lov\'asz Local Lemma (LLL), and Chapter 6 and
+7 contains new computational results of vector solutions outperforming
+scalar solutions for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network. The details of each chapter are mentioned below.
 
 In \textbf{Chapter 5}, we present new gaps found by combinatorial

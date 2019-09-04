@@ -22,7 +22,7 @@ r\\
 		\node [style=none] (40) at (8.25, 0) {};
 		\node [style=none] (41) at (7.25, 0.5) {$\epsilon$
 };
-		\node [style=none] (42) at (3, 6.5) {$\underline{x}_{1},\underline{x}_{2},\ldots,\underline{x}_{h}$};
+		\node [style=none] (42) at (3, 6.5) {$\boldsymbol{x}_{1},\boldsymbol{x}_{2},\ldots,\boldsymbol{x}_{h}$};
 		\node [style=none] (43) at (-1, -0.5) {};
 		\node [style=none] (44) at (1, -6) {};
 		\node [style=none] (45) at (7, -6) {};

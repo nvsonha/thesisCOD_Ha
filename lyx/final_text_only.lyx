@@ -154,15 +154,31 @@ dard provided an algebraic formulation for a
 \shape italic
 linear network coding
 \shape default
- problem and its scalar solvability.
- If functions of the packets on the links of the network, then we obtain
- a linear network coding solution, and a 
+ problem and its scalar solvability 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Koetter:2003"
+literal "false"
+
+\end_inset
+
+.
+ If functions of the packets on the links of the network are linear, then
+ we obtain a linear network coding solution, and a 
 \shape italic
 solution
 \shape default
  is an assignment of these functions such that all destination nodes can
  recover all of their requested messages transmitted from a source node.
- Network coding was further developed with 
+ The algebraic approach of network coding in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Koetter:2003"
+literal "false"
+
+\end_inset
+
+ was further extended to 
 \shape italic
 vector network coding
 \shape default
@@ -214,6 +230,15 @@ on performed at each node
 LatexCommand cite
 key "Wachter-Zeh:2018"
 literal "true"
+
+\end_inset
+
+, e.g.
+ its relationship in memory buffer overflow and channel errors 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ho:2008,Fragouli:2006,Gone:2018"
+literal "false"
 
 \end_inset
 
@@ -310,10 +335,14 @@ gap
 \end_layout
 
 \begin_layout Standard
-The remaining chapters contain new results, i.e.
+The remaining chapters contain 
+\series bold
+new results
+\series default
+, i.e.
  our study of new gap sizes for GCN.
  We divided them into two main parts: Chapter 5 contains new gap sizes for
- three families of GCN with combinatorial proofs based on Lov
+ three families of GCN with combinatorial proofs based on the Lov
 \begin_inset ERT
 status open
 
@@ -538,7 +567,7 @@ Multigraph
 
 \begin_layout Standard
 A graph is permitted to have multiple edges.
- Edges that are incident to same vertices can be in parallel.
+ Edges that are incident to same nodes can be in parallel.
  
 \end_layout
 
@@ -548,7 +577,7 @@ Directed Acyclic Graph
 
 \begin_layout Standard
 A finite directed graph with no directed cycles, i.e.
- it consists of a finite number vertices and edges, with each edge directed
+ it consists of a finite number nodes and edges, with each edge directed
  from a vertex to another, such that there is no loop from any vertex 
 \begin_inset Formula $v$
 \end_inset
@@ -1533,7 +1562,7 @@ literal "true"
 
 .
  Sharing a common concept with Erasure Coding (EC) by exploiting a degree
- of redundancy to packets on any vertices in the network, the receivers
+ of redundancy to original packets on any nodes in a network, the receivers
  are able to successfully recover the original packets from a large number
  of packet losses, e.g.
  
@@ -1733,7 +1762,7 @@ noprefix "false"
  Furthermore, we consider the solvability of networks by proving an existence
  of an assignment for all functions such that all receiver can recover its
  requested information, so the functions or coding coefficients are clearly
- chosen instead of being arbitrary or random as the ones used in 
+ chosen instead of being arbitrary or random as the ones mentioned in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ho:2003,Ahlswede:2000"
@@ -1767,7 +1796,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-Network as a matrix channel 
+Network as a Matrix Channel 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Matrix-channel"
@@ -2602,7 +2631,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsection
-Comparison between scalar and vector solutions by the gap size 
+Comparison between Scalar and Vector Solutions by the Gap Size 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Comparison-between-scalar-and-vector-sol"
@@ -2636,7 +2665,7 @@ gap
 \end_inset
 
 .
- Meanwhile, we has a scalar solution for the same network existing if and
+ Meanwhile, we have a scalar solution for the same network existing if and
  only if 
 \begin_inset Formula $r\leq r_{\mathrm{max,scalar}}=f_{\mathrm{2}}\left(q_{\mathrm{s}}\right)\leq f_{\mathrm{2,upper\,bound}}\left(q_{\mathrm{s}}\right)$
 \end_inset
@@ -3042,7 +3071,7 @@ name "tab:Parameters-of-network"
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top" width="48page%">
 <row>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3054,7 +3083,7 @@ name "tab:Parameters-of-network"
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3065,7 +3094,7 @@ The number of source messages
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3077,7 +3106,7 @@ The number of source messages
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3088,7 +3117,7 @@ The number of nodes in the middle layer
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3103,7 +3132,7 @@ r\\
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3114,7 +3143,7 @@ The number of receivers
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3126,7 +3155,7 @@ The number of receivers
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3145,7 +3174,7 @@ The source connects to each node by
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3157,7 +3186,7 @@ The source connects to each node by
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3172,7 +3201,7 @@ A receiver is connected by any
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3184,7 +3213,7 @@ A receiver is connected by any
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3199,7 +3228,7 @@ The source additionally connects to each receiver by
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3211,7 +3240,7 @@ The source additionally connects to each receiver by
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3242,7 +3271,7 @@ Each receiver is connected by
 \end_layout
 
 \begin_layout Section
-Network Coding for This Network 
+Network Coding for the Generalized Combination Network 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Network-Coding-for-GCN"
@@ -3274,7 +3303,7 @@ global
 \end_layout
 
 \begin_layout Subsection
-Scalar network coding 
+Scalar Network Coding 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Scalar-network-coding"
@@ -3450,7 +3479,7 @@ name "theo:scalar_sol_exist"
 \end_layout
 
 \begin_layout Subsection
-Vector network coding 
+Vector Network Coding 
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Vector-network-coding"
@@ -3668,11 +3697,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The mapping of scalar solution over 
+The mapping of a scalar solution over 
 \begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
 \end_inset
 
- to the equivalent vector solution
+ to an equivalent vector solution
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:x_mapping"
@@ -4469,7 +4498,7 @@ The Largest Possible Gap between
 \end_layout
 
 \begin_layout Standard
-Etzion and Wachter-Zeh considered 2 cases separately 
+Etzion and Wachter-Zeh distinguished 2 following cases 
 \begin_inset Formula $h\leq2\ell,\epsilon\neq0$
 \end_inset
 
@@ -4483,6 +4512,7 @@ Etzion and Wachter-Zeh considered 2 cases separately
 \begin_layout Subsubsection
 
 \bar under
+For 
 \begin_inset Formula $h\leq2\ell$
 \end_inset
 
@@ -4543,6 +4573,7 @@ The
 \begin_layout Subsubsection
 
 \bar under
+For 
 \begin_inset Formula $h\geq2\ell$
 \end_inset
 
@@ -4784,7 +4815,7 @@ N/A
 
 \begin_layout Plain Layout
 \align center
-Unknown
+N/A
 \end_layout
 
 \end_inset
@@ -4909,9 +4940,9 @@ N/A
 
 \end_inset
 
-Some of them has global coding vectors as square matrices, so the decoding
- base easily by inversing such global coding vectors to get each receiver's
- requested messages.
+Some of them has global coding vectors as square matrices, so a decoding
+ method for each receiver is easily by inversing such global coding vectors
+ to get each receiver's requested messages.
  However, we do not go into details of decoding methods in this study.
 \end_layout
 
@@ -4921,7 +4952,17 @@ Combinatorial Results
 
 \begin_layout Standard
 This section contains new results on gaps of 3 different instances of the
- GCN.
+ GCN mentioned in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Description_GCN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  In previous studies 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4942,7 +4983,7 @@ literal "false"
 \end_inset
 
  network.
- Our approach is to study the network as an matrix channel introduced in
+ Our approach is to study the network as a matrix channel introduced in
  Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4966,9 +5007,19 @@ status open
 
 \end_inset
 
-sz local lemma (LLL) for the proof.
+sz Local Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:LLL"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (LLL) for the proof.
  The idea of this approach for the vector network coding was proposed by
- Mosche Schwarz 
+ Schwartz 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MosheSchwartz:2018"
@@ -4976,8 +5027,7 @@ literal "false"
 
 \end_inset
 
-.
- The optimal scalar linear solution was studied in 
+ and the optimal scalar linear solution was studied in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Wachter-Zeh:2018"
@@ -5463,7 +5513,7 @@ noprefix "false"
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}\\
-\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\cdot\left[\begin{array}{c}
 \boldsymbol{x}_{1}\\
 \boldsymbol{x}_{2}\\
@@ -5486,7 +5536,7 @@ with
 \end_inset
 
 , and 
-\begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
+\begin_inset Formula $\boldsymbol{B}^{\left(j\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times3t}$
 \end_inset
 
  for 
@@ -5504,14 +5554,14 @@ The network is solvable, if
 \begin_inset Formula $\boldsymbol{A}_{j}$
 \end_inset
 
- has full-rank:
+ has full rank as following,
 \begin_inset Formula 
 \[
 \mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
 \boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
-\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}
+\boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\geq3t.
 \]
 
@@ -5522,7 +5572,7 @@ The network is solvable, if
 
 \begin_layout Standard
 Since coding coefficients for 
-\begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
+\begin_inset Formula $\boldsymbol{B}^{\left(j\right)}$
 \end_inset
 
  can be independently chosen for any receiver 
@@ -5530,10 +5580,10 @@ Since coding coefficients for
 \end_inset
 
 , there always exists 
-\begin_inset Formula $\boldsymbol{B}^{\left(\epsilon\left(j-1\right)+1\right)}$
+\begin_inset Formula $\boldsymbol{B}^{\left(j\right)}$
 \end_inset
 
- such that,
+ such that
 \begin_inset Formula 
 \begin{equation}
 \mathrm{rk}\left[\begin{array}{c}
@@ -5590,7 +5640,7 @@ Let
 \begin_inset Formula $\boldsymbol{A}_{j}$
 \end_inset
 
-such that 
+ such that 
 \begin_inset Formula $\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
@@ -5851,7 +5901,7 @@ noprefix "false"
 \begin_layout Proof
 (1): Applying 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:num_of_rank_t_matrices"
 plural "false"
 caps "false"
@@ -5999,7 +6049,20 @@ Hence,
 \end_layout
 
 \begin_layout Standard
-Each event considered under the Local lemma 
+Each event considered under the Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz Local Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -6170,7 +6233,20 @@ T=\stackrel[i=1]{n}{\bigcap}\overline{\mathcal{E}}_{i}=\left\{ \mathrm{rk}\left[
 
 \end_inset
 
-The Local lemma 
+The Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz Local Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -6606,7 +6682,7 @@ noprefix "false"
 
  and Lemma 
 \begin_inset CommandInset ref
-LatexCommand eqref
+LatexCommand ref
 reference "lem:dependecy_d_LLL"
 plural "false"
 caps "false"
@@ -6879,7 +6955,20 @@ Similar to
 \begin_inset Formula $\left(1,1\right)-\ensuremath{N}_{3,r,4}$
 \end_inset
 
-, we apply the Local lemma 
+, we apply the Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz Local Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -7271,7 +7360,20 @@ name "theo:r_vector_e1l1"
 \end_layout
 
 \begin_layout Proof
-Following to the Local lemma 
+Following to the Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz Local Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -7952,7 +8054,20 @@ for
 \end_layout
 
 \begin_layout Standard
-We then apply the Local lemma 
+We then apply the Lov
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'a
+\end_layout
+
+\end_inset
+
+sz Local Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:LLL"
@@ -8000,7 +8115,7 @@ An event
 \vdots\\
 \boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]=i\right]\nonumber \\
- & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,m,n}}{q^{m\cdot n}}\nonumber \\
+ & \overset{1}{=} & \stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,2\ell t,2\ell t}}{q^{m\cdot n}}\nonumber \\
  & \overset{2}{=} & \frac{1}{q^{4\ell^{2}t^{2}}}\stackrel[i=0]{\left(2\ell-1\right)t-1}{\mathop{\sum}}\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{2\ell t}-q^{j}\right)^{2}}{q^{i}-q^{j}}\label{eq:p_product_e1l2}
 \end{eqnarray}
 
@@ -8010,7 +8125,7 @@ An event
 \end_layout
 
 \begin_layout Proof
-(1): The formula for the umber of 
+(1): The formula for the number of 
 \begin_inset Formula $\left[m\times n\right]$
 \end_inset
 
@@ -8027,6 +8142,16 @@ An event
 LatexCommand cite
 key "Overbeck:2007"
 literal "true"
+
+\end_inset
+
+ and was mentioned in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:num_of_rank_t_matrices"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -8084,9 +8209,9 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-We consider the product in Equation 
+We consider the product in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:p_product_e1l2"
 plural "false"
 caps "false"
@@ -8630,9 +8755,9 @@ literal "false"
 \end_inset
 
 .
- By Equation 
+ By 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:r_scalar_max"
 plural "false"
 caps "false"
@@ -8655,9 +8780,9 @@ i.e.
 \begin_inset Formula $q^{t^{2}/2}$
 \end_inset
 
-, which is better the asymptotic behavior in Equation 
+, which is better the asymptotic behavior in 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:gap_e1l1h3rs4"
 plural "false"
 caps "false"
@@ -8689,6 +8814,13 @@ status open
 
 \begin_layout Plain Layout
 Matrix Space with Unique Row Space
+\begin_inset CommandInset label
+LatexCommand label
+name "def:urs_matrix_space"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -8733,6 +8865,13 @@ status open
 
 \begin_layout Plain Layout
 Sufficient Global Coding Vector
+\begin_inset CommandInset label
+LatexCommand label
+name "def:sufficient_global_coding_vectors"
+
+\end_inset
+
+ 
 \end_layout
 
 \end_inset
@@ -8806,6 +8945,16 @@ Relative
 
  Let 
 \begin_inset Formula $\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\in U(t,3t)$
+\end_inset
+
+ introduced in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:urs_matrix_space"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 .
@@ -8883,6 +9032,16 @@ Each sufficient global coding vector
 
 Furthermore, the maximum size of 
 \begin_inset Formula $\mathcal{H}_{n=3t,m=3t}$
+\end_inset
+
+ introduced in Defnition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:sufficient_global_coding_vectors"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
  is 
@@ -10100,11 +10259,20 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-The vector network coding of 
-\begin_inset Formula $(\epsilon=1,l=1)-\mathcal{N}_{h=3,r,s=4}$
+An illustration of relatives and sub-relatives introduced in this study
+ for computational approaches of vector solutions for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\ensuremath{N}_{h=3,r,s=4}$
 \end_inset
 
- represents as a matrix problem
+ network with 
+\begin_inset Formula $q^{t}=2^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $q^{t}=2^{3}$
+\end_inset
+
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:rel_example"
@@ -10233,6 +10401,16 @@ matrix space with unique row space
 \shape default
 , we use the whole matrix space 
 \begin_inset Formula $M\left(n,m\right)$
+\end_inset
+
+ introduced in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:urs_matrix_space"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 .
@@ -10401,9 +10579,9 @@ noprefix "false"
 
  into a list containing this pair.
  The random matrix is extended to the list, if the matrix and any 2 existing
- matrices in the list satisfy Equation 
+ matrices in the list satisfy 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:rk_rqm_e1l1h3s4"
 plural "false"
 caps "false"
@@ -10442,10 +10620,9 @@ noprefix "false"
 \end_inset
 
 , we introduce a decremental algorithm by removing bad matrices from a set
- of 715 matrices, until any 3 of the matrices left in the set satisfy the
- Equation 
+ of 715 matrices, until any 3 of the matrices left in the set satisfy 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:rk_rqm_e1l1h3s4"
 plural "false"
 caps "false"
@@ -11552,7 +11729,7 @@ literal "false"
 
 , all of our combinatorial vector solutions outperform the optimal scalar
  one.
- (*): Theoretical results based on Table 
+ (*): combinatorial results based on Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:r_over_t"
@@ -12302,10 +12479,30 @@ noprefix "false"
 
 \end_inset
 
- The gap follows by Section 
+ The gap follows by applying Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Comparison-between-scalar-and-vector-sol"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with Theorem 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "theo:e2l1_r_max_vector"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Theorem 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "theo:e2l1_r_max_scalar"
 plural "false"
 caps "false"
 noprefix "false"
@@ -12332,6 +12529,39 @@ name "sec:89-Two-Dimensional-Subspaces"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+By applying Algorithm 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with details mentioned in Section 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sec:Main-Approach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we computed the following 89 subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{6}$
+\end_inset
+
+ for our vector solution for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network, which are equivalently to 89 intermediate nodes in the middle
+ layer of the network.
 \end_layout
 
 \begin_layout Standard
@@ -12679,6 +12909,48 @@ name "sec:166-Three-Dimensional-Subspaces"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+By applying Algorithm 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "alg:Increasing-Method"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with details mentioned in Section 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sec:Main-Approach"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we computed the following 166 subspaces of 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{9}$
+\end_inset
+
+ for our vector solution for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network, which are equivalently to 166 intermediate nodes in the middle
+ layer of the network.
+ A vector solution over 
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{2}^{9}$
+\end_inset
+
+ for the 
+\begin_inset Formula $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
+\end_inset
+
+ network has not yet been studied in any other studies.
 \end_layout
 
 \begin_layout Standard

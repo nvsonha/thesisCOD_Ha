@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Generalized combination Network} \label{chap:general_network}
+\chapter{Generalized Combination Network} \label{chap:general_network}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Description \label{sec:Description_GCN}}
@@ -55,7 +55,8 @@ to do routing to select paths for the network.
 \caption{Parameters of network coding \label{tab:Parameters-of-network}}
 
 \centering{}%
-\begin{tabular}{c|>{\centering}p{0.48\paperwidth}}
+\begin{tabular}{|c|>{\centering}p{0.48\paperwidth}|}
+\hline 
 $h$ & The number of source messages\tabularnewline
 \hline 
 $r$ & The number of nodes in the middle layer\tabularnewline
@@ -74,11 +75,12 @@ $\epsilon$ & The source additionally connects to each receiver by $\epsilon$ dir
 parallel links\tabularnewline
 \hline 
 $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsilon$.\tabularnewline
+\hline 
 \end{tabular}
 \end{table}
 
 
-\section{Network Coding for This Network \label{sec:Network-Coding-for-GCN}}
+\section{Network Coding for the Generalized Combination Network \label{sec:Network-Coding-for-GCN}}
 
 We start describing a difference of a source message used in scalar
 network coding and vector network coding. Then we find a condition
@@ -88,7 +90,7 @@ and \textit{global} coding vectors are the same, because the nodes
 are simplified to forward their received packets and only the source
 has its functions on its messages.
 
-\subsection{Scalar network coding \label{subsec:Scalar-network-coding}}
+\subsection{Scalar Network Coding \label{subsec:Scalar-network-coding}}
 
 A message or a packet is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$.
 As a network of the multicast model, all receivers request the same
@@ -119,7 +121,7 @@ exists an $\alpha-\left(h,\ell,h-\ell-\epsilon\right)_{q}^{c}$ code
 with $r$ codewords. \label{theo:scalar_sol_exist}
 \end{thm}
 
-\subsection{Vector network coding \label{subsec:Vector-network-coding}}
+\subsection{Vector Network Coding \label{subsec:Vector-network-coding}}
 
 In vector network coding, a message or a packet is a vector of length
 $t$ over $\ensuremath{\mathbb{F}}_{q}$. A vector solution is therefore
@@ -158,8 +160,8 @@ Given $h=3,q=2,t=2$, we consider the extension field $\ensuremath{\mathbb{F}}_{q
 This example shows how mapping messages from scalar coding to vector
 coding.
 \begin{figure}[H]
-\caption{The mapping of scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
-to the equivalent vector solution\label{fig:x_mapping}}
+\caption{The mapping of a scalar solution over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}=q^{t}}$
+to an equivalent vector solution\label{fig:x_mapping}}
 
 \centering{}\includegraphics[width=0.3\paperwidth]{./figures/x_mapping}
 \end{figure}
@@ -317,10 +319,10 @@ network \label{fig:network_special4}}
 \subsection{The Largest Possible Gap between $q_{v}$ and $q_{s}$ in Previous
 Studies}
 
-Etzion and Wachter-Zeh considered 2 cases separately $h\leq2\ell,\epsilon\neq0$
+Etzion and Wachter-Zeh distinguished 2 following cases $h\leq2\ell,\epsilon\neq0$
 and $h\geq2\ell,\epsilon\neq h-2\ell$
 
-\subsubsection{\uline{\mbox{$h\protect\leq2\ell$} and \mbox{$\epsilon\protect\neq0$}}}
+\subsubsection{\uline{For \mbox{$h\protect\leq2\ell$} and \mbox{$\epsilon\protect\neq0$}}}
 
 For this network, the number of direct links is at least 1, i.e. $\epsilon\geq1$,
 and the number of parallel links is less than half of the number of
@@ -336,7 +338,7 @@ achieves the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
 The $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$ network
 achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
 
-\subsubsection{\uline{\mbox{$h\protect\geq2\ell$} and \mbox{$\epsilon\protect\neq h-2\ell$}}}
+\subsubsection{\uline{For \mbox{$h\protect\geq2\ell$} and \mbox{$\epsilon\protect\neq h-2\ell$}}}
 
 \paragraph{h is even}
 
@@ -370,7 +372,7 @@ Lower bounds on gaps
 \hline 
 \centering{}$\left(\epsilon=0,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}N/A & \centering{}N/A\tabularnewline
 \hline 
-\centering{}$\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}Unknown & \centering{}$q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$\tabularnewline
+\centering{}$\left(\epsilon\geq1,\ell=1\right)-\mathcal{N}_{h,r,s}$ & \centering{}N/A & \centering{}$q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$\tabularnewline
 \hline 
 \begin{centering}
 $(\epsilon=1,\ell\geq2)-$
@@ -385,9 +387,9 @@ $\mathcal{N}_{h=2\ell,r,s=3\ell-1}$ & \centering{}$q^{t^{2}/2+\mathcal{O}\left(t
 \end{tabular}
 \par\end{centering}
 \end{table}
-Some of them has global coding vectors as square matrices, so the
-decoding base easily by inversing such global coding vectors to get
-each receiver's requested messages. However, we do not go into details
-of decoding methods in this study.
+Some of them has global coding vectors as square matrices, so a decoding
+method for each receiver is easily by inversing such global coding
+vectors to get each receiver's requested messages. However, we do
+not go into details of decoding methods in this study.
 
 \clearpage
