@@ -2301,11 +2301,11 @@ Number of nodes
 \begin_layout Remark
 By using the vector coding, the upper bound number of solutions increases
  from 
-\begin_inset Formula $q^{tkh}$
+\begin_inset Formula $q^{tsh}$
 \end_inset
 
  to 
-\begin_inset Formula $q^{t^{2}kh}$
+\begin_inset Formula $q^{t^{2}sh}$
 \end_inset
 
 .
@@ -6291,7 +6291,7 @@ literal "false"
 r_{\mathrm{scalar}}\leq2\left[\begin{array}{c}
 3\\
 1
-\end{array}\right]_{q_{s}}=2\left(q_{s}^{2}+q_{s}+1\right).\label{eq:r_scalar_max}
+\end{array}\right]_{q_{\mathrm{s}}}=2\left(q_{\mathrm{s}}^{2}+q_{\mathrm{s}}+1\right).\label{eq:r_scalar_max}
 \end{equation}
 
 \end_inset

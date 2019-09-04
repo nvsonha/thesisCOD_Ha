@@ -6,8 +6,8 @@
 		\node [style=white dot] (3) at (-19, -6) {};
 		\node [style=white dot] (4) at (-5, -6) {};
 		\node [style=none] (5) at (-12, 5) {Scalar Network Coding};
-		\node [style=none] (6) at (0, 8) {};
-		\node [style=none] (7) at (0, -8.75) {};
+		\node [style=none] (6) at (0, 5) {};
+		\node [style=none] (7) at (0, -7) {};
 		\node [style=none] (8) at (-14.5, -2) {};
 		\node [style=none] (9) at (-13.5, -2) {};
 		\node [style=none] (10) at (-9.5, -2) {};

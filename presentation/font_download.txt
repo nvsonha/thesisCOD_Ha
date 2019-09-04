@@ -1,0 +1,3 @@
+CMU Serif Roman
+https://www.fontsquirrel.com/fonts/computer-modern
+https://en.wikibooks.org/wiki/LaTeX/Fonts

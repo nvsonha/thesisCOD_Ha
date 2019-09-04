@@ -1,0 +1,97 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=white dot] (0) at (-1, 6) {Source};
+		\node [style=white dot] (1) at (-9, 0) {Node 1};
+		\node [style=white dot] (2) at (-4, 0) {Node 2};
+		\node [style=white dot] (3) at (4, 0) {Node r};
+		\node [style={medium_white_dot}] (4) at (-8.5, -7) {Recv 1};
+		\node [style={none_huge_font}] (5) at (0, 0) {...};
+		\node [style=none] (28) at (-10, -4.5) {};
+		\node [style=none] (29) at (-5.5, -6.25) {};
+		\node [style=none] (30) at (-5, -6.75) {$\alpha \ell$};
+		\node [style={none_huge_font}, font={\huge}] (31) at (-2, -8) {...};
+		\node [style={medium_white_dot}] (32) at (4, -7) {Recv $\left(\begin{array}{c}
+r\\
+\alpha
+\end{array}\right)$};
+		\node [style=none] (36) at (-14, 0) {};
+		\node [style=none] (37) at (-11.5, 0) {};
+		\node [style=none] (38) at (-12.5, 0.5) {$\epsilon$
+};
+		\node [style=none] (39) at (6.25, 0) {};
+		\node [style=none] (40) at (8.25, 0) {};
+		\node [style=none] (41) at (7.25, 0.5) {$\epsilon$
+};
+		\node [style=none] (42) at (3, 6.5) {$\textbf{x}_{1},\textbf{x}_{2},\ldots,\textbf{x}_{h}$};
+		\node [style=none] (43) at (-1, -0.5) {};
+		\node [style=none] (44) at (1, -6) {};
+		\node [style=none] (45) at (7, -6) {};
+		\node [style=none] (46) at (8.75, -6.75) {$s=\alpha \ell + \epsilon$};
+		\node [style=none] (47) at (1.25, -0.5) {};
+		\node [style=none] (51) at (-7.25, -3) {};
+		\node [style=none] (52) at (-5.5, -3) {};
+		\node [style=none] (53) at (-0.5, -0.5) {};
+		\node [style=none] (56) at (-4.25, -3) {};
+		\node [style=none] (57) at (-2.5, -3) {};
+		\node [style=none] (58) at (-10, -3) {};
+		\node [style=none] (59) at (-8.25, -3) {};
+		\node [style=none] (60) at (3.75, -3) {};
+		\node [style=none] (61) at (5.5, -3) {};
+		\node [style=none] (62) at (1.75, -3) {};
+		\node [style=none] (63) at (3.5, -3) {};
+		\node [style=none] (64) at (-0.25, -3) {};
+		\node [style=none] (65) at (1.5, -3) {};
+		\node [style=none] (66) at (-9.25, -2.5) {$\ell$};
+		\node [style=none] (67) at (-7.75, 2) {};
+		\node [style=none] (68) at (-6, 2) {};
+		\node [style=none] (69) at (-6.5, 2.5) {$\ell$};
+		\node [style=none] (70) at (-4, 2) {};
+		\node [style=none] (71) at (-2.25, 2) {};
+		\node [style=none] (72) at (-3, 2.5) {$\ell$};
+		\node [style=none] (73) at (1.75, 2) {};
+		\node [style=none] (74) at (3.5, 2) {};
+		\node [style=none] (75) at (2.5, 2.5) {$\ell$};
+		\node [style=none] (76) at (-6, -2.5) {$\ell$};
+		\node [style=none] (77) at (-2.75, -2.5) {$\ell$};
+		\node [style=none] (78) at (4.5, -2.5) {$\ell$};
+		\node [style=none] (79) at (2.5, -2.5) {$\ell$};
+		\node [style=none] (80) at (0.5, -2.5) {$\ell$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=arrow] (0) to (1);
+		\draw [style=arrow, bend right=15] (0) to (2);
+		\draw [style=arrow] (0) to (3);
+		\draw [style=arrow] (1) to (4);
+		\draw [style=arrow, bend right=15] (2) to (4);
+		\draw [style=arrow, bend right=15] (0) to (1);
+		\draw [style=arrow] (0) to (2);
+		\draw [style=arrow, bend left=15] (0) to (3);
+		\draw [style=arrow, bend right=15] (1) to (4);
+		\draw [style=arrow] (2) to (4);
+		\draw [style={dashed_arrow}, bend left=75, looseness=1.25] (28.center) to (29.center);
+		\draw [style=arrow, in=150, out=-180, looseness=1.50] (0) to (4);
+		\draw [style=arrow, in=60, out=-15, looseness=1.50] (0) to (32);
+		\draw [style=arrow, in=135, out=-165, looseness=1.50] (0) to (4);
+		\draw [style=arrow, bend left=60, looseness=1.50] (0) to (32);
+		\draw [style={dashed_arrow}] (36.center) to (37.center);
+		\draw [style={dashed_arrow}] (39.center) to (40.center);
+		\draw [style=arrow] (3) to (32);
+		\draw [style=arrow, bend left=15, looseness=1.25] (3) to (32);
+		\draw [style=arrow] (43.center) to (4);
+		\draw [style=arrow, bend left=15] (43.center) to (4);
+		\draw [style={dashed_arrow}, bend left=75, looseness=1.25] (44.center) to (45.center);
+		\draw [style=arrow, bend left=15] (47.center) to (32);
+		\draw [style=arrow] (47.center) to (32);
+		\draw [style={dashed_arrow}] (51.center) to (52.center);
+		\draw [style=arrow] (53.center) to (32);
+		\draw [style=arrow, bend right=15] (53.center) to (32);
+		\draw [style={dashed_arrow}] (56.center) to (57.center);
+		\draw [style={dashed_arrow}] (58.center) to (59.center);
+		\draw [style={dashed_arrow}] (60.center) to (61.center);
+		\draw [style={dashed_arrow}] (62.center) to (63.center);
+		\draw [style={dashed_arrow}] (64.center) to (65.center);
+		\draw [style={dashed_arrow}] (67.center) to (68.center);
+		\draw [style={dashed_arrow}] (70.center) to (71.center);
+		\draw [style={dashed_arrow}] (73.center) to (74.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

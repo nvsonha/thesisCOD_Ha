@@ -13,6 +13,9 @@
 
 % LYX
 \usepackage{array}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{textcomp}
 
 
 \begin{document}
@@ -40,20 +43,13 @@
 %------------------------------------------------------------------------------------------------------------------------------------------
 \begin{frame}[c]
 \frametitle{Motivation}
-	\begin{itemize}%[<1->]
-		\item General vector solutions for the Generalized Combination Network was not found. 
 
-	\begin{example}[A multicast network with 3 messages]
-		\begin{figure}
+	Vector network coding solutions can \textbf{significantly reduce the required alphabet size} compared to the optimal scalar linear solution for the same network. % General vector solutions for the Generalized Combination Network was not found. 
+	\begin{figure}
+	\centering{}\includegraphics[width=0.6\paperwidth]{../figures/slide_scalar_vector_nc}
+	\caption{Vector Network Coding Outperforms Scalar Network Coding}
+	\end{figure}	
 
-		\caption{Vector Network Coding Outperforms Scalar Network Coding}
-
-		\centering{}\includegraphics[width=0.6\paperwidth]{../figures/slide_scalar_vector_nc}
-		\end{figure}
-	\end{example}
-
-		\item[$\Longrightarrow$] Vector Network Coding provides a higher number of receivers.
-	\end{itemize}
 \end{frame}
 
 
@@ -79,10 +75,9 @@
 
 	\begin{itemize}
 		\item \textit{Network coding} was first introduced in Ahlswede et al.'s seminal paper \cite{Ahlswede:2000} with the well-known butterfly network.
-			\begin{figure}[H]
-			\caption{The butterfly network \label{fig:The-butterfly-network}}
-			
+			\begin{figure}[H]	
 			\centering{}\includegraphics[width=0.5\paperwidth]{../figures/ahlswede_butterfly_network}
+			\caption{The butterfly network \label{fig:The-butterfly-network}}
 			\end{figure}
 		\item[$\Longrightarrow$] Network coding gives a potential gain in throughput by communicating more information with fewer packet transmissions compared to the routing method.
 	\end{itemize}
