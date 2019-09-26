@@ -43,11 +43,11 @@ r\\
 		\node [style=none] (37) at (1, -7) {};
 		\node [style=none] (38) at (17, -5) {};
 		\node [style=none] (39) at (17, -7) {};
-		\node [style=none] (40) at (14.75, 0) {$r\leq126$};
+		\node [style=none] (40) at (14.75, 0) {$r\geq126$};
 		\node [style=none] (41) at (18.25, -3.75) { $\left(\begin{array}{c}
 r\\
 3
-\end{array}\right) \leq 325500$};
+\end{array}\right) \geq 325500$};
 		\node [style=none] (42) at (-2.25, -5) {Receivers};
 		\node [style=none] (43) at (19.25, -5) {Receivers};
 		\node [style=none] (44) at (12.25, 2) {$\underline{x}_{1},\underline{x}_{2},\underline{x}_{3}$};

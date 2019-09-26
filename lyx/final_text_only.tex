@@ -15,6 +15,14 @@
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={VNC},
+ pdfauthor={Ha Nguyen},
+ pdfsubject={VNC},
+ pdfkeywords={VNC}}
 
 \makeatletter
 
@@ -86,6 +94,49 @@
 
 \begin{document}
 
+\part{Acknowledgements}
+
+This Master thesis is an intensive research of my Master study in
+Communications Engineering at Technical University of Munich, Germany,
+from March 2019 to September 2019. My thesis had been mainly conducted
+at Antonia Wachter-Zeh's group Coding for Communications and Data
+Storage. During my thesis writing period, many people supported and
+motivated me, and I am profoundly thankful to all of them.
+
+First of all, I would like to thank Sven Puchinger for being a devoted
+supervisor. Sven inspired me with his plenty of ideas during any of
+our weekly discussion and motivated me to solve new research problems.
+I really appreciate that Sven comprehensively reviewed my thesis writing
+for multiple rounds to have the current version. I would also like
+to thank Sven for supporting me to get access to the student laboratory
+to prepare my thesis literature review and the whole time of my thesis. 
+
+Secondly, Antonia gave me first lectures in Coding Theory and motivated
+me to write my thesis in Network Coding. Her advice along my thesis
+is definitely valuable on paving my future career as an young engineer.
+
+Thirdly, thanks to my flatmate Taylor Johnson, my thesis includes
+various sentence structure. Two of my classmates Karthik Uppund and
+Shinho Choe have made a great support from my start of the thesis.
+I would like to thank Shinho for awesome discussion on probabilistic
+problems during lunch breaks, and Karthik for his time to proofread
+my thesis writing before my final presentation.
+
+Finally, I would like to thank my family, in particular my my mother
+Kim and my brother Hai, who have always supported and encouraged me
+through my entire life. I am also definitely grateful to my soulmate
+Trang for always loving and supporting me.
+
+~
+
+~
+
+~
+
+Munich, September 2019
+
+Ha Nguyen
+
 \part{Introduction}
 
 \textit{Network coding} was first introduced in Ahlswede et al.'s
@@ -114,7 +165,7 @@ especially the study of \textit{gap} measuring the difference in \textit{alphabe
 sizes} between solutions of scalar and vector network coding. The
 alphabet size is an important parameter determining the amount of
 computation performed at each node \cite{Wachter-Zeh:2018}, e.g.
-its relationship in memory buffer overflow and channel errors \cite{Ho:2008,Fragouli:2006,Gone:2018}.
+its relationship in memory buffer overflow \cite{Ho:2008,Fragouli:2006,Gone:2018}.
 In this thesis, we show that smaller alphabet sizes can be achieved
 by vector network coding for further instances of the \textit{generalized
 combination networks} (GCN) \cite{Wachter-Zeh:2018}, which allows
@@ -188,6 +239,10 @@ The thesis is concluded in \textbf{Chapter 7}.
 
 \section{Notation and Basic Terminology}
 
+We give a brief overview on notations related to network basics and
+algebraic objects, such as fields or vector space, and refer to fundamental
+textbooks for futher details, e.g. \cite{Roth:2006,Irving:2003,Ho:2008}.
+
 \paragraph{Vectors and Matrices}
 
 Vectors $\boldsymbol{v}$ are denoted by underlined letters. Unless
@@ -201,7 +256,8 @@ otherwise they are clearly stated for any other uses.
 \paragraph{Vector space}
 
 A vector space of dimension $n$ over a finite field with $q$ elements
-is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. 
+is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. In this thesis,
+all of the fields are finite.
 
 \paragraph{Gaussian coefficient}
 
@@ -245,7 +301,7 @@ $\Omega\left(f\left(q,t\right)\right)$ for lower bounds, where $f$
 is a function of the alphabet size and the vector length.
 
 \section{Definition}
-\begin{defn}[Rank-metric code]
+\begin{defn}[Rank-metric code \cite{Wachter:2013}]
  A linear $\left[m\times n,k,\delta\right]_{q}^{R}$ rank-metric
 code $\mathcal{C}$ is a $k$-dimensional subspace of $\ensuremath{\mathbb{F}}_{q}^{m\times n}$
 with mimum rank distance $\delta$.
@@ -262,30 +318,28 @@ is defined by: $\delta=\underset{\boldsymbol{V}\in\mathcal{C},\boldsymbol{V}\neq
 Rank-metric codes that attained the Singleton-like upper bound $k\leq max\left\{ m,n\right\} \left(min\left\{ m,n\right\} -\delta+1\right)$
 \cite{Delsarte:1978,Gabidulin:1985,Roth:1991} are called maximum
 rank distance (MRD) codes and denoted by $\mathcal{MRD}\left[m\times n,\delta\right]_{q}$.
-\begin{defn}[Grassmannian Code]
+\begin{defn}[Grassmannian Code \cite{Zhang:2019}]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
 Due to being the set of all subspaces that have the same dimension
-$k$, it is also called a \textit{constant dimension code}. \cite{Zhang:2019}
+$k$, it is also called a \textit{constant dimension code}. 
 \end{defn}
 %
-\begin{defn}[Projective Space]
+\begin{defn}[Projective Space \cite{Wachter-Zeh:2018}]
  The \textit{projective space of order} $n$ is a set of all subspaces
 of $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{P}_{q}\left(n\right)$,
 i.e. a union of all dimension $k=0,\ldots n$ subspaces in $\ensuremath{\mathbb{F}}_{q}^{n}$
-or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$.
-\cite{Wachter-Zeh:2018}
+or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$. 
 \end{defn}
 %
-\begin{defn}[Covering Grassmannian Code]
+\begin{defn}[Covering Grassmannian Code \cite{Zhang:2019}]
  An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
 code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
 such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
-a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$.
-\cite{Zhang:2019}
+a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$. 
 \end{defn}
 
-\paragraph{The Cardinality of a Grassmannian Code}
+\paragraph{The Cardinality of a Grassmannian Code \cite{Zhang:2019}}
 
 The cardinality of $\mathcal{G}_{q}\left(n,k\right)$ is the Gaussian
 coefficient (also known as $q$-binomial), which counts the number
@@ -311,11 +365,11 @@ each $\mathrm{t}$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
 is contained in at most $\lambda$ codewords of $\mathcal{C}$. 
 \end{defn}
 
-\paragraph*{Maximum Size of a Multiple Grassmannian Code}
+\paragraph*{Maximum Size of a Multiple Grassmannian Code \cite{Etzion:2018}}
 
 $\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)$ denotes the
 maximum size of a $\mathrm{t}-\left(n,k,\lambda\right)_{q}^{m}$ code,
-where there are no repeated codewords. \cite{Etzion:2018}
+where there are no repeated codewords. 
 
 \part{Network Coding}
 
@@ -534,9 +588,8 @@ $q^{t}$.
 To summarize the notations of both scalar and vector coding, we represent
 them as in Table~\ref{tab:notations}:
 \begin{table}[H]
-\caption{Notations of network coding}
+\caption{Notations of network coding \label{tab:notations}}
 
-\label{tab:notations} 
 \centering{}%
 \begin{tabular}{|>{\centering}p{0.2\paperwidth}|c|c|}
 \hline 
@@ -658,7 +711,7 @@ we then calculate the gap by $g=q_{\mathrm{s}}-q_{v}=q_{\mathrm{s}}-q^{t}$,
 which is similar to the way to compute the gap in \cite{Wachter-Zeh:2018}.
 In this thesis, we focus on a lower bound of the gap as following,
 \[
-\text{g}\geq g_{\mathrm{lower\,bound}}=q_{\mathrm{s,min,from\,bound}}(q,t,\alpha,h)-q^{t}
+g\geq g_{\mathrm{lower\,bound}}=q_{\mathrm{s,min,from\,bound}}(q,t,\alpha,h)-q^{t}
 \]
 
 , where $q_{\mathrm{s,min,from\,bound}}=\mathrm{min}\left\{ q_{\mathrm{s}}:f_{\mathrm{2,upper\,bound}}\left(q_{\mathrm{s}}\right)\geq f_{\mathrm{1,lower\,bound}}\left(q,t,\alpha,h\right)\right\} $. 
@@ -682,18 +735,18 @@ nodes, and $\left(\begin{array}{c}
 r\\
 \alpha
 \end{array}\right)$ receivers, which form a single source multicast network modeled as
-a finite directed acyclic multigraph \cite{Li:2003}. The source connects
-to each node by $\ell$ parallel links and each node also connects
-to a receiver by $\ell$ parallel links, which are respectively called
-a node's incoming and outgoing links. Each receiver is connected by
-$s$ links in total, specifically $\alpha l$ links from $\alpha$
-nodes and $\epsilon$ direct links from the source, i.e. $s=\alpha\ell+\epsilon$.
-The combination network in \cite{Riis:2006} is the $(0,1)-\mathcal{N}_{h,r,s}$
-network and the $(1,1)-\mathcal{N}_{h,r,s}$ network is called One-Direct
-Link Combination Network. Theorem 1 shows our interest of relations
-between the parameters $h,\alpha,\epsilon$ and $\ell$. Following
-to Theorem \ref{nw_parameters}, we are interested in networks parameters
-satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
+a finite directed acyclic multigraph \cite{Li:2003,Riis:2006,Wachter-Zeh:2018}.
+The source connects to each node by $\ell$ parallel links and each
+node also connects to a receiver by $\ell$ parallel links, which
+are respectively called a node's incoming and outgoing links. Each
+receiver is connected by $s$ links in total, specifically $\alpha l$
+links from $\alpha$ nodes and $\epsilon$ direct links from the source,
+i.e. $s=\alpha\ell+\epsilon$. The combination network in \cite{Riis:2006}
+is the $(0,1)-\mathcal{N}_{h,r,s}$ network and the $(1,1)-\mathcal{N}_{h,r,s}$
+network is called One-Direct Link Combination Network. Theorem 1 shows
+our interest of relations between the parameters $h,\alpha,\epsilon$
+and $\ell$. Following to Theorem \ref{nw_parameters}, we are interested
+in networks parameters satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 \begin{figure}[H]
 \caption{The generalized network $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$\label{fig:The-generalized-network}}
 
@@ -711,7 +764,7 @@ networks, the maximum number of messages from the source to each receiver
 is equal to the smallest min-cut between the source and any receiver.
 For our considered network, $s$ links have to be deleted to disconnect
 the source from the receiver, which implies that the min-cut between
-the source and each receiver is at least $s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ 
+the source and each receiver is at least $s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$. 
 
 There exist at least $\ell+\epsilon$ disjoint links connected to
 each receiver. If $\ell+\epsilon\geq h$, each receiver can always
@@ -749,20 +802,22 @@ $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsi
 
 \section{Network Coding for the Generalized Combination Network \label{sec:Network-Coding-for-GCN}}
 
-We start describing a difference of a source message used in scalar
-network coding and vector network coding. Then we find a condition
-for an existence of a scalar solution and a vector solution respectively.
-For the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$ network, the \textit{local}
-and \textit{global} coding vectors are the same, because the nodes
-are simplified to forward their received packets and only the source
-has its functions on its messages.
+Network coding in general was described in Section \ref{sec:What-is-NC}
+and Section \ref{subsec:Matrix-channel}. Now, we start describing
+a difference of a source message used in scalar network coding and
+vector network coding. Then we find a condition for an existence of
+a scalar solution and a vector solution respectively. For the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
+network, the \textit{local} and \textit{global} coding vectors are
+the same, because the nodes are simplified to forward their received
+packets and only the source has its functions on its messages.
 
 \subsection{Scalar Network Coding \label{subsec:Scalar-network-coding}}
 
-A message or a packet is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$.
-As a network of the multicast model, all receivers request the same
-$h$ symbols at the same time \cite{Trautmann:2013}. A transmission
-of $h$ data units is a 1-dimentional subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$.
+A message or a packet is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}},$which
+was introduced in Table \ref{tab:notations}. As a network of the
+multicast model, all receivers request the same $h$ symbols at the
+same time \cite{Trautmann:2013}. A transmission of $h$ data units
+is a 1-dimentional subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$.
 Each receiver therefore must obtain a subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$,
 whose dimension is at least $h$, to be able to reconstruct the packet.
 Through $\epsilon$ direct links connected from the source to a receiver,
@@ -773,7 +828,7 @@ and only if the linear span of $\alpha$ $\ell$-dimensional subspaces
 of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$ from the nodes
 is at least of dimension $h-\epsilon$. When this necessary condition
 is satisfied, the network is said to have a \textit{solution} or to
-be \textit{solvable}.
+be \textit{solvable}, which was briefly introduced in Section \ref{sec:What-is-NC}.
 \begin{thm}[\cite{Riis:2006}]
  The $(0,1)-\mathcal{N}_{h,r,s}$ network has a solution if and only
 if there exists an $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\right|h,r-\alpha+1\right)$
@@ -866,7 +921,7 @@ by using the binary vector column as following:
 x_{1}=1\\
 x_{2}=\alpha\\
 x_{3}=\alpha+1
-\end{array}\right]\mapsto\left[\begin{array}{c}
+\end{array}\right]\rightarrow\left[\begin{array}{c}
 \left(\begin{array}{c}
 1\\
 0
@@ -884,7 +939,7 @@ x_{3}=\alpha+1
 \par\end{center}
 
 where we use the following rule for mapping $x_{i}$ individually:
-$a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\mapsto\left(\begin{array}{c}
+$a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\rightarrow\left(\begin{array}{c}
 a_{0}\\
 a_{1}\\
 \vdots\\
@@ -987,35 +1042,22 @@ network \label{fig:network_special4}}
 Studies}
 
 Etzion and Wachter-Zeh distinguished 2 following cases $h\leq2\ell,\epsilon\neq0$
-and $h\geq2\ell,\epsilon\neq h-2\ell$
+and $h\geq2\ell,\epsilon\neq h-2\ell$.
 
-\subsubsection{\uline{For \mbox{$h\protect\leq2\ell$} and \mbox{$\epsilon\protect\neq0$}}}
+For $h\leq2\ell$ and $\epsilon\neq0$, the number of direct links
+is at least 1 for networks of this case, i.e. $\epsilon\geq1$, and
+the number of parallel links is less than half of the number of source
+messages, i.e. $\ell\leq\frac{h}{2}$. When $h$ is even, the above
+$\left(\ell-1,l\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network achieves
+the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$,
+and when $h$ is odd, the $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$
+network achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
 
-For this network, the number of direct links is at least 1, i.e. $\epsilon\geq1$,
-and the number of parallel links is less than half of the number of
-source messages, i.e. $\ell\leq\frac{h}{2}$.
-
-\paragraph{h is even}
-
-The above $\left(\ell-1,l\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
-achieves the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
-
-\paragraph{h is odd}
-
-The $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$ network
-achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
-
-\subsubsection{\uline{For \mbox{$h\protect\geq2\ell$} and \mbox{$\epsilon\protect\neq h-2\ell$}}}
-
-\paragraph{h is even}
-
-The same above $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
-network achieves the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
-
-\paragraph{h is odd}
-
-The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell+1,r,3\ell-1}$ network
-achieves the largest gap $q_{\mathrm{s}}=q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
+For $h\geq2\ell$ and $\epsilon\neq h-2\ell$, when $h$ is even the
+same above $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
+network achieves the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$,
+and when $h$ is odd, the $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell+1,r,3\ell-1}$
+network achieves the largest gap $q_{\mathrm{s}}=q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
 \begin{rem}
 The achieved gap is $q^{(h-2)t^{2}/h+\mathcal{O}(t)}$ for any $q\geq2$
 and any even $h\geq4$. If $h\geq5$ is odd, then the achieved gap
@@ -1026,7 +1068,7 @@ We are summarizing the instances of GCN with their bounds on gap found
 in \cite{Wachter-Zeh:2018} and list our findings in this study.
 \begin{table}
 
-\caption{New gaps found in this study \label{tab:New-gap-found}}
+\caption{New gaps found in this study\label{tab:New-gap-found}}
 
 \begin{centering}
 \begin{tabular}{|>{\centering}p{0.15\paperwidth}|>{\centering}p{0.1\paperwidth}|>{\centering}p{0.2\paperwidth}|}
@@ -1187,9 +1229,9 @@ The network is solvable, if $\boldsymbol{A}_{j}$ has full rank as
 following,
 \[
 \mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}\\
 \boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\geq3t.
 \]
@@ -1210,8 +1252,8 @@ We formalize the problem by an approach with Lov\'asz local lemma,
 which was initially proposed by Schwartz in \cite{MosheSchwartz:2018}.
 
 Let $\mathcal{E}_{r_{1},r_{2},r_{3}}$ be an event that a receiver
-$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$such that
-$\mathrm{rk}\left[\begin{array}{c}
+$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$ such
+that $\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}
@@ -1245,13 +1287,10 @@ matrices whose ranks are less than $2t$. Each event $\mathcal{E}_{r_{1},r_{2},r_
 has a probability calculated by dividing $\mathrm{NM}_{i<2t,3t,3t}$
 by $q^{9t^{2}}$, where $q^{9t^{2}}$ is the number of all possible
 $\left[3t\times3t\right]$ matrices over $\ensuremath{\mathbb{F}}_{q}$.
-The probability is bounded as stated in Lemma \ref{lem:prob_p_LLL_formula}.
+The probability is bounded as stated in Lemma \ref{lem:prob_p_LLL_formula}
+and we now apply the LLL for events $\mathcal{E}_{r_{1},r_{2},r_{3}}$.
 \begin{lem}
-\label{lem:prob_p_LLL_formula} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]\leq p$,
-then,
-\[
-p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
-\]
+\label{lem:prob_p_LLL_formula} $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]=p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.$
 \end{lem}
 \begin{proof}
 Following to (\ref{eq:rk_rqm_e1l1h3s4}), a event $\mathcal{E}_{r_{1},r_{2},r_{3}}$
@@ -1263,9 +1302,9 @@ its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]=i\right]\label{eq:p_in_LLL}\\
  & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
  & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
@@ -1509,11 +1548,7 @@ that $\mathrm{rk}\left[\begin{array}{c}
 for $1\leq r_{1}<\ldots<r_{\alpha}\leq r$ and $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{\alpha}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
 chosen independently and uniformly random.
 \begin{lem}
-\label{lem:p_e1l1}If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]\leq p$,
-then,
-\[
-p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
-\]
+\label{lem:p_e1l1}$\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]=p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.$
 \end{lem}
 \begin{proof}
 The probability of an event $\mathcal{E}_{r_{1},\ldots,r_{\alpha}}$
@@ -1786,11 +1821,7 @@ chosen independently and uniformly random.
 We then apply the Lov\'asz Local Lemma \ref{thm:LLL} for events
 .
 \begin{lem}
-\label{lem:p_e1l2} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$,
-then,
-\[
-p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
-\]
+\label{lem:p_e1l2} $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.$
 \end{lem}
 \begin{proof}
 An event $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$ has the following
@@ -1812,9 +1843,9 @@ and was mentioned in (\ref{eq:num_of_rank_t_matrices}).
 (2): $s=\alpha\ell+\epsilon$ by definition in Section \ref{sec:Description_GCN}
 $\Rightarrow\alpha=2$, so $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{2\ell t\times2\ell t}$
 with $\boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]$, and $\boldsymbol{A}_{j}$ contains$\left(2\ell\right)$ $t$-dimensional
 subspaces of $\ensuremath{\mathbb{F}}_{q}^{2\ell t}$.
 
@@ -2003,11 +2034,11 @@ and denoted as following:
 \]
 \end{defn}
 \begin{lem}
-There are maximum $3\cdot\left(\begin{array}{c}
+For any set $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $,
+there are maximum $3\cdot\left(\begin{array}{c}
 2^{3t^{2}}\\
 3
-\end{array}\right)$ relatives for a set $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $.
-\label{lem:num_of_relatives}
+\end{array}\right)$ relatives. \label{lem:num_of_relatives}
 \end{lem}
 \begin{proof}
 Each sufficient global coding vector $\boldsymbol{H}_{j}$ contains
@@ -2192,10 +2223,14 @@ than or equal to $2n$, we have the relative as following:
 \]
 \uline{Step 2} (Line 4 to Line 9): We get the maximum size of these
 steps is $2$ and $P_{max}$ results in all $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $,
-because $\underset{\begin{array}{c}
+since 
+\[
+\underset{\begin{array}{c}
 \forall\boldsymbol{X},\boldsymbol{Y}\in M(1,2)\\
 \boldsymbol{X}\neq\boldsymbol{Y}
-\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$.
+\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2
+\]
+.
 
 \uline{Step 3} (Line 10 to Line 14): Due to $\left\{ \boldsymbol{E},\boldsymbol{Q}\right\} \cup rel\left[\left(\boldsymbol{E},\boldsymbol{Q}\right)\right]=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $
 with $\left(\boldsymbol{E},\boldsymbol{Q}\right)$ are tuples from
@@ -2240,12 +2275,17 @@ $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$ of $\mathrm{subrel}\
 or such $n$-tuples with $2\leq n\leq U\left(t,3t\right)$ by \textit{identity
 tuples}. In Figure \ref{fig:rel_example}(a), we can see that 
 \[
-\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\left\{ \mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]\right\} ,
 \]
 
-so $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
-$\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$,
-and $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$.
+which gives us
+\[
+\begin{array}{c}
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right],\\
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right],\\
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right].
+\end{array}
+\]
 Therefore,
 \[
 \left|\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
@@ -2282,13 +2322,17 @@ This will give us an output with upper bound of $\mathcal{A}_{2}\left(3t,2t,3;2t
 Secondly, we tried another approach called ``Randomly Increasing
 Method''. We got about 72 codewords instead of 89 codewords as Algorithm
 \ref{alg:Increasing-Method}, due to a limited number of tries. Briefly,
-this approach started with a pair of 2 potential matrices $\left[\begin{array}{cccccc}
+this approach started with a pair of the following 2 potential matrices
+\[
+\left[\begin{array}{cccccc}
 0 & 0 & 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & 0
-\end{array}\right]$ and $\left[\begin{array}{cccccc}
+\end{array}\right],\left[\begin{array}{cccccc}
 1 & 0 & 0 & 0 & 0 & 0\\
 0 & 1 & 0 & 0 & 0 & 0
-\end{array}\right]$. Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
+\end{array}\right].
+\]
+Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
 into a list containing this pair. The random matrix is extended to
 the list, if the matrix and any 2 existing matrices in the list satisfy
 (\ref{eq:rk_rqm_e1l1h3s4}). The list will be extended until all matrices
@@ -2428,10 +2472,15 @@ exists for the $\left(1,1\right)-\mathcal{N}_{3,r,4}$ network. Similarly
 we derived the gaps for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network, the $\left(\epsilon>1,\ell=1\right)-\mathcal{N}_{h,r,s}$
 network and the $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
-network, respectively with $g_{\mathrm{lower\,bound}}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$,
-$g_{\mathrm{lower\,bound}}=q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$
-and $g_{\mathrm{lower\,bound}}=q^{t^{2}/2\ell+\mathcal{O}(t)}$. A
-comparison with known results can be found in Table \ref{tab:New-gap-found}
+network, respectively with the following gap 
+\[
+\begin{array}{c}
+g_{\mathrm{lower\,bound}}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)},\\
+g_{\mathrm{lower\,bound}}=q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)},\\
+g_{\mathrm{lower\,bound}}=q^{t^{2}/2\ell+\mathcal{O}(t)}.
+\end{array}
+\]
+A comparison with known results can be found in Table \ref{tab:New-gap-found}
 and Table \ref{tab:r_over_t}.
 
 In Chapter 6, we introduced 4 different approaches in computing vector
@@ -2603,7 +2652,7 @@ By applying Algorithm \vref{alg:Increasing-Method} with details mentioned
 in Section (\ref{sec:Main-Approach}), we computed the following 166
 subspaces of $\ensuremath{\mathbb{F}}_{2}^{9}$ for our vector solution
 for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
-network, which are equivalently to 89 intermediate nodes in the middle
+network, which are equivalently to 166 intermediate nodes in the middle
 layer of the network. A vector solution over $\ensuremath{\mathbb{F}}_{2}^{9}$
 for the $\left(\epsilon=1,\ell=1\right)-\mathcal{N}_{h=3,r,s=4}$
 network has not yet been studied in any other studies.

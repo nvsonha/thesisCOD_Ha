@@ -2,8 +2,6 @@
 	\begin{pgfonlayer}{nodelayer}
 		\node [style=none] (25) at (-6, -0.25) {$\boldsymbol{x} =$};
 		\node [style=none] (49) at (-1, -0.25) {$\in\ensuremath{\mathbb{F}}_{q^{t}}^{h}$};
-		\node [style=none] (52) at (1, 0) {};
-		\node [style=none] (53) at (2, 0) {};
 		\node [style=none] (55) at (4.5, -0.25) {$\boldsymbol{x} =$};
 		\node [style=none] (103) at (9.75, -0.25) {$\in\ensuremath{\mathbb{F}}_{q}^{t\cdot h}$};
 		\node [style=none] (119) at (-4, 2.5) {};
@@ -61,6 +59,7 @@
 		\node [style=none] (195) at (6.75, -2.75) {};
 		\node [style=none] (196) at (6.5, -4.25) {t};
 		\node [style=none] (197) at (8, -3.5) {};
+		\node [style=none] (198) at (1.5, -0.25) {$\rightarrow$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (119.center) to (124.center);
@@ -92,6 +91,5 @@
 		\draw (191.center) to (189.center);
 		\draw (189.center) to (188.center);
 		\draw [style=two head] (194.center) to (195.center);
-		\draw [style=arrow] (52.center) to (53.center);
 	\end{pgfonlayer}
 \end{tikzpicture}

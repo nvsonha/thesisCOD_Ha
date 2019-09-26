@@ -1,2 +1,8 @@
 \usepackage{amssymb}
 \usepackage{bm}
+\definecolor{h_color}{RGB}{68,84,106}
+\definecolor{l_color}{RGB}{132,60,12}
+\definecolor{r_color}{RGB}{112,48,160}
+\definecolor{recv}{RGB}{191,144,0}
+\definecolor{alpha}{RGB}{237,125,49}
+\definecolor{s_color}{RGB}{56,87,35}

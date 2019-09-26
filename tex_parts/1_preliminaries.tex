@@ -4,6 +4,10 @@
 
 \section{Notation and Basic Terminology}
 
+We give a brief overview on notations related to network basics and
+algebraic objects, such as fields or vector space, and refer to fundamental
+textbooks for futher details, e.g. \cite{Roth:2006,Irving:2003,Ho:2008}.
+
 \paragraph{Vectors and Matrices}
 
 Vectors $\boldsymbol{v}$ are denoted by underlined letters. Unless
@@ -17,7 +21,8 @@ otherwise they are clearly stated for any other uses.
 \paragraph{Vector space}
 
 A vector space of dimension $n$ over a finite field with $q$ elements
-is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. 
+is denoted by $\ensuremath{\mathbb{F}}_{q}^{n}$. In this thesis,
+all of the fields are finite.
 
 \paragraph{Gaussian coefficient}
 
@@ -61,7 +66,7 @@ $\Omega\left(f\left(q,t\right)\right)$ for lower bounds, where $f$
 is a function of the alphabet size and the vector length.
 
 \section{Definition}
-\begin{defn}[Rank-metric code]
+\begin{defn}[Rank-metric code \cite{Wachter:2013}]
  A linear $\left[m\times n,k,\delta\right]_{q}^{R}$ rank-metric
 code $\mathcal{C}$ is a $k$-dimensional subspace of $\ensuremath{\mathbb{F}}_{q}^{m\times n}$
 with mimum rank distance $\delta$.
@@ -78,30 +83,28 @@ is defined by: $\delta=\underset{\boldsymbol{V}\in\mathcal{C},\boldsymbol{V}\neq
 Rank-metric codes that attained the Singleton-like upper bound $k\leq max\left\{ m,n\right\} \left(min\left\{ m,n\right\} -\delta+1\right)$
 \cite{Delsarte:1978,Gabidulin:1985,Roth:1991} are called maximum
 rank distance (MRD) codes and denoted by $\mathcal{MRD}\left[m\times n,\delta\right]_{q}$.
-\begin{defn}[Grassmannian Code]
+\begin{defn}[Grassmannian Code \cite{Zhang:2019}]
  A Grassmannian code is a set of all subspaces of dimension $k\leq n$
 in $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{G}_{q}\left(n,k\right)$.
 Due to being the set of all subspaces that have the same dimension
-$k$, it is also called a \textit{constant dimension code}. \cite{Zhang:2019}
+$k$, it is also called a \textit{constant dimension code}. 
 \end{defn}
 %
-\begin{defn}[Projective Space]
+\begin{defn}[Projective Space \cite{Wachter-Zeh:2018}]
  The \textit{projective space of order} $n$ is a set of all subspaces
 of $\ensuremath{\mathbb{F}}_{q}^{n}$, and is denoted by $\mathcal{P}_{q}\left(n\right)$,
 i.e. a union of all dimension $k=0,\ldots n$ subspaces in $\ensuremath{\mathbb{F}}_{q}^{n}$
-or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$.
-\cite{Wachter-Zeh:2018}
+or $\mathcal{P}_{q}\left(n\right)=\bigcup_{k=0}^{n}\mathcal{G}_{q}\left(n,k\right)$. 
 \end{defn}
 %
-\begin{defn}[Covering Grassmannian Code]
+\begin{defn}[Covering Grassmannian Code \cite{Zhang:2019}]
  An $\alpha-\left(n,k,\delta\right)_{q}^{c}$ covering Grassmannian
 code (code in short) $\mathcal{C}$ is a subset of $\mathcal{G}_{q}\left(n,k\right)$
 such that each subset of $\alpha$ codewords of $\mathcal{C}$ span
-a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$.
-\cite{Zhang:2019}
+a subspace whose dimension is at least $\delta+k$ in $\ensuremath{\mathbb{F}}_{q}^{n}$. 
 \end{defn}
 
-\paragraph{The Cardinality of a Grassmannian Code}
+\paragraph{The Cardinality of a Grassmannian Code \cite{Zhang:2019}}
 
 The cardinality of $\mathcal{G}_{q}\left(n,k\right)$ is the Gaussian
 coefficient (also known as $q$-binomial), which counts the number
@@ -127,10 +130,10 @@ each $\mathrm{t}$-subspace of $\ensuremath{\mathbb{F}}_{q}^{n}$
 is contained in at most $\lambda$ codewords of $\mathcal{C}$. 
 \end{defn}
 
-\paragraph*{Maximum Size of a Multiple Grassmannian Code}
+\paragraph*{Maximum Size of a Multiple Grassmannian Code \cite{Etzion:2018}}
 
 $\mathcal{A}_{q}\left(n,k,\mathrm{t};\lambda\right)$ denotes the
 maximum size of a $\mathrm{t}-\left(n,k,\lambda\right)_{q}^{m}$ code,
-where there are no repeated codewords. \cite{Etzion:2018}
+where there are no repeated codewords. 
 
 \clearpage

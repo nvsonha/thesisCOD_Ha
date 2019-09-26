@@ -56,6 +56,14 @@
 \usepackage{ulem}
 \usepackage{textcomp}
 \usepackage{lmodern}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={VNC},
+ pdfauthor={Ha Nguyen},
+ pdfsubject={VNC},
+ pdfkeywords={VNC}}
 
 \makeatletter
 
@@ -149,7 +157,7 @@
     ha.nguyen@tum.de}
 
 \CODrecht{Ha Nguyen}             % Your name / Name des Studenten
-    {M\"unchen, 05.09.2019}         % Munich, Date / Muenchen, Datum
+    {M\"unchen, 10.09.2019}         % Munich, Date / Muenchen, Datum
 
 \cleardoubleemptypage   % start new double page / neue Doppelseite
 
@@ -161,6 +169,7 @@
     \setcounter{page}{1}
     \pagenumbering{roman}
 
+	\include{./tex_parts/acknowledgements}
         \tableofcontents    % Table of contents / Inhaltsverzeichnis
         \listoffigures      % List of figures / Abbildungsverzeichnis
         \listoftables       % List of tables / Tabellenverzeichnis

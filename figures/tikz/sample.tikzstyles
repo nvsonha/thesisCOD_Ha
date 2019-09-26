@@ -46,3 +46,7 @@
 \tikzstyle{dark-cyan arrow}=[draw={rgb,255: red,0; green,128; blue,128}, ->, line width=0.5mm]
 \tikzstyle{black_line}=[-, line width=0.5mm]
 \tikzstyle{dashed_arrow1}=[->, dashed, line width=0.5 mm]
+\tikzstyle{l_dashed_arrow}=[<->, dashed, line width=0.25mm, draw={rgb,255: red,132; green,60; blue,12}]
+\tikzstyle{alpha_dashed}=[<->, dashed, line width=0.25mm, draw={rgb,255: red,237; green,125; blue,49}]
+\tikzstyle{new edge style 0}=[<->, dashed, draw=red, line width=0.25mm]
+\tikzstyle{new edge style 1}=[<->, draw={rgb,255: red,56; green,87; blue,35}, dashed, line width=0.25mm]

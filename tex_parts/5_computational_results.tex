@@ -82,11 +82,11 @@ and denoted as following:
 \]
 \end{defn}
 \begin{lem}
-There are maximum $3\cdot\left(\begin{array}{c}
+For any set $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $,
+there are maximum $3\cdot\left(\begin{array}{c}
 2^{3t^{2}}\\
 3
-\end{array}\right)$ relatives for a set $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $.
-\label{lem:num_of_relatives}
+\end{array}\right)$ relatives. \label{lem:num_of_relatives}
 \end{lem}
 \begin{proof}
 Each sufficient global coding vector $\boldsymbol{H}_{j}$ contains
@@ -271,10 +271,14 @@ than or equal to $2n$, we have the relative as following:
 \]
 \uline{Step 2} (Line 4 to Line 9): We get the maximum size of these
 steps is $2$ and $P_{max}$ results in all $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $,
-because $\underset{\begin{array}{c}
+since 
+\[
+\underset{\begin{array}{c}
 \forall\boldsymbol{X},\boldsymbol{Y}\in M(1,2)\\
 \boldsymbol{X}\neq\boldsymbol{Y}
-\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$.
+\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2
+\]
+.
 
 \uline{Step 3} (Line 10 to Line 14): Due to $\left\{ \boldsymbol{E},\boldsymbol{Q}\right\} \cup rel\left[\left(\boldsymbol{E},\boldsymbol{Q}\right)\right]=\left\{ \boldsymbol{A},\boldsymbol{B},\boldsymbol{C},\boldsymbol{D}\right\} $
 with $\left(\boldsymbol{E},\boldsymbol{Q}\right)$ are tuples from
@@ -319,12 +323,17 @@ $\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)$ of $\mathrm{subrel}\
 or such $n$-tuples with $2\leq n\leq U\left(t,3t\right)$ by \textit{identity
 tuples}. In Figure \ref{fig:rel_example}(a), we can see that 
 \[
-\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\left\{ \mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]\right\} ,
 \]
 
-so $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$,
-$\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$,
-and $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$.
+which gives us
+\[
+\begin{array}{c}
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right],\\
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right],\\
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right].
+\end{array}
+\]
 Therefore,
 \[
 \left|\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
@@ -361,13 +370,17 @@ This will give us an output with upper bound of $\mathcal{A}_{2}\left(3t,2t,3;2t
 Secondly, we tried another approach called ``Randomly Increasing
 Method''. We got about 72 codewords instead of 89 codewords as Algorithm
 \ref{alg:Increasing-Method}, due to a limited number of tries. Briefly,
-this approach started with a pair of 2 potential matrices $\left[\begin{array}{cccccc}
+this approach started with a pair of the following 2 potential matrices
+\[
+\left[\begin{array}{cccccc}
 0 & 0 & 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & 0
-\end{array}\right]$ and $\left[\begin{array}{cccccc}
+\end{array}\right],\left[\begin{array}{cccccc}
 1 & 0 & 0 & 0 & 0 & 0\\
 0 & 1 & 0 & 0 & 0 & 0
-\end{array}\right]$. Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
+\end{array}\right].
+\]
+Then we tried adding a new random matrix from $U\left(t=2,3t=6\right)$
 into a list containing this pair. The random matrix is extended to
 the list, if the matrix and any 2 existing matrices in the list satisfy
 (\ref{eq:rk_rqm_e1l1h3s4}). The list will be extended until all matrices

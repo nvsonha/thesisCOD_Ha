@@ -128,9 +128,9 @@ The network is solvable, if $\boldsymbol{A}_{j}$ has full rank as
 following,
 \[
 \mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}\\
 \boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\geq3t.
 \]
@@ -151,8 +151,8 @@ We formalize the problem by an approach with Lov\'asz local lemma,
 which was initially proposed by Schwartz in \cite{MosheSchwartz:2018}.
 
 Let $\mathcal{E}_{r_{1},r_{2},r_{3}}$ be an event that a receiver
-$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$ such that
-$\mathrm{rk}\left[\begin{array}{c}
+$R_{j}$ is assigned a transfer matrix $\boldsymbol{A}_{j}$ such
+that $\mathrm{rk}\left[\begin{array}{c}
 \boldsymbol{A}^{\left(r_{1}\right)}\\
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}
@@ -186,13 +186,10 @@ matrices whose ranks are less than $2t$. Each event $\mathcal{E}_{r_{1},r_{2},r_
 has a probability calculated by dividing $\mathrm{NM}_{i<2t,3t,3t}$
 by $q^{9t^{2}}$, where $q^{9t^{2}}$ is the number of all possible
 $\left[3t\times3t\right]$ matrices over $\ensuremath{\mathbb{F}}_{q}$.
-The probability is bounded as stated in Lemma \ref{lem:prob_p_LLL_formula}.
+The probability is bounded as stated in Lemma \ref{lem:prob_p_LLL_formula}
+and we now apply the LLL for events $\mathcal{E}_{r_{1},r_{2},r_{3}}$.
 \begin{lem}
-\label{lem:prob_p_LLL_formula} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]\leq p$,
-then,
-\[
-p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
-\]
+\label{lem:prob_p_LLL_formula} $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]=p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.$
 \end{lem}
 \begin{proof}
 Following to (\ref{eq:rk_rqm_e1l1h3s4}), a event $\mathcal{E}_{r_{1},r_{2},r_{3}}$
@@ -204,9 +201,9 @@ its probability is bounded by $p$ (with $0\leq p\leq1$) as following,
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]=i\right]\label{eq:p_in_LLL}\\
  & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
  & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
@@ -450,11 +447,7 @@ that $\mathrm{rk}\left[\begin{array}{c}
 for $1\leq r_{1}<\ldots<r_{\alpha}\leq r$ and $\boldsymbol{A}^{\left(r_{1}\right)},\ldots,\boldsymbol{A}^{\left(r_{\alpha}\right)}\in\ensuremath{\mathbb{F}}_{q}^{t\times ht}$,
 chosen independently and uniformly random.
 \begin{lem}
-\label{lem:p_e1l1}If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]\leq p$,
-then,
-\[
-p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
-\]
+\label{lem:p_e1l1}$\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]=p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.$
 \end{lem}
 \begin{proof}
 The probability of an event $\mathcal{E}_{r_{1},\ldots,r_{\alpha}}$
@@ -492,7 +485,7 @@ its maximum point by its derivation,
 $f'(i^{*})=0\Leftrightarrow(\alpha t+ht)-2i^{*}=0\Leftrightarrow i^{*}=\frac{\alpha t+ht}{2}.$
 
 Considering the sum $\stackrel[i=0]{(h-1)t-1}{\mathop{\sum}}p^{(i)}(q)$,
-we have to check whether the point $i^{*}$ in $\left\{ 0,\ldots,(h-1)t-1\right\} $.
+we check whether the point $i^{*}$ in $\left\{ 0,\ldots,(h-1)t-1\right\} $.
 For the lower bound, we need $0\leq i^{*}\Leftrightarrow0\leq\frac{\alpha t+ht}{2}\Leftrightarrow t\geq\frac{2}{\alpha+h}$,
 which is always true due to the given $t\geq2$ and $\alpha,h\geq3$
 following to Theorem \ref{nw_parameters}.
@@ -518,7 +511,7 @@ Secondly, we apply the maximum value to the sum, we have:
 \]
 
 Therefore, we have that each event $\mathcal{E}_{r_{1},\ldots,r_{\alpha}}$
- occurs with probability at most $p\in\Theta\left(q^{\left(h-\alpha-1\right)t^{2}+\mathcal{O}(t)}\right)$.
+ occurs with probability $p\in\Theta\left(q^{\left(h-\alpha-1\right)t^{2}+\mathcal{O}(t)}\right)$.
 \end{proof}
 \begin{lem}
 Each event $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$ is dependent
@@ -727,11 +720,7 @@ chosen independently and uniformly random.
 We then apply the Lov\'asz Local Lemma \ref{thm:LLL} for events
 .
 \begin{lem}
-\label{lem:p_e1l2} If $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$,
-then,
-\[
-p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
-\]
+\label{lem:p_e1l2} $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.$
 \end{lem}
 \begin{proof}
 An event $\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}$ has the following
@@ -753,9 +742,9 @@ and was mentioned in (\ref{eq:num_of_rank_t_matrices}).
 (2): $s=\alpha\ell+\epsilon$ by definition in Section \ref{sec:Description_GCN}
 $\Rightarrow\alpha=2$, so $\boldsymbol{A}_{j}\in\ensuremath{\mathbb{F}}_{q}^{2\ell t\times2\ell t}$
 with $\boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]$, and $\boldsymbol{A}_{j}$ contains$\left(2\ell\right)$ $t$-dimensional
 subspaces of $\ensuremath{\mathbb{F}}_{q}^{2\ell t}$.
 

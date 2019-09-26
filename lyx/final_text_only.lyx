@@ -39,7 +39,20 @@ theorems-ams-chap-bytype
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_title "VNC"
+\pdf_author "Ha Nguyen"
+\pdf_subject "VNC"
+\pdf_keywords "VNC"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
 \papersize a4paper
 \use_geometry false
 \use_package amsmath 1
@@ -85,6 +98,87 @@ theorems-ams-chap-bytype
 \end_header
 
 \begin_body
+
+\begin_layout Part
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+This Master thesis is an intensive research of my Master study in Communications
+ Engineering at Technical University of Munich, Germany, from March 2019
+ to September 2019.
+ My thesis had been mainly conducted at Antonia Wachter-Zeh's group Coding
+ for Communications and Data Storage.
+ During my thesis writing period, many people supported and motivated me,
+ and I am profoundly thankful to all of them.
+\end_layout
+
+\begin_layout Standard
+First of all, I would like to thank Sven Puchinger for being a devoted superviso
+r.
+ Sven inspired me with his plenty of ideas during any of our weekly discussion
+ and motivated me to solve new research problems.
+ I really appreciate that Sven comprehensively reviewed my thesis writing
+ for multiple rounds to have the current version.
+ I would also like to thank Sven for supporting me to get access to the
+ student laboratory to prepare my thesis literature review and the whole
+ time of my thesis.
+ 
+\end_layout
+
+\begin_layout Standard
+Secondly, Antonia gave me first lectures in Coding Theory and motivated
+ me to write my thesis in Network Coding.
+ Her advice along my thesis is definitely valuable on paving my future career
+ as an young engineer.
+\end_layout
+
+\begin_layout Standard
+Thirdly, thanks to my flatmate Taylor Johnson, my thesis includes various
+ sentence structure.
+ Two of my classmates Karthik Uppund and Shinho Choe have made a great support
+ from my start of the thesis.
+ I would like to thank Shinho for awesome discussion on probabilistic problems
+ during lunch breaks, and Karthik for his time to proofread my thesis writing
+ before my final presentation.
+\end_layout
+
+\begin_layout Standard
+Finally, I would like to thank my family, in particular my my mother Kim
+ and my brother Hai, who have always supported and encouraged me through
+ my entire life.
+ I am also definitely grateful to my soulmate Trang for always loving and
+ supporting me.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Munich, September 2019
+\end_layout
+
+\begin_layout Standard
+Ha Nguyen
+\end_layout
 
 \begin_layout Part
 Introduction
@@ -234,7 +328,7 @@ literal "true"
 \end_inset
 
 , e.g.
- its relationship in memory buffer overflow and channel errors 
+ its relationship in memory buffer overflow 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ho:2008,Fragouli:2006,Gone:2018"
@@ -478,6 +572,21 @@ Preliminaries
 Notation and Basic Terminology
 \end_layout
 
+\begin_layout Standard
+We give a brief overview on notations related to network basics and algebraic
+ objects, such as fields or vector space, and refer to fundamental textbooks
+ for futher details, e.g.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Roth:2006,Irving:2003,Ho:2008"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Paragraph
 Vectors and Matrices
 \end_layout
@@ -524,7 +633,7 @@ A vector space of dimension
 \end_inset
 
 .
- 
+ In this thesis, all of the fields are finite.
 \end_layout
 
 \begin_layout Paragraph
@@ -659,7 +768,15 @@ Definition
 status open
 
 \begin_layout Plain Layout
-Rank-metric code
+Rank-metric code 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter:2013"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -759,7 +876,15 @@ literal "true"
 status open
 
 \begin_layout Plain Layout
-Grassmannian Code
+Grassmannian Code 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -787,14 +912,6 @@ constant dimension code
 \shape default
 .
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Zhang:2019"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -809,7 +926,15 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-Projective Space
+Projective Space 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wachter-Zeh:2018"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -845,14 +970,6 @@ projective space of order
 
 .
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Wachter-Zeh:2018"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -867,7 +984,15 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-Covering Grassmannian Code
+Covering Grassmannian Code 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zhang:2019"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -902,6 +1027,10 @@ Covering Grassmannian Code
 
 .
  
+\end_layout
+
+\begin_layout Paragraph
+The Cardinality of a Grassmannian Code 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zhang:2019"
@@ -910,10 +1039,6 @@ literal "false"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Paragraph
-The Cardinality of a Grassmannian Code
 \end_layout
 
 \begin_layout Standard
@@ -1028,7 +1153,15 @@ blocks
 \end_layout
 
 \begin_layout Paragraph*
-Maximum Size of a Multiple Grassmannian Code
+Maximum Size of a Multiple Grassmannian Code 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Etzion:2018"
+literal "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1041,14 +1174,6 @@ Maximum Size of a Multiple Grassmannian Code
 
  code, where there are no repeated codewords.
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Etzion:2018"
-literal "false"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Part
@@ -2049,23 +2174,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Notations of network coding
-\end_layout
+Notations of network coding 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:notations"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-label{tab:notations} 
 \end_layout
 
 \end_inset
@@ -2713,7 +2829,7 @@ literal "false"
  In this thesis, we focus on a lower bound of the gap as following, 
 \begin_inset Formula 
 \[
-\text{g}\geq g_{\mathrm{lower\,bound}}=q_{\mathrm{s,min,from\,bound}}(q,t,\alpha,h)-q^{t}
+g\geq g_{\mathrm{lower\,bound}}=q_{\mathrm{s,min,from\,bound}}(q,t,\alpha,h)-q^{t}
 \]
 
 \end_inset
@@ -2837,7 +2953,7 @@ r\\
  directed acyclic multigraph 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Li:2003"
+key "Li:2003,Riis:2006,Wachter-Zeh:2018"
 literal "false"
 
 \end_inset
@@ -3020,6 +3136,7 @@ Following to the network coding max-flow min-cut theorem for multicast networks,
 \begin_inset Formula $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$
 \end_inset
 
+.
  
 \end_layout
 
@@ -3282,8 +3399,29 @@ name "sec:Network-Coding-for-GCN"
 \end_layout
 
 \begin_layout Standard
-We start describing a difference of a source message used in scalar network
- coding and vector network coding.
+Network coding in general was described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:What-is-NC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Matrix-channel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Now, we start describing a difference of a source message used in scalar
+ network coding and vector network coding.
  Then we find a condition for an existence of a scalar solution and a vector
  solution respectively.
  For the 
@@ -3315,7 +3453,17 @@ name "subsec:Scalar-network-coding"
 
 \begin_layout Standard
 A message or a packet is equivalent to a symbol over 
-\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$
+\begin_inset Formula $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}},$
+\end_inset
+
+which was introduced in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:notations"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 .
@@ -3391,6 +3539,16 @@ solution
 \shape italic
 solvable
 \shape default
+, which was briefly introduced in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:What-is-NC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
 .
 \end_layout
 
@@ -3978,7 +4136,7 @@ For scalar coding, the messages are
 x_{1}=1\\
 x_{2}=\alpha\\
 x_{3}=\alpha+1
-\end{array}\right]\mapsto\left[\begin{array}{c}
+\end{array}\right]\rightarrow\left[\begin{array}{c}
 \left(\begin{array}{c}
 1\\
 0
@@ -4005,7 +4163,7 @@ where we use the following rule for mapping
 \end_inset
 
  individually: 
-\begin_inset Formula $a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\mapsto\left(\begin{array}{c}
+\begin_inset Formula $a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\rightarrow\left(\begin{array}{c}
 a_{0}\\
 a_{1}\\
 \vdots\\
@@ -4506,12 +4664,10 @@ Etzion and Wachter-Zeh distinguished 2 following cases
 \begin_inset Formula $h\geq2\ell,\epsilon\neq h-2\ell$
 \end_inset
 
-
+.
 \end_layout
 
-\begin_layout Subsubsection
-
-\bar under
+\begin_layout Standard
 For 
 \begin_inset Formula $h\leq2\ell$
 \end_inset
@@ -4520,11 +4676,7 @@ For
 \begin_inset Formula $\epsilon\neq0$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-For this network, the number of direct links is at least 1, i.e.
+, the number of direct links is at least 1 for networks of this case, i.e.
  
 \begin_inset Formula $\epsilon\geq1$
 \end_inset
@@ -4536,14 +4688,11 @@ For this network, the number of direct links is at least 1, i.e.
 \end_inset
 
 .
-\end_layout
+ When 
+\begin_inset Formula $h$
+\end_inset
 
-\begin_layout Paragraph
-h is even
-\end_layout
-
-\begin_layout Standard
-The above 
+ is even, the above 
 \begin_inset Formula $\left(\ell-1,l\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
 \end_inset
 
@@ -4551,15 +4700,11 @@ The above
 \begin_inset Formula $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$
 \end_inset
 
-.
-\end_layout
+, and when 
+\begin_inset Formula $h$
+\end_inset
 
-\begin_layout Paragraph
-h is odd
-\end_layout
-
-\begin_layout Standard
-The 
+ is odd, the 
 \begin_inset Formula $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$
 \end_inset
 
@@ -4567,12 +4712,10 @@ The
 \begin_inset Formula $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
 \end_inset
 
-
+.
 \end_layout
 
-\begin_layout Subsubsection
-
-\bar under
+\begin_layout Standard
 For 
 \begin_inset Formula $h\geq2\ell$
 \end_inset
@@ -4581,15 +4724,11 @@ For
 \begin_inset Formula $\epsilon\neq h-2\ell$
 \end_inset
 
+, when 
+\begin_inset Formula $h$
+\end_inset
 
-\end_layout
-
-\begin_layout Paragraph
-h is even
-\end_layout
-
-\begin_layout Standard
-The same above 
+ is even the same above 
 \begin_inset Formula $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
 \end_inset
 
@@ -4597,15 +4736,11 @@ The same above
 \begin_inset Formula $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$
 \end_inset
 
-.
-\end_layout
+, and when 
+\begin_inset Formula $h$
+\end_inset
 
-\begin_layout Paragraph
-h is odd
-\end_layout
-
-\begin_layout Standard
-The 
+ is odd, the 
 \begin_inset Formula $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell+1,r,3\ell-1}$
 \end_inset
 
@@ -4673,7 +4808,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-New gaps found in this study 
+New gaps found in this study
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:New-gap-found"
@@ -5558,9 +5693,9 @@ The network is solvable, if
 \begin_inset Formula 
 \[
 \mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}\\
 \boldsymbol{B}^{\left(j\right)}
 \end{array}\right]\geq3t.
 \]
@@ -5825,6 +5960,10 @@ noprefix "false"
 
 \end_inset
 
+ and we now apply the LLL for events 
+\begin_inset Formula $\mathcal{E}_{r_{1},r_{2},r_{3}}$
+\end_inset
+
 .
 \end_layout
 
@@ -5835,16 +5974,8 @@ name "lem:prob_p_LLL_formula"
 
 \end_inset
 
- If 
-\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]\leq p$
-\end_inset
-
-, then,
-\begin_inset Formula 
-\[
-p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
-\]
-
+ 
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},r_{2},r_{3}}\right]=p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.$
 \end_inset
 
 
@@ -5885,9 +6016,9 @@ noprefix "false"
 \boldsymbol{A}^{\left(r_{2}\right)}\\
 \boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]<2t\right] & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\mathrm{Pr}\left[\mathrm{rk}\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{2}\right)}\\
-\boldsymbol{A}_{j}^{\left(r_{3}\right)}
+\boldsymbol{A}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{2}\right)}\\
+\boldsymbol{A}^{\left(r_{3}\right)}
 \end{array}\right]=i\right]\label{eq:p_in_LLL}\\
  & \overset{1}{=} & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\mathrm{NM}_{i,3t,3t}}{q^{\left(3t\right)\cdot\left(3t\right)}}\nonumber \\
  & = & \stackrel[i=0]{2t-1}{\mathop{\sum}}\frac{\stackrel[j=0]{i-1}{\mathop{\prod}}\frac{\left(q^{3t}-q^{j}\right)^{2}}{q^{i}-q^{j}}}{q^{9t^{2}}}.\label{eq:p_eq_h3}
@@ -7047,16 +7178,8 @@ name "lem:p_e1l1"
 
 \end_inset
 
-If 
-\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]\leq p$
-\end_inset
 
-, then,
-\begin_inset Formula 
-\[
-p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.
-\]
-
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{\alpha}}\right]=p\in\Theta\left(q^{\left(h-\alpha\right)t^{2}+\mathcal{O}(t)}\right),\forall t\geq2.$
 \end_inset
 
 
@@ -8087,16 +8210,8 @@ name "lem:p_e1l2"
 
 \end_inset
 
- If 
-\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p$
-\end_inset
-
-, then,
-\begin_inset Formula 
-\[
-p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.
-\]
-
+ 
+\begin_inset Formula $\mathrm{Pr}\left[\mathcal{E}_{r_{1},\ldots,r_{h-\epsilon}}\right]\leq p\in\Theta\left(q^{-t^{2}-2t-1}\right),\forall t\geq2.$
 \end_inset
 
 
@@ -8183,9 +8298,9 @@ noprefix "false"
 
  with 
 \begin_inset Formula $\boldsymbol{A}_{j}=\left[\begin{array}{c}
-\boldsymbol{A}_{j}^{\left(r_{1}\right)}\\
+\boldsymbol{A}^{\left(r_{1}\right)}\\
 \vdots\\
-\boldsymbol{A}_{j}^{\left(r_{h-\epsilon}\right)}
+\boldsymbol{A}^{\left(r_{h-\epsilon}\right)}
 \end{array}\right]$
 \end_inset
 
@@ -8986,18 +9101,18 @@ relative
 \end_layout
 
 \begin_layout Lemma
-There are maximum 
+For any set 
+\begin_inset Formula $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $
+\end_inset
+
+, there are maximum 
 \begin_inset Formula $3\cdot\left(\begin{array}{c}
 2^{3t^{2}}\\
 3
 \end{array}\right)$
 \end_inset
 
- relatives for a set 
-\begin_inset Formula $\mathcal{H}_{n=3t,m=3t}=\left\{ \boldsymbol{H}_{1},\ldots,\boldsymbol{H}_{N}\right\} $
-\end_inset
-
-.
+ relatives.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -10079,11 +10194,15 @@ Step 2
 \begin_inset Formula $\left\{ \boldsymbol{A},\boldsymbol{B}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{A},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{C}\right\} ,\left\{ \boldsymbol{B},\boldsymbol{D}\right\} ,\left\{ \boldsymbol{C},\boldsymbol{D}\right\} $
 \end_inset
 
-, because 
-\begin_inset Formula $\underset{\begin{array}{c}
+, since 
+\begin_inset Formula 
+\[
+\underset{\begin{array}{c}
 \forall\boldsymbol{X},\boldsymbol{Y}\in M(1,2)\\
 \boldsymbol{X}\neq\boldsymbol{Y}
-\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2$
+\end{array}}{\mathrm{max}}\left(\mathrm{rel}\left[\left(\boldsymbol{X},\boldsymbol{Y}\right)\right]\right)=2
+\]
+
 \end_inset
 
 .
@@ -10360,7 +10479,7 @@ noprefix "false"
 (a), we can see that 
 \begin_inset Formula 
 \[
-\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right],
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\in\left\{ \mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]\cap\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]\right\} ,
 \]
 
 \end_inset
@@ -10369,20 +10488,19 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-so 
-\begin_inset Formula $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]$
+which gives us
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right],\\
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right],\\
+\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right].
+\end{array}
+\]
+
 \end_inset
 
-, 
-\begin_inset Formula $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{C}\right)\right]$
-\end_inset
-
-, and 
-\begin_inset Formula $\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\subseteq\mathrm{rel}\left[\left(\boldsymbol{B},\boldsymbol{C}\right)\right]$
-\end_inset
-
-.
- Therefore,
+Therefore,
 \begin_inset Formula 
 \[
 \left|\mathrm{rel}\left[\left(\boldsymbol{A},\boldsymbol{B}\right)\right]\right|\geq\left|\mathrm{subrel}\left[\left(\boldsymbol{A},\boldsymbol{B},\boldsymbol{C}\right)\right]\right|,
@@ -10558,22 +10676,22 @@ noprefix "false"
 \end_inset
 
 , due to a limited number of tries.
- Briefly, this approach started with a pair of 2 potential matrices 
-\begin_inset Formula $\left[\begin{array}{cccccc}
+ Briefly, this approach started with a pair of the following 2 potential
+ matrices 
+\begin_inset Formula 
+\[
+\left[\begin{array}{cccccc}
 0 & 0 & 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & 0
-\end{array}\right]$
-\end_inset
-
- and 
-\begin_inset Formula $\left[\begin{array}{cccccc}
+\end{array}\right],\left[\begin{array}{cccccc}
 1 & 0 & 0 & 0 & 0 & 0\\
 0 & 1 & 0 & 0 & 0 & 0
-\end{array}\right]$
+\end{array}\right].
+\]
+
 \end_inset
 
-.
- Then we tried adding a new random matrix from 
+Then we tried adding a new random matrix from 
 \begin_inset Formula $U\left(t=2,3t=6\right)$
 \end_inset
 
@@ -11844,20 +11962,19 @@ In Chapter 5, by applying the Local lemma, we stated that there is an
 \begin_inset Formula $\left(\epsilon=1,\ell>1\right)-\mathcal{N}_{h=2\ell,r,s=2\ell+1}$
 \end_inset
 
- network, respectively with 
-\begin_inset Formula $g_{\mathrm{lower\,bound}}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)}$
+ network, respectively with the following gap 
+\begin_inset Formula 
+\[
+\begin{array}{c}
+g_{\mathrm{lower\,bound}}=q^{\frac{\alpha-h+1}{\left(\alpha-1\right)\left(\alpha-h+2\right)\left(h-2\right)}t^{2}+\mathcal{O}(t)},\\
+g_{\mathrm{lower\,bound}}=q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)},\\
+g_{\mathrm{lower\,bound}}=q^{t^{2}/2\ell+\mathcal{O}(t)}.
+\end{array}
+\]
+
 \end_inset
 
-, 
-\begin_inset Formula $g_{\mathrm{lower\,bound}}=q^{\frac{\epsilon\left(\alpha-h+\epsilon\right)}{\left(\alpha-1\right)\left(\alpha-h+\epsilon+1\right)\left(h-\epsilon-1\right)}t^{2}+\mathcal{O}(t)}$
-\end_inset
-
- and 
-\begin_inset Formula $g_{\mathrm{lower\,bound}}=q^{t^{2}/2\ell+\mathcal{O}(t)}$
-\end_inset
-
-.
- A comparison with known results can be found in Table 
+A comparison with known results can be found in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:New-gap-found"

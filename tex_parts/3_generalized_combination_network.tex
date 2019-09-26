@@ -15,18 +15,18 @@ nodes, and $\left(\begin{array}{c}
 r\\
 \alpha
 \end{array}\right)$ receivers, which form a single source multicast network modeled as
-a finite directed acyclic multigraph \cite{Li:2003}. The source connects
-to each node by $\ell$ parallel links and each node also connects
-to a receiver by $\ell$ parallel links, which are respectively called
-a node's incoming and outgoing links. Each receiver is connected by
-$s$ links in total, specifically $\alpha l$ links from $\alpha$
-nodes and $\epsilon$ direct links from the source, i.e. $s=\alpha\ell+\epsilon$.
-The combination network in \cite{Riis:2006} is the $(0,1)-\mathcal{N}_{h,r,s}$
-network and the $(1,1)-\mathcal{N}_{h,r,s}$ network is called One-Direct
-Link Combination Network. Theorem 1 shows our interest of relations
-between the parameters $h,\alpha,\epsilon$ and $\ell$. Following
-to Theorem \ref{nw_parameters}, we are interested in networks parameters
-satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
+a finite directed acyclic multigraph \cite{Li:2003,Riis:2006,Wachter-Zeh:2018}.
+The source connects to each node by $\ell$ parallel links and each
+node also connects to a receiver by $\ell$ parallel links, which
+are respectively called a node's incoming and outgoing links. Each
+receiver is connected by $s$ links in total, specifically $\alpha l$
+links from $\alpha$ nodes and $\epsilon$ direct links from the source,
+i.e. $s=\alpha\ell+\epsilon$. The combination network in \cite{Riis:2006}
+is the $(0,1)-\mathcal{N}_{h,r,s}$ network and the $(1,1)-\mathcal{N}_{h,r,s}$
+network is called One-Direct Link Combination Network. Theorem 1 shows
+our interest of relations between the parameters $h,\alpha,\epsilon$
+and $\ell$. Following to Theorem \ref{nw_parameters}, we are interested
+in networks parameters satisfying this condition: $\ell+\epsilon+1\leq h\leq\alpha\ell+\epsilon$.
 \begin{figure}[H]
 \caption{The generalized network $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$\label{fig:The-generalized-network}}
 
@@ -44,7 +44,7 @@ networks, the maximum number of messages from the source to each receiver
 is equal to the smallest min-cut between the source and any receiver.
 For our considered network, $s$ links have to be deleted to disconnect
 the source from the receiver, which implies that the min-cut between
-the source and each receiver is at least $s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$ 
+the source and each receiver is at least $s$. Hence, $h\leq s\Leftrightarrow h\leq\alpha\ell+\epsilon$. 
 
 There exist at least $\ell+\epsilon$ disjoint links connected to
 each receiver. If $\ell+\epsilon\geq h$, each receiver can always
@@ -82,20 +82,22 @@ $s$ & Each receiver is connected by $s$ links in total, with $s=\alpha\ell+\epsi
 
 \section{Network Coding for the Generalized Combination Network \label{sec:Network-Coding-for-GCN}}
 
-We start describing a difference of a source message used in scalar
-network coding and vector network coding. Then we find a condition
-for an existence of a scalar solution and a vector solution respectively.
-For the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$ network, the \textit{local}
-and \textit{global} coding vectors are the same, because the nodes
-are simplified to forward their received packets and only the source
-has its functions on its messages.
+Network coding in general was described in Section \ref{sec:What-is-NC}
+and Section \ref{subsec:Matrix-channel}. Now, we start describing
+a difference of a source message used in scalar network coding and
+vector network coding. Then we find a condition for an existence of
+a scalar solution and a vector solution respectively. For the $(\epsilon,\ell)-\mathcal{N}_{h,r,s}$
+network, the \textit{local} and \textit{global} coding vectors are
+the same, because the nodes are simplified to forward their received
+packets and only the source has its functions on its messages.
 
 \subsection{Scalar Network Coding \label{subsec:Scalar-network-coding}}
 
-A message or a packet is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}$.
-As a network of the multicast model, all receivers request the same
-$h$ symbols at the same time \cite{Trautmann:2013}. A transmission
-of $h$ data units is a 1-dimentional subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$.
+A message or a packet is equivalent to a symbol over $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}},$which
+was introduced in Table \ref{tab:notations}. As a network of the
+multicast model, all receivers request the same $h$ symbols at the
+same time \cite{Trautmann:2013}. A transmission of $h$ data units
+is a 1-dimentional subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$.
 Each receiver therefore must obtain a subspace of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$,
 whose dimension is at least $h$, to be able to reconstruct the packet.
 Through $\epsilon$ direct links connected from the source to a receiver,
@@ -106,7 +108,7 @@ and only if the linear span of $\alpha$ $\ell$-dimensional subspaces
 of $\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}^{h}$ from the nodes
 is at least of dimension $h-\epsilon$. When this necessary condition
 is satisfied, the network is said to have a \textit{solution} or to
-be \textit{solvable}.
+be \textit{solvable}, which was briefly introduced in Section \ref{sec:What-is-NC}.
 \begin{thm}[\cite{Riis:2006}]
  The $(0,1)-\mathcal{N}_{h,r,s}$ network has a solution if and only
 if there exists an $\left(r,\left|\ensuremath{\mathbb{F}}_{q_{\mathrm{s}}}\right|h,r-\alpha+1\right)$
@@ -199,7 +201,7 @@ by using the binary vector column as following:
 x_{1}=1\\
 x_{2}=\alpha\\
 x_{3}=\alpha+1
-\end{array}\right]\mapsto\left[\begin{array}{c}
+\end{array}\right]\rightarrow\left[\begin{array}{c}
 \left(\begin{array}{c}
 1\\
 0
@@ -217,7 +219,7 @@ x_{3}=\alpha+1
 \par\end{center}
 
 where we use the following rule for mapping $x_{i}$ individually:
-$a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\mapsto\left(\begin{array}{c}
+$a_{0}\cdot\alpha^{0}+a_{1}\cdot\alpha^{1}+\ldots+a_{t-1}\cdot\alpha^{t-1}\rightarrow\left(\begin{array}{c}
 a_{0}\\
 a_{1}\\
 \vdots\\
@@ -320,35 +322,22 @@ network \label{fig:network_special4}}
 Studies}
 
 Etzion and Wachter-Zeh distinguished 2 following cases $h\leq2\ell,\epsilon\neq0$
-and $h\geq2\ell,\epsilon\neq h-2\ell$
+and $h\geq2\ell,\epsilon\neq h-2\ell$.
 
-\subsubsection{\uline{For \mbox{$h\protect\leq2\ell$} and \mbox{$\epsilon\protect\neq0$}}}
+For $h\leq2\ell$ and $\epsilon\neq0$, the number of direct links
+is at least 1 for networks of this case, i.e. $\epsilon\geq1$, and
+the number of parallel links is less than half of the number of source
+messages, i.e. $\ell\leq\frac{h}{2}$. When $h$ is even, the above
+$\left(\ell-1,l\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network achieves
+the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$,
+and when $h$ is odd, the $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$
+network achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
 
-For this network, the number of direct links is at least 1, i.e. $\epsilon\geq1$,
-and the number of parallel links is less than half of the number of
-source messages, i.e. $\ell\leq\frac{h}{2}$.
-
-\paragraph{h is even}
-
-The above $\left(\ell-1,l\right)-\mathcal{N}_{2\ell,r,3\ell-1}$ network
-achieves the largest gap $q_{\mathrm{s}}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
-
-\paragraph{h is odd}
-
-The $\left(\ell-2,\ell\right)-\mathcal{N}_{2\ell-1,r,3\ell-2}$ network
-achieves the largest gap $q_{\mathrm{s}}=q^{\left(h-3\right)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$
-
-\subsubsection{\uline{For \mbox{$h\protect\geq2\ell$} and \mbox{$\epsilon\protect\neq h-2\ell$}}}
-
-\paragraph{h is even}
-
-The same above $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
-network achieves the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$.
-
-\paragraph{h is odd}
-
-The $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell+1,r,3\ell-1}$ network
-achieves the largest gap $q_{\mathrm{s}}=q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
+For $h\geq2\ell$ and $\epsilon\neq h-2\ell$, when $h$ is even the
+same above $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell,r,3\ell-1}$
+network achieves the largest gap $q_{s}=q^{(h-2)t^{2}/h+\mathcal{O}(t)}$,
+and when $h$ is odd, the $\left(\ell-1,\ell\right)-\mathcal{N}_{2\ell+1,r,3\ell-1}$
+network achieves the largest gap $q_{\mathrm{s}}=q^{(h-3)t^{2}/\left(h-1\right)+\mathcal{O}(t)}$.
 \begin{rem}
 The achieved gap is $q^{(h-2)t^{2}/h+\mathcal{O}(t)}$ for any $q\geq2$
 and any even $h\geq4$. If $h\geq5$ is odd, then the achieved gap
@@ -359,7 +348,7 @@ We are summarizing the instances of GCN with their bounds on gap found
 in \cite{Wachter-Zeh:2018} and list our findings in this study.
 \begin{table}
 
-\caption{New gaps found in this study \label{tab:New-gap-found}}
+\caption{New gaps found in this study\label{tab:New-gap-found}}
 
 \begin{centering}
 \begin{tabular}{|>{\centering}p{0.15\paperwidth}|>{\centering}p{0.1\paperwidth}|>{\centering}p{0.2\paperwidth}|}
